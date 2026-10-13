@@ -1,0 +1,300 @@
+##### check (a): random agent, 50 ticks, seed 42 #####
+=== event log: (tick, node, event) ===
+(0, 'door', 'open')
+(0, 'agent', 'move to (0, 0)')
+(1, 'agent', 'move to (0, 0)')
+(2, 'agent', 'move to (0, 0)')
+(3, 'agent', 'move to (0, 1)')
+(4, 'door', 'closed')
+(4, 'agent', 'move to (0, 2)')
+(5, 'agent', 'move to (0, 3)')
+(6, 'agent', 'move to (0, 2)')
+(7, 'agent', 'move to (0, 2)')
+(8, 'agent', 'move to (0, 1)')
+(9, 'agent', 'move to (0, 1)')
+(10, 'door', 'open')
+(10, 'agent', 'move to (1, 1)')
+(11, 'agent', 'move to (1, 0)')
+(12, 'agent', 'move to (1, 0)')
+(13, 'agent', 'move to (1, 0)')
+(14, 'door', 'closed')
+(14, 'agent', 'move to (1, 1)')
+(15, 'agent', 'move to (1, 2)')
+(16, 'agent', 'move to (1, 2)')
+(17, 'agent', 'move to (1, 2)')
+(18, 'agent', 'move to (1, 1)')
+(19, 'agent', 'move to (1, 1)')
+(20, 'door', 'open')
+(20, 'agent', 'move to (1, 2)')
+(21, 'agent', 'move to (1, 2)')
+(22, 'agent', 'move to (2, 2)')
+(23, 'agent', 'move to (2, 3)')
+(24, 'door', 'closed')
+(24, 'agent', 'move to (3, 3)')
+(25, 'agent', 'move to (3, 3)')
+(26, 'agent', 'move to (2, 3)')
+(27, 'agent', 'move to (2, 2)')
+(28, 'agent', 'move to (2, 3)')
+(29, 'agent', 'move to (3, 3)')
+(30, 'door', 'open')
+(30, 'agent', 'move to (2, 3)')
+(31, 'agent', 'move to (1, 3)')
+(32, 'agent', 'move to (1, 4)')
+(33, 'agent', 'move to (1, 5)')
+(34, 'door', 'closed')
+(34, 'agent', 'move to (0, 5)')
+(35, 'agent', 'move to (0, 4)')
+(36, 'agent', 'move to (0, 3)')
+(37, 'agent', 'move to (1, 3)')
+(38, 'agent', 'move to (1, 2)')
+(39, 'agent', 'move to (0, 2)')
+(40, 'door', 'open')
+(40, 'agent', 'move to (0, 2)')
+(41, 'agent', 'move to (0, 2)')
+(42, 'agent', 'move to (0, 2)')
+(43, 'agent', 'move to (0, 1)')
+(44, 'door', 'closed')
+(44, 'agent', 'move to (1, 1)')
+(45, 'agent', 'move to (1, 1)')
+(46, 'agent', 'move to (1, 0)')
+(47, 'agent', 'move to (2, 0)')
+(48, 'agent', 'move to (2, 0)')
+(49, 'agent', 'move to (2, 0)')
+=== door events vs rule (tick % 10 < 4) ===
+door events checked: 10
+DOOR RULE CHECK: PASS
+agent 'move to' events checked: 50
+NO-WALL-LANDING CHECK: PASS
+##### check (b): scripted agent (approach, push, escape) #####
+=== event log: (tick, node, event) ===
+(0, 'door', 'open')
+(0, 'agent', 'move to (1, 0)')
+(1, 'agent', 'move to (2, 0)')
+(2, 'agent', 'move to (3, 0)')
+(3, 'agent', 'move to (4, 0)')
+(4, 'door', 'closed')
+(4, 'agent', 'move to (4, 1)')
+(5, 'agent', 'move to (4, 2)')
+(6, 'agent', 'move to (4, 3)')
+(7, 'agent', 'move to (4, 4)')
+(8, 'agent', 'move to (4, 5)')
+(9, 'agent', 'blocked at (5, 5)')
+(10, 'door', 'open')
+(10, 'agent', 'move to (5, 5)')
+(11, 'agent', 'move to (6, 5)')
+(12, 'agent', 'move to (7, 5)')
+(13, 'agent', 'move to (8, 5)')
+(14, 'door', 'closed')
+(14, 'agent', 'move to (9, 5)')
+(15, 'agent', 'move to (9, 6)')
+(16, 'agent', 'move to (9, 7)')
+(17, 'agent', 'move to (9, 8)')
+(18, 'agent', 'move to (9, 9)')
+(18, 'goal', 'reached')
+(19, 'agent', 'move to (9, 9)')
+(20, 'door', 'open')
+(20, 'agent', 'move to (9, 9)')
+(21, 'agent', 'move to (9, 9)')
+(22, 'agent', 'move to (9, 9)')
+(23, 'agent', 'move to (9, 9)')
+(24, 'door', 'closed')
+(24, 'agent', 'move to (9, 9)')
+'blocked at (5, 5)' ticks: [9]
+first entry into (5, 5) at tick: 10
+goal reached at ticks: [18]
+BLOCKED-BEFORE-ENTRY CHECK: PASS
+GOAL REACHED CHECK: PASS
+##### check (c): wall push at (5, 3) #####
+=== event log: (tick, node, event) ===
+(0, 'door', 'open')
+(0, 'agent', 'move to (1, 0)')
+(1, 'agent', 'move to (2, 0)')
+(2, 'agent', 'move to (3, 0)')
+(3, 'agent', 'move to (4, 0)')
+(4, 'door', 'closed')
+(4, 'agent', 'move to (4, 1)')
+(5, 'agent', 'move to (4, 2)')
+(6, 'agent', 'move to (4, 3)')
+(7, 'agent', 'blocked at (5, 3)')
+(8, 'agent', 'blocked at (5, 3)')
+'blocked at (5, 3)' events: 2
+final agent position: (4, 3)
+WALL PUSH CHECK: PASS
+##### check (d): crush rule #####
+--- (d1) staying is fatal ---
+=== event log: (tick, node, event) ===
+(0, 'door', 'open')
+(0, 'agent', 'move to (1, 0)')
+(1, 'agent', 'move to (2, 0)')
+(2, 'agent', 'move to (3, 0)')
+(3, 'agent', 'move to (4, 0)')
+(4, 'door', 'closed')
+(4, 'agent', 'move to (4, 1)')
+(5, 'agent', 'move to (4, 2)')
+(6, 'agent', 'move to (4, 3)')
+(7, 'agent', 'move to (4, 4)')
+(8, 'agent', 'move to (4, 5)')
+(9, 'agent', 'blocked at (5, 5)')
+(10, 'door', 'open')
+(10, 'agent', 'move to (5, 5)')
+(11, 'agent', 'move to (5, 5)')
+(12, 'agent', 'move to (5, 5)')
+(13, 'agent', 'move to (5, 5)')
+(14, 'door', 'closed')
+(14, 'agent', 'crushed')
+(15, 'agent', 'move to (1, 0)')
+(14, 'door', 'closed') immediately followed by (14, 'agent', 'crushed'): True
+no 'move to' event at tick 14: True
+tick 15 'move to (1, 0)' present: True
+D1 STAYING-IS-FATAL CHECK: PASS
+--- (d2) late but safe entry ---
+=== event log: (tick, node, event) ===
+(0, 'door', 'open')
+(0, 'agent', 'move to (1, 0)')
+(1, 'agent', 'move to (2, 0)')
+(2, 'agent', 'move to (3, 0)')
+(3, 'agent', 'move to (4, 0)')
+(4, 'door', 'closed')
+(4, 'agent', 'move to (4, 1)')
+(5, 'agent', 'move to (4, 2)')
+(6, 'agent', 'move to (4, 3)')
+(7, 'agent', 'move to (4, 4)')
+(8, 'agent', 'move to (4, 5)')
+(9, 'agent', 'move to (4, 5)')
+(10, 'door', 'open')
+(10, 'agent', 'move to (4, 5)')
+(11, 'agent', 'move to (4, 5)')
+(12, 'agent', 'move to (5, 5)')
+(13, 'agent', 'move to (6, 5)')
+no 'crushed' event in log: True
+tick 13 'move to (6, 5)' present: True
+D2 LATE-SAFE-ENTRY CHECK: PASS
+--- (d3) entering on the last open tick is fatal ---
+=== event log: (tick, node, event) ===
+(0, 'door', 'open')
+(0, 'agent', 'move to (1, 0)')
+(1, 'agent', 'move to (2, 0)')
+(2, 'agent', 'move to (3, 0)')
+(3, 'agent', 'move to (4, 0)')
+(4, 'door', 'closed')
+(4, 'agent', 'move to (4, 1)')
+(5, 'agent', 'move to (4, 2)')
+(6, 'agent', 'move to (4, 3)')
+(7, 'agent', 'move to (4, 4)')
+(8, 'agent', 'move to (4, 5)')
+(9, 'agent', 'move to (4, 5)')
+(10, 'door', 'open')
+(10, 'agent', 'move to (4, 5)')
+(11, 'agent', 'move to (4, 5)')
+(12, 'agent', 'move to (4, 5)')
+(13, 'agent', 'move to (5, 5)')
+(14, 'door', 'closed')
+(14, 'agent', 'crushed')
+(14, 'agent', 'crushed') present: True
+no 'move to (6, 5)' in log: True
+agent back at (0, 0): True
+D3 LAST-OPEN-TICK CHECK: PASS
+DOOR CRUSH CHECK: PASS
+##### check (e): custom door (period=6, open_len=2), 30 ticks #####
+=== event log: (tick, node, event) ===
+(0, 'door', 'open')
+(0, 'agent', 'move to (0, 0)')
+(1, 'agent', 'move to (0, 0)')
+(2, 'door', 'closed')
+(2, 'agent', 'move to (0, 0)')
+(3, 'agent', 'move to (0, 0)')
+(4, 'agent', 'move to (0, 0)')
+(5, 'agent', 'move to (0, 0)')
+(6, 'door', 'open')
+(6, 'agent', 'move to (0, 0)')
+(7, 'agent', 'move to (0, 0)')
+(8, 'door', 'closed')
+(8, 'agent', 'move to (0, 0)')
+(9, 'agent', 'move to (0, 0)')
+(10, 'agent', 'move to (0, 0)')
+(11, 'agent', 'move to (0, 0)')
+(12, 'door', 'open')
+(12, 'agent', 'move to (0, 0)')
+(13, 'agent', 'move to (0, 0)')
+(14, 'door', 'closed')
+(14, 'agent', 'move to (0, 0)')
+(15, 'agent', 'move to (0, 0)')
+(16, 'agent', 'move to (0, 0)')
+(17, 'agent', 'move to (0, 0)')
+(18, 'door', 'open')
+(18, 'agent', 'move to (0, 0)')
+(19, 'agent', 'move to (0, 0)')
+(20, 'door', 'closed')
+(20, 'agent', 'move to (0, 0)')
+(21, 'agent', 'move to (0, 0)')
+(22, 'agent', 'move to (0, 0)')
+(23, 'agent', 'move to (0, 0)')
+(24, 'door', 'open')
+(24, 'agent', 'move to (0, 0)')
+(25, 'agent', 'move to (0, 0)')
+(26, 'door', 'closed')
+(26, 'agent', 'move to (0, 0)')
+(27, 'agent', 'move to (0, 0)')
+(28, 'agent', 'move to (0, 0)')
+(29, 'agent', 'move to (0, 0)')
+door open ticks: [0, 6, 12, 18, 24]
+door closed ticks: [2, 8, 14, 20, 26]
+CUSTOM DOOR SCHEDULE CHECK: PASS
+verify_door_rule(period=6, open_len=2): PASS (10 events checked)
+##### check (f): reset() #####
+saved log: 32 events; first 3: [(0, 'door', 'open'), (0, 'agent', 'move to (1, 0)'), (1, 'agent', 'move to (2, 0)')]; last 3: [(23, 'agent', 'move to (9, 9)'), (24, 'door', 'closed'), (24, 'agent', 'move to (9, 9)')]
+after reset(): tick=0 (0: True), agent=(0, 0) ((0, 0): True), log empty: True, period=10 (10: True), open_len=4 (4: True)
+re-run on the same world: new log equals saved log: True (32 events)
+custom world after reset(): period=6, open_len=2, tick=0, log empty=True, agent=(0, 0)
+RESET CHECK: PASS
+##### check (g): local random generator #####
+log1 (seed 42): 60 events, sha256 3811628bcda8b183c696ef64bf73533607dce82df469f32ab64b5de123eeb37a
+  first 2: [(0, 'door', 'open'), (0, 'agent', 'move to (0, 0)')]; last 2: [(48, 'agent', 'move to (2, 0)'), (49, 'agent', 'move to (2, 0)')]
+log2 (seed 42, global generator polluted in between): 60 events, sha256 3811628bcda8b183c696ef64bf73533607dce82df469f32ab64b5de123eeb37a
+log3 (seed 43): 60 events, sha256 aa9ad733995b7589912f55cf3e5f6cf4fc3d1462dd51a608f459a36fe24dda5e
+  first 2: [(0, 'door', 'open'), (0, 'agent', 'move to (0, 0)')]; last 2: [(48, 'agent', 'move to (2, 0)'), (49, 'agent', 'move to (2, 0)')]
+GENERATOR-ISOLATION CHECK: PASS (log1 == log2 despite pollution)
+SEED-DIFFERENCE CHECK: PASS (log3 != log1)
+RANDOM GENERATOR CHECK: PASS
+##### check (h): complete door transitions #####
+check-(a) log (50 ticks): ok=True (10 expected vs 10 actual events)
+check-(e) log (30 ticks, period=6, open_len=2): ok=True
+3-tick run: ok=True, expected=[(0, 'door', 'open')], actual=[(0, 'door', 'open')]
+deleted one door event: ok=False (must be False)
+added wrong door event (25, 'door', 'open'): ok=False (must be False)
+COMPLETE-TRANSITIONS CHECK: PASS
+##### check (i): observe() #####
+fresh world observe(): ((0, 0), True)
+observe() x3: tick and log unchanged: True
+after 9 steps (tick=9, agent=(4, 5)): observe() = ((4, 5), False)
+step right at tick 9: blocked=True, tick now 10, agent (4, 5)
+at tick 10: observe() = ((4, 5), True)
+step right at tick 10: agent=(5, 5)
+OBSERVE CHECK: PASS
+##### check (j): set_door() #####
+set_door left tick/agent/log untouched: True
+door events in log: [(0, 'door', 'open'), (4, 'door', 'closed'), (10, 'door', 'open'), (14, 'door', 'closed'), (18, 'door', 'open'), (20, 'door', 'closed'), (24, 'door', 'open'), (26, 'door', 'closed')]
+schedule matches expected exactly: True; pre-change events still in log: True
+set_door(0, 1) raised ValueError: True
+set_door(5, 6) raised ValueError: True
+set_door(5, -1) raised ValueError: True
+set_door(6, 0) raised ValueError: False (must be False)
+set_door(6, 6) raised ValueError: False (must be False)
+SET-DOOR CHECK: PASS
+##### check (k): start phase #####
+after reset(start_tick=7): tick=7 (7: True), agent=(0, 0) ((0, 0): True), log empty: True, observe()=((0, 0), False) (((0, 0), False): True)
+=== event log: (tick, node, event) ===
+(7, 'door', 'closed')
+(7, 'agent', 'move to (0, 0)')
+(8, 'agent', 'move to (0, 0)')
+(9, 'agent', 'move to (0, 0)')
+(10, 'door', 'open')
+(10, 'agent', 'move to (0, 0)')
+(11, 'agent', 'move to (0, 0)')
+(12, 'agent', 'move to (0, 0)')
+door events: [(7, 'door', 'closed'), (10, 'door', 'open')] (expected [(7, 'door', 'closed'), (10, 'door', 'open')]): True
+verify_door_complete(..., start_tick=7): ok=True
+first door event deleted: ok=False (must be False)
+reset() then 3 stays == fresh World() 3 stays: True
+START PHASE CHECK: PASS
+=== OVERALL: PASS ===

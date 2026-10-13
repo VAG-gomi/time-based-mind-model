@@ -1,0 +1,63 @@
+##### check 1: gradient check (mixed bar) #####
+bar: |a-n| <= 1e-08 + 1e-05*max(|a|,|n|); margin<=1 passes
+eps=1e-07: 80/80 passed | worst margin 0.134 (seed=14 batch=5 masked=True) | max abs err 4.428e-09
+eps=1e-05: 80/80 passed | worst margin 0.001 (seed=2 batch=1 masked=True) | max abs err 2.469e-10
+GRADIENT CHECK: PASS
+##### check 2: negative control #####
+corrupted analytic grads: worst margin = 1.018e+05 (must be > 1)
+NEGATIVE CONTROL: PASS
+##### check 2b: backward returns dL/dX #####
+returned shape: (5, 3) (expected (5, 3))
+dL/dX vs central differences: worst margin 9.574e-03
+DLDX CHECK: PASS
+##### check 3: determinism #####
+same seed -> identical weights: True
+different seeds -> different weights: True
+DETERMINISM CHECK: PASS
+##### check 4: empty world (all-zero init) #####
+grad W1 : exactly zero: True (max abs 0.000e+00)
+grad b1 : exactly zero: True (max abs 0.000e+00)
+grad W2 : exactly zero: True (max abs 0.000e+00)
+grad b2 : exactly zero: False (max abs 3.311e-01)
+only the output biases have nonzero gradient: True
+blocks changed by one SGD step: ['b2'] (expected ['b2'])
+EMPTY WORLD CHECK: PASS
+##### check 5: learning smoke test #####
+net 4->32->1, 2000 full-batch SGD steps, lr=0.20
+loss: 1.603762 -> 0.000815 (ratio 0.0005)
+SMOKE TEST (loss falls to <3% of start): PASS
+##### check 6: speed #####
+python 3.12.3 | numpy 1.26.4
+machine: Linux x86_64 | cpus: 2 | node: htch-runtime
+this run: Linux VM (hatch) -- not the phone
+H=   32 batch= 1:   0.059 ms/update | params=   3557 | weights   0.03 MiB
+H=   32 batch=32:   0.270 ms/update | params=   3557 | weights   0.03 MiB
+H= 1000 batch= 1:   0.519 ms/update | params= 111005 | weights   0.85 MiB
+H= 1000 batch=32:   8.513 ms/update | params= 111005 | weights   0.85 MiB
+H=10000 batch= 1:   4.992 ms/update | params=1110005 | weights   8.47 MiB
+H=10000 batch=32:  95.685 ms/update | params=1110005 | weights   8.47 MiB
+##### check 7: A3, XOR #####
+part 1: xavier init, 2->4->1, lr=0.5, 10 seeds
+  seed 0: solved in 139 steps (final max abs err 0.0995, loss 0.002484)
+  seed 1: solved in 82 steps (final max abs err 0.0966, loss 0.002674)
+  seed 2: solved in 42 steps (final max abs err 0.1000, loss 0.002638)
+  seed 3: solved in 207 steps (final max abs err 0.0967, loss 0.002485)
+  seed 4: solved in 138 steps (final max abs err 0.0982, loss 0.002560)
+  seed 5: solved in 69 steps (final max abs err 0.0956, loss 0.003389)
+  seed 6: solved in 77 steps (final max abs err 0.0984, loss 0.002591)
+  seed 7: solved in 174 steps (final max abs err 0.0987, loss 0.003170)
+  seed 8: solved in 21 steps (final max abs err 0.0987, loss 0.003363)
+  seed 9: solved in 150 steps (final max abs err 0.0996, loss 0.002687)
+xavier: 10/10 seeds solved all four XOR outputs
+part 2: zero init (prediction: plateau at loss 0.125)
+  after 5000 steps: loss=0.125000 (predicted 0.125), outputs=[0.5 0.5 0.5 0.5], max abs err=0.5000, solved=False
+ZERO-INIT PLATEAU CHECK: PASS
+part 3: init scale sweep (how small a seed can still grow)
+  scale 1e-08: 0/5 solved in 50000 steps, median steps: None
+  scale 1e-06: 0/5 solved in 50000 steps, median steps: None
+  scale 1e-03: 0/5 solved in 50000 steps, median steps: None
+  scale 1e-01: 5/5 solved in 50000 steps, median steps: 508
+part 3b: extended probe -- stuck or just slow?
+  scale 1e-03, 200000 steps: loss=0.125000 maxae=0.5000 solved=False
+  scale 1e-06, 200000 steps: loss=0.125000 maxae=0.5000 solved=False
+=== OVERALL: PASS ===

@@ -1,0 +1,5 @@
+python: 3.12.3
+numpy: available, version 1.26.4
+batch 1: 0.029 ms per forward+backward update (timed over 1000 iters)
+extrapolated: 100,000 batch-1 updates ~ 2.9 seconds (~0.0 minutes)
+batch 32: 0.167 ms per forward+backward update (timed over 1000 iters)
