@@ -53,28 +53,37 @@ EPS_EVAL = 0.05
 EPS_REPS = 10  # episodes per start phase for the epsilon evaluation
 
 COMPARISON_RULE = """\
-SEQUENCE B COMPARISON RULE (pre-registered in A5, before the wrapper exists)
-Arms are compared on the identical protocol: the wrapped arm trains on
-the same seeds 0-9, with the same budget (2000 episodes), the same
-hyperparameters, and the same evaluation (greedy + eps = 0.05).
-Primary metric: median over seeds of mean greedy episode return.
-The wrapped arm WINS iff all three hold on the greedy evaluation:
-  (1) median greedy return >= best A5 baseline arm median + 0.02
-      (0.02 is ~2 ticks of step penalty: a real improvement, not noise);
-  (2) fraction of seeds with zero crushes (greedy) == 10/10;
-  (3) fraction of seeds with greedy success >= 0.9 == 10/10.
-Otherwise the result is NO WIN, with the failing clause named:
-  - (1) fails but (2)+(3) hold: "safer but not faster".
-  - (2) fails but (1)+(3) hold: "faster but not safer".
-  - (3) fails: "unreliable", regardless of (1) and (2).
-The eps = 0.05 evaluation is a robustness check, not a gate: it is
-reported alongside, and a wrapper that wins on greedy but collapses
-under eps = 0.05 noise must say so.
-Yardstick returns are reported in the yardstick table for calibration;
-the wrapper is not required to match the tick-knowing time-aware
-yardstick, only to beat the best baseline by the margin above while
-satisfying (2) and (3).
+SEQUENCE B COMPARISON RULE (adopted in A5-R, before the wrapper exists;
+replaces the median-based rule of A5. Reason: the return ceiling is
+small -- time-aware 0.787, naive 0.737, delay-line 0.725 -- so at most
+~0.05 separates the best from the naive plateau, while seed-to-seed
+spread (std 0.49 in the memory arm) dwarfs it; and greedy returns
+cluster on plateaus (0.737 naive, 0.787 ideal), so a median mostly
+records which plateau most seeds landed on. Demanding 10/10 perfect
+seeds also punishes the learner's greedy "stay"-loop property rather
+than the wrapper.)
+A seed is "clean and fast" iff its greedy run has zero crushes,
+success >= 0.9, and mean return >= 0.75. (With 0 crushes and full
+success, return >= 0.75 is mean ticks <= 25: strictly better than the
+naive plateau at 0.737, short of the tick-knowing ideal at 0.787.)
+A5 baselines: plain 1/10 clean-and-fast (seed 2), memory 1/10
+(seed 8); counts are recomputed in the per-arm aggregates below.
+The wrapped arm trains on the same seeds 0-9, with the same budget
+(2000 episodes), the same hyperparameters, and the same evaluation
+(greedy + eps = 0.05). The wrapped arm WINS iff at least 7 of its 10
+seeds are clean and fast. Against either baseline's 1/10, 7/10 is
+p ~= 0.01 by Fisher's exact test (one-sided). The eps = 0.05
+evaluation stays a robustness report, not a gate: a wrapper that wins
+on greedy but collapses under eps = 0.05 noise must say so.
 """
+
+
+def _clean_fast(rec):
+    """A seed is clean and fast iff its greedy run has zero crushes,
+    success >= 0.9, and mean return >= 0.75."""
+    g = rec["greedy"]
+    return (g["crush_rate"] == 0.0 and g["success"] >= 0.9
+            and g["mean_return"] >= 0.75)
 
 
 # ---------------------------------------------------------------- policies
@@ -359,6 +368,10 @@ def _arm_aggregates(arm, records):
                       _fmt(min(rets)), _fmt(max(rets)),
                       _fmt(statistics.pstdev(rets)),
                       zero, len(by_seed), good, len(by_seed)))
+    cf = [r["seed"] for r in by_seed if _clean_fast(r)]
+    out.append("  clean-and-fast seeds (greedy: 0 crushes, success>=0.9, "
+               "return>=0.75): %d/%d %s"
+               % (len(cf), len(by_seed), cf))
     return "\n".join(out)
 
 

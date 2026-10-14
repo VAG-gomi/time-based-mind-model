@@ -1,0 +1,24 @@
+##### check 1: exact estimates from random start phases #####
+  20/10: exact after at most  40 ticks (mean  31.5) over 8 random starts
+  10/4 : exact after at most  21 ticks (mean  16.8) over 8 random starts
+  12/8 : exact after at most  24 ticks (mean  18.9) over 8 random starts
+   6/2 : exact after at most  13 ticks (mean   9.8) over 8 random starts
+SCHEDULE ESTIMATION: PASS
+##### check 2: mid-run set_door change #####
+  converged on 20/10 with no contradictions: True (period=20, open_len=10)
+  change at tick 60: first contradiction at 64 (latency 4 ticks, bound 20): True
+  re-converged to 10/4 at tick 81 (21 ticks after change): True
+  stable afterwards (contradictions=1, still 10/4): True
+  last_contradiction_tick == 64: True
+SET-DOOR CHANGE: PASS
+##### check 3: features against ground truth #####
+FEATURES VS TRUTH: PASS
+##### check 4: cross-episode phase prediction from tick 0 #####
+  after 3 episodes: period=20, open_len=10, last_opening=100 (expect 20, 10, 100): True
+  new episode at tick 123: contradiction=False, last_opening=100 (still 100, not 123), since=3 rem=7 (truth 3, 7): True
+CROSS-EPISODE PREDICTION: PASS
+##### check 5: start in the middle of an open window #####
+  first observation (tick 3, open): not an opening, features unknown: True
+  after observing to tick 44: period=20, open_len=10, last_opening=40 (latest real opening, not the first state at tick 3): True
+MID-OPEN START: PASS
+=== OVERALL: PASS ===
