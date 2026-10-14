@@ -1,0 +1,51 @@
+##### check 1: tabular Q-learner (learnability proof) #####
+seed 0: success 1.00 | crush/ep 0.050 | mean ticks 21.3
+seed 1: success 1.00 | crush/ep 0.050 | mean ticks 21.8
+seed 2: success 1.00 | crush/ep 0.050 | mean ticks 22.2
+TABULAR LEARNABILITY: PASS
+##### check 2: neural Q-learner, 32 hidden, 5 seeds #####
+seed 0: train success/500eps ['0.46', '0.95', '0.99', '1.00']
+seed 0 eval: success 1.00 | crush/ep 0.050 | mean ticks 21.9
+seed 1: train success/500eps ['0.33', '0.97', '1.00', '1.00']
+seed 1 eval: success 0.30 | crush/ep 0.000 | mean ticks 20.5
+seed 2: train success/500eps ['0.45', '1.00', '1.00', '1.00']
+seed 2 eval: success 1.00 | crush/ep 0.000 | mean ticks 24.3
+seed 3: train success/500eps ['0.40', '0.97', '1.00', '0.99']
+seed 3 eval: success 1.00 | crush/ep 0.050 | mean ticks 22.6
+seed 4: train success/500eps ['0.44', '1.00', '1.00', '1.00']
+seed 4 eval: success 1.00 | crush/ep 0.050 | mean ticks 21.3
+NEURAL LEARNING: FAIL
+##### check 3: greedy eval over all 20 start phases #####
+seed 0: crush/ep 0.050 | episodes-with-crush 0.05 | success 1.00 | mean ticks 21.9 | repeats identical: True
+seed 1: crush/ep 0.000 | episodes-with-crush 0.00 | success 0.30 | mean ticks 20.5 | repeats identical: True
+seed 2: crush/ep 0.000 | episodes-with-crush 0.00 | success 1.00 | mean ticks 24.3 | repeats identical: True
+seed 3: crush/ep 0.050 | episodes-with-crush 0.05 | success 1.00 | mean ticks 22.6 | repeats identical: True
+seed 4: crush/ep 0.050 | episodes-with-crush 0.05 | success 1.00 | mean ticks 21.3 | repeats identical: True
+(no PASS/FAIL: numbers feed the Sequence B comparison)
+##### check 4: yardstick policies (re-derived) #####
+naive: success 1.00 | crush/ep 0.050 | mean ticks 21.3 | crushed phases: [0]
+time-aware: success 1.00 | crush/ep 0.000 | mean ticks 21.3 | crushed phases: []
+##### diagnostics: greedy action map (seed 0, door open) #####
+vvvvv>vvvv
+vvvvv^^^vv
+vvvvv^>vvv
+v>vvv^v>>v
+v^v>v^vvvv
+>>>>>>vvvv
+<^^>^>vvvv
+v^v^^^vvvv
+^>>^^v>vvv
+>^>^<.>>>v
+##### diagnostics: greedy action map (seed 0, door closed) #####
+vvvvv>>>vv
+vvvvv^>^>v
+>vvvv>>>vv
+v>>vv^>>>.
+v^>>.^vvvv
+>>>^^vv^vv
+<^^><<vvvv
+v^^^^<vvvv
+^>>^^>>>vv
+>^>^<.>>><
+=== OVERALL: FAIL ===
+exit=1

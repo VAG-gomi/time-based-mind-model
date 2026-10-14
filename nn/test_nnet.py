@@ -8,7 +8,7 @@ import time
 
 import numpy as np
 
-from nnet import MLP, mse_grad, masked_mse_grad
+from nnet import MLP, mse_grad, masked_mse_grad, Adam
 
 # Mixed absolute/relative bar for gradient agreement:
 #   |a - n| <= atol + rtol * max(|a|, |n|)
@@ -167,6 +167,49 @@ def main():
     print("dL/dX vs central differences: worst margin %.3e" % m)
     ok = dX_ana.shape == (5, 3) and m <= 1.0
     print("DLDX CHECK: %s" % ("PASS" if ok else "FAIL"))
+    all_ok = all_ok and ok
+
+    # ---- check 2c: Adam optimizer ----
+    print("##### check 2c: Adam optimizer #####")
+    # (i) first-step math: with zero-initialized moments, after one step
+    # m = 0.1*g, v = 0.001*g^2, so m_hat = g, v_hat = g^2 exactly, and
+    # the update is lr * g / (|g| + eps).
+    net = MLP([3, 4, 2], seed=5)
+    rng = np.random.RandomState(9)
+    X = rng.randn(5, 3)
+    Y = rng.randn(5, 2)
+    out = net.forward(X)
+    _, dout = mse_grad(out, Y)
+    net.backward(dout)
+    p0 = net.get_params().copy()
+    g = net.get_grads()
+    opt = Adam(net, lr=0.01)
+    opt.step()
+    p1 = net.get_params()
+    expected = p0 - 0.01 * g / (np.abs(g) + 1e-8)
+    m = worst_margin(p1, expected)
+    print("first Adam step vs hand computation: worst margin %.3e" % m)
+    ok_math = m <= 1.0
+    # (ii) Adam minimizes: loss must fall on the smoke-test problem.
+    rng = np.random.RandomState(123)
+    Xs = rng.randn(40, 4)
+    Ys = (Xs[:, [0]] ** 2 + np.sin(Xs[:, [1]])
+          - 0.5 * Xs[:, [2]] * Xs[:, [3]])
+    net2 = MLP([4, 32, 1], seed=1)
+    opt2 = Adam(net2, lr=0.01)
+    out = net2.forward(Xs)
+    l0, _ = mse_grad(out, Ys)
+    for _ in range(500):
+        out = net2.forward(Xs)
+        _, dout = mse_grad(out, Ys)
+        net2.backward(dout)
+        opt2.step()
+    out = net2.forward(Xs)
+    l1, _ = mse_grad(out, Ys)
+    print("Adam 500 steps: loss %.6f -> %.6f" % (l0, l1))
+    ok_down = l1 < 0.1 * l0
+    ok = ok_math and ok_down
+    print("ADAM CHECK: %s" % ("PASS" if ok else "FAIL"))
     all_ok = all_ok and ok
 
     # ---- check 3: determinism ----

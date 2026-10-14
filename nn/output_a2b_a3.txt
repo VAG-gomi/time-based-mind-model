@@ -10,6 +10,10 @@ NEGATIVE CONTROL: PASS
 returned shape: (5, 3) (expected (5, 3))
 dL/dX vs central differences: worst margin 9.574e-03
 DLDX CHECK: PASS
+##### check 2c: Adam optimizer #####
+first Adam step vs hand computation: worst margin 1.577e-11
+Adam 500 steps: loss 1.603762 -> 0.000269
+ADAM CHECK: PASS
 ##### check 3: determinism #####
 same seed -> identical weights: True
 different seeds -> different weights: True
@@ -30,12 +34,12 @@ SMOKE TEST (loss falls to <3% of start): PASS
 python 3.12.3 | numpy 1.26.4
 machine: Linux x86_64 | cpus: 2 | node: htch-runtime
 this run: Linux VM (hatch) -- not the phone
-H=   32 batch= 1:   0.059 ms/update | params=   3557 | weights   0.03 MiB
-H=   32 batch=32:   0.270 ms/update | params=   3557 | weights   0.03 MiB
-H= 1000 batch= 1:   0.519 ms/update | params= 111005 | weights   0.85 MiB
-H= 1000 batch=32:   8.513 ms/update | params= 111005 | weights   0.85 MiB
-H=10000 batch= 1:   4.992 ms/update | params=1110005 | weights   8.47 MiB
-H=10000 batch=32:  95.685 ms/update | params=1110005 | weights   8.47 MiB
+H=   32 batch= 1:   0.054 ms/update | params=   3557 | weights   0.03 MiB
+H=   32 batch=32:   0.266 ms/update | params=   3557 | weights   0.03 MiB
+H= 1000 batch= 1:   0.536 ms/update | params= 111005 | weights   0.85 MiB
+H= 1000 batch=32:   8.694 ms/update | params= 111005 | weights   0.85 MiB
+H=10000 batch= 1:   5.130 ms/update | params=1110005 | weights   8.47 MiB
+H=10000 batch=32:  88.081 ms/update | params=1110005 | weights   8.47 MiB
 ##### check 7: A3, XOR #####
 part 1: xavier init, 2->4->1, lr=0.5, 10 seeds
   seed 0: solved in 139 steps (final max abs err 0.0995, loss 0.002484)

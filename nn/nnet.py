@@ -14,6 +14,8 @@ Conventions
   (B, n_out) and fills ``self.grads`` with RAW sums over the batch.
   Put any 1/B averaging in your loss's dout (both helpers below do).
 - ``sgd_step(lr)`` applies the cached grads: p -= lr * grad.
+- ``Adam`` is an Adam optimizer for an MLP (call ``backward()``, then
+  ``step()``).
 - ``get_params()`` / ``set_params(vec)`` expose one flat float64 vector
   in W1, b1, W2, b2, ... order.
 - ``masked_mse_grad`` is the Q-learning regression loss: only the chosen
@@ -143,6 +145,39 @@ class MLP:
         """Apply cached grads: p -= lr * grad."""
         for k in self._keys():
             self.params[k] -= lr * self.grads[k]
+
+
+class Adam(object):
+    """Adam optimizer for an MLP. Call net.backward() first, then step().
+
+    Standard Adam with bias correction. State (m, v, t) lives here, so
+    one Adam instance owns one network; reusing it across trainings
+    carries momentum over (usually not what you want).
+    """
+
+    def __init__(self, net, lr=1e-3, beta1=0.9, beta2=0.999, eps=1e-8):
+        self.net = net
+        self.lr = lr
+        self.beta1 = beta1
+        self.beta2 = beta2
+        self.eps = eps
+        self.m = dict((k, np.zeros_like(net.params[k]))
+                     for k in net._keys())
+        self.v = dict((k, np.zeros_like(net.params[k]))
+                     for k in net._keys())
+        self.t = 0
+
+    def step(self):
+        """Apply one Adam update from the cached grads."""
+        self.t += 1
+        for k in self.net._keys():
+            g = self.net.grads[k]
+            self.m[k] = self.beta1 * self.m[k] + (1.0 - self.beta1) * g
+            self.v[k] = self.beta2 * self.v[k] + (1.0 - self.beta2) * g * g
+            m_hat = self.m[k] / (1.0 - self.beta1 ** self.t)
+            v_hat = self.v[k] / (1.0 - self.beta2 ** self.t)
+            self.net.params[k] -= (self.lr * m_hat
+                                   / (np.sqrt(v_hat) + self.eps))
 
 
 def mse_grad(out, targets):
