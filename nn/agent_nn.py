@@ -12,6 +12,12 @@ Rewards are identical for every arm: step -0.01, goal +1.0, crush -1.0.
 A crush teleports the agent to (0,0) and the episode continues; the
 penalty is attached to the transition on which the crush is observed,
 so TD bootstrapping blames the action that entered the door.
+
+A5 generalization: the input construction is an encoder object with
+reset(world)/encode(world) and an n_inputs attribute. The plain arm uses
+PlainEncoder (identical to the old encode_obs path). The memory arm
+(agent_mem.py) plugs in a 102-input encoder. The learner, the training
+loop, the replay sampler, and every hyperparameter are shared unchanged.
 """
 
 import random
@@ -52,6 +58,18 @@ def encode_obs(world):
     v[y * GRID_SIZE + x] = 1.0
     v[N_INPUTS - 1] = 1.0 if door else 0.0
     return v
+
+
+class PlainEncoder(object):
+    """Encoder protocol for the plain arm: stateless, 101 inputs."""
+
+    n_inputs = N_INPUTS
+
+    def reset(self, world):
+        pass
+
+    def encode(self, world):
+        return encode_obs(world)
 
 
 def obs_index(world):
@@ -128,7 +146,10 @@ class TabularQ(object):
 
 
 class NeuralQ(object):
-    """101 -> H -> 5 MLP Q-learner with replay, target net, and Adam.
+    """N_INPUTS -> H -> 5 MLP Q-learner with replay, target net, and Adam.
+
+    N_INPUTS is 101 for the plain arm and 102 for the one-step-memory arm
+    (agent_mem.py); the learner is otherwise identical.
 
     SGD was tried first: lr=0.1 learned then oscillated (success
     0.11 -> 0.58 -> 0.09 -> 0.00 -> 0.43 over 2000 episodes), while
@@ -137,11 +158,12 @@ class NeuralQ(object):
     """
 
     def __init__(self, seed, hidden=32, lr=1e-3, gamma=GAMMA,
-                 buffer_size=10000, batch=32, target_sync=200):
+                 buffer_size=10000, batch=32, target_sync=200,
+                 n_inputs=N_INPUTS):
         self.rng = random.Random(seed)
         self.nprng = np.random.RandomState(seed)
-        self.net = MLP([N_INPUTS, hidden, N_ACTIONS], seed=seed)
-        self.target = MLP([N_INPUTS, hidden, N_ACTIONS], seed=seed)
+        self.net = MLP([n_inputs, hidden, N_ACTIONS], seed=seed)
+        self.target = MLP([n_inputs, hidden, N_ACTIONS], seed=seed)
         self.target.set_params(self.net.get_params())
         self.opt = Adam(self.net, lr=lr)
         self.gamma = gamma
@@ -204,15 +226,23 @@ def train_tabular(seed, episodes=2000, cap=EPISODE_CAP):
     return agent, stats
 
 
-def train_neural(seed, hidden=32, episodes=2000, cap=EPISODE_CAP, lr=1e-3):
-    """Train the neural learner (Adam). Returns (agent, per-episode stats)."""
-    agent = NeuralQ(seed, hidden=hidden, lr=lr)
+def train_neural(seed, hidden=32, episodes=2000, cap=EPISODE_CAP, lr=1e-3,
+                 encoder=None):
+    """Train the neural learner (Adam). Returns (agent, per-episode stats).
+
+    `encoder` follows the encoder protocol (reset/encode/n_inputs);
+    default is PlainEncoder, i.e. exactly the A4 training path.
+    """
+    if encoder is None:
+        encoder = PlainEncoder()
+    agent = NeuralQ(seed, hidden=hidden, lr=lr, n_inputs=encoder.n_inputs)
     rng = random.Random(seed + 1000)
     stats = []
     for ep in range(episodes):
         w = World(period=PERIOD, open_len=OPEN_LEN)
         w.reset(start_tick=rng.randrange(PERIOD))
-        x = encode_obs(w)
+        encoder.reset(w)
+        x = encoder.encode(w)
         eps = epsilon(ep)
         ticks = 0
         crushes = 0
@@ -222,7 +252,7 @@ def train_neural(seed, hidden=32, episodes=2000, cap=EPISODE_CAP, lr=1e-3):
             a = agent.act(x, eps)
             r, reached, crushed = env_step(w, a)
             crushes += crushed
-            x2 = encode_obs(w)
+            x2 = encoder.encode(w)
             agent.buffer.add((x, a, r, x2, reached))
             loss = agent.train_step()
             if loss is not None:

@@ -1,0 +1,97 @@
+A5: baseline arms and the results runner
+python 3.12.3 | numpy 1.26.4
+hyperparameters: hidden=32, lr=0.001, episodes=2000, gamma=0.99, rewards step=-0.01 goal=1.0 crush=-1.0, episode cap=200, period=20 open_len=10
+protocol: each (arm, seed) trains once, then two evaluations over all 20 start phases: pure greedy (1 episode/phase) and eps = 0.05 (10 episodes/phase, agent's own RNG stream, fixed pipeline order). Primary metric: mean episode return (undiscounted sum of rewards, failure included).
+
+SEQUENCE B COMPARISON RULE (pre-registered in A5, before the wrapper exists)
+Arms are compared on the identical protocol: the wrapped arm trains on
+the same seeds 0-9, with the same budget (2000 episodes), the same
+hyperparameters, and the same evaluation (greedy + eps = 0.05).
+Primary metric: median over seeds of mean greedy episode return.
+The wrapped arm WINS iff all three hold on the greedy evaluation:
+  (1) median greedy return >= best A5 baseline arm median + 0.02
+      (0.02 is ~2 ticks of step penalty: a real improvement, not noise);
+  (2) fraction of seeds with zero crushes (greedy) == 10/10;
+  (3) fraction of seeds with greedy success >= 0.9 == 10/10.
+Otherwise the result is NO WIN, with the failing clause named:
+  - (1) fails but (2)+(3) hold: "safer but not faster".
+  - (2) fails but (1)+(3) hold: "faster but not safer".
+  - (3) fails: "unreliable", regardless of (1) and (2).
+The eps = 0.05 evaluation is a robustness check, not a gate: it is
+reported alongside, and a wrapper that wins on greedy but collapses
+under eps = 0.05 noise must say so.
+Yardstick returns are reported in the yardstick table for calibration;
+the wrapper is not required to match the tick-knowing time-aware
+yardstick, only to beat the best baseline by the margin above while
+satisfying (2) and (3).
+
+
+##### plain arm: per-seed table #####
+per-seed (greedy)
+seed | mean_return | crush/ep | success | mean_ticks
+   0 |       0.731 |    0.050 |    1.00 |       21.9
+   1 |      -1.162 |    0.000 |    0.30 |       20.5
+   2 |       0.757 |    0.000 |    1.00 |       24.3
+   3 |       0.723 |    0.050 |    1.00 |       22.6
+   4 |       0.737 |    0.050 |    1.00 |       21.3
+   5 |      -0.331 |    0.000 |    0.60 |       21.8
+   6 |      -6.235 |    5.450 |    0.45 |       30.0
+   7 |       0.702 |    0.050 |    1.00 |       24.9
+   8 |      -2.000 |    0.000 |    0.00 |        n/a
+   9 |       0.726 |    0.050 |    1.00 |       22.4
+per-seed (eps005)
+seed | mean_return | crush/ep | success | mean_ticks
+   0 |       0.723 |    0.045 |    1.00 |       23.2
+   1 |      -0.187 |    0.030 |    0.77 |       59.1
+   2 |       0.732 |    0.015 |    1.00 |       25.3
+   3 |       0.677 |    0.080 |    1.00 |       24.3
+   4 |       0.705 |    0.070 |    1.00 |       22.5
+   5 |       0.537 |    0.045 |    0.98 |       36.5
+   6 |      -0.712 |    1.150 |    0.99 |       55.0
+   7 |       0.645 |    0.080 |    1.00 |       27.5
+   8 |      -0.885 |    0.040 |    0.57 |       97.4
+   9 |       0.727 |    0.035 |    1.00 |       23.8
+plain arm aggregates (10 seeds)
+  greedy: median return 0.712 | min -6.235 | max 0.757 | std 2.113 | zero-crush seeds 4/10 | success>=0.9 seeds 6/10
+  eps005: median return 0.661 | min -0.885 | max 0.732 | std 0.608 | zero-crush seeds 0/10 | success>=0.9 seeds 8/10
+
+##### memory arm: per-seed table #####
+per-seed (greedy)
+seed | mean_return | crush/ep | success | mean_ticks
+   0 |       0.647 |    0.050 |    1.00 |       30.3
+   1 |       0.545 |    0.000 |    1.00 |       45.5
+   2 |       0.737 |    0.050 |    1.00 |       21.3
+   3 |       0.737 |    0.050 |    1.00 |       21.3
+   4 |       0.735 |    0.050 |    1.00 |       21.4
+   5 |       0.737 |    0.050 |    1.00 |       21.3
+   6 |      -0.531 |    0.050 |    0.55 |       23.8
+   7 |      -0.470 |    0.050 |    0.60 |       36.7
+   8 |       0.787 |    0.000 |    1.00 |       21.3
+   9 |       0.737 |    0.050 |    1.00 |       21.3
+per-seed (eps005)
+seed | mean_return | crush/ep | success | mean_ticks
+   0 |       0.590 |    0.080 |    0.99 |       31.7
+   1 |       0.525 |    0.015 |    1.00 |       46.0
+   2 |       0.720 |    0.055 |    1.00 |       22.5
+   3 |       0.724 |    0.050 |    1.00 |       22.6
+   4 |       0.728 |    0.045 |    1.00 |       22.7
+   5 |       0.709 |    0.065 |    1.00 |       22.6
+   6 |       0.295 |    0.105 |    0.98 |       55.1
+   7 |       0.222 |    0.115 |    0.97 |       60.3
+   8 |       0.743 |    0.030 |    1.00 |       22.7
+   9 |       0.731 |    0.045 |    1.00 |       22.4
+memory arm aggregates (10 seeds)
+  greedy: median return 0.736 | min -0.531 | max 0.787 | std 0.488 | zero-crush seeds 2/10 | success>=0.9 seeds 8/10
+  eps005: median return 0.714 | min 0.222 | max 0.743 | std 0.184 | zero-crush seeds 0/10 | success>=0.9 seeds 10/10
+
+##### yardsticks (same protocol) #####
+yardsticks (greedy)
+seed | mean_return | crush/ep | success | mean_ticks
+delay-line |       0.725 |    0.000 |    1.00 |       27.5
+naive |       0.737 |    0.050 |    1.00 |       21.3
+time-aware |       0.787 |    0.000 |    1.00 |       21.3
+yardsticks (eps005)
+seed | mean_return | crush/ep | success | mean_ticks
+delay-line |       0.399 |    0.010 |    0.91 |       35.3
+naive |       0.668 |    0.055 |    0.99 |       25.0
+time-aware |       0.750 |    0.005 |    0.99 |       23.1
