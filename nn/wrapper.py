@@ -57,9 +57,16 @@ transitions arrive the estimates are honestly None rather than wrong.
 Time features (None while the schedule is unknown)
 --------------------------------------------------
 - ticks_since_opening(tick): (tick - last_opening) % period -- the
-  cycle phase, exact for any tick by periodic projection.
+  cycle phase, exact for any tick by periodic projection.  Without
+  the period, falls back to raw elapsed ticks since a cleanly
+  observed opening.
 - open_ticks_remaining(tick): open_len - phase while the door is open,
-  0 while it is closed.
+  0 while it is closed.  Partial knowledge: available as soon as the
+  open length and a cleanly observed opening are known, no period
+  needed.
+- first_estimates_tick: the first tick at which full estimates
+  (period, open length, opening) all became available; None until
+  then.
 """
 
 _OPEN = True
@@ -81,6 +88,7 @@ class ScheduleModel(object):
         self.last_opening_tick = None
         self.contradictions = 0
         self.last_contradiction_tick = None
+        self.first_estimates_tick = None
         self._prev = None      # (tick, door_open) of previous observation
         self._last_tick = None
         self._gap_since_opening = False
@@ -136,6 +144,8 @@ class ScheduleModel(object):
                 self._reestimate()
         self._prev = (tick, door_open)
         self._last_tick = tick
+        if self._has_estimates() and self.first_estimates_tick is None:
+            self.first_estimates_tick = tick
         return contradicted
 
     def _record_opening(self, tick):
@@ -183,6 +193,22 @@ class ScheduleModel(object):
     # ------------------------------------------------------------------
     # time features
     # ------------------------------------------------------------------
+    def _partial_span(self):
+        """(elapsed_ticks, door_open_now) since the last observed
+        opening, when that opening was seen with no gaps since and the
+        current observation is at or after it; else None.
+
+        This is the partial-knowledge path: it needs no period, only a
+        cleanly observed opening.  It is exact because every tick since
+        the opening was watched, so no transition could have been
+        missed.
+        """
+        if (self.last_opening_tick is None or self._gap_since_opening
+                or self._last_tick is None or self._prev is None
+                or self._last_tick < self.last_opening_tick):
+            return None
+        return (self._last_tick - self.last_opening_tick, self._prev[1])
+
     def predict_open(self, tick):
         """Predicted door state at tick, or None if unknown."""
         if not self._has_estimates():
@@ -192,26 +218,48 @@ class ScheduleModel(object):
 
     def ticks_since_opening(self, tick=None):
         """Cycle phase at tick (default: last observed tick), or None
-        if unknown. Exact for any tick by periodic projection."""
-        if not self._has_estimates():
-            return None
+        if unknown.  With full estimates this is exact for any tick by
+        periodic projection.  Without the period, it falls back to the
+        raw elapsed ticks since a cleanly observed opening (same value
+        a per-tick observer would see, since no newer opening could
+        have been missed).
+        """
+        if self._has_estimates():
+            if tick is None:
+                tick = self._last_tick
+            if tick is None:
+                return None
+            return (tick - self.last_opening_tick) % self.period
         if tick is None:
-            tick = self._last_tick
-        if tick is None:
-            return None
-        return (tick - self.last_opening_tick) % self.period
+            part = self._partial_span()
+            return part[0] if part is not None else None
+        return None
 
     def open_ticks_remaining(self, tick=None):
         """Open ticks remaining at tick (default: last observed tick):
-        open_len - phase while open, 0 while closed; None if unknown."""
-        if not self._has_estimates():
-            return None
+        open_len - phase while open, 0 while closed; None if unknown.
+
+        Partial knowledge: with the open length known and a cleanly
+        observed opening (no period needed), the remaining ticks are
+        exact -- open_len minus elapsed while the door is open, 0
+        while it is closed.  This lets a consumer act safely as soon
+        as the open length is known, without waiting for two openings.
+        """
         if tick is None:
             tick = self._last_tick
         if tick is None:
             return None
-        phase = (tick - self.last_opening_tick) % self.period
-        return self.open_len - phase if phase < self.open_len else 0
+        if self._has_estimates():
+            phase = (tick - self.last_opening_tick) % self.period
+            return self.open_len - phase if phase < self.open_len else 0
+        if tick == self._last_tick and self.open_len is not None:
+            part = self._partial_span()
+            if part is not None:
+                elapsed, door_open = part
+                if door_open:
+                    return max(0, self.open_len - elapsed)
+                return 0
+        return None
 
     def __repr__(self):
         return ("ScheduleModel(period=%r, open_len=%r, last_opening=%r, "

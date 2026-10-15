@@ -21,4 +21,10 @@ CROSS-EPISODE PREDICTION: PASS
   first observation (tick 3, open): not an opening, features unknown: True
   after observing to tick 44: period=20, open_len=10, last_opening=40 (latest real opening, not the first state at tick 3): True
 MID-OPEN START: PASS
+##### check 6: partial knowledge (open_len + opening, no period) #####
+  after ep1 (ticks 0..34): period=None (expect None), open_len=10, remaining=0 (expect 0), phase=14 (expect 14): True
+  ep2 tick 95 (first obs after boundary): remaining=None, phase=None (both None; stale opening not trusted): True
+  ep2 tick 101 (fresh opening at 100, door open): period=None (still None), remaining=9 (expect 9), phase=1 (expect 1): True
+  partial values match ground truth at tick 101 (phase 1, remaining 9): True
+PARTIAL KNOWLEDGE: PASS
 === OVERALL: PASS ===

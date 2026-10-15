@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""run_arms.py -- A5: baseline arms and the results runner.
+"""run_arms.py -- A5/B2: arms and the results runner.
 
-Trains the plain arm (agent_nn.py) and the one-step-memory arm
-(agent_mem.py) on seeds 0-9 with identical hyperparameters and no
-per-arm tuning, evaluates each policy twice (pure greedy and
-epsilon = 0.05), and compares them against three hand-coded yardsticks
-(naive, time-aware, delay-line) on the same protocol.
+Trains the plain arm (agent_nn.py), the one-step-memory arm
+(agent_mem.py), the wrapped arm (agent_wrapped.py: same learner plus
+ScheduleModel time features), and the raw-clock control arm
+(agent_wrapped.py: tick input, no schedule model) on seeds 0-9 with
+identical hyperparameters and no per-arm tuning, evaluates each policy
+twice (pure greedy and epsilon = 0.05), and compares them against three
+hand-coded yardsticks (naive, time-aware, delay-line) on the same
+protocol.
 
 Primary metric: mean episode return = undiscounted sum of rewards
 (step -0.01, goal +1.0, crush -1.0), with failure to reach the goal
@@ -45,6 +48,8 @@ from agent_nn import (PERIOD, OPEN_LEN, EPISODE_CAP, R_STEP, R_GOAL, R_CRUSH,
                       train_neural, naive_policy, time_aware_policy,
                       env_step)
 from agent_mem import MemoryEncoder, train_memory
+from agent_wrapped import (train_wrapped, WrappedEncoder,
+                           train_clock, ClockEncoder)
 
 HIDDEN = 32
 LR = 1e-3
@@ -274,6 +279,7 @@ HYPERPARAMS = {"hidden": HIDDEN, "lr": LR, "episodes": EPISODES,
 
 def run_arm_seed(arm, seed, episodes):
     """Train one (arm, seed) and evaluate it twice. Returns the record."""
+    extra = {}
     if arm == "plain":
         agent, stats = train_neural(seed, hidden=HIDDEN,
                                     episodes=episodes, lr=LR)
@@ -282,6 +288,20 @@ def run_arm_seed(arm, seed, episodes):
         agent, stats = train_memory(seed, hidden=HIDDEN,
                                     episodes=episodes, lr=LR)
         policy = LearnedPolicy(agent, MemoryEncoder())
+    elif arm == "wrapped":
+        agent, stats, encoder = train_wrapped(seed, hidden=HIDDEN,
+                                              episodes=episodes, lr=LR)
+        # Eval reuses the SAME encoder, so the ScheduleModel's knowledge
+        # persists from training into both evaluations.
+        policy = LearnedPolicy(agent, encoder)
+        extra = {"frac_ticks_known": encoder.frac_known(),
+                 "first_converged_episode": encoder.converged_episode,
+                 "first_converged_tick": encoder.converged_tick,
+                 "model_contradictions": encoder.model.contradictions}
+    elif arm == "clock":
+        agent, stats = train_clock(seed, hidden=HIDDEN,
+                                   episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, ClockEncoder())
     else:
         raise ValueError("unknown arm %r" % (arm,))
     greedy = _pack(summarize_rows(evaluate(policy, 0.0, 1, None)))
@@ -291,6 +311,7 @@ def run_arm_seed(arm, seed, episodes):
     train = {"last100_success": sum(s[1] for s in last) / len(last),
              "last100_mean_ticks": sum(s[0] for s in last) / len(last),
              "last100_mean_crushes": sum(s[2] for s in last) / len(last)}
+    train.update(extra)
     return {"kind": "arm", "arm": arm, "seed": seed,
             "hyperparams": dict(HYPERPARAMS, episodes=episodes),
             "greedy": greedy, "eps005": eps, "train": train}
@@ -372,18 +393,31 @@ def _arm_aggregates(arm, records):
     out.append("  clean-and-fast seeds (greedy: 0 crushes, success>=0.9, "
                "return>=0.75): %d/%d %s"
                % (len(cf), len(by_seed), cf))
+    if arm == "wrapped":
+        fracs = [r["train"].get("frac_ticks_known") for r in by_seed
+                 if r["train"].get("frac_ticks_known") is not None]
+        conv = sorted(set(r["train"].get("first_converged_episode")
+                          for r in by_seed))
+        contra = sorted(set(r["train"].get("model_contradictions")
+                            for r in by_seed))
+        out.append("  schedule model (train): frac ticks with features "
+                   "known median %s (min %s) | first converged episode %s | "
+                   "contradictions %s"
+                   % (_fmt(statistics.median(fracs)), _fmt(min(fracs)),
+                      conv, contra))
     return "\n".join(out)
 
 
 def build_summary(records):
     present = set(r["arm"] for r in records if r["kind"] == "arm")
-    arms = [a for a in ("plain", "memory") if a in present] + \
-        sorted(present - {"plain", "memory"})
+    arms = [a for a in ("plain", "memory", "wrapped", "clock")
+            if a in present] + \
+        sorted(present - {"plain", "memory", "wrapped", "clock"})
     yards = [r for r in records if r["kind"] == "yardstick"]
     yards.sort(key=lambda r: r["name"])
     hp = records[0]["hyperparams"] if records else HYPERPARAMS
     parts = []
-    parts.append("A5: baseline arms and the results runner")
+    parts.append("A5/B2: baseline arms, wrapped arm, and clock control")
     parts.append("python %s | numpy %s"
                  % (sys.version.split()[0], np.__version__))
     parts.append("hyperparameters: hidden=%d, lr=%s, episodes=%d, gamma=%s, "
@@ -426,7 +460,7 @@ def parse_seeds(spec):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="A5 baseline arms runner")
+    ap = argparse.ArgumentParser(description="A5/B2 arms runner")
     ap.add_argument("--arms", default="plain,memory")
     ap.add_argument("--seeds", default="0-9")
     ap.add_argument("--episodes", type=int, default=EPISODES)

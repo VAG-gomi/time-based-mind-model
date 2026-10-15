@@ -236,6 +236,57 @@ def check_mid_open_start():
     return ok
 
 
+def check_partial_knowledge():
+    print("##### check 6: partial knowledge (open_len + opening, "
+          "no period) #####")
+    m = ScheduleModel()
+    w = World(20, 10)
+    # Episode 1: learn the open length, but not the period (too short
+    # for two openings).
+    w.reset(start_tick=0)
+    m.new_episode()
+    feed(m, w, 35)  # observe ticks 0..34
+    # openings=[20]; closings=[10 (unpaired), 30 (paired, clean)]
+    partial_state = (m.period is None and m.open_len == 10
+                     and m.last_opening_tick == 20)
+    # tick 34: door closed (34 % 20 = 14). Partial: remaining 0, phase 14.
+    r34 = m.open_ticks_remaining()
+    p34 = m.ticks_since_opening()
+    ok1 = (partial_state and r34 == 0 and p34 == 14
+           and m.first_estimates_tick is None)
+    print("  after ep1 (ticks 0..34): period=%s (expect None), "
+          "open_len=%s, remaining=%s (expect 0), phase=%s (expect 14): %s"
+          % (m.period, m.open_len, r34, p34, ok1))
+    # Episode 2: a fresh opening, door open, still no period.
+    w.reset(start_tick=95)
+    m.new_episode()
+    feed(m, w, 1)  # observe tick 95 only
+    # Gap flag from new_episode: partial unavailable -- the old opening
+    # (tick 20) is stale across unobserved ticks and must not be used.
+    r95 = m.open_ticks_remaining()
+    p95 = m.ticks_since_opening()
+    ok2 = (r95 is None and p95 is None)
+    print("  ep2 tick 95 (first obs after boundary): remaining=%s, "
+          "phase=%s (both None; stale opening not trusted): %s"
+          % (r95, p95, ok2))
+    feed(m, w, 6)  # observe ticks 96..101; 99->100 is a fresh opening
+    # tick 101: door open (101 % 20 = 1). Partial: remaining 9, phase 1.
+    # Period still None (the 20->100 opening gap is dirty).
+    r101 = m.open_ticks_remaining()
+    p101 = m.ticks_since_opening()
+    ok3 = (m.period is None and r101 == 9 and p101 == 1
+           and m.last_opening_tick == 100)
+    print("  ep2 tick 101 (fresh opening at 100, door open): period=%s "
+          "(still None), remaining=%s (expect 9), phase=%s (expect 1): %s"
+          % (m.period, r101, p101, ok3))
+    ok4 = (r101 == (10 - 101 % 20) and p101 == 101 % 20)
+    print("  partial values match ground truth at tick 101 "
+          "(phase 1, remaining 9): %s" % ok4)
+    ok = ok1 and ok2 and ok3 and ok4
+    print("PARTIAL KNOWLEDGE: %s" % ("PASS" if ok else "FAIL"))
+    return ok
+
+
 def main():
     all_ok = True
     all_ok = check_schedules() and all_ok
@@ -243,6 +294,7 @@ def main():
     all_ok = check_features() and all_ok
     all_ok = check_cross_episode() and all_ok
     all_ok = check_mid_open_start() and all_ok
+    all_ok = check_partial_knowledge() and all_ok
     print("=== OVERALL: %s ===" % ("PASS" if all_ok else "FAIL"))
     if not all_ok:
         raise SystemExit(1)
