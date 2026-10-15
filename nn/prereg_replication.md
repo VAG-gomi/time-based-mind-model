@@ -105,11 +105,15 @@ the B2 result stands as a pilot-scale suggestive finding.
 
 ## Approvals needed
 
-1. [ ] Code commit frozen for the replication: ___________
+1. [x] Code commit frozen for the replication: `7affcfb84f41024900927e1625678e5052a5fc75`
        (must contain the final summary_b2.json and this approved note;
        see "Commit semantics" above for how it relates to the JSON's
        internal git_commit field)
-2. [ ] Seed range 10–49, arms plain/memory/wrapped confirmed
-3. [ ] 7/10 retired as gate; estimates + intervals reported instead
+2. [x] Seed range 10–49, arms plain/memory/wrapped confirmed
+3. [x] 7/10 retired as gate; estimates + intervals reported instead
        (wording above approved)
-4. [ ] Authorized to run (~120 seeds × ~1.8 min ≈ 4 hours)
+4. [x] Authorized to run (~120 seeds × ~1.8 min ≈ 4 hours)
+
+Approved by owner 2026-10-15. Replication output goes to
+`nn/results_replication.jsonl` / `nn/output_replication.txt`
+(separate from the pilot's `results_a5.jsonl`), seeds 10–49.
