@@ -69,18 +69,30 @@ was cheap (one small encoder, same runner).
 
 ## Results
 
-INTERIM (8/20 seeds, run still in progress):
-- wrapped 0: 0.765, 0 crush, 1.00 -> clean
-- wrapped 1: 0.773, 0 crush, 1.00 -> clean
-- wrapped 2: 0.755, 0 crush, 1.00 -> clean
-- wrapped 3: 0.717, 0.05 crush, 1.00 -> not clean (1 crush)
-- wrapped 4: 0.726, 0.05 crush, 1.00 -> not clean (1 crush)
-- wrapped 5: 0.743, 0 crush, 1.00 -> clean
-- wrapped 6: 0.771, 0 crush, 1.00 -> clean
-- wrapped 7: 0.766, 0 crush, 1.00 -> clean
-Clean-and-fast so far: 6/8. Needs 7/10 to win; seeds 8-9 decide.
+FINAL (all 20 seeds; verified: 40 arm records, identical hyperparameters
+across arms, schedule diagnostics present on all wrapped records):
 
-[final tables after the background run]
+**Wrapped arm: 5/10 clean-and-fast [0, 1, 2, 6, 7] -- DOES NOT WIN.**
+The pre-registered bar was 7/10 (p ~= 0.01 vs 1/10). 5/10 misses it.
+Greedy: median return 0.749, std 0.019, zero-crush 8/10,
+success>=0.9 10/10. The five misses: seeds 3, 4 (one crush each:
+0.717, 0.726) and seeds 5, 8, 9 (zero crushes, full success, but
+returns 0.743/0.739/0.737 -- just under the 0.75 bar, sitting on the
+naive plateau). Schedule model: frac ticks known median 1.000 (min
+0.999), first converged episode 0 on all seeds, 0 contradictions.
+
+**Clock control: 0/10 clean-and-fast.** Median 0.407, std 1.192;
+seeds 3, 5, 7 collapsed to -2.0 (total failure to learn). The raw
+tick does not reliably teach the periodic mapping; the schedule
+model's structured features do. The wrapper adds a great deal
+beyond "knowing the time".
+
+Honest reading: the wrapper 5x'd the clean-and-fast rate over both
+baselines (5/10 vs 1/10) and collapsed the variance (std 0.019),
+but it did not clear the ambitious 7/10 bar set before it existed.
+The failure mode is informative: 3 of the 5 misses are safe but
+slow (naive-plateau returns), not crashes -- the features buy
+safety reliably, speed less so.
 
 ## Skipped / deviations
 
