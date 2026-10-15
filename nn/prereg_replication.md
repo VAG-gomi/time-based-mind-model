@@ -78,6 +78,14 @@ and one-step-memory arms replicate at larger seed counts?
   exclusions for poor performance.
 - If a seed crashes or fails to save, it is reported as a missing
   record with the error log — never silently dropped or replaced.
+- Missing-data rule for the paired primary analysis: a seed missing
+  in either compared arm is reported in the missingness table and
+  **excluded from the paired primary comparison**, while all
+  available arm-level results remain included in descriptive
+  analyses. The number and identity of incomplete pairs is reported.
+  (Alternative considered and rejected: predeclaring missing results
+  as failures. The exclusion rule is chosen because a crash is a
+  missing measurement, not evidence of poor policy performance.)
 
 ## What this will not do
 
