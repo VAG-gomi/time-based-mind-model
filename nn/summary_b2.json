@@ -1,0 +1,1198 @@
+{
+  "schema": "summary_b2/v1",
+  "metadata": {
+    "generated_utc": "2026-10-15T07:55:32.985515+00:00",
+    "git_commit": "b4220bc119ccf67412fdb56ed8c48a28937c0084",
+    "source": "nn/results_a5.jsonl",
+    "generator": "nn/make_summary_json.py",
+    "python": "3.12.3",
+    "numpy": "1.26.4"
+  },
+  "protocol": {
+    "hyperparameters": {
+      "hidden": 32,
+      "lr": 0.001,
+      "episodes": 2000,
+      "gamma": 0.99,
+      "r_step": -0.01,
+      "r_goal": 1.0,
+      "r_crush": -1.0,
+      "episode_cap": 200,
+      "period": 20,
+      "open_len": 10,
+      "eps_eval": 0.05,
+      "eps_reps_per_phase": 10
+    },
+    "seeds_per_arm": 10,
+    "clean_and_fast_definition": "greedy: crush_rate==0 AND success>=0.9 AND mean_return>=0.75",
+    "win_threshold": "wrapped >=7/10 clean-and-fast (pre-registered in R; NOT MET: 5/10)",
+    "eval_greedy": "20 start phases x 1 episode, pure greedy",
+    "eval_eps005": "20 start phases x 10 episodes, eps=0.05"
+  },
+  "arms": {
+    "plain": {
+      "n_seeds": 10,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "greedy": {
+        "median_return": 0.7124999999999999,
+        "min_return": -6.234999999999981,
+        "max_return": 0.7569999999999999,
+        "std_return": 2.113372350060438,
+        "zero_crush_seeds": [
+          1,
+          2,
+          5,
+          8
+        ],
+        "success_ge_09_seeds": [
+          0,
+          2,
+          3,
+          4,
+          7,
+          9
+        ]
+      },
+      "eps005": {
+        "median_return": 0.66075,
+        "min_return": -0.8851000000000007,
+        "max_return": 0.7319499999999999,
+        "std_return": 0.6078493537875971,
+        "zero_crush_seeds": [],
+        "success_ge_09_seeds": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9
+        ]
+      },
+      "clean_and_fast_seeds": [
+        2
+      ],
+      "per_seed": [
+        {
+          "seed": 0,
+          "greedy": {
+            "mean_return": 0.731,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 21.9,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7232,
+            "crush_rate": 0.045,
+            "frac_crushed": 0.045,
+            "success": 1.0,
+            "mean_ticks": 23.18,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 1,
+          "greedy": {
+            "mean_return": -1.1615000000000009,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 0.3,
+            "mean_ticks": 20.5,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": -0.18720000000000056,
+            "crush_rate": 0.03,
+            "frac_crushed": 0.03,
+            "success": 0.765,
+            "mean_ticks": 59.111111111111114,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 2,
+          "greedy": {
+            "mean_return": 0.7569999999999999,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 24.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7319499999999999,
+            "crush_rate": 0.015,
+            "frac_crushed": 0.015,
+            "success": 1.0,
+            "mean_ticks": 25.305,
+            "n": 200
+          },
+          "clean_and_fast": true
+        },
+        {
+          "seed": 3,
+          "greedy": {
+            "mean_return": 0.7234999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 22.65,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.6768499999999998,
+            "crush_rate": 0.08,
+            "frac_crushed": 0.08,
+            "success": 1.0,
+            "mean_ticks": 24.315,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 4,
+          "greedy": {
+            "mean_return": 0.7369999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 21.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7047999999999999,
+            "crush_rate": 0.07,
+            "frac_crushed": 0.07,
+            "success": 1.0,
+            "mean_ticks": 22.52,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 5,
+          "greedy": {
+            "mean_return": -0.33050000000000057,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 0.6,
+            "mean_ticks": 21.75,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.5372499999999999,
+            "crush_rate": 0.045,
+            "frac_crushed": 0.04,
+            "success": 0.98,
+            "mean_ticks": 36.505102040816325,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 6,
+          "greedy": {
+            "mean_return": -6.234999999999981,
+            "crush_rate": 5.45,
+            "frac_crushed": 0.55,
+            "success": 0.45,
+            "mean_ticks": 30.0,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": -0.7120999999999963,
+            "crush_rate": 1.15,
+            "frac_crushed": 0.44,
+            "success": 0.995,
+            "mean_ticks": 54.984924623115575,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 7,
+          "greedy": {
+            "mean_return": 0.7015,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 24.85,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.64465,
+            "crush_rate": 0.08,
+            "frac_crushed": 0.08,
+            "success": 1.0,
+            "mean_ticks": 27.535,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 8,
+          "greedy": {
+            "mean_return": -2.0000000000000013,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 0.0,
+            "mean_ticks": null,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": -0.8851000000000007,
+            "crush_rate": 0.04,
+            "frac_crushed": 0.04,
+            "success": 0.57,
+            "mean_ticks": 97.3859649122807,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 9,
+          "greedy": {
+            "mean_return": 0.726,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 22.4,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7267999999999999,
+            "crush_rate": 0.035,
+            "frac_crushed": 0.035,
+            "success": 1.0,
+            "mean_ticks": 23.82,
+            "n": 200
+          },
+          "clean_and_fast": false
+        }
+      ]
+    },
+    "memory": {
+      "n_seeds": 10,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "greedy": {
+        "median_return": 0.7362499999999998,
+        "min_return": -0.5310000000000007,
+        "max_return": 0.7869999999999999,
+        "std_return": 0.4877029859453395,
+        "zero_crush_seeds": [
+          1,
+          8
+        ],
+        "success_ge_09_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          9
+        ]
+      },
+      "eps005": {
+        "median_return": 0.7142499999999998,
+        "min_return": 0.22185000000000052,
+        "max_return": 0.7432499999999999,
+        "std_return": 0.18373122686413423,
+        "zero_crush_seeds": [],
+        "success_ge_09_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "clean_and_fast_seeds": [
+        8
+      ],
+      "per_seed": [
+        {
+          "seed": 0,
+          "greedy": {
+            "mean_return": 0.6469999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 30.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.59005,
+            "crush_rate": 0.08,
+            "frac_crushed": 0.075,
+            "success": 0.995,
+            "mean_ticks": 31.65326633165829,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 1,
+          "greedy": {
+            "mean_return": 0.5449999999999998,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 45.5,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.5250999999999998,
+            "crush_rate": 0.015,
+            "frac_crushed": 0.015,
+            "success": 1.0,
+            "mean_ticks": 45.99,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 2,
+          "greedy": {
+            "mean_return": 0.7369999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 21.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7196499999999999,
+            "crush_rate": 0.055,
+            "frac_crushed": 0.055,
+            "success": 1.0,
+            "mean_ticks": 22.535,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 3,
+          "greedy": {
+            "mean_return": 0.7369999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 21.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7241,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 22.59,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 4,
+          "greedy": {
+            "mean_return": 0.7354999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 21.45,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7283999999999999,
+            "crush_rate": 0.045,
+            "frac_crushed": 0.045,
+            "success": 1.0,
+            "mean_ticks": 22.66,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 5,
+          "greedy": {
+            "mean_return": 0.7369999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 21.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7088499999999999,
+            "crush_rate": 0.065,
+            "frac_crushed": 0.065,
+            "success": 1.0,
+            "mean_ticks": 22.615,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 6,
+          "greedy": {
+            "mean_return": -0.5310000000000007,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 0.55,
+            "mean_ticks": 23.818181818181817,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.2949499999999999,
+            "crush_rate": 0.105,
+            "frac_crushed": 0.095,
+            "success": 0.98,
+            "mean_ticks": 55.107142857142854,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 7,
+          "greedy": {
+            "mean_return": -0.4699999999999995,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 0.6,
+            "mean_ticks": 36.666666666666664,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.22185000000000052,
+            "crush_rate": 0.115,
+            "frac_crushed": 0.11,
+            "success": 0.975,
+            "mean_ticks": 60.323076923076925,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 8,
+          "greedy": {
+            "mean_return": 0.7869999999999999,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 21.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7432499999999999,
+            "crush_rate": 0.03,
+            "frac_crushed": 0.03,
+            "success": 1.0,
+            "mean_ticks": 22.675,
+            "n": 200
+          },
+          "clean_and_fast": true
+        },
+        {
+          "seed": 9,
+          "greedy": {
+            "mean_return": 0.7369999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 21.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.73135,
+            "crush_rate": 0.045,
+            "frac_crushed": 0.045,
+            "success": 1.0,
+            "mean_ticks": 22.365,
+            "n": 200
+          },
+          "clean_and_fast": false
+        }
+      ]
+    },
+    "wrapped": {
+      "n_seeds": 10,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "greedy": {
+        "median_return": 0.74925,
+        "min_return": 0.7174999999999999,
+        "max_return": 0.7735,
+        "std_return": 0.018677258899528072,
+        "zero_crush_seeds": [
+          0,
+          1,
+          2,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "success_ge_09_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "eps005": {
+        "median_return": 0.734825,
+        "min_return": 0.6791499999999999,
+        "max_return": 0.7536999999999999,
+        "std_return": 0.027998716041990248,
+        "zero_crush_seeds": [
+          1,
+          2,
+          6,
+          7,
+          8
+        ],
+        "success_ge_09_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "clean_and_fast_seeds": [
+        0,
+        1,
+        2,
+        6,
+        7
+      ],
+      "per_seed": [
+        {
+          "seed": 0,
+          "greedy": {
+            "mean_return": 0.7649999999999999,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 23.5,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7486,
+            "crush_rate": 0.005,
+            "frac_crushed": 0.005,
+            "success": 1.0,
+            "mean_ticks": 24.64,
+            "n": 200
+          },
+          "clean_and_fast": true,
+          "schedule": {
+            "frac_ticks_known": 0.9985165780295737,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        },
+        {
+          "seed": 1,
+          "greedy": {
+            "mean_return": 0.7735,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 22.65,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.75315,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 24.685,
+            "n": 200
+          },
+          "clean_and_fast": true,
+          "schedule": {
+            "frac_ticks_known": 0.9997178245759943,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        },
+        {
+          "seed": 2,
+          "greedy": {
+            "mean_return": 0.7555,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 24.45,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7399499999999999,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 26.005,
+            "n": 200
+          },
+          "clean_and_fast": true,
+          "schedule": {
+            "frac_ticks_known": 0.9998927581082531,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        },
+        {
+          "seed": 3,
+          "greedy": {
+            "mean_return": 0.7174999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 23.25,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.6791499999999999,
+            "crush_rate": 0.055,
+            "frac_crushed": 0.055,
+            "success": 1.0,
+            "mean_ticks": 26.585,
+            "n": 200
+          },
+          "clean_and_fast": false,
+          "schedule": {
+            "frac_ticks_known": 0.9998827364619245,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        },
+        {
+          "seed": 4,
+          "greedy": {
+            "mean_return": 0.7259999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 22.4,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.6803999999999999,
+            "crush_rate": 0.065,
+            "frac_crushed": 0.065,
+            "success": 1.0,
+            "mean_ticks": 25.46,
+            "n": 200
+          },
+          "clean_and_fast": false,
+          "schedule": {
+            "frac_ticks_known": 0.9989279477115142,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        },
+        {
+          "seed": 5,
+          "greedy": {
+            "mean_return": 0.7429999999999999,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 25.7,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7006999999999999,
+            "crush_rate": 0.02,
+            "frac_crushed": 0.02,
+            "success": 1.0,
+            "mean_ticks": 27.93,
+            "n": 200
+          },
+          "clean_and_fast": false,
+          "schedule": {
+            "frac_ticks_known": 0.9998354876615746,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        },
+        {
+          "seed": 6,
+          "greedy": {
+            "mean_return": 0.7709999999999999,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 22.9,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7536999999999999,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 24.63,
+            "n": 200
+          },
+          "clean_and_fast": true,
+          "schedule": {
+            "frac_ticks_known": 0.999219347045434,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        },
+        {
+          "seed": 7,
+          "greedy": {
+            "mean_return": 0.7665,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 23.35,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7497,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 25.03,
+            "n": 200
+          },
+          "clean_and_fast": true,
+          "schedule": {
+            "frac_ticks_known": 0.9997359745932123,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        },
+        {
+          "seed": 8,
+          "greedy": {
+            "mean_return": 0.739,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 26.1,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7297,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 27.03,
+            "n": 200
+          },
+          "clean_and_fast": false,
+          "schedule": {
+            "frac_ticks_known": 0.9998844340985447,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        },
+        {
+          "seed": 9,
+          "greedy": {
+            "mean_return": 0.7369999999999999,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 26.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7136499999999999,
+            "crush_rate": 0.005,
+            "frac_crushed": 0.005,
+            "success": 1.0,
+            "mean_ticks": 28.135,
+            "n": 200
+          },
+          "clean_and_fast": false,
+          "schedule": {
+            "frac_ticks_known": 0.9996620531805404,
+            "first_converged_episode": 0,
+            "first_converged_tick": 40,
+            "model_contradictions": 0
+          }
+        }
+      ]
+    },
+    "clock": {
+      "n_seeds": 10,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "greedy": {
+        "median_return": 0.4067499999999998,
+        "min_return": -2.0000000000000013,
+        "max_return": 0.7369999999999999,
+        "std_return": 1.1923524531362366,
+        "zero_crush_seeds": [
+          3,
+          4,
+          5,
+          7,
+          9
+        ],
+        "success_ge_09_seeds": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          9
+        ]
+      },
+      "eps005": {
+        "median_return": 0.3867499999999999,
+        "min_return": -1.7211000000000007,
+        "max_return": 0.74445,
+        "std_return": 0.71765058282217,
+        "zero_crush_seeds": [],
+        "success_ge_09_seeds": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      },
+      "clean_and_fast_seeds": [],
+      "per_seed": [
+        {
+          "seed": 0,
+          "greedy": {
+            "mean_return": -0.8124999999999997,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 0.45,
+            "mean_ticks": 25.0,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": -0.24864999999999957,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.045,
+            "success": 0.68,
+            "mean_ticks": 35.095588235294116,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 1,
+          "greedy": {
+            "mean_return": 0.7369999999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 21.3,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.74445,
+            "crush_rate": 0.035,
+            "frac_crushed": 0.035,
+            "success": 1.0,
+            "mean_ticks": 22.055,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 2,
+          "greedy": {
+            "mean_return": 0.732,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 21.8,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.7227499999999999,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 22.725,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 3,
+          "greedy": {
+            "mean_return": -2.0000000000000013,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 0.0,
+            "mean_ticks": null,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": -1.7211000000000007,
+            "crush_rate": 0.02,
+            "frac_crushed": 0.02,
+            "success": 0.135,
+            "mean_ticks": 78.5925925925926,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 4,
+          "greedy": {
+            "mean_return": 0.702,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 29.8,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.64755,
+            "crush_rate": 0.055,
+            "frac_crushed": 0.055,
+            "success": 1.0,
+            "mean_ticks": 29.745,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 5,
+          "greedy": {
+            "mean_return": -2.0000000000000013,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 0.0,
+            "mean_ticks": null,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.1607499999999998,
+            "crush_rate": 0.045,
+            "frac_crushed": 0.045,
+            "success": 0.95,
+            "mean_ticks": 67.8157894736842,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 6,
+          "greedy": {
+            "mean_return": 0.6975,
+            "crush_rate": 0.05,
+            "frac_crushed": 0.05,
+            "success": 1.0,
+            "mean_ticks": 25.25,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.61275,
+            "crush_rate": 0.105,
+            "frac_crushed": 0.09,
+            "success": 1.0,
+            "mean_ticks": 28.225,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 7,
+          "greedy": {
+            "mean_return": -2.0000000000000013,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 0.0,
+            "mean_ticks": null,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": -0.08904999999999991,
+            "crush_rate": 0.04,
+            "frac_crushed": 0.04,
+            "success": 0.865,
+            "mean_ticks": 74.45664739884393,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 8,
+          "greedy": {
+            "mean_return": 0.1349999999999997,
+            "crush_rate": 0.3,
+            "frac_crushed": 0.3,
+            "success": 1.0,
+            "mean_ticks": 56.5,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.06114999999999976,
+            "crush_rate": 0.435,
+            "frac_crushed": 0.435,
+            "success": 1.0,
+            "mean_ticks": 50.385,
+            "n": 200
+          },
+          "clean_and_fast": false
+        },
+        {
+          "seed": 9,
+          "greedy": {
+            "mean_return": 0.6784999999999999,
+            "crush_rate": 0.0,
+            "frac_crushed": 0.0,
+            "success": 1.0,
+            "mean_ticks": 32.15,
+            "n": 20
+          },
+          "eps005": {
+            "mean_return": 0.6815499999999999,
+            "crush_rate": 0.01,
+            "frac_crushed": 0.01,
+            "success": 1.0,
+            "mean_ticks": 30.845,
+            "n": 200
+          },
+          "clean_and_fast": false
+        }
+      ]
+    }
+  },
+  "yardsticks": {
+    "naive": {
+      "greedy": {
+        "mean_return": 0.7369999999999999,
+        "crush_rate": 0.05,
+        "frac_crushed": 0.05,
+        "success": 1.0,
+        "mean_ticks": 21.3,
+        "n": 20
+      },
+      "eps005": {
+        "mean_return": 0.6679499999999998,
+        "crush_rate": 0.055,
+        "frac_crushed": 0.055,
+        "success": 0.99,
+        "mean_ticks": 24.954545454545453,
+        "n": 200
+      }
+    },
+    "time-aware": {
+      "greedy": {
+        "mean_return": 0.7869999999999999,
+        "crush_rate": 0.0,
+        "frac_crushed": 0.0,
+        "success": 1.0,
+        "mean_ticks": 21.3,
+        "n": 20
+      },
+      "eps005": {
+        "mean_return": 0.7504,
+        "crush_rate": 0.005,
+        "frac_crushed": 0.005,
+        "success": 0.995,
+        "mean_ticks": 23.07537688442211,
+        "n": 200
+      }
+    },
+    "delay-line": {
+      "greedy": {
+        "mean_return": 0.7249999999999999,
+        "crush_rate": 0.0,
+        "frac_crushed": 0.0,
+        "success": 1.0,
+        "mean_ticks": 27.5,
+        "n": 20
+      },
+      "eps005": {
+        "mean_return": 0.39854999999999974,
+        "crush_rate": 0.01,
+        "frac_crushed": 0.01,
+        "success": 0.91,
+        "mean_ticks": 35.324175824175825,
+        "n": 200
+      }
+    }
+  }
+}

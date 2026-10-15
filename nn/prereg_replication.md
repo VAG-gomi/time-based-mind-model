@@ -1,0 +1,84 @@
+# Pre-registration: paired-seed replication (DRAFT for owner review)
+
+**Status: DRAFT. Nothing is frozen and nothing has run. This note
+needs the owner's explicit approval before any replication begins.**
+
+## Question
+
+Does the wrapped arm's safety/consistency advantage over the plain
+and one-step-memory arms replicate at larger seed counts?
+
+## What is frozen
+
+- Code: the exact commit approved below (no architecture, hyperparameter,
+  or reward changes).
+- Arms: plain, memory, wrapped (the pre-registered comparison).
+  The clock control is NOT replicated: it served its one-off purpose
+  (0/10, unstable) and the compute is better spent on the core
+  comparison. (Owner may reinstate it.)
+- Protocol: identical to B2. 2000 training episodes, hidden=32,
+  lr=1e-3, gamma=0.99, same rewards, episode cap 200, period=20,
+  open_len=10. Evaluation: 20 start phases, greedy 1 episode/phase;
+  eps=0.05, 10 episodes/phase.
+
+## Seeds
+
+- 40 fresh seeds: **10–49**, paired across arms (seed s gives every
+  arm the same training start-phase stream via seed+1000, as in B2).
+- Fresh (not reusing 0–9) so the replication is independent of the
+  pilot that motivated it.
+
+## Primary endpoint
+
+- Paired difference in **clean-and-fast proportion**
+  (wrapped minus plain; wrapped minus memory), with 95% confidence
+  intervals. Clean-and-fast keeps its B2 definition
+  (greedy: 0 crushes, success ≥ 0.9, return ≥ 0.75).
+- Reported alongside: raw counts per arm, paired per-seed return
+  differences (median + bootstrap 95% CI), zero-crush and success
+  proportions separately.
+
+## The 7/10 threshold
+
+- **Retired as a binary win/lose gate.** It was calibrated for n=10
+  as a pilot decision rule. The replication reports estimates and
+  intervals instead of a pass/fail verdict.
+- The clean-and-fast *definition* is unchanged. Nothing is redefined
+  after seeing data.
+
+## Confidence intervals
+
+- Proportions: Clopper-Pearson exact binomial 95% CI.
+- Paired differences: exact McNemar-style CI for the proportion
+  difference; bootstrap (10,000 resamples) 95% CI for median return
+  difference.
+
+## Inclusion / exclusion
+
+- All 40 seeds per arm that complete training are included. No
+  exclusions for poor performance.
+- If a seed crashes or fails to save, it is reported as a missing
+  record with the error log — never silently dropped or replaced.
+
+## What this will not do
+
+- No hyperparameter tuning, no architecture changes, no per-seed
+  adjustments. Any tuning uses separate seeds 100+ per the standing
+  rule, and is a different experiment.
+- No claim beyond the protocol: one fixed schedule (20/10), one
+  architecture, one budget.
+
+## Stop / decision rule
+
+After the replication, the owner decides based on the intervals —
+not on whether a threshold was crossed. If the wrapped advantage
+replicates (intervals exclude zero with margin), proceed to matched
+controls (Priority 2) and unseen schedules (Priority 3). If not,
+the B2 result stands as a pilot-scale suggestive finding.
+
+## Approvals needed
+
+1. [ ] Code commit frozen for the replication: ___________
+2. [ ] Seed range 10–49, arms plain/memory/wrapped confirmed
+3. [ ] 7/10 retired as gate; estimates + intervals reported instead
+4. [ ] Authorized to run (~120 seeds × ~1.8 min ≈ 4 hours)
