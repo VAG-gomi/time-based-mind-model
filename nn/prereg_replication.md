@@ -40,18 +40,37 @@ and one-step-memory arms replicate at larger seed counts?
 
 ## The 7/10 threshold
 
-- **Retired as a binary win/lose gate.** It was calibrated for n=10
-  as a pilot decision rule. The replication reports estimates and
-  intervals instead of a pass/fail verdict.
+- **Retired as a binary win/lose gate for the replication.** It was
+  calibrated for n=10 as a pilot decision rule. The replication
+  reports estimates and intervals instead of a pass/fail verdict.
 - The clean-and-fast *definition* is unchanged. Nothing is redefined
   after seeing data.
+- Wording for the record: "The original 7/10 rule remains part of
+  the historical B2 result, but the larger replication estimates
+  effect size and uncertainty rather than using an arbitrary binary
+  winner threshold." Do not describe the replication as the wrapper
+  "passing" or "winning" if a confidence interval crosses zero.
 
 ## Confidence intervals
 
-- Proportions: Clopper-Pearson exact binomial 95% CI.
-- Paired differences: exact McNemar-style CI for the proportion
-  difference; bootstrap (10,000 resamples) 95% CI for median return
-  difference.
+- Individual proportions: Clopper-Pearson exact binomial 95% CI.
+- Paired binary comparison (clean-and-fast vs not, same seeds
+  across arms): McNemar's exact test with an exact paired 95%
+  confidence interval for the difference in proportions.
+- Median return differences: bootstrap 95% CI with 10,000
+  resamples, resampling **seeds** (not episodes) with replacement.
+
+## Commit semantics
+
+- `nn/summary_b2.json`'s `metadata.git_commit` records the commit
+  whose `results_a5.jsonl` was read when the JSON was generated
+  (data provenance). A file cannot contain its own commit hash, so
+  this is necessarily the parent of the commit that contains the
+  JSON.
+- The **frozen replication commit** (approval item 1 below) is the
+  commit the owner approves to run from. It must contain the final
+  `summary_b2.json` and the approved `prereg_replication.md`.
+  Record both hashes; they differ by construction.
 
 ## Inclusion / exclusion
 
@@ -79,6 +98,10 @@ the B2 result stands as a pilot-scale suggestive finding.
 ## Approvals needed
 
 1. [ ] Code commit frozen for the replication: ___________
+       (must contain the final summary_b2.json and this approved note;
+       see "Commit semantics" above for how it relates to the JSON's
+       internal git_commit field)
 2. [ ] Seed range 10–49, arms plain/memory/wrapped confirmed
 3. [ ] 7/10 retired as gate; estimates + intervals reported instead
+       (wording above approved)
 4. [ ] Authorized to run (~120 seeds × ~1.8 min ≈ 4 hours)

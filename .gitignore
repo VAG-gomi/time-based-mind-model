@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+repro_*/
+run_a5.log

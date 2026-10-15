@@ -1,8 +1,8 @@
 {
   "schema": "summary_b2/v1",
   "metadata": {
-    "generated_utc": "2026-10-15T07:55:32.985515+00:00",
-    "git_commit": "b4220bc119ccf67412fdb56ed8c48a28937c0084",
+    "generated_utc": "2026-10-15T18:33:21.352777+00:00",
+    "git_commit": "21a6cb8736082b391f3810575f6ce499727888cc",
     "source": "nn/results_a5.jsonl",
     "generator": "nn/make_summary_json.py",
     "python": "3.12.3",
