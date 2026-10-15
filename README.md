@@ -45,10 +45,29 @@ at loss exactly 0.125; init scales ≤1e-3 never escape the saddle).
 - [x] A1: environment + speed check
 - [x] A2/A2b: network + gradient verification
 - [x] A3: XOR
-- [ ] A4: neural Q-learner in the world (`agent_nn.py`)
-- [ ] A5: baseline results (`run_arms.py`)
-- [ ] Sequence B: schedule-estimating feature wrapper (`wrapper.py`),
-      wrapped arm, full comparison
+- [x] A4: neural Q-learner in the world (`agent_nn.py`) — honest
+      partial failure: 4/5 seeds reach 1.00 greedy success; seed 1
+      reaches 0.30 (greedy stay-loop on a near-tied Q-value). See
+      `nn/output_a4.txt`.
+- [x] A5: baseline results (`run_arms.py`, seeds 0–9): plain 1/10
+      clean-and-fast, one-step-memory 1/10. See `nn/output_a5.txt`.
+- [x] R: comparison rule replaced pre-wrapper ("clean and fast":
+      0 crushes, success ≥ 0.9, return ≥ 0.75; wrapper wins iff
+      ≥ 7/10 seeds; p ≈ 0.01 Fisher exact vs 1/10).
+- [x] B1: schedule-estimating feature wrapper (`nn/wrapper.py`) —
+      all 6 checks PASS (`nn/test_wrapper.py`, `nn/output_b1.txt`).
+- [x] B2: wrapped arm (`nn/agent_wrapped.py`) + raw-clock control,
+      seeds 0–9. Result: wrapped **5/10** clean-and-fast — does NOT
+      win under its own 7/10 criterion; clock 0/10. Honest negative
+      with much improved safety/consistency (8/10 zero-crush,
+      10/10 success). See `nn/decisions_b2.md`.
+
+Note on test suites: `nn/test_agent_nn.py` still reports FAIL on its
+older five-seed all-must-pass gate (seed 1, 0.30 success) — that is
+the A4 honest partial failure, recorded as-is. The A5/B2 full
+comparison (`run_arms.py`) is a different, later protocol that
+intentionally reports all seeds heterogeneously instead of gating
+on all-pass.
 
 ## Running
 
