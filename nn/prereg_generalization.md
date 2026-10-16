@@ -1,7 +1,11 @@
-# Preregistration DRAFT: generalization — unseen schedules and
+# Preregistration DRAFT v2: generalization — unseen schedules and
 schedule changes (EBI priority 3)
 
-**Status: DRAFT. Do not run until owner-approved.**
+**Status: DRAFT v2. Do not run until owner-approved.**
+**Revises v1 per owner review (2026-10-16): fixed fast threshold,
+buffer handling, schedule-independent encoding, primary
+comparisons, Holm correction, equivalence margin, feasibility
+pilot.**
 
 ## Research questions
 
@@ -12,145 +16,196 @@ schedule changes (EBI priority 3)
    representation (with contradiction detection) adapt better than
    fixed oracle features or raw history?
 
+## Yardsticks on 30/14 (owner-simulated, all 30 start phases)
+
+- Naive: 0.736 return, crushed in 1/30 phases.
+- Time-aware (ceiling): 0.769.
+- Delay-line: 0.675.
+- Headroom (time-aware − naive): 0.033 (was 0.05 at 20/10).
+
+## Primary endpoint
+
+**Clean-and-fast**, same structure as before: greedy 0 crushes,
+success ≥ 0.9, return ≥ **fast**, where
+
+  fast = naive + 0.26 × (time-aware − naive)
+
+- On 30/14: 0.736 + 0.26 × 0.033 = **0.745**.
+- On 20/10: 0.737 + 0.26 × 0.050 = **0.750** (exactly; confirms
+  the 0.26 fraction reproduces the original bar).
+
+The 0.26 fraction keeps the definition constant across schedules:
+the bar sits 26% of the way from naive to the time-aware ceiling.
+Headroom on 30/14 is small (0.033), so expect low power — stated
+here, not discovered later.
+
 ## Experiment A: unseen schedule (30/14)
 
-Train from scratch on period 30, open_len 14. A 10-step history
-cannot cover the 14-tick open interval, and the 10-tick window is
-much shorter than the 30-tick period. The ScheduleModel, which
-learns the period from observed openings, should have a structural
-advantage here — if the representation matters beyond just "enough
-temporal context."
+Train from scratch on period 30, open_len 14.
 
-### Arms (all: hidden=32, lr=1e-3, 2000 episodes, same rewards/gamma)
+### Arms (hidden=32, lr=1e-3, 2000 episodes, same rewards/gamma)
 
-- `wrapped_live`: ScheduleModel wrapper with **live scaling** (see
-  Scaling below). 104 inputs.
-- `memory10`: last 10 door bits. 111 inputs.
-- `memory30`: last 30 door bits. 131 inputs. Covers the full period;
-  tests whether a long-enough history matches the wrapper.
-- `oracle_new`: TRUE phase (tick%30)/30 and TRUE remaining/14 for the
-  30/14 schedule, known=1. Upper bound: perfect knowledge of the new
-  schedule.
+- `wrapped_ind`: ScheduleModel wrapper with **schedule-independent
+  encoding** (see Scaling). 104 inputs.
+- `memory10`: last 10 door bits. 111 inputs. (Cannot cover the
+  14-tick open interval by construction.)
+- `memory20`: last 20 door bits. 121 inputs.
+- `memory30`: last 30 door bits. 131 inputs. Covers the full period.
+- `oracle_new`: TRUE phase (tick%30)/30, TRUE remaining/14,
+  known=1. Upper bound.
 
-### Seeds
+### Primary comparison
 
-10–49 (same seeds for implementation consistency; not paired with
-20/10 results — different task).
+`wrapped_ind` vs `memory30` (paired clean-and-fast difference).
+Beating `memory10` is expected by construction (it cannot see the
+full open window) and does not count as evidence for the
+representation.
+
+### Secondary comparisons
+
+`wrapped_ind` vs `memory20`, vs `memory10`, vs `oracle_new`
+(paired, same endpoint). Zero-crush, success, and median-return
+descriptives as before.
+
+### Multiple comparisons
+
+Holm correction applied across the 4 paired primary/secondary
+clean-and-fast comparisons in Experiment A. Reported: raw p,
+Holm-adjusted p, and the paired 95% CI (CIs are not
+multiplicity-adjusted; the correction applies to the p-values).
+
+### Equivalence
+
+"≈" is replaced by a pre-registered equivalence margin:
+|paired clean-and-fast difference| < **0.15** with the 95% CI
+fully inside [−0.15, +0.15] supports the interpretation of
+practical equivalence. At n=40 the CIs span roughly ±0.3, so
+equivalence will often be undecidable — that outcome is
+reported as-is.
 
 ## Experiment B: mid-run schedule change (20/10 → 30/14)
 
-Train all arms on 20/10 for 2000 episodes (standard protocol), then
-switch to a fresh World(30, 14) and continue training the **same**
-agent+encoder for 100 further episodes. Measure adaptation.
+Train on 20/10 for 2000 episodes, switch to World(30, 14),
+continue the **same** agent+encoder.
+
+### Buffer handling (pre-registered)
+
+The replay buffer holds 10,000 transitions, mostly from the old
+schedule after the switch. To measure adaptation rather than
+buffer dynamics:
+
+- Run **300 post-change episodes** (not 100): ~9,000+ new
+  transitions, enough to substantially refill the buffer.
+- **Documented variant**: clear the replay buffer for ALL arms at
+  the switch (same handling, no arm advantaged). Both variants
+  are pre-registered; the primary analysis uses the no-clear
+  variant, the clear variant is reported secondarily.
+- After the 300-episode window, run a **greedy evaluation** on
+  30/14 (all 30 start phases), since the windows themselves use
+  ε=0.05 training episodes.
 
 ### Arms
 
-- `wrapped_live`: ScheduleModel persists across the switch. Its
-  consistency check should fire (contradictions), drop stale
-  events, and re-learn the 30/14 schedule.
-- `memory10`, `memory30`: history buffers refill with new-schedule
-  observations naturally.
-- `oracle_stale`: continues providing 20/10-based phase/remaining
-  features after the switch. Tests wrong fixed knowledge.
-- `oracle_new`: switches to 30/14-based features at the change.
-  Upper bound: perfect knowledge of the new schedule, instantly.
+- `wrapped_ind`, `memory10`, `memory20`, `memory30` (as in A).
+- `oracle_stale`: 20/10-based features throughout (wrong fixed
+  knowledge after the switch).
+- `oracle_new`: 30/14-based features from the switch onward
+  (upper bound).
 
-### Metrics (first 100 episodes post-change)
+### Metrics
 
-- Mean crushes per episode in windows: episodes 1–20, 21–50, 51–100
-  post-change.
-- Mean return in the same windows.
-- For `wrapped_live`: contradiction count and re-convergence time
-  (first episode post-change with stable 30/14 estimates).
+- Per-window mean crushes and mean return: episodes 1–50,
+  51–150, 151–300 post-change (wider windows for the longer
+  horizon), per arm, 95% bootstrap CIs (resampling seeds).
+- Greedy clean-and-fast on 30/14 after the window (primary
+  endpoint definition, fast=0.745).
+- For `wrapped_ind`: contradiction count, first episode
+  post-change with stable 30/14 estimates.
+- **Episode-length report**: fraction of post-change episodes
+  with ≥ 31 ticks (minimum to observe two 30/14 openings).
+  Pre-registered because the model cannot learn the new period
+  in shorter episodes.
+
+### Primary comparison
+
+Greedy clean-and-fast post-change: `wrapped_ind` vs `memory30`
+(paired). Secondary: vs `memory20`, vs `oracle_stale`
+(Holm-corrected with the primary).
 
 ## Scaling (both experiments)
 
-No arm may use the true schedule's constants (30, 14) as feature
-scales — except `oracle_new`, which is explicitly the
-perfect-knowledge upper bound.
+No arm may use the true schedule's constants as feature scales —
+except `oracle_new`, the explicit upper bound.
 
-- `wrapped_live`: phase / period_hat and remaining / open_len_hat,
-  where period_hat and open_len_hat are the ScheduleModel's live
-  estimates. While the period is unknown (partial knowledge),
-  phase is scaled by GENERIC_SCALE = 50.0 (fixed, documented,
-  larger than any schedule in the test suite — not tuned to any
-  specific schedule). The known flag is 1 iff both features are
-  available, as before.
-- `oracle_new`: the only arm permitted the true constants.
-- `oracle_stale`: uses 20.0/10.0 (the old schedule) throughout.
-- `memory10`/`memory30`: no scaling involved.
+- `wrapped_ind`: **schedule-independent encoding**:
+  - remaining_capped = min(open_ticks_remaining, 5) / 5.0.
+    "2 ticks left" (minimum safe crossing margin) is 0.4 —
+    a stable, schedule-free threshold. Capping at 5 keeps the
+    feature in [0,1] on any schedule.
+  - phase = ticks_since_opening / 50.0. Fixed generic divisor,
+    larger than any tested period, not tuned to any schedule.
+  - known flag as before (1 iff both features available).
+  - This replaces the v1 live-estimate scaling, which made
+    "2 ticks left" worth 0.2/0.14/0.02 depending on open_len —
+    hiding the number that matters.
+- `oracle_new`: permitted the true constants (upper bound).
+- `oracle_stale`: 20.0/10.0 throughout.
+- Histories: no scaling.
 
-## Wrapper limits and assumptions (stated pre-registration)
+### Regression check (pre-registered)
 
-1. **Episode length.** The ScheduleModel learns a period from clean
-   opening-to-opening spans. With EPISODE_CAP=200, a period of 30
-   requires 31 consecutive observed ticks — available. Probe
-   result (owner): with 21-tick episodes the model never learns
-   period 20 from scratch, because two openings rarely fall in one
-   episode without a gap. The experiments use cap 200 throughout;
-   results are conditional on episodes long enough to contain two
-   openings.
-2. **Exploration.** The model learns only from observed
-   transitions. If the agent never visits the door region, no
-   schedule is learned. Results are conditional on the epsilon-greedy
-   exploration (1.0 → 0.05 over 1000 episodes) producing door
-   observations.
-3. **Contradiction recovery.** After a schedule change, the model
-   drops all events on the first contradiction and re-learns from
-   scratch. There is no blending of old and new estimates.
-4. **Partial knowledge.** Before the period is learned, the wrapper
-   provides remaining-time from open_len + a clean opening (no
-   period needed). This path is preserved in `wrapped_live`.
+`wrapped_ind` is a new arm. Before the big runs, verify it on
+20/10 against the verified `wrapped` arm: seeds 100–104,
+paired clean-and-fast. Expect equivalence (|diff| < 0.15);
+if not equivalent, halt and diagnose — do not proceed.
+
+## Feasibility pilot (pre-registered, before the full runs)
+
+Seeds **100–104** on the final code, all Experiment A arms,
+30/14, 2000 episodes. Confirms every arm can learn on 30/14
+within the episode budget (longer episodes make learning harder;
+this is not guaranteed). If any arm fails to learn (0/5
+clean-and-fast AND median return below naive), halt and
+diagnose — do not launch the 40-seed runs.
+
+The pilot also reports the fraction of episodes ≥ 31 ticks
+(informative for Experiment B's episode-length assumption).
 
 ## Seeds and protocol
 
-- Experiment A: 5 arms? No — 4 arms (wrapped_live, memory10,
-  memory30, oracle_new) × 40 seeds (10–49) = 160 seeds.
-- Experiment B: 5 arms (wrapped_live, memory10, memory30,
-  oracle_stale, oracle_new) × 40 seeds = 200 seeds, each with
-  2000 + 100 episodes.
-- Same evaluation: greedy + eps=0.05 over all 20 (Exp A: 30)
-  start phases. Note: start phases must cover the new period
-  (30 phases for 30/14).
-- Output: nn/results_generalization.jsonl, nn/output_generalization.txt.
+- Pilot: seeds 100–104 (5 arms × 5 seeds = 25 seeds).
+- Regression: seeds 100–104, wrapped_ind vs wrapped on 20/10.
+- Experiment A: 5 arms × 40 seeds (10–49) = 200 seeds.
+- Experiment B: 6 arms × 40 seeds (10–49) = 240 seeds ×
+  2300 episodes each.
+- Evaluation: greedy + eps=0.05 over all 30 start phases (30/14).
+- Output: nn/results_generalization.jsonl,
+  nn/output_generalization.txt.
+- **Two parallel processes** to halve wall time (arms split
+  across processes; seeds within an arm are independent).
 
 ## Analysis plan (intervals only, as before)
 
-Experiment A (same as replication):
-1. Clean-and-fast proportions with Clopper-Pearson 95% CIs.
-   (Thresholds: 0 crushes, success ≥ 0.9, return ≥ 0.75 —
-   same definition; the return ceiling differs on 30/14 and
-   will be reported.)
-2. Paired wrapped_live-minus-control differences: McNemar exact
-   p + paired 95% CI.
-3. Median return diffs: 10,000-seed bootstrap 95% CI (seed=0).
-4. Zero-crush / success descriptive.
-
-Experiment B (adaptation):
-1. Per-window (1–20, 21–50, 51–100) mean crushes and mean return,
-   per arm, with 95% bootstrap CIs (resampling seeds).
-2. Paired differences wrapped_live vs each other arm per window.
-3. Contradiction/re-convergence descriptives for wrapped_live.
+As in the replication: Clopper-Pearson, McNemar exact paired
+CIs, 10,000-seed bootstrap (seed=0) for median diffs.
+Experiment B adds the windowed adaptation metrics above.
+One primary endpoint per experiment; Holm correction as
+specified; equivalence margin ±0.15.
 
 ## Interpretation rules (pre-registered, cautious language)
 
-- If `wrapped_live` > `memory10` on 30/14 (paired CI excludes
-  zero): supports the interpretation that the inferred schedule
-  representation adds value beyond a short history when the
-  history cannot cover the open interval.
-- If `wrapped_live` ~= `memory30`: supports the interpretation
-  that a long-enough raw history remains sufficient; the
-  representation is not necessary.
-- If `oracle_new` >> all: perfect knowledge still dominates, as
-  expected; the question is the ranking among the non-oracle arms.
-- Experiment B: if `wrapped_live` recovers (crushes → 0) faster
-  than `oracle_stale` and `memory10`: supports the interpretation
-  that contradiction-detection + re-learning adapts better than
-  stale fixed features or short history.
-- If `wrapped_live` recovers no faster than `memory30`: the
-  adaptation advantage, if any, does not require the explicit
-  model.
-- All statements are task-and-protocol bounded; none proves
+- Exp A primary (`wrapped_ind` vs `memory30`, CI excludes zero):
+  supports the interpretation that the inferred schedule
+  representation adds value beyond a long history when the
+  history must span the full period.
+- Exp A equivalence (|diff| < 0.15, CI inside margin): supports
+  the interpretation that a long-enough raw history remains
+  sufficient.
+- Exp B: `wrapped_ind` recovering (crushes → 0) faster than
+  `oracle_stale`: supports the interpretation that
+  contradiction-detection + re-learning adapts better than
+  stale fixed features.
+- All statements task-and-protocol bounded; none proves
   causality or generalizes beyond the tested schedules.
 
 ## Missing-data rule
@@ -160,18 +215,19 @@ analysis; available records retained descriptively.
 
 ## Code to be written (after approval)
 
-- nn/agent_generalization.py: WrappedLiveEncoder, Memory30Encoder,
-  OracleNewEncoder, OracleStaleEncoder; structural checks.
-- nn/run_arms.py: wire new arms; support --period/--open_len and
-  post-change continuation for Experiment B.
-- nn/analyze_generalization.py: deterministic regeneration of all
-  reported statistics.
+- nn/agent_generalization.py: WrappedIndEncoder, Memory20Encoder,
+  Memory30Encoder, OracleNewEncoder, OracleStaleEncoder;
+  structural checks.
+- nn/run_arms.py: wire new arms; --period/--open_len support;
+  Experiment B continuation + buffer-clear variant.
+- nn/analyze_generalization.py: deterministic regeneration.
 
 ## Compute estimate
 
-- Experiment A: 160 seeds ≈ 5 hours.
-- Experiment B: 200 seeds × 2100 episodes ≈ 6.5 hours.
-- Total ≈ 11–12 hours.
+- Pilot + regression: 25 + 10 seeds ≈ 1 hour.
+- Experiment A: 200 seeds ≈ 6 hours (3 h with 2 processes).
+- Experiment B: 240 seeds × 2300 ep ≈ 7.5 hours (3.75 h × 2).
+- Total ≈ 14–15 hours serial, ~7–8 hours with 2 processes.
 
 Approved: _________________  Date: ___________
 Frozen code commit: ___________
