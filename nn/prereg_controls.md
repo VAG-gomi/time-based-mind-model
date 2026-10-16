@@ -75,4 +75,5 @@ available records descriptively.
 - nn/run_arms.py extended with the five new arms
 - Frozen for this experiment at the commit containing this file.
 
-Approved: _________________  Date: ___________
+Approved: owner (via chat, 2026-10-15) after causal-language revision.
+Frozen code commit: 9d5bd39. Date: 2026-10-15.
