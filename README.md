@@ -61,6 +61,23 @@ at loss exactly 0.125; init scales ≤1e-3 never escape the saddle).
       win under its own 7/10 criterion; clock 0/10. Honest negative
       with much improved safety/consistency (8/10 zero-crush,
       10/10 success). See `nn/decisions_b2.md`.
+- [x] Replication: 40 fresh paired seeds (10–49), arms
+      plain/memory/wrapped, preregistered (`nn/prereg_replication.md`,
+      7/10 gate retired). Result: wrapped **26/40 (65%, CI 48–79%)**
+      vs plain 0/40 vs memory 7/40 (17.5%). Paired differences
+      significant, all intervals exclude zero. See
+      `nn/decisions_replication.md`. Analysis regenerable via
+      `nn/analyze_replication.py`.
+- [x] Matched controls: 5 arms × 40 seeds (10–49), preregistered
+      (`nn/prereg_controls.md`). Result: oracle 30/40, memory10 31/40,
+      remaining_only 27/40, phase_only 26/40, wrapped 26/40,
+      param_matched 0/40. No control significantly worse than wrapped
+      except param_matched (p<0.0001). Interpretation: temporal
+      information in any sufficient form explains the gain; the
+      schedule representation is sufficient but not unique. See
+      `nn/decisions_controls.md`.
+- [ ] Generalization: unseen schedules + mid-run schedule changes
+      (preregistration draft pending approval).
 
 Note on test suites: `nn/test_agent_nn.py` still reports FAIL on its
 older five-seed all-must-pass gate (seed 1, 0.30 success) — that is
