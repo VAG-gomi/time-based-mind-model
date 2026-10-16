@@ -50,6 +50,11 @@ from agent_nn import (PERIOD, OPEN_LEN, EPISODE_CAP, R_STEP, R_GOAL, R_CRUSH,
 from agent_mem import MemoryEncoder, train_memory
 from agent_wrapped import (train_wrapped, WrappedEncoder,
                            train_clock, ClockEncoder)
+from agent_controls import (OracleEncoder, PhaseOnlyEncoder,
+                            RemainingOnlyEncoder, ParamMatchedEncoder,
+                            MemoryNEncoder, train_oracle,
+                            train_phase_only, train_remaining_only,
+                            train_param_matched, train_memory10)
 
 HIDDEN = 32
 LR = 1e-3
@@ -302,6 +307,26 @@ def run_arm_seed(arm, seed, episodes):
         agent, stats = train_clock(seed, hidden=HIDDEN,
                                    episodes=episodes, lr=LR)
         policy = LearnedPolicy(agent, ClockEncoder())
+    elif arm == "oracle":
+        agent, stats = train_oracle(seed, hidden=HIDDEN,
+                                    episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, OracleEncoder())
+    elif arm == "phase_only":
+        agent, stats = train_phase_only(seed, hidden=HIDDEN,
+                                        episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, PhaseOnlyEncoder())
+    elif arm == "remaining_only":
+        agent, stats = train_remaining_only(seed, hidden=HIDDEN,
+                                            episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, RemainingOnlyEncoder())
+    elif arm == "param_matched":
+        agent, stats = train_param_matched(seed, hidden=HIDDEN,
+                                           episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, ParamMatchedEncoder())
+    elif arm == "memory10":
+        agent, stats = train_memory10(seed, hidden=HIDDEN,
+                                      episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, MemoryNEncoder())
     else:
         raise ValueError("unknown arm %r" % (arm,))
     greedy = _pack(summarize_rows(evaluate(policy, 0.0, 1, None)))
