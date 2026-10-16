@@ -41,18 +41,25 @@ Output: nn/results_controls.jsonl (separate file).
 
 ## Interpretation rules (pre-registered)
 
-- If `oracle` >> `wrapped`: the inferred representation is lossy;
-  perfect knowledge helps more.
-- If `oracle` ~= `wrapped`: the ScheduleModel already extracts
-  everything the task needs from observations.
-- If `phase_only` or `remaining_only` ~= `wrapped`: that single
-  feature explains the gain; the other is redundant.
-- If `param_matched` ~= `wrapped`: the gain was just parameters.
-  (Expected: no, given the 96-param difference.)
-- If `memory10` ~= `wrapped`: a long history window suffices; no
-  explicit schedule representation needed.
-- If `wrapped` > all controls: the inferred schedule representation
-  itself is the cause.
+- If `oracle` >> `wrapped`: supports the interpretation that the
+  inferred representation is lossy; perfect knowledge helps more.
+- If `oracle` ~= `wrapped`: supports the interpretation that the
+  ScheduleModel already extracts everything the task needs from
+  observations.
+- If `phase_only` or `remaining_only` ~= `wrapped`: supports the
+  interpretation that that single feature explains the gain; the
+  other is redundant.
+- If `param_matched` ~= `wrapped`: supports the interpretation that
+  the advantage may be attributable to parameter/input capacity
+  rather than schedule information. (Expected: no, given the
+  96-param difference.)
+- If `memory10` ~= `wrapped`: supports the interpretation that a
+  long history window suffices; no explicit schedule representation
+  needed.
+- If `wrapped` > all controls: the result supports the inferred
+  schedule representation as the strongest explanation among the
+  tested alternatives. It does not by itself prove causality or
+  generalize beyond this task and protocol.
 
 No binary win/lose gate. Estimates and intervals only.
 
