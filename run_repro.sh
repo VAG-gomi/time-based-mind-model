@@ -23,6 +23,7 @@ mkdir -p "$OUT"
   echo "branch: $(git -C "$ROOT" rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
   echo "python: $(python3 --version 2>&1)"
   echo "numpy: $(python3 -c 'import numpy; print(numpy.__version__)' 2>&1)"
+  echo "scipy: $(python3 -c 'import scipy; print(scipy.__version__)' 2>&1)"
   echo "os: $(uname -srm)"
   echo "date_utc: $STAMP"
 } > "$OUT/environment.txt"
@@ -45,6 +46,7 @@ run_one test_nnet python3 test_nnet.py
 run_one test_wrapper python3 test_wrapper.py
 run_one agent_wrapped_checks python3 agent_wrapped.py
 run_one test_agent_nn python3 test_agent_nn.py || true
+run_one analyze_replication python3 analyze_replication.py
 
 echo "done: $OUT"
 ls "$OUT"

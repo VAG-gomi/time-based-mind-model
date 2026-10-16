@@ -78,4 +78,4 @@ python3 bench.py > output.txt       # A1
 python3 test_nnet.py > output_a2b_a3.txt   # A2b + A3
 ```
 
-numpy is the only dependency. Everything is seeded and reproducible.
+numpy and scipy are the only dependencies. Everything is seeded and reproducible.
