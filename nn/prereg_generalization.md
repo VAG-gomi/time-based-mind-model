@@ -230,4 +230,4 @@ analysis; available records retained descriptively.
 - Total ≈ 14–15 hours serial, ~7–8 hours with 2 processes.
 
 Approved: owner (via chat, 2026-10-16, v2).  Date: 2026-10-16.
-Frozen code commit: ___________ (to be filled when code is frozen)
+Frozen code commit: 023317f (generalization encoders + run_arms wiring).
