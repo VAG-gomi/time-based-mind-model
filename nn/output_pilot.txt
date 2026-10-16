@@ -1,0 +1,128 @@
+A5/B2: baseline arms, wrapped arm, and clock control
+python 3.12.3 | numpy 1.26.4
+hyperparameters: hidden=32, lr=0.001, episodes=2000, gamma=0.99, rewards step=-0.01 goal=1.0 crush=-1.0, episode cap=200, period=30 open_len=14
+protocol: each (arm, seed) trains once, then two evaluations over all 20 start phases: pure greedy (1 episode/phase) and eps = 0.05 (10 episodes/phase, agent's own RNG stream, fixed pipeline order). Primary metric: mean episode return (undiscounted sum of rewards, failure included).
+
+SEQUENCE B COMPARISON RULE (adopted in A5-R, before the wrapper exists;
+replaces the median-based rule of A5. Reason: the return ceiling is
+small -- time-aware 0.787, naive 0.737, delay-line 0.725 -- so at most
+~0.05 separates the best from the naive plateau, while seed-to-seed
+spread (std 0.49 in the memory arm) dwarfs it; and greedy returns
+cluster on plateaus (0.737 naive, 0.787 ideal), so a median mostly
+records which plateau most seeds landed on. Demanding 10/10 perfect
+seeds also punishes the learner's greedy "stay"-loop property rather
+than the wrapper.)
+A seed is "clean and fast" iff its greedy run has zero crushes,
+success >= 0.9, and mean return >= 0.75. (With 0 crushes and full
+success, return >= 0.75 is mean ticks <= 25: strictly better than the
+naive plateau at 0.737, short of the tick-knowing ideal at 0.787.)
+A5 baselines: plain 1/10 clean-and-fast (seed 2), memory 1/10
+(seed 8); counts are recomputed in the per-arm aggregates below.
+The wrapped arm trains on the same seeds 0-9, with the same budget
+(2000 episodes), the same hyperparameters, and the same evaluation
+(greedy + eps = 0.05). The wrapped arm WINS iff at least 7 of its 10
+seeds are clean and fast. Against either baseline's 1/10, 7/10 is
+p ~= 0.01 by Fisher's exact test (one-sided). The eps = 0.05
+evaluation stays a robustness report, not a gate: a wrapper that wins
+on greedy but collapses under eps = 0.05 noise must say so.
+
+
+##### memory10 arm: per-seed table #####
+per-seed (greedy)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.724 |    0.000 |    1.00 |       27.6
+ 101 |       0.741 |    0.000 |    1.00 |       25.9
+ 102 |       0.559 |    0.000 |    1.00 |       44.1
+ 103 |       0.707 |    0.000 |    1.00 |       29.3
+ 104 |       0.736 |    0.000 |    1.00 |       26.4
+per-seed (eps005)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.716 |    0.000 |    1.00 |       28.4
+ 101 |       0.733 |    0.000 |    1.00 |       26.7
+ 102 |       0.571 |    0.000 |    1.00 |       42.9
+ 103 |       0.662 |    0.000 |    1.00 |       32.9
+ 104 |       0.726 |    0.000 |    1.00 |       27.4
+memory10 arm aggregates (5 seeds)
+  greedy: median return 0.724 | min 0.559 | max 0.741 | std 0.068 | zero-crush seeds 5/5 | success>=0.9 seeds 5/5
+  eps005: median return 0.716 | min 0.571 | max 0.733 | std 0.061 | zero-crush seeds 5/5 | success>=0.9 seeds 5/5
+  clean-and-fast seeds (greedy: 0 crushes, success>=0.9, return>=0.75): 0/5 []
+
+##### memory20 arm: per-seed table #####
+per-seed (greedy)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.743 |    0.000 |    1.00 |       25.7
+ 101 |       0.723 |    0.000 |    1.00 |       27.7
+ 102 |       0.660 |    0.000 |    1.00 |       34.0
+ 103 |       0.726 |    0.000 |    1.00 |       27.4
+ 104 |       0.729 |    0.000 |    1.00 |       27.1
+per-seed (eps005)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.736 |    0.000 |    1.00 |       26.4
+ 101 |       0.714 |    0.000 |    1.00 |       28.6
+ 102 |       0.645 |    0.003 |    1.00 |       35.1
+ 103 |       0.718 |    0.000 |    1.00 |       28.2
+ 104 |       0.722 |    0.000 |    1.00 |       27.8
+memory20 arm aggregates (5 seeds)
+  greedy: median return 0.726 | min 0.660 | max 0.743 | std 0.029 | zero-crush seeds 5/5 | success>=0.9 seeds 5/5
+  eps005: median return 0.718 | min 0.645 | max 0.736 | std 0.032 | zero-crush seeds 4/5 | success>=0.9 seeds 5/5
+  clean-and-fast seeds (greedy: 0 crushes, success>=0.9, return>=0.75): 0/5 []
+
+##### memory30 arm: per-seed table #####
+per-seed (greedy)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.743 |    0.000 |    1.00 |       25.7
+ 101 |       0.738 |    0.000 |    1.00 |       26.2
+ 102 |       0.742 |    0.000 |    1.00 |       25.8
+ 103 |       0.717 |    0.000 |    1.00 |       28.3
+ 104 |       0.740 |    0.000 |    1.00 |       26.0
+per-seed (eps005)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.736 |    0.000 |    1.00 |       26.4
+ 101 |       0.543 |    0.000 |    0.93 |       26.6
+ 102 |       0.701 |    0.000 |    0.99 |       28.1
+ 103 |       0.704 |    0.003 |    1.00 |       29.3
+ 104 |       0.732 |    0.000 |    1.00 |       26.8
+memory30 arm aggregates (5 seeds)
+  greedy: median return 0.740 | min 0.717 | max 0.743 | std 0.010 | zero-crush seeds 5/5 | success>=0.9 seeds 5/5
+  eps005: median return 0.704 | min 0.543 | max 0.736 | std 0.072 | zero-crush seeds 4/5 | success>=0.9 seeds 5/5
+  clean-and-fast seeds (greedy: 0 crushes, success>=0.9, return>=0.75): 0/5 []
+
+##### oracle_new arm: per-seed table #####
+per-seed (greedy)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.719 |    0.033 |    1.00 |       24.8
+ 101 |       0.575 |    0.000 |    1.00 |       42.5
+ 102 |       0.615 |    0.000 |    1.00 |       38.5
+ 103 |       0.749 |    0.000 |    1.00 |       25.1
+ 104 |       0.655 |    0.000 |    1.00 |       34.5
+per-seed (eps005)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.695 |    0.037 |    1.00 |       25.9
+ 101 |       0.613 |    0.000 |    1.00 |       38.7
+ 102 |       0.580 |    0.000 |    1.00 |       42.0
+ 103 |       0.733 |    0.003 |    1.00 |       26.3
+ 104 |       0.632 |    0.000 |    1.00 |       36.8
+oracle_new arm aggregates (5 seeds)
+  greedy: median return 0.655 | min 0.575 | max 0.749 | std 0.064 | zero-crush seeds 4/5 | success>=0.9 seeds 5/5
+  eps005: median return 0.632 | min 0.580 | max 0.733 | std 0.056 | zero-crush seeds 3/5 | success>=0.9 seeds 5/5
+  clean-and-fast seeds (greedy: 0 crushes, success>=0.9, return>=0.75): 0/5 []
+
+##### wrapped_ind arm: per-seed table #####
+per-seed (greedy)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.753 |    0.000 |    1.00 |       24.7
+ 101 |       0.769 |    0.000 |    1.00 |       23.1
+ 102 |       0.760 |    0.000 |    1.00 |       24.0
+ 103 |       0.715 |    0.000 |    1.00 |       28.5
+ 104 |       0.735 |    0.000 |    1.00 |       26.5
+per-seed (eps005)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.711 |    0.000 |    1.00 |       28.9
+ 101 |       0.718 |    0.000 |    1.00 |       28.2
+ 102 |       0.701 |    0.003 |    1.00 |       29.6
+ 103 |       0.688 |    0.000 |    1.00 |       31.2
+ 104 |       0.715 |    0.000 |    1.00 |       28.5
+wrapped_ind arm aggregates (5 seeds)
+  greedy: median return 0.753 | min 0.715 | max 0.769 | std 0.019 | zero-crush seeds 5/5 | success>=0.9 seeds 5/5
+  eps005: median return 0.711 | min 0.688 | max 0.718 | std 0.011 | zero-crush seeds 4/5 | success>=0.9 seeds 5/5
+  clean-and-fast seeds (greedy: 0 crushes, success>=0.9, return>=0.75): 3/5 [100, 101, 102]
