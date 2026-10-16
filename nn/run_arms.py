@@ -55,6 +55,11 @@ from agent_controls import (OracleEncoder, PhaseOnlyEncoder,
                             MemoryNEncoder, train_oracle,
                             train_phase_only, train_remaining_only,
                             train_param_matched, train_memory10)
+from agent_generalization import (WrappedIndEncoder, Memory20Encoder,
+                                  Memory30Encoder, OracleNewEncoder,
+                                  OracleStaleEncoder, train_wrapped_ind,
+                                  train_memory20, train_memory30,
+                                  train_oracle_new, train_oracle_stale)
 
 HIDDEN = 32
 LR = 1e-3
@@ -327,6 +332,29 @@ def run_arm_seed(arm, seed, episodes):
         agent, stats = train_memory10(seed, hidden=HIDDEN,
                                       episodes=episodes, lr=LR)
         policy = LearnedPolicy(agent, MemoryNEncoder())
+    elif arm == "wrapped_ind":
+        agent, stats, encoder = train_wrapped_ind(
+            seed, hidden=HIDDEN, episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, encoder)
+        extra = {"frac_ticks_known": encoder.frac_known(),
+                 "model_contradictions": encoder.model.contradictions}
+    elif arm == "memory20":
+        agent, stats = train_memory20(seed, hidden=HIDDEN,
+                                      episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, Memory20Encoder())
+    elif arm == "memory30":
+        agent, stats = train_memory30(seed, hidden=HIDDEN,
+                                      episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, Memory30Encoder())
+    elif arm == "oracle_new":
+        agent, stats = train_oracle_new(seed, PERIOD, OPEN_LEN,
+                                        hidden=HIDDEN, episodes=episodes,
+                                        lr=LR)
+        policy = LearnedPolicy(agent, OracleNewEncoder(PERIOD, OPEN_LEN))
+    elif arm == "oracle_stale":
+        agent, stats = train_oracle_stale(seed, hidden=HIDDEN,
+                                          episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, OracleStaleEncoder())
     else:
         raise ValueError("unknown arm %r" % (arm,))
     greedy = _pack(summarize_rows(evaluate(policy, 0.0, 1, None)))
@@ -495,7 +523,24 @@ def main():
                     help="truncate the results file instead of resuming")
     ap.add_argument("--skip-yardsticks", action="store_true")
     ap.add_argument("--summarize-only", action="store_true")
+    ap.add_argument("--period", type=int, default=None,
+                    help="override world period (default: 20)")
+    ap.add_argument("--open-len", type=int, default=None,
+                    help="override world open length (default: 10)")
     args = ap.parse_args()
+
+    # Schedule override: rebind the module globals used by train_neural
+    # (agent_nn), run_episode, evaluate, and HYPERPARAMS below.
+    if args.period is not None or args.open_len is not None:
+        import agent_nn as _ann
+        p = args.period if args.period is not None else PERIOD
+        o = args.open_len if args.open_len is not None else OPEN_LEN
+        _ann.PERIOD = p
+        _ann.OPEN_LEN = o
+        globals()["PERIOD"] = p
+        globals()["OPEN_LEN"] = o
+        globals()["HYPERPARAMS"] = dict(HYPERPARAMS, period=p,
+                                        open_len=o)
 
     if args.overwrite and os.path.exists(args.out):
         os.remove(args.out)

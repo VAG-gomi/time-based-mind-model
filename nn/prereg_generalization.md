@@ -229,5 +229,5 @@ analysis; available records retained descriptively.
 - Experiment B: 240 seeds × 2300 ep ≈ 7.5 hours (3.75 h × 2).
 - Total ≈ 14–15 hours serial, ~7–8 hours with 2 processes.
 
-Approved: _________________  Date: ___________
-Frozen code commit: ___________
+Approved: owner (via chat, 2026-10-16, v2).  Date: 2026-10-16.
+Frozen code commit: ___________ (to be filled when code is frozen)
