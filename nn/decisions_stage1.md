@@ -35,6 +35,14 @@ in hyperparams; v2 records do not; training code identical.
 All three gates pass. Proceeding to Stage 2 requires a separate
 owner approval.
 
+**Correction (2026-10-17, owner review):** the clean-and-fast
+column above was recomputed at the single 0.744 bar. The first
+version of this table had evaluated the five reused v2 arms at
+their original 0.75 bar; at 0.744, `oracle_new` is 1/5 (seed 103:
+0.749, no crushes), `oracle_ind` 2/5 (was 1/5 at 0.75). Gate
+verdicts are unaffected (they never used clean-and-fast on the
+reused arms).
+
 ## Descriptives (30/14 pilot, fast=0.744)
 
 | Arm          | Clean-and-fast | Median return | Zero-crush | Success>=0.9 |
@@ -43,7 +51,7 @@ owner approval.
 | memory10     | 0/5            | 0.724         | 5/5        | 5/5          |
 | memory20     | 0/5            | 0.726         | 5/5        | 5/5          |
 | memory30     | 0/5            | 0.740         | 5/5        | 5/5          |
-| oracle_new   | 0/5            | 0.655         | 4/5        | 5/5          |
+| oracle_new   | 1/5            | 0.655         | 4/5        | 5/5          |
 | phase_only_new | 2/5          | 0.740         | 4/5        | 5/5          |
 | oracle_ind   | 2/5            | 0.737         | 5/5        | 5/5          |
 

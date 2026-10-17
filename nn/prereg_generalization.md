@@ -1,9 +1,37 @@
-# Preregistration DRAFT v3.1: generalization — unseen schedules and
+# Preregistration DRAFT v3.2: generalization — unseen schedules and
 schedule changes (EBI priority 3)
 
-**Status: DRAFT v3.1. Do not run the main experiments until
+**Status: DRAFT v3.2. Do not run the main experiments until
 owner-approved. Requires new approval and new code freeze.**
-**Revises v3 per owner review (2026-10-17).**
+**Revises v3.1 per owner review (2026-10-17).**
+
+## What changed in v3.2 (and why)
+
+1. **Stage 1 is complete; all three pre-registered Stage 2 gates
+   passed** (details in "Stage 1 results"). The gates were computed
+   from the raw records and independently verified by the owner.
+2. **Experiment A was underpowered for its primary comparison.**
+   Simulation of the exact McNemar test (independent Bernoulli
+   0.6/0.4 per pair, two-sided α=0.05, 20k trials): power ≈ 0.33
+   at n=40, ≈ 0.77 at n=100. v3.2 reallocates the same 280-seed
+   budget: 100 seeds for the primary pair (`wrapped_ind` vs
+   `phase_only_new`), 40 each for `oracle_ind` and `memory30`;
+   `memory10`, `memory20`, `oracle_new` are dropped from A.
+3. **Experiment B's primary comparisons were decided by
+   construction** (stale clock fails by design; history arms lack
+   the clock; the new clock and `oracle_ind` are handed the new
+   schedule). v3.2 makes the primary the paired mean-return gap
+   `wrapped_ind` − `oracle_ind` over post-change episodes 1–300 —
+   the cost of inferring the schedule — with equivalence margin
+   ±0.01 (proposed and justified below). Stale/history arms stay
+   as sanity/secondary comparisons.
+4. **All pilot tables now use the single 0.744 bar.** This corrects
+   an error in `decisions_stage1.md` v1, which scored the five
+   reused v2 arms at their original 0.75 bar: at 0.744,
+   `oracle_new` is 1/5 (seed 103: 0.749, no crushes), not 0/5;
+   `oracle_ind` is 2/5 (was 1/5 at 0.75). Gate verdicts were
+   unaffected. The v2 pilot log below keeps its original 0.75-bar
+   values as the historical record.
 
 ## Pilot log (v2 pilot — already ran)
 
@@ -71,163 +99,246 @@ honestly.
 code uses 0.744. (0.744 = 0.736 + 0.26×0.033 = 0.74458,
 truncated to the script's print precision.)
 
-## Primary endpoint
+## Stage 1 results (2026-10-17)
 
-**Clean-and-fast**: greedy 0 crushes, success ≥ 0.9, return ≥
-**0.744** on 30/14.
+Owner approval 2026-10-17 (Stage 1 only; record at end of this
+document). Frozen code: 888355c.
 
-## Experiment A: unseen schedule (30/14)
+**Reuse gate:** `wrapped_ind` seed 100 re-ran at the frozen code
+and reproduced the v2 record **bit-for-bit** (full record
+identical). The five v2 arms' code paths were verified unchanged
+between 023317f and 888355c (additive-only diff), so the 25 v2
+records were reused. 20 new seeds ran: `phase_only_new` +
+`oracle_ind` × 100–104 on 30/14 (`--fast-threshold 0.744`,
+`nn/results_stage1.jsonl`); `wrapped_ind` × 100–109 on 20/10
+(`--fast-threshold 0.750`, `nn/results_regression.jsonl`).
 
-### Construction problem (as v3)
+**Gate verdicts (pre-registered before the runs; independently
+verified by the owner from the raw records):**
 
-History-only arms are structurally disadvantaged (ceiling
-~0.743 < 0.744 bar). Beating them is expected by construction.
+1. **Success rule: PASS.** All 7 pilot arms 5/5 seeds with
+   success ≥ 0.9.
+2. **Regression: PASS.** `wrapped_ind` 20/10 seeds 100–109:
+   6/10 clean-and-fast (≥4), 10/10 zero-crush (≥8).
+3. **`oracle_ind` as upper bound: PASS (thin).** Median 0.737 ≥
+   0.733 (`wrapped_ind` 0.753 − 0.02), 5/5 zero-crush. Margin
+   above the bar: 0.004.
 
-### Arms
+**Pilot table at the single 0.744 bar (greedy):**
 
-- `wrapped_ind`: ScheduleModel + schedule-independent encoding.
-  104 inputs.
-- `phase_only_new`: (tick%30)/30, no inference. **Primary
-  comparison.**
-- `oracle_ind`: true phase/remaining with wrapped_ind's encoding
-  (phase/50, remaining capped 5/5). **Clean upper bound and
-  clean test of inference** — same encoding as wrapped_ind,
-  perfect info vs inferred info.
-- `memory10` / `memory20` / `memory30`: secondary, with the
-  structural-disadvantage interpretation pre-registered.
-- `oracle_new`: secondary, "upper bound" label **suspended**
-  pending diagnosis of the pilot anomaly.
+| Arm            | Clean-and-fast | Median return | Zero-crush | Success |
+|----------------|----------------|---------------|------------|---------|
+| wrapped_ind    | 3/5            | 0.753         | 5/5        | 5/5     |
+| memory10       | 0/5            | 0.724         | 5/5        | 5/5     |
+| memory20       | 0/5            | 0.726         | 5/5        | 5/5     |
+| memory30       | 0/5            | 0.740         | 5/5        | 5/5     |
+| oracle_new     | 1/5            | 0.655         | 4/5        | 5/5     |
+| phase_only_new | 2/5            | 0.740         | 4/5        | 5/5     |
+| oracle_ind     | 2/5            | 0.737         | 5/5        | 5/5     |
 
-### Primary comparison
+Reading (5 seeds each — descriptive only): the wrapper, the plain
+clock, and the oracle are not distinguishable yet (3/5, 2/5, 2/5);
+history arms are 0/5 but perfectly safe, as the ceiling analysis
+predicted. Treat `oracle_ind` as "not clearly worse", not as a
+demonstrated upper bound.
 
-`wrapped_ind` vs `phase_only_new` (paired, McNemar exact).
+### Seed-101 diagnostic (records only)
 
-### Secondary
+`oracle_ind` seed 101: greedy return 0.556, 44.4 ticks, 0 crushes;
+eps005 eval 0.580, 42.0 ticks, 0 crushes; late-training (ε=0.05)
+behavior 28.2 ticks, 0 crushes, 1.00 success. The *learned greedy
+policy* waits roughly one extra 30-tick cycle while the
+ε-greedy *behavior policy* during training did not — the gap sits
+exactly where depressed crossing Q-values would put it. Training
+uses ε-greedy decaying 1.0→0.05 over 1000 episodes then flat
+0.05 (`nn/agent_nn.py`), so early high-ε crushes in crossing
+states could have depressed Q(cross) and the caution was never
+corrected. This is **consistent with** the ε-noise hypothesis but
+**not established** by aggregate records (no Q-values or
+trajectories are saved). Decisive test (not run): re-run seed 101
+with ε_end=0.0 for the final 1000 episodes, or log Q(cross) vs
+Q(wait) at opening states — if the slow policy disappears, the
+hypothesis is supported. The same slow-safe shape appears in
+other arms' misses (e.g. v2 `wrapped_ind` seeds 5/8/9), so it is
+a policy-class phenomenon, not an `oracle_ind` defect.
 
-vs `oracle_ind` (the inference test), vs memories, vs
-`oracle_new` (diagnostic). Holm across 6 comparisons.
-Equivalence margin **±0.25**; "indistinguishable" as third
-outcome.
+## Experiment A (v3.2): unseen schedule (30/14)
 
-## Experiment B: mid-run schedule change (20/10 → 30/14)
+### Power problem (as found by the owner)
+
+For the primary comparison (`wrapped_ind` vs `phase_only_new`,
+paired clean-and-fast), assume true rates 60% vs 40% with ~50%
+discordant pairs (the independent-rates model gives 52%
+discordant). Simulation of the exact two-sided McNemar test at
+α=0.05 (20,000 trials): **power ≈ 0.33 at n=40, ≈ 0.77 at
+n=100.** At 40 seeds the likely outcome is "indistinguishable"
+regardless of the truth. (The 60/40 rates are a scenario, not an
+estimate — 5 pilot seeds cannot estimate rates.)
+
+### Arms and seeds (v3.2)
+
+- **Primary pair (100 seeds each):** `wrapped_ind`,
+  `phase_only_new`. Fresh seeds 200–299, paired by seed.
+- **Secondary (40 seeds each):** `oracle_ind` (inference test),
+  `memory30` (strongest history). Fresh seeds 200–239.
+- **Dropped from A:** `memory10`, `memory20` (structurally
+  disadvantaged; ceiling analysis already predicts the outcome),
+  `oracle_new` ("upper bound" label suspended; keeps its
+  diagnostic role in B only).
+- Pilot seeds 100–104 remain pilot-only and are excluded from
+  the main analysis (no double-dipping).
+- Total: 280 seeds — the same budget as v3.1's A, reallocated
+  to the primary pair.
+
+### Endpoints and analysis
+
+- **Primary:** clean-and-fast (greedy 0 crushes, success ≥ 0.9,
+  return ≥ 0.744), paired `wrapped_ind` vs `phase_only_new`,
+  exact McNemar, α=0.05 (single primary; no Holm).
+- **Secondary:** vs `oracle_ind`, vs `memory30`; Holm over the 2
+  comparisons. Equivalence margin **±0.25** on the paired rate
+  difference; "indistinguishable" as the third outcome when the
+  interval is neither inside the margin nor decisively excludes
+  zero (as v3.1).
+- Seed-bootstrap 95% CIs for median-return differences
+  (resampling seeds, 10,000 resamples), as in the replication.
+
+## Experiment B (v3.2): mid-run schedule change (20/10 → 30/14)
+
+### Design problem (as found by the owner)
+
+v3.1's primary comparisons were decided by construction: the
+stale clock fails by design, history arms lack the clock, and the
+new clock plus `oracle_ind` are handed the new schedule — the
+wrapper could not win any meaningful comparison. What B can
+really measure is the **cost of inferring the schedule**:
+`wrapped_ind` (inferred) vs `oracle_ind` (same encoding, perfect
+information, switches to true 30/14 info at the change).
 
 ### Primary endpoint (single)
 
-**Mean return over post-change episodes 1–300** (paired
-wrapped_ind vs phase_only_new-stale-variant and vs histories,
-Holm-corrected). Return already includes the −1 per crush, so
-crushes are descriptive, not a second primary.
+**Paired mean-return gap `wrapped_ind` − `oracle_ind` over
+post-change episodes 1–300**, paired by seed. Return already
+includes the −1 per crush, so crushes are descriptive, not a
+second primary.
 
-### Arms
+**Equivalence margin: ±0.01 return units.** Justification:
+(a) the 30/14 headroom (time-aware − naive) is 0.033, so ±0.01
+is ~30% of the maximum achievable timing gain — the inference
+cost counts as negligible only if it is under a third of the
+total headroom; (b) the step penalty is −0.01, so 0.01 in mean
+return ≈ one step's worth of return per episode — an
+interpretable scale. Decision rule on the seed-bootstrap 95% CI
+(10,000 resamples, resampling seeds) for the mean paired gap:
+CI inside [−0.01, +0.01] → equivalent (inference cost
+negligible); CI entirely below −0.01 → `oracle_ind` better by a
+meaningful margin (inference costs); CI entirely above +0.01 →
+`wrapped_ind` better (unexpected; report as such); otherwise →
+indistinguishable.
 
-wrapped_ind, phase_only_new (adapts to 30-clock),
-phase_only_stale (20-clock, sanity check), memory10/20/30,
-oracle_stale (sanity check), oracle_ind (upper bound, switches
-to true 30/14 info), oracle_new (diagnostic).
+**Seed-count reasoning:** concluding equivalence needs a 95% CI
+half-width under 0.01, i.e. paired-gap seed std s ≤ 0.0395 at
+n=60 (vs ≤ 0.0324 at n=40). The 300-episode mean averages down
+episode noise, but the replication seed distribution is
+heavy-tailed from rare catastrophic seeds, so s is uncertain —
+60 is the conservative choice for the primary pair. Residual
+risk, stated plainly: if s runs larger, the likely outcome is
+"indistinguishable".
 
-### Buffer handling
+### Arms and seeds (v3.2)
 
-300 episodes; buffer-clear variant via **checkpoint forking**
-(train to switch once, fork two continuations). Greedy eval
-after window. Episode-length report (fraction ≥ 31 ticks).
+- **Primary pair (60 seeds each):** `wrapped_ind`, `oracle_ind`.
+  Fresh seeds 300–359, paired by seed.
+- **Sanity/secondary (40 seeds each, fresh seeds 300–339):**
+  `phase_only_new` (adapts to the 30-clock),
+  `phase_only_stale` (20-clock; expected to fail — sanity
+  check), `memory10`/`memory20`/`memory30` (history baselines),
+  `oracle_stale` (sanity check), `oracle_new` (diagnostic;
+  "upper bound" label still suspended).
+- These arms are not primary competitors; beating them is
+  expected by construction and is reported descriptively.
 
-## Scaling
+### Buffer handling (as v3.1)
 
-As v3. `oracle_ind` uses wrapped_ind's exact scales.
-
-### Regression check
-
-`wrapped_ind` on 20/10, seeds 100–109, vs verified `wrapped`
-40-seed result (26/40 cf, 38/40 zc). Pass: ≥4/10 clean-and-fast
-(fast=0.750 on 20/10) AND ≥8/10 zero-crush.
-
-## Feasibility pilot (v3.1 — new pilot after code freeze)
-
-Seeds 100–104, all Experiment A arms **including oracle_ind
-and phase_only_new**, 30/14, fast=0.744 (via --fast-threshold).
-
-**Failure rule:** fewer than 3/5 seeds with success ≥ 0.9.
-If any arm fails: halt, diagnose.
-
-Note: this is a **second** pilot (the v2 pilot is logged
-above). It validates the new arms and the 0.744 bar.
-
-## Stage 2 gate (pre-registered before the pilot runs)
-
-Proceed to Stage 2 (full Experiments A and B) **only if all three
-hold:**
-
-1. **Success rule:** every pilot arm has at least 3 of 5 seeds with
-   greedy success ≥ 0.9.
-2. **Regression:** `wrapped_ind` on 20/10 (seeds 100–109) reaches at
-   least 4/10 clean-and-fast (fast = 0.750) and at least 8/10
-   zero-crush, against the verified `wrapped` 40-seed reference
-   (26/40 clean-and-fast, 38/40 zero-crush).
-3. **`oracle_ind` as upper bound:** `oracle_ind`'s median greedy
-   return ≥ `wrapped_ind`'s median greedy return − 0.02, AND at
-   least 4/5 `oracle_ind` seeds have zero crushes.
-
-**If condition 3 fails: diagnose first. Do not relabel the arm and
-do not proceed to Stage 2.**
-
-This gate was written before the pilot ran (owner order,
-2026-10-17); the "behaves as an upper bound" judgment is not made
-after seeing the data.
+300 post-change episodes. **Primary: the no-clear continuation**
+(the agent keeps its 20/10 replay buffer — the realistic
+continual-learning case). The buffer-clear variant is secondary,
+via **checkpoint forking**: train each arm/seed to the switch
+once, save agent/encoder state, fork no-clear and clear-buffer
+continuations so each variant costs only the 300 post-change
+episodes. Greedy evaluation on 30/14 after the window. Report
+the fraction of post-change episodes at least 31 ticks long (a
+30-tick period cannot be learned from shorter episodes).
 
 ## Seeds, protocol, analysis, interpretation
 
-As v3 (one primary per experiment, Holm, ±0.25, intervals
-only, cautious language, missing-data rule).
+- A: fresh seeds 200–299 (primary pair), 200–239 (secondaries).
+  B: fresh seeds 300–359 (primary pair), 300–339 (others).
+- Protocol otherwise as v3.1 (2000 pre-change episodes, hidden
+  32, lr 0.001, γ 0.99, same rewards, cap 200).
+- One primary endpoint per experiment; Holm for secondaries
+  only; intervals only; cautious causal language (strongest
+  explanation among the tested alternatives; no generalization
+  beyond this task and protocol); the missing-data rule stands
+  (incomplete pairs excluded from paired analyses, identified
+  by seed).
 
 ## Code
 
-- nn/agent_generalization.py: + OracleIndEncoder (structural
-  check PASS).
-- nn/run_arms.py: + oracle_ind arm; --fast-threshold; fixed
-  "20 start phases" label (now prints actual period).
-- nn/compute_yardsticks.py: committed.
+- v3.1 code (frozen 888355c): `OracleIndEncoder`,
+  `PhaseOnlyNewEncoder`, `--fast-threshold`, `oracle_ind` wiring,
+  structural checks PASS.
+- **Experiment B is not yet implemented.** The runner has no
+  mid-run schedule switch and no checkpoint forking. Both must
+  be implemented, structurally checked, and frozen — with the
+  approval recorded here — before Stage 2 runs. The v3.2
+  approval below covers the *design*; a B code freeze is still
+  required before any B run.
 
-## Compute estimate
+## Compute estimate (v3.2)
 
-- Pilot v3.1: 35 seeds ≈ 1.3 h. Regression: 10 seeds ≈ 0.4 h.
-- Exp A: 280 seeds (7 arms) ≈ 8 h (4 h × 2).
-- Exp B: 8 arms × 40, forked ≈ 9 h × 2 processes.
-- Total ≈ 14 h with 2 processes.
+Observed: ~150 s/seed for 2000-episode 30/14 seeds (Stage 1).
 
-Approved: owner, 2026-10-17 (Stage 1 only)  Date: 2026-10-17
-Frozen code commit: 888355c
+- Experiment A: 280 seeds ≈ 11.7 h single-process, **≈ 6 h with
+  2 processes** (same total as v3.1's A — reallocated, not
+  enlarged).
+- Experiment B: ≈ 2600 episodes/seed (2000 + 2×300 forked) ≈
+  190 s/seed. 60×2 + 40×7 = 400 seeds ≈ 21 h single-process,
+  **≈ 10.5 h with 2 processes**.
+- Total ≈ **16.5 h with 2 processes**. B's implementation and
+  freeze come first; A can run while B code is finished.
 
-## Stage 1 approval record (owner, 2026-10-17)
+## Stage 2 gate — record (all passed 2026-10-17)
 
-**Approved scope: Stage 1 only.** The v3.1 feasibility pilot and the
-20/10 regression check. Stage 2 (full Experiments A and B) is NOT
-approved by this decision.
+Pre-registered before the Stage 1 runs; computed from raw
+records and independently verified by the owner:
 
-**Exact arms and seeds:**
+1. Success rule (≥3/5 seeds success ≥ 0.9, every pilot arm):
+   **PASS** (7/7 arms 5/5).
+2. Regression (≥4/10 clean-and-fast at 0.750 AND ≥8/10
+   zero-crush, `wrapped_ind` 20/10 100–109): **PASS** (6/10,
+   10/10).
+3. `oracle_ind` as upper bound (median ≥ `wrapped_ind` median −
+   0.02 AND ≥4/5 zero-crush): **PASS** (0.737 ≥ 0.733, 5/5;
+   margin 0.004 — thin).
 
-- Feasibility pilot, 30/14, fast = 0.744 (`--fast-threshold 0.744`):
-  `wrapped_ind`, `memory10`, `memory20`, `memory30`, `oracle_new`,
-  `phase_only_new`, `oracle_ind` × seeds 100–104
-  (7 arms × 5 seeds = 35 seeds).
-- Regression check, 20/10, fast = 0.750 (`--fast-threshold 0.750`):
-  `wrapped_ind` × seeds 100–109 (10 seeds).
+## Stage 1 approval record (owner, 2026-10-17) — historical
 
-**Frozen code commit: 888355c.** This approval commit changes only
-`nn/prereg_generalization.md`; all executable code is byte-identical
-to 888355c (verified by diff before commit).
+**Approved scope: Stage 1 only.** The v3.1 feasibility pilot and
+the 20/10 regression check. Stage 2 (full Experiments A and B)
+was NOT approved by that decision.
 
-**Reuse option (pre-authorized):** the five v2-pilot arms
-(`wrapped_ind`/`memory10`/`memory20`/`memory30`/`oracle_new`, seeds
-100–104, `nn/results_pilot.jsonl`, committed at c70cabb) may be
-reused instead of re-run, provided the reuse gate passes first:
-re-run `wrapped_ind` seed 100 at the frozen code and require
-bit-for-bit reproduction of the recorded greedy evaluation
-(mean_return 0.7526666666666666, crush_rate 0.0). If it fails, do a
-full re-run instead. Note: new records carry `fast_threshold` in
-their hyperparams while the v2 records do not; this metadata
-difference does not affect training (the threshold only enters the
-clean-and-fast summary classification).
+**Exact arms and seeds run:**
+- Feasibility pilot, 30/14, fast = 0.744: `wrapped_ind`,
+  `memory10`, `memory20`, `memory30`, `oracle_new` (reused v2
+  records, seeds 100–104) + `phase_only_new`, `oracle_ind`
+  (new, seeds 100–104).
+- Regression, 20/10, fast = 0.750: `wrapped_ind` × 100–109.
 
-**Stage 2 gate:** proceed to Stage 2 only if all three gate
-conditions in "Stage 2 gate" above hold. If condition 3 fails,
-diagnose first; do not relabel the arm and do not proceed.
+**Frozen code commit: 888355c** (approval commit 7c4f8e8 touched
+only this document).
+
+## Approval (v3.2)
+
+**Design approved:** _________________  Date: ___________
+**B code freeze commit:** ___________ (required before any B run)
