@@ -1,195 +1,176 @@
-# Preregistration DRAFT v3: generalization — unseen schedules and
+# Preregistration DRAFT v3.1: generalization — unseen schedules and
 schedule changes (EBI priority 3)
 
-**Status: DRAFT v3. Do not run until owner-approved.**
-**Revises v2 per owner review (2026-10-16): phase_only primary,
-fixed regression/equivalence rules, B speed endpoint,
-success-based pilot rule, recomputed yardsticks, checkpoint
-forking.**
+**Status: DRAFT v3.1. Do not run the main experiments until
+owner-approved. Requires new approval and new code freeze.**
+**Revises v3 per owner review (2026-10-17).**
+
+## Pilot log (v2 pilot — already ran)
+
+**Correction to prior messages:** a 25-seed feasibility pilot ran
+under v2 (approved 2026-10-16 14:49, code frozen 023317f) before
+v3 was written. The "nothing has run" statement in the v3 delivery
+message was wrong — it meant the main experiments, but should
+have said so. This log corrects the record.
+
+**What ran:** seeds 100–104, arms wrapped_ind/memory10/memory20/
+memory30/oracle_new, 30/14, 2000 episodes, default 0.75 bar
+(`nn/results_pilot.jsonl`, 25 records).
+
+**Results (greedy; 0.75 bar):**
+
+| Arm         | Clean-and-fast | Median return | Zero-crush | Success |
+|-------------|----------------|---------------|------------|---------|
+| wrapped_ind | 3/5            | 0.753         | 5/5        | 5/5     |
+| memory10    | 0/5            | 0.724         | 5/5        | 5/5     |
+| memory20    | 0/5            | 0.726         | 5/5        | 5/5     |
+| memory30    | 0/5            | 0.740         | 5/5        | 5/5     |
+| oracle_new  | 0/5            | 0.655         | 4/5        | 5/5     |
+
+**Halt:** v2's rule (0/5 clean-and-fast AND median < naive 0.736)
+tripped for memory10, memory20, and oracle_new. Per the rule, the
+pilot halted — full runs were not launched.
+
+**Notes:**
+- v3's success-based rule (<3/5 seeds with success≥0.9) would have
+  passed every arm (all 5/5). The owner proposed this rule from
+  reasoning about the 20/10 plain arm **before** knowing the pilot
+  results; both facts belong in the record.
+- `wrapped_ind` 3/5 with 5/5 zero-crush fits the structural story:
+  it has the clock plus inference.
+- History arms at 0/5 clean-and-fast but 5/5 zero-crush and 5/5
+  success fits the structural ceiling (~0.743 < 0.745 bar):
+  safe but not fast enough.
+- **`oracle_new` is not an upper bound.** Median 0.655, 4/5
+  zero-crush, slow runs. It uses different scales (phase/30,
+  remaining/14) than wrapped_ind (remaining capped 5/5, phase/50),
+  so any wrapper-vs-oracle gap confounds encoding with inference.
+  v3.1 adds `oracle_ind` (same encoding, true info) as the clean
+  upper bound; `oracle_new` keeps its "upper bound" label
+  **suspended** pending diagnosis.
+- Stale label: the pilot output header said "20 start phases"
+  (fixed in code; now prints the actual period).
+
+**v3 was written after this pilot.** The revisions in v3/v3.1
+(including the success-based rule) were proposed from the
+owner's independent reasoning, but the pilot data was visible
+before v3.1 was finalized. This document records that sequence
+honestly.
 
 ## Yardsticks (recomputed with parametrized repo code)
 
-`nn/compute_yardsticks.py` rebinds the repo's yardstick policies
-for arbitrary (period, open_len). Committed; outputs:
+`nn/compute_yardsticks.py`, committed at f2b6082:
 
-| Schedule | Naive | Time-aware | Delay-line | Headroom | fast (0.26) |
-|----------|-------|------------|------------|----------|-------------|
-| 20/10    | 0.737 | 0.787      | 0.725      | 0.050    | **0.750**   |
-| 30/14    | 0.736 | 0.769      | 0.675      | 0.033    | **0.745**   |
+| Schedule | Naive | Time-aware | Delay-line | Headroom | fast = script output |
+|----------|-------|------------|------------|----------|----------------------|
+| 20/10    | 0.737 | 0.787      | 0.725      | 0.050    | **0.750**            |
+| 30/14    | 0.736 | 0.769      | 0.675      | 0.033    | **0.744**            |
 
-The 0.745 threshold is now derived from repo code, not the owner's
-sandbox simulation. (Owner's numbers — 0.736/0.769/0.675 — match
-exactly.)
+**The fast threshold is exactly the script's output: 0.744 on
+30/14** (not 0.745). Every occurrence in this document and the
+code uses 0.744. (0.744 = 0.736 + 0.26×0.033 = 0.74458,
+truncated to the script's print precision.)
 
 ## Primary endpoint
 
 **Clean-and-fast**: greedy 0 crushes, success ≥ 0.9, return ≥
-**0.745** on 30/14 (0.750 on 20/10, by the same 0.26 fraction).
+**0.744** on 30/14.
 
 ## Experiment A: unseen schedule (30/14)
 
-### The construction problem (stated pre-registration)
+### Construction problem (as v3)
 
-History-only arms start each episode with no clock and no
-persistent schedule knowledge. Owner simulation: the best a
-history-only agent can do on 30/14 is ~0.743 (wait for a fresh
-opening) or 0.736 (cross on a guess). The fast bar is 0.745.
-**History arms are therefore structurally disadvantaged**:
-beating them is expected by construction and does not count as
-evidence for the representation. Only the wrapper has the clock
-(tick) plus a persistent schedule model.
-
-### Arms (hidden=32, lr=1e-3, 2000 episodes, same rewards/gamma)
-
-- `wrapped_ind`: ScheduleModel + schedule-independent encoding
-  (remaining capped 5/5, phase/50). 104 inputs.
-- `phase_only_new`: clock only — (tick % 30)/30, no inference, no
-  history, no model. 102 inputs. **Primary comparison.** This arm
-  matched the wrapper at 20/10; the question is whether inference
-  adds anything beyond the raw clock on a harder schedule.
-- `memory10`: last 10 door bits. 111 inputs. (Secondary;
-  structurally disadvantaged as above.)
-- `memory20`: last 20 door bits. 121 inputs. (Secondary.)
-- `memory30`: last 30 door bits. 131 inputs. (Secondary.)
-- `oracle_new`: true phase/remaining for 30/14. Upper bound.
-  (Secondary.)
-
-### Primary comparison
-
-`wrapped_ind` vs `phase_only_new` (paired clean-and-fast
-difference, McNemar exact). If inference adds nothing beyond the
-clock, these two tie. If the schedule model matters, wrapped
-wins.
-
-### Secondary
-
-Paired vs memory10/20/30 and oracle_new, with the
-structurally-disadvantaged interpretation pre-registered for the
-history arms. Holm correction across the 5 paired comparisons.
-Zero-crush, success, median-return descriptives.
-
-### Equivalence
-
-Margin widened to **±0.25** (v2's ±0.15 is undecidable at n=40;
-the earlier wrapped-vs-oracle interval was 0.45 wide, ~20
-discordant pairs). |diff| < 0.25 with 95% CI inside [−0.25,
-+0.25] supports practical equivalence; otherwise report
-"indistinguishable" (not "different," not "same").
-
-## Experiment B: mid-run schedule change (20/10 → 30/14)
-
-### Primary endpoint (aligned with the question)
-
-The question is whether the wrapper **recovers faster**, not its
-end state. Primary: **total crushes and mean return over
-post-change episodes 1–300**, paired `wrapped_ind` vs
-`phase_only_stale` and vs `memory10`/`memory20`/`memory30`
-(Holm-corrected). `oracle_stale` is a **sanity check** (expected
-to fail by construction — wrong fixed features), not a
-competitor.
-
-Secondary: greedy clean-and-fast on 30/14 after the window
-(fast=0.745); windowed crushes/return (1–50, 51–150, 151–300);
-contradiction/re-convergence descriptives; episode-length
-report (fraction ≥ 31 ticks).
+History-only arms are structurally disadvantaged (ceiling
+~0.743 < 0.744 bar). Beating them is expected by construction.
 
 ### Arms
 
-- `wrapped_ind`, `memory10`, `memory20`, `memory30`
-- `phase_only_new`: switches to (tick%30)/30 at the change.
-  (The clock adapts trivially; the question is whether
-  inference beats the raw clock.)
-- `phase_only_stale`: stays on (tick%20)/20 after the change.
-  (Sanity check: stale clock.)
-- `oracle_stale`: 20/10 features throughout. (Sanity check.)
-- `oracle_new`: 30/14 features from the switch. (Upper bound.)
+- `wrapped_ind`: ScheduleModel + schedule-independent encoding.
+  104 inputs.
+- `phase_only_new`: (tick%30)/30, no inference. **Primary
+  comparison.**
+- `oracle_ind`: true phase/remaining with wrapped_ind's encoding
+  (phase/50, remaining capped 5/5). **Clean upper bound and
+  clean test of inference** — same encoding as wrapped_ind,
+  perfect info vs inferred info.
+- `memory10` / `memory20` / `memory30`: secondary, with the
+  structural-disadvantage interpretation pre-registered.
+- `oracle_new`: secondary, "upper bound" label **suspended**
+  pending diagnosis of the pilot anomaly.
+
+### Primary comparison
+
+`wrapped_ind` vs `phase_only_new` (paired, McNemar exact).
+
+### Secondary
+
+vs `oracle_ind` (the inference test), vs memories, vs
+`oracle_new` (diagnostic). Holm across 6 comparisons.
+Equivalence margin **±0.25**; "indistinguishable" as third
+outcome.
+
+## Experiment B: mid-run schedule change (20/10 → 30/14)
+
+### Primary endpoint (single)
+
+**Mean return over post-change episodes 1–300** (paired
+wrapped_ind vs phase_only_new-stale-variant and vs histories,
+Holm-corrected). Return already includes the −1 per crush, so
+crushes are descriptive, not a second primary.
+
+### Arms
+
+wrapped_ind, phase_only_new (adapts to 30-clock),
+phase_only_stale (20-clock, sanity check), memory10/20/30,
+oracle_stale (sanity check), oracle_ind (upper bound, switches
+to true 30/14 info), oracle_new (diagnostic).
 
 ### Buffer handling
 
-- 300 post-change episodes primary; buffer-clear variant
-  secondary (same handling for all arms).
-- **Checkpoint forking**: train each (arm, seed) to the switch
-  point once (2000 episodes on 20/10); save the agent+encoder
-  state; fork two continuations (no-clear and clear-buffer).
-  Each variant costs only the 300 post-change episodes, not a
-  full retrain.
+300 episodes; buffer-clear variant via **checkpoint forking**
+(train to switch once, fork two continuations). Greedy eval
+after window. Episode-length report (fraction ≥ 31 ticks).
 
 ## Scaling
 
-As v2: `wrapped_ind` uses remaining min(x,5)/5.0 and phase/50.0
-(fixed generic scales). `oracle_new` alone may use true
-constants. Histories and clocks need no scaling.
+As v3. `oracle_ind` uses wrapped_ind's exact scales.
 
-### Regression check (revised)
+### Regression check
 
-v2's 5-seed |diff|<0.15 rule cannot work at n=5. Revised:
-`wrapped_ind` on 20/10, seeds 100–109 (10 seeds), compared
-against the verified `wrapped` arm's 40-seed replication result
-(26/40 clean-and-fast, 38/40 zero-crush). Pass if **≥4/10
-clean-and-fast AND ≥8/10 zero-crush**. This checks the new
-encoding doesn't break the known-good behavior; it is not an
-equivalence test.
+`wrapped_ind` on 20/10, seeds 100–109, vs verified `wrapped`
+40-seed result (26/40 cf, 38/40 zc). Pass: ≥4/10 clean-and-fast
+(fast=0.750 on 20/10) AND ≥8/10 zero-crush.
 
-## Feasibility pilot (revised)
+## Feasibility pilot (v3.1 — new pilot after code freeze)
 
-Seeds 100–104, all Experiment A arms, 30/14, 2000 episodes.
+Seeds 100–104, all Experiment A arms **including oracle_ind
+and phase_only_new**, 30/14, fast=0.744 (via --fast-threshold).
 
-**Failure rule (success-based, per owner review):** an arm
-fails if **fewer than 3 of 5 seeds reach success ≥ 0.9**.
-(Rationale: the plain arm at 20/10 "learned" with 6/10
-success≥0.9 but median return 0.712 < naive 0.737 — a
-return-based rule trips on working arms when headroom is
-small. Success measures whether the task is learned at all.)
+**Failure rule:** fewer than 3/5 seeds with success ≥ 0.9.
+If any arm fails: halt, diagnose.
 
-If any arm fails by this rule: halt, diagnose, do not launch
-40-seed runs.
+Note: this is a **second** pilot (the v2 pilot is logged
+above). It validates the new arms and the 0.744 bar.
 
-## Seeds and protocol
+## Seeds, protocol, analysis, interpretation
 
-- Pilot: seeds 100–104 (6 arms × 5 = 30 seeds).
-- Regression: seeds 100–109, wrapped_ind on 20/10 (10 seeds).
-- Experiment A: 6 arms × 40 seeds (10–49) = 240 seeds.
-- Experiment B: 8 arms × 40 seeds (10–49) = 320 seeds ×
-  2300 episodes, forked from checkpoints.
-- Evaluation: greedy + eps=0.05 over 30 start phases (30/14).
-- Two parallel processes.
+As v3 (one primary per experiment, Holm, ±0.25, intervals
+only, cautious language, missing-data rule).
 
-## Analysis plan (intervals only)
+## Code
 
-As before: Clopper-Pearson, McNemar exact paired CIs,
-10,000-seed bootstrap (seed=0). One primary endpoint per
-experiment; Holm correction as specified; equivalence margin
-±0.25 with "indistinguishable" as the third outcome.
+- nn/agent_generalization.py: + OracleIndEncoder (structural
+  check PASS).
+- nn/run_arms.py: + oracle_ind arm; --fast-threshold; fixed
+  "20 start phases" label (now prints actual period).
+- nn/compute_yardsticks.py: committed.
 
-## Interpretation rules (cautious)
+## Compute estimate
 
-- Exp A primary (wrapped_ind vs phase_only_new, CI excludes
-  zero): supports inference adding value beyond the raw clock.
-- Exp A equivalence/indistinguishable: supports the clock
-  being sufficient; inference not needed.
-- Exp B primary (faster recovery vs phase_only_stale and
-  histories): supports contradiction-detection adapting better
-  than fixed features or raw history.
-- All task-and-protocol bounded; none proves causality.
-
-## Missing-data rule
-
-As before.
-
-## Code to be written (after approval)
-
-- `phase_only_new` / `phase_only_stale` encoders in
-  nn/agent_generalization.py (parametrized by period).
-- Checkpoint save/fork in run_arms.py for Experiment B.
-- nn/analyze_generalization.py.
-
-## Compute estimate (revised)
-
-- Pilot: 30 seeds ≈ 1.2 h. Regression: 10 seeds ≈ 0.4 h.
-- Exp A: 240 seeds ≈ 7 h (3.5 h × 2 processes).
-- Exp B: 320 seeds, but forked: 320×2000 ep (11 h) +
-  640×300 ep variants (6.5 h) ≈ 17.5 h serial, ~9 h × 2.
-- Total ≈ 26 h serial, ~13 h with 2 processes.
+- Pilot v3.1: 35 seeds ≈ 1.3 h. Regression: 10 seeds ≈ 0.4 h.
+- Exp A: 280 seeds (7 arms) ≈ 8 h (4 h × 2).
+- Exp B: 8 arms × 40, forked ≈ 9 h × 2 processes.
+- Total ≈ 14 h with 2 processes.
 
 Approved: _________________  Date: ___________
 Frozen code commit: ___________

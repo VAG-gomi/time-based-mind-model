@@ -200,6 +200,39 @@ class PhaseOnlyStaleEncoder(object):
         return v
 
 
+class OracleIndEncoder(object):
+    """True phase/remaining with wrapped_ind's encoding: 104 inputs.
+
+    Same scales as WrappedIndEncoder (phase/50, remaining capped 5/5)
+    but fed the TRUE phase and remaining from tick 0. The clean upper
+    bound and the clean test of inference: same encoding, perfect
+    information vs inferred information. Any gap to wrapped_ind is
+    inference, not encoding.
+    """
+
+    n_inputs = 104
+
+    def reset(self, world):
+        pass
+
+    def encode(self, world):
+        (x, y), door = world.observe()
+        tick = world.tick
+        period = world.period
+        open_len = world.open_len
+        v = np.zeros(self.n_inputs)
+        v[y * GRID_SIZE + x] = 1.0
+        v[N_INPUTS - 1] = 1.0 if door else 0.0
+        phase = tick % period
+        v[101] = phase / 50.0
+        if door and phase < open_len:
+            v[102] = min(open_len - phase, 5.0) / 5.0
+        else:
+            v[102] = 0.0
+        v[103] = 1.0
+        return v
+
+
 def train_wrapped_ind(seed, hidden=32, episodes=2000, cap=EPISODE_CAP,
                       lr=1e-3, model=None):
     encoder = WrappedIndEncoder(model=model)
@@ -243,6 +276,12 @@ def train_phase_only_stale(seed, hidden=32, episodes=2000, cap=EPISODE_CAP,
                            lr=1e-3):
     return train_neural(seed, hidden=hidden, episodes=episodes, cap=cap,
                         lr=lr, encoder=PhaseOnlyStaleEncoder())
+
+
+def train_oracle_ind(seed, hidden=32, episodes=2000, cap=EPISODE_CAP,
+                     lr=1e-3):
+    return train_neural(seed, hidden=hidden, episodes=episodes, cap=cap,
+                        lr=lr, encoder=OracleIndEncoder())
 
 
 # ---------------------------------------------------------------- checks
@@ -318,8 +357,28 @@ def run_checks():
     v = ps.encode(w)
     assert abs(v[101] - (w.tick % 20) / 20.0) < 1e-12
 
+    # OracleInd: true phase/remaining, wrapped_ind's scales.
+    oi = OracleIndEncoder()
+    assert oi.n_inputs == 104
+    w.reset(start_tick=0)  # 30/14 world
+    oi.reset(w)
+    for t in range(40):
+        tick = w.tick
+        _pos, door = w.observe()
+        v = oi.encode(w)
+        assert abs(v[101] - (tick % 30) / 50.0) < 1e-12
+        phase = tick % 30
+        if door and phase < 14:
+            exp = min(14 - phase, 5.0) / 5.0
+        else:
+            exp = 0.0
+        assert abs(v[102] - exp) < 1e-12, (t, v[102], exp)
+        assert v[103] == 1.0
+        w.step(STAY)
+
     print("generalization structural check: PASS (wrapped_ind scales, "
-          "memory20/30, oracle_new 30/14, oracle_stale, phase clocks)")
+          "memory20/30, oracle_new 30/14, oracle_stale, phase clocks, "
+          "oracle_ind)")
 
 
 if __name__ == "__main__":

@@ -58,17 +58,20 @@ from agent_controls import (OracleEncoder, PhaseOnlyEncoder,
 from agent_generalization import (WrappedIndEncoder, Memory20Encoder,
                                   Memory30Encoder, OracleNewEncoder,
                                   OracleStaleEncoder, PhaseOnlyNewEncoder,
-                                  PhaseOnlyStaleEncoder, train_wrapped_ind,
+                                  PhaseOnlyStaleEncoder, OracleIndEncoder,
+                                  train_wrapped_ind,
                                   train_memory20, train_memory30,
                                   train_oracle_new, train_oracle_stale,
                                   train_phase_only_new,
-                                  train_phase_only_stale)
+                                  train_phase_only_stale,
+                                  train_oracle_ind)
 
 HIDDEN = 32
 LR = 1e-3
 EPISODES = 2000
 EPS_EVAL = 0.05
 EPS_REPS = 10  # episodes per start phase for the epsilon evaluation
+FAST_THRESHOLD = 0.75  # overridden by --fast-threshold
 
 COMPARISON_RULE = """\
 SEQUENCE B COMPARISON RULE (adopted in A5-R, before the wrapper exists;
@@ -96,12 +99,14 @@ on greedy but collapses under eps = 0.05 noise must say so.
 """
 
 
-def _clean_fast(rec):
+def _clean_fast(rec, threshold=None):
     """A seed is clean and fast iff its greedy run has zero crushes,
-    success >= 0.9, and mean return >= 0.75."""
+    success >= 0.9, and mean return >= threshold (default FAST_THRESHOLD)."""
+    if threshold is None:
+        threshold = FAST_THRESHOLD
     g = rec["greedy"]
     return (g["crush_rate"] == 0.0 and g["success"] >= 0.9
-            and g["mean_return"] >= 0.75)
+            and g["mean_return"] >= threshold)
 
 
 # ---------------------------------------------------------------- policies
@@ -253,7 +258,8 @@ def run_episode(policy, start_phase, eps, rng, cap=EPISODE_CAP):
 
 
 def evaluate(policy, eps, reps, rng):
-    """All 20 start phases x reps episodes. Returns a list of rows."""
+    """All start phases (one per tick of the period) x reps episodes.
+    Returns a list of rows."""
     rows = []
     for start in range(PERIOD):
         for _ in range(reps):
@@ -366,6 +372,10 @@ def run_arm_seed(arm, seed, episodes):
         agent, stats = train_phase_only_stale(seed, hidden=HIDDEN,
                                               episodes=episodes, lr=LR)
         policy = LearnedPolicy(agent, PhaseOnlyStaleEncoder())
+    elif arm == "oracle_ind":
+        agent, stats = train_oracle_ind(seed, hidden=HIDDEN,
+                                        episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, OracleIndEncoder())
     else:
         raise ValueError("unknown arm %r" % (arm,))
     greedy = _pack(summarize_rows(evaluate(policy, 0.0, 1, None)))
@@ -455,8 +465,8 @@ def _arm_aggregates(arm, records):
                       zero, len(by_seed), good, len(by_seed)))
     cf = [r["seed"] for r in by_seed if _clean_fast(r)]
     out.append("  clean-and-fast seeds (greedy: 0 crushes, success>=0.9, "
-               "return>=0.75): %d/%d %s"
-               % (len(cf), len(by_seed), cf))
+               "return>=%.3f): %d/%d %s"
+               % (FAST_THRESHOLD, len(cf), len(by_seed), cf))
     if arm == "wrapped":
         fracs = [r["train"].get("frac_ticks_known") for r in by_seed
                  if r["train"].get("frac_ticks_known") is not None]
@@ -491,11 +501,11 @@ def build_summary(records):
                     hp["r_step"], hp["r_goal"], hp["r_crush"],
                     hp["episode_cap"], hp["period"], hp["open_len"]))
     parts.append("protocol: each (arm, seed) trains once, then two "
-                 "evaluations over all 20 start phases: pure greedy "
+                 "evaluations over all %d start phases: pure greedy "
                  "(1 episode/phase) and eps = 0.05 (10 episodes/phase, "
                  "agent's own RNG stream, fixed pipeline order). "
                  "Primary metric: mean episode return (undiscounted sum "
-                 "of rewards, failure included).")
+                 "of rewards, failure included)." % PERIOD)
     parts.append("")
     parts.append(COMPARISON_RULE)
     for arm in arms:
@@ -538,6 +548,8 @@ def main():
                     help="override world period (default: 20)")
     ap.add_argument("--open-len", type=int, default=None,
                     help="override world open length (default: 10)")
+    ap.add_argument("--fast-threshold", type=float, default=None,
+                    help="clean-and-fast return bar (default: 0.75)")
     args = ap.parse_args()
 
     # Schedule override: rebind the module globals used by train_neural
@@ -552,6 +564,10 @@ def main():
         globals()["OPEN_LEN"] = o
         globals()["HYPERPARAMS"] = dict(HYPERPARAMS, period=p,
                                         open_len=o)
+    if args.fast_threshold is not None:
+        globals()["FAST_THRESHOLD"] = args.fast_threshold
+        globals()["HYPERPARAMS"] = dict(globals()["HYPERPARAMS"],
+                                        fast_threshold=args.fast_threshold)
 
     if args.overwrite and os.path.exists(args.out):
         os.remove(args.out)
