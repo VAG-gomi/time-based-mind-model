@@ -1,0 +1,58 @@
+A5/B2: baseline arms, wrapped arm, and clock control
+python 3.12.3 | numpy 1.26.4
+hyperparameters: hidden=32, lr=0.001, episodes=2000, gamma=0.99, rewards step=-0.01 goal=1.0 crush=-1.0, episode cap=200, period=20 open_len=10
+protocol: each (arm, seed) trains once, then two evaluations over all 20 start phases: pure greedy (1 episode/phase) and eps = 0.05 (10 episodes/phase, agent's own RNG stream, fixed pipeline order). Primary metric: mean episode return (undiscounted sum of rewards, failure included).
+
+SEQUENCE B COMPARISON RULE (adopted in A5-R, before the wrapper exists;
+replaces the median-based rule of A5. Reason: the return ceiling is
+small -- time-aware 0.787, naive 0.737, delay-line 0.725 -- so at most
+~0.05 separates the best from the naive plateau, while seed-to-seed
+spread (std 0.49 in the memory arm) dwarfs it; and greedy returns
+cluster on plateaus (0.737 naive, 0.787 ideal), so a median mostly
+records which plateau most seeds landed on. Demanding 10/10 perfect
+seeds also punishes the learner's greedy "stay"-loop property rather
+than the wrapper.)
+A seed is "clean and fast" iff its greedy run has zero crushes,
+success >= 0.9, and mean return >= 0.75. (With 0 crushes and full
+success, return >= 0.75 is mean ticks <= 25: strictly better than the
+naive plateau at 0.737, short of the tick-knowing ideal at 0.787.)
+A5 baselines: plain 1/10 clean-and-fast (seed 2), memory 1/10
+(seed 8); counts are recomputed in the per-arm aggregates below.
+The wrapped arm trains on the same seeds 0-9, with the same budget
+(2000 episodes), the same hyperparameters, and the same evaluation
+(greedy + eps = 0.05). The wrapped arm WINS iff at least 7 of its 10
+seeds are clean and fast. Against either baseline's 1/10, 7/10 is
+p ~= 0.01 by Fisher's exact test (one-sided). The eps = 0.05
+evaluation stays a robustness report, not a gate: a wrapper that wins
+on greedy but collapses under eps = 0.05 noise must say so.
+
+
+##### wrapped_ind arm: per-seed table #####
+per-seed (greedy)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.779 |    0.000 |    1.00 |       22.1
+ 101 |       0.745 |    0.000 |    1.00 |       25.4
+ 102 |       0.784 |    0.000 |    1.00 |       21.6
+ 103 |       0.758 |    0.000 |    1.00 |       24.1
+ 104 |       0.781 |    0.000 |    1.00 |       21.9
+ 105 |       0.773 |    0.000 |    1.00 |       22.7
+ 106 |       0.748 |    0.000 |    1.00 |       25.2
+ 107 |       0.769 |    0.000 |    1.00 |       23.1
+ 108 |       0.692 |    0.000 |    1.00 |       30.8
+ 109 |       0.674 |    0.000 |    1.00 |       32.5
+per-seed (eps005)
+seed | mean_return | crush/ep | success | mean_ticks
+ 100 |       0.758 |    0.005 |    1.00 |       23.7
+ 101 |       0.717 |    0.010 |    1.00 |       27.3
+ 102 |       0.746 |    0.000 |    1.00 |       25.4
+ 103 |       0.734 |    0.005 |    1.00 |       26.1
+ 104 |       0.769 |    0.000 |    1.00 |       23.1
+ 105 |       0.715 |    0.000 |    0.98 |       24.4
+ 106 |       0.724 |    0.000 |    1.00 |       27.6
+ 107 |       0.751 |    0.000 |    1.00 |       24.9
+ 108 |       0.672 |    0.000 |    1.00 |       32.8
+ 109 |       0.674 |    0.000 |    1.00 |       32.6
+wrapped_ind arm aggregates (10 seeds)
+  greedy: median return 0.764 | min 0.674 | max 0.784 | std 0.036 | zero-crush seeds 10/10 | success>=0.9 seeds 10/10
+  eps005: median return 0.729 | min 0.672 | max 0.769 | std 0.031 | zero-crush seeds 7/10 | success>=0.9 seeds 10/10
+  clean-and-fast seeds (greedy: 0 crushes, success>=0.9, return>=0.750): 6/10 [100, 102, 103, 104, 105, 107]
