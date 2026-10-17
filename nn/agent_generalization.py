@@ -155,6 +155,51 @@ class OracleStaleEncoder(object):
         return v
 
 
+class PhaseOnlyNewEncoder(object):
+    """Clock only: (tick % period)/period. 102 inputs.
+
+    No inference, no history, no model. The primary comparison for
+    Experiment A: if inference adds nothing beyond the raw clock,
+    this ties the wrapper.
+    """
+
+    n_inputs = 102
+
+    def __init__(self, period):
+        self.period = period
+
+    def reset(self, world):
+        pass
+
+    def encode(self, world):
+        (x, y), door = world.observe()
+        v = np.zeros(self.n_inputs)
+        v[y * GRID_SIZE + x] = 1.0
+        v[N_INPUTS - 1] = 1.0 if door else 0.0
+        v[101] = (world.tick % self.period) / float(self.period)
+        return v
+
+
+class PhaseOnlyStaleEncoder(object):
+    """Stale clock: (tick % 20)/20 regardless of schedule. 102 inputs.
+
+    Sanity check for Experiment B: the clock that doesn't adapt.
+    """
+
+    n_inputs = 102
+
+    def reset(self, world):
+        pass
+
+    def encode(self, world):
+        (x, y), door = world.observe()
+        v = np.zeros(self.n_inputs)
+        v[y * GRID_SIZE + x] = 1.0
+        v[N_INPUTS - 1] = 1.0 if door else 0.0
+        v[101] = (world.tick % 20) / 20.0
+        return v
+
+
 def train_wrapped_ind(seed, hidden=32, episodes=2000, cap=EPISODE_CAP,
                       lr=1e-3, model=None):
     encoder = WrappedIndEncoder(model=model)
@@ -186,6 +231,18 @@ def train_oracle_stale(seed, hidden=32, episodes=2000, cap=EPISODE_CAP,
                        lr=1e-3):
     return train_neural(seed, hidden=hidden, episodes=episodes, cap=cap,
                         lr=lr, encoder=OracleStaleEncoder())
+
+
+def train_phase_only_new(seed, period, hidden=32, episodes=2000,
+                         cap=EPISODE_CAP, lr=1e-3):
+    return train_neural(seed, hidden=hidden, episodes=episodes, cap=cap,
+                        lr=lr, encoder=PhaseOnlyNewEncoder(period))
+
+
+def train_phase_only_stale(seed, hidden=32, episodes=2000, cap=EPISODE_CAP,
+                           lr=1e-3):
+    return train_neural(seed, hidden=hidden, episodes=episodes, cap=cap,
+                        lr=lr, encoder=PhaseOnlyStaleEncoder())
 
 
 # ---------------------------------------------------------------- checks
@@ -242,8 +299,27 @@ def run_checks():
     v = se.encode(w)
     assert abs(v[101] - (w.tick % 20) / 20.0) < 1e-12
 
+    # PhaseOnlyNew: clock for the given period, no inference.
+    pe = PhaseOnlyNewEncoder(30)
+    assert pe.n_inputs == 102
+    w.reset(start_tick=0)
+    pe.reset(w)
+    for t in range(40):
+        tick = w.tick
+        v = pe.encode(w)
+        assert abs(v[101] - (tick % 30) / 30.0) < 1e-12
+        w.step(STAY)
+
+    # PhaseOnlyStale: 20-clock regardless of schedule.
+    ps = PhaseOnlyStaleEncoder()
+    assert ps.n_inputs == 102
+    w.reset(start_tick=0)
+    ps.reset(w)
+    v = ps.encode(w)
+    assert abs(v[101] - (w.tick % 20) / 20.0) < 1e-12
+
     print("generalization structural check: PASS (wrapped_ind scales, "
-          "memory20/30, oracle_new 30/14, oracle_stale)")
+          "memory20/30, oracle_new 30/14, oracle_stale, phase clocks)")
 
 
 if __name__ == "__main__":

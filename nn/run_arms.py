@@ -57,9 +57,12 @@ from agent_controls import (OracleEncoder, PhaseOnlyEncoder,
                             train_param_matched, train_memory10)
 from agent_generalization import (WrappedIndEncoder, Memory20Encoder,
                                   Memory30Encoder, OracleNewEncoder,
-                                  OracleStaleEncoder, train_wrapped_ind,
+                                  OracleStaleEncoder, PhaseOnlyNewEncoder,
+                                  PhaseOnlyStaleEncoder, train_wrapped_ind,
                                   train_memory20, train_memory30,
-                                  train_oracle_new, train_oracle_stale)
+                                  train_oracle_new, train_oracle_stale,
+                                  train_phase_only_new,
+                                  train_phase_only_stale)
 
 HIDDEN = 32
 LR = 1e-3
@@ -355,6 +358,14 @@ def run_arm_seed(arm, seed, episodes):
         agent, stats = train_oracle_stale(seed, hidden=HIDDEN,
                                           episodes=episodes, lr=LR)
         policy = LearnedPolicy(agent, OracleStaleEncoder())
+    elif arm == "phase_only_new":
+        agent, stats = train_phase_only_new(seed, PERIOD, hidden=HIDDEN,
+                                            episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, PhaseOnlyNewEncoder(PERIOD))
+    elif arm == "phase_only_stale":
+        agent, stats = train_phase_only_stale(seed, hidden=HIDDEN,
+                                              episodes=episodes, lr=LR)
+        policy = LearnedPolicy(agent, PhaseOnlyStaleEncoder())
     else:
         raise ValueError("unknown arm %r" % (arm,))
     greedy = _pack(summarize_rows(evaluate(policy, 0.0, 1, None)))
