@@ -39,7 +39,7 @@ pilot halted — full runs were not launched.
 - `wrapped_ind` 3/5 with 5/5 zero-crush fits the structural story:
   it has the clock plus inference.
 - History arms at 0/5 clean-and-fast but 5/5 zero-crush and 5/5
-  success fits the structural ceiling (~0.743 < 0.745 bar):
+  success fits the structural ceiling (~0.743 < 0.744 bar):
   safe but not fast enough.
 - **`oracle_new` is not an upper bound.** Median 0.655, 4/5
   zero-crush, slow runs. It uses different scales (phase/30,
@@ -152,6 +152,28 @@ If any arm fails: halt, diagnose.
 Note: this is a **second** pilot (the v2 pilot is logged
 above). It validates the new arms and the 0.744 bar.
 
+## Stage 2 gate (pre-registered before the pilot runs)
+
+Proceed to Stage 2 (full Experiments A and B) **only if all three
+hold:**
+
+1. **Success rule:** every pilot arm has at least 3 of 5 seeds with
+   greedy success ≥ 0.9.
+2. **Regression:** `wrapped_ind` on 20/10 (seeds 100–109) reaches at
+   least 4/10 clean-and-fast (fast = 0.750) and at least 8/10
+   zero-crush, against the verified `wrapped` 40-seed reference
+   (26/40 clean-and-fast, 38/40 zero-crush).
+3. **`oracle_ind` as upper bound:** `oracle_ind`'s median greedy
+   return ≥ `wrapped_ind`'s median greedy return − 0.02, AND at
+   least 4/5 `oracle_ind` seeds have zero crushes.
+
+**If condition 3 fails: diagnose first. Do not relabel the arm and
+do not proceed to Stage 2.**
+
+This gate was written before the pilot ran (owner order,
+2026-10-17); the "behaves as an upper bound" judgment is not made
+after seeing the data.
+
 ## Seeds, protocol, analysis, interpretation
 
 As v3 (one primary per experiment, Holm, ±0.25, intervals
@@ -172,5 +194,40 @@ only, cautious language, missing-data rule).
 - Exp B: 8 arms × 40, forked ≈ 9 h × 2 processes.
 - Total ≈ 14 h with 2 processes.
 
-Approved: _________________  Date: ___________
-Frozen code commit: ___________
+Approved: owner, 2026-10-17 (Stage 1 only)  Date: 2026-10-17
+Frozen code commit: 888355c
+
+## Stage 1 approval record (owner, 2026-10-17)
+
+**Approved scope: Stage 1 only.** The v3.1 feasibility pilot and the
+20/10 regression check. Stage 2 (full Experiments A and B) is NOT
+approved by this decision.
+
+**Exact arms and seeds:**
+
+- Feasibility pilot, 30/14, fast = 0.744 (`--fast-threshold 0.744`):
+  `wrapped_ind`, `memory10`, `memory20`, `memory30`, `oracle_new`,
+  `phase_only_new`, `oracle_ind` × seeds 100–104
+  (7 arms × 5 seeds = 35 seeds).
+- Regression check, 20/10, fast = 0.750 (`--fast-threshold 0.750`):
+  `wrapped_ind` × seeds 100–109 (10 seeds).
+
+**Frozen code commit: 888355c.** This approval commit changes only
+`nn/prereg_generalization.md`; all executable code is byte-identical
+to 888355c (verified by diff before commit).
+
+**Reuse option (pre-authorized):** the five v2-pilot arms
+(`wrapped_ind`/`memory10`/`memory20`/`memory30`/`oracle_new`, seeds
+100–104, `nn/results_pilot.jsonl`, committed at c70cabb) may be
+reused instead of re-run, provided the reuse gate passes first:
+re-run `wrapped_ind` seed 100 at the frozen code and require
+bit-for-bit reproduction of the recorded greedy evaluation
+(mean_return 0.7526666666666666, crush_rate 0.0). If it fails, do a
+full re-run instead. Note: new records carry `fast_threshold` in
+their hyperparams while the v2 records do not; this metadata
+difference does not affect training (the threshold only enters the
+clean-and-fast summary classification).
+
+**Stage 2 gate:** proceed to Stage 2 only if all three gate
+conditions in "Stage 2 gate" above hold. If condition 3 fails,
+diagnose first; do not relabel the arm and do not proceed.
