@@ -9,8 +9,12 @@ nn/prereg_generalization.md v3.2 (Experiment A):
 - primary: clean-and-fast (>=0.744) paired wrapped_ind vs
   phase_only_new, exact McNemar, alpha=0.05 (single primary, no Holm)
 - secondaries: wrapped_ind vs oracle_ind, wrapped_ind vs memory30;
-  Holm over the 2 comparisons; equivalence margin +-0.25 on the
-  paired rate difference with "indistinguishable" as third outcome
+  Holm over the 2 comparisons; two-flag equivalence reading
+  (adopted 2026-10-18 on Claude's review, owner-approved, before
+  results): detected = Holm rejects (direction = sign of b-c),
+  within margin = 95% CI inside +-0.25
+- exploratory (added post-interim 2026-10-18, NON-CONFIRMATORY):
+  paired exact tests on zero-crush and success>=0.9 flags
 - seed-bootstrap 95% CIs (10,000 resamples, resampling seeds) for
   median-return differences
 
@@ -158,6 +162,23 @@ def holm_reject(pvals, alpha=0.05):
     return out
 
 
+def two_flag_verdict(detected, within, lo, hi):
+    """Two-flag equivalence labels (adopted 2026-10-18 on Claude's
+    review, owner-approved, before results).
+    detected: Holm rejected the McNemar null. within: 95% CI inside
+    +-EQUIV_MARGIN."""
+    if detected and within:
+        return "small difference, within margin"
+    if detected and not within:
+        v = "difference"
+        if hi < -EQUIV_MARGIN or lo > EQUIV_MARGIN:
+            v += " (beyond margin)"
+        return v
+    if not detected and within:
+        return "equivalent"
+    return "indistinguishable"
+
+
 def bootstrap_median_diff(x, y, seed=BOOTSTRAP_SEED,
                           resamples=BOOTSTRAP_RESAMPLES):
     rng = np.random.default_rng(seed)
@@ -238,20 +259,45 @@ def main():
     rej = holm_reject(sec_ps)
     for a2, n, excl, b, c, d, lo, hi, p in sec_rows:
         name = "wrapped_ind vs " + a2
-        if hi < -EQUIV_MARGIN or lo > EQUIV_MARGIN:
-            verdict = "DIFFERS (outside margin)"
-        elif lo >= -EQUIV_MARGIN and hi <= EQUIV_MARGIN:
-            verdict = "EQUIVALENT (inside margin)"
-        else:
-            verdict = "INDISTINGUISHABLE"
+        detected = rej[name]
+        within = (lo >= -EQUIV_MARGIN and hi <= EQUIV_MARGIN)
+        verdict = two_flag_verdict(detected, within, lo, hi)
+        direction = "+" if d > 0 else ("-" if d < 0 else "0")
         print("  %s: n=%d%s" % (name, n,
               "" if not excl else " (excluded: %s)" % excl))
         print("    discordant: wrapped_ind-only %d, %s-only %d"
               % (b, a2, c))
-        print("    diff=%+.3f  95%% CI [%+.3f, %+.3f]  p=%.4f  "
-              "Holm: %s  -> %s"
-              % (d, lo, hi, p,
-                 "REJECT" if rej[name] else "no rejection", verdict))
+        print("    diff=%+.3f (dir %s)  95%% CI [%+.3f, %+.3f]  "
+              "p=%.4f  Holm: %s  detected=%s within=%s  -> %s"
+              % (d, direction, lo, hi, p,
+                 "REJECT" if detected else "no rejection",
+                 detected, within, verdict))
+
+    print("=== EXPLORATORY (added post-interim 2026-10-18; "
+          "NON-CONFIRMATORY) ===")
+    print("  Paired exact (McNemar) tests on zero-crush and "
+          "success>=0.9 flags. Raw p-values, no Holm. Added after "
+          "interim tallies were seen: must not be presented as "
+          "confirmatory.")
+    for a1, a2, want, tag in (("wrapped_ind", "phase_only_new",
+                              PRIMARY_SEEDS, "primary pair"),
+                             ("wrapped_ind", "oracle_ind",
+                              SECONDARY_SEEDS, "secondary"),
+                             ("wrapped_ind", "memory30",
+                              SECONDARY_SEEDS, "secondary")):
+        seeds, _ = paired_seeds(by_arm, a1, a2, want)
+        for fname, flag in (("zero-crush",
+                             lambda r: r["greedy"]["crush_rate"] == 0.0),
+                            ("success>=0.9",
+                             lambda r: r["greedy"]["success"] >= 0.9)):
+            f1 = {s: flag(by_arm[a1][s]) for s in seeds}
+            f2 = {s: flag(by_arm[a2][s]) for s in seeds}
+            b = sum(1 for s in seeds if f1[s] and not f2[s])
+            c = sum(1 for s in seeds if not f1[s] and f2[s])
+            p = mcnemar_exact_p(b, c)
+            print("  EXPLORATORY %s %s vs %s [%s]: %s-only %d, "
+                  "%s-only %d, p=%.4f (raw, no Holm)"
+                  % (tag, a1, a2, fname, a1, b, a2, c, p))
 
     print("=== zero-crush / success>=0.9 (greedy, descriptive) ===")
     for arm in ("wrapped_ind", "phase_only_new", "oracle_ind",

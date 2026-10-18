@@ -235,10 +235,20 @@ estimate — 5 pilot seeds cannot estimate rates.)
   return ≥ 0.744), paired `wrapped_ind` vs `phase_only_new`,
   exact McNemar, α=0.05 (single primary; no Holm).
 - **Secondary:** vs `oracle_ind`, vs `memory30`; Holm over the 2
-  comparisons. Equivalence margin **±0.25** on the paired rate
-  difference; "indistinguishable" as the third outcome when the
-  interval is neither inside the margin nor decisively excludes
-  zero (as v3.1).
+  comparisons. Two-flag equivalence reading (adopted 2026-10-18
+  on Claude's review, owner-approved, before results):
+  (1) difference detected = Holm rejects the McNemar null
+  (direction = sign of b−c); (2) within margin = 95%
+  paired-difference CI inside ±0.25. Labels: detected+within →
+  "small difference, within margin"; detected+not within →
+  "difference" ("beyond margin" if the CI lies entirely outside
+  ±0.25); not detected+within → "equivalent"; neither →
+  "indistinguishable". (The primary comparison has no margin —
+  it is a straight McNemar superiority test.)
+- **Exploratory (added post-interim 2026-10-18, non-confirmatory):**
+  paired exact (McNemar) tests on zero-crush and success ≥ 0.9
+  flags for the three arm pairs; raw p-values, no Holm; labeled
+  exploratory and must not be presented as confirmatory.
 - Seed-bootstrap 95% CIs for median-return differences
   (resampling seeds, 10,000 resamples), as in the replication.
 

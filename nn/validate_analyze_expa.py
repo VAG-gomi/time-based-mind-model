@@ -97,7 +97,25 @@ for _ in range(500):
 check("holm_reject matches textbook Holm (500 sets)", ok)
 
 
-# 3. Bootstrap coverage of the true median gap.
+# 2b. Two-flag equivalence labels (literal reading).
+cases = [
+    # (detected, within, lo, hi, expected)
+    (True, True, -0.10, 0.10, "small difference, within margin"),
+    (True, False, 0.30, 0.50, "difference (beyond margin)"),
+    (True, False, -0.30, -0.26, "difference (beyond margin)"),
+    (True, False, 0.03, 0.44, "difference"),
+    (False, True, -0.10, 0.10, "equivalent"),
+    (False, False, -0.04, 0.38, "indistinguishable"),
+    (False, False, 0.03, 0.44, "indistinguishable"),
+]
+ok = all(A.two_flag_verdict(d, w, lo, hi) == e
+         for d, w, lo, hi, e in cases)
+check("two_flag_verdict label cells (7 cases)", ok)
+# The synthetic end-to-end case: Holm did NOT reject (adjusted p
+# 0.0532), CI not within margin -> stays "indistinguishable".
+check("synthetic [+0.030,+0.439] case -> indistinguishable",
+      A.two_flag_verdict(False, False, 0.030, 0.439)
+      == "indistinguishable")
 cov = 0
 T = 200
 for t in range(T):
