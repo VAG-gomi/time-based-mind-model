@@ -1,15 +1,54 @@
 # Preregistration DRAFT v3.2: generalization — unseen schedules and
 schedule changes (EBI priority 3)
 
-**Status: DRAFT v3.2. Do not run the main experiments until
-owner-approved. Requires new approval and new code freeze.**
-**Revises v3.1 per owner review (2026-10-17).**
+**Status: Experiment A APPROVED (owner, 2026-10-17) — frozen
+code 888355c. Experiment B is DRAFT v3.3 — not approved, not run.**
+**v3.3 revises B per Claude's review (2026-10-17); v3.2 revised
+v3.1 per Claude's review (2026-10-17).**
+
+## What changed in v3.3 (Experiment B only)
+
+1. **The mean-gap endpoint is dropped.** On the closest existing
+   comparison (`wrapped` vs `oracle`, 20/10, 40 paired seeds), the
+   95% bootstrap CI for the *mean* paired gap is [−1.073, +0.091]
+   — about 100× wider than the ±0.01 margin — because a few
+   collapsed seeds (one paired gap of −12.07) dominate the mean.
+   "Indistinguishable" would be near-certain, not a residual
+   risk. Verified from `nn/results_replication.jsonl` and
+   `nn/results_controls.jsonl` before writing this.
+2. **Primary is now the paired *median* gap** with a bootstrap
+   95% CI (10,000 resamples, resampling seeds). On the same 20/10
+   proxy data the median-gap CI is [−0.021, +0.012] (±0.0165).
+   Scaled by 1/√n: ±0.0135 at 60 pairs, ±0.0104 at 100.
+3. **60 pairs at ±0.02 (chosen over 100 pairs at ±0.01).** At 100
+   pairs the expected half-width (≈0.010) merely equals the
+   ±0.01 margin, so concluding equivalence would stay a coin
+   flip even if the true gap is zero — the v3.1 trap again. At
+   60 pairs the expected ±0.0135 fits inside ±0.02 with room for
+   the center to sit slightly off zero, so the test can actually
+   conclude. ±0.02 ≈ 60% of the 30/14 headroom (0.033), ≈ two
+   steps' return per episode — a weaker claim than ±0.01,
+   honestly labeled as such. Caveat: the 20/10 proxy uses
+   different encodings than B's same-encoding pair, so the
+   variance transfer is approximate.
+4. **Collapse rate as descriptive secondary:** P(greedy return <
+   0.5) per arm with Clopper–Pearson 95% CIs. In the 20/10 proxy,
+   4/40 `wrapped` seeds vs 1/40 `oracle` seeds collapsed — the
+   inference cost may show up as collapse frequency rather than
+   the median, and the median endpoint cannot separate that from
+   noise.
+5. **Attribution corrected throughout:** Claude's review actions
+   were misattributed to "the owner" in v3.1/v3.2; fixed below.
+6. **Fork validation test required** (see Code): a forked
+   no-clear continuation must reproduce an uninterrupted run
+   bit-for-bit before B runs — pickled RNG state is the known
+   hazard.
 
 ## What changed in v3.2 (and why)
 
 1. **Stage 1 is complete; all three pre-registered Stage 2 gates
    passed** (details in "Stage 1 results"). The gates were computed
-   from the raw records and independently verified by the owner.
+   from the raw records and independently verified by Claude.
 2. **Experiment A was underpowered for its primary comparison.**
    Simulation of the exact McNemar test (independent Bernoulli
    0.6/0.4 per pair, two-sided α=0.05, 20k trials): power ≈ 0.33
@@ -61,9 +100,9 @@ pilot halted — full runs were not launched.
 
 **Notes:**
 - v3's success-based rule (<3/5 seeds with success≥0.9) would have
-  passed every arm (all 5/5). The owner proposed this rule from
-  reasoning about the 20/10 plain arm **before** knowing the pilot
-  results; both facts belong in the record.
+  passed every arm (all 5/5). Claude proposed this rule from
+  reasoning about the 20/10 plain arm **before** knowing a pilot
+  had run; both facts belong in the record.
 - `wrapped_ind` 3/5 with 5/5 zero-crush fits the structural story:
   it has the clock plus inference.
 - History arms at 0/5 clean-and-fast but 5/5 zero-crush and 5/5
@@ -80,8 +119,8 @@ pilot halted — full runs were not launched.
   (fixed in code; now prints the actual period).
 
 **v3 was written after this pilot.** The revisions in v3/v3.1
-(including the success-based rule) were proposed from the
-owner's independent reasoning, but the pilot data was visible
+(including the success-based rule) were proposed from Claude's
+independent reasoning, but the pilot data was visible
 before v3.1 was finalized. This document records that sequence
 honestly.
 
@@ -164,7 +203,7 @@ a policy-class phenomenon, not an `oracle_ind` defect.
 
 ## Experiment A (v3.2): unseen schedule (30/14)
 
-### Power problem (as found by the owner)
+### Power problem (as found by Claude)
 
 For the primary comparison (`wrapped_ind` vs `phase_only_new`,
 paired clean-and-fast), assume true rates 60% vs 40% with ~50%
@@ -205,7 +244,7 @@ estimate — 5 pilot seeds cannot estimate rates.)
 
 ## Experiment B (v3.2): mid-run schedule change (20/10 → 30/14)
 
-### Design problem (as found by the owner)
+### Design problem (as found by Claude)
 
 v3.1's primary comparisons were decided by construction: the
 stale clock fails by design, history arms lack the clock, and the
@@ -215,35 +254,41 @@ really measure is the **cost of inferring the schedule**:
 `wrapped_ind` (inferred) vs `oracle_ind` (same encoding, perfect
 information, switches to true 30/14 info at the change).
 
-### Primary endpoint (single)
+### Primary endpoint (single, v3.3)
 
-**Paired mean-return gap `wrapped_ind` − `oracle_ind` over
-post-change episodes 1–300**, paired by seed. Return already
-includes the −1 per crush, so crushes are descriptive, not a
-second primary.
+**Paired *median* gap `wrapped_ind` − `oracle_ind` in mean return
+over post-change episodes 1–300**, paired by seed, with a
+seed-bootstrap 95% CI (10,000 resamples, resampling seeds).
+Return already includes the −1 per crush, so crushes are
+descriptive, not a second primary. The median replaces the v3.2
+mean because collapsed seeds dominate the mean (see v3.3
+changelog).
 
-**Equivalence margin: ±0.01 return units.** Justification:
-(a) the 30/14 headroom (time-aware − naive) is 0.033, so ±0.01
-is ~30% of the maximum achievable timing gain — the inference
-cost counts as negligible only if it is under a third of the
-total headroom; (b) the step penalty is −0.01, so 0.01 in mean
-return ≈ one step's worth of return per episode — an
-interpretable scale. Decision rule on the seed-bootstrap 95% CI
-(10,000 resamples, resampling seeds) for the mean paired gap:
-CI inside [−0.01, +0.01] → equivalent (inference cost
-negligible); CI entirely below −0.01 → `oracle_ind` better by a
-meaningful margin (inference costs); CI entirely above +0.01 →
-`wrapped_ind` better (unexpected; report as such); otherwise →
-indistinguishable.
+**Equivalence margin: ±0.02 return units; 60 pairs.** Chosen over
+100 pairs at ±0.01: from the 20/10 proxy the median-gap CI
+scales to ±0.0135 at 60 pairs, which fits inside ±0.02 with room
+for the center to sit slightly off zero — the test can actually
+conclude equivalence if the inference cost is small. ±0.02 ≈
+60% of the 30/14 headroom (0.033), ≈ two steps' return per
+episode. Decision rule: CI inside [−0.02, +0.02] → equivalent
+(inference cost negligible); CI entirely below −0.02 →
+`oracle_ind` better by a meaningful margin (inference costs);
+CI entirely above +0.02 → `wrapped_ind` better (unexpected;
+report as such); otherwise → indistinguishable.
 
-**Seed-count reasoning:** concluding equivalence needs a 95% CI
-half-width under 0.01, i.e. paired-gap seed std s ≤ 0.0395 at
-n=60 (vs ≤ 0.0324 at n=40). The 300-episode mean averages down
-episode noise, but the replication seed distribution is
-heavy-tailed from rare catastrophic seeds, so s is uncertain —
-60 is the conservative choice for the primary pair. Residual
-risk, stated plainly: if s runs larger, the likely outcome is
-"indistinguishable".
+### Descriptive secondary: collapse rate
+
+P(post-change mean return < 0.5) per arm, with Clopper–Pearson
+95% CIs, reported descriptively — not a primary. Rationale: in
+the 20/10 proxy, 4/40 `wrapped` vs 1/40 `oracle` seeds collapsed,
+so the inference cost may appear as collapse frequency rather
+than a median shift.
+
+**Seed-count note:** the 60-pair choice rests on the 20/10 proxy
+(`wrapped` vs `oracle`, different encodings); B's same-encoding
+pair may differ. If the observed CI half-width exceeds 0.02,
+the pre-registered outcome is "indistinguishable" — no
+post-hoc widening of the margin.
 
 ### Arms and seeds (v3.2)
 
@@ -291,9 +336,15 @@ the fraction of post-change episodes at least 31 ticks long (a
 - **Experiment B is not yet implemented.** The runner has no
   mid-run schedule switch and no checkpoint forking. Both must
   be implemented, structurally checked, and frozen — with the
-  approval recorded here — before Stage 2 runs. The v3.2
-  approval below covers the *design*; a B code freeze is still
-  required before any B run.
+  approval recorded here — before Stage 2 runs.
+- **Fork validation test (required before any B run):** fork a
+  no-clear continuation at the switch point for one seed and
+  require its records to be **bit-for-bit identical** to an
+  uninterrupted run of the same seed — the same bar as the
+  Stage 1 reuse gate. Pickled RNG state is the known silent-
+  difference hazard: the fork must restore the exact generator
+  state, not a fresh seed. If the test fails, diagnose; do not
+  run B.
 
 ## Compute estimate (v3.2)
 
@@ -338,7 +389,22 @@ was NOT approved by that decision.
 **Frozen code commit: 888355c** (approval commit 7c4f8e8 touched
 only this document).
 
-## Approval (v3.2)
+## Approval — Experiment A (owner, 2026-10-17)
 
-**Design approved:** _________________  Date: ___________
-**B code freeze commit:** ___________ (required before any B run)
+**Owner approves Experiment A as designed in v3.2.** Frozen code
+commit: **888355c** (no new code needed — all A arms exist and
+are frozen at 888355c). Run in 2 processes.
+
+Approved scope: `wrapped_ind` × 100 + `phase_only_new` × 100
+(seeds 200–299) + `oracle_ind` × 40 + `memory30` × 40 (seeds
+200–239), 30/14, `--fast-threshold 0.744`. 280 seeds.
+
+**Experiment B is NOT approved.** B is DRAFT v3.3 above; it
+needs owner approval of the v3.3 design *and* a B code freeze
+(including the fork validation test) before any B run.
+
+## Approval (v3.2 design) — superseded
+
+The v3.2 design approval was never recorded; the owner instead
+approved Experiment A as designed in v3.2 (above) and ordered
+the v3.3 revision of B.
