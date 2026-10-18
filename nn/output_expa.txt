@@ -1,0 +1,40 @@
+records: 280/280 present
+  no missing seeds
+=== clean-and-fast (bar 0.744; Clopper-Pearson 95% CI) ===
+  wrapped_ind: 26/100 = 0.260  95% CI [0.177, 0.357]
+  phase_only_new: 26/100 = 0.260  95% CI [0.177, 0.357]
+  oracle_ind: 19/40 = 0.475  95% CI [0.315, 0.639]
+  memory30: 0/40 = 0.000  95% CI [0.000, 0.088]
+=== PRIMARY: wrapped_ind vs phase_only_new (McNemar exact, alpha=0.05, no Holm) ===
+  paired seeds: 100/100
+  discordant: wrapped_ind-only 16, phase_only_new-only 16
+  diff=+0.000  95% CI [-0.116, +0.116]  p=1.0000  no rejection
+=== SECONDARIES (Holm over 2; equiv margin +-0.25) ===
+  wrapped_ind vs oracle_ind: n=40
+    discordant: wrapped_ind-only 6, oracle_ind-only 15
+    diff=-0.225 (dir -)  95% CI [-0.407, +0.023]  p=0.0784  Holm: no rejection  detected=False within=False  -> indistinguishable
+  wrapped_ind vs memory30: n=40
+    discordant: wrapped_ind-only 10, memory30-only 0
+    diff=+0.250 (dir +)  95% CI [+0.096, +0.250]  p=0.0020  Holm: REJECT  detected=True within=True  -> small difference, within margin
+=== EXPLORATORY (added post-interim 2026-10-18; NON-CONFIRMATORY) ===
+  Paired exact (McNemar) tests on zero-crush and success>=0.9 flags. Raw p-values, no Holm. Added after interim tallies were seen: must not be presented as confirmatory.
+  EXPLORATORY primary pair wrapped_ind vs phase_only_new [zero-crush]: wrapped_ind-only 27, phase_only_new-only 2, p=0.0000 (raw, no Holm)
+  EXPLORATORY primary pair wrapped_ind vs phase_only_new [success>=0.9]: wrapped_ind-only 4, phase_only_new-only 7, p=0.5488 (raw, no Holm)
+  EXPLORATORY secondary wrapped_ind vs oracle_ind [zero-crush]: wrapped_ind-only 2, oracle_ind-only 3, p=1.0000 (raw, no Holm)
+  EXPLORATORY secondary wrapped_ind vs oracle_ind [success>=0.9]: wrapped_ind-only 2, oracle_ind-only 4, p=0.6875 (raw, no Holm)
+  EXPLORATORY secondary wrapped_ind vs memory30 [zero-crush]: wrapped_ind-only 0, memory30-only 3, p=0.2500 (raw, no Holm)
+  EXPLORATORY secondary wrapped_ind vs memory30 [success>=0.9]: wrapped_ind-only 1, memory30-only 3, p=0.6250 (raw, no Holm)
+=== zero-crush / success>=0.9 (greedy, descriptive) ===
+  wrapped_ind: zero-crush 95/100, success>=0.9 93/100
+  phase_only_new: zero-crush 70/100, success>=0.9 96/100
+  oracle_ind: zero-crush 38/40, success>=0.9 38/40
+  memory30: zero-crush 40/40, success>=0.9 38/40
+=== median greedy return; paired median differences (bootstrap, seeds) ===
+  wrapped_ind: n=100 median=0.720
+  phase_only_new: n=100 median=0.735
+  oracle_ind: n=40 median=0.741
+  memory30: n=40 median=0.714
+  wrapped_ind-phase_only_new median diff: -0.012  95% CI [-0.022, -0.005] (n=100 pairs, seed=0, 10000 resamples)
+  wrapped_ind-oracle_ind median diff: -0.030  95% CI [-0.052, +0.002] (n=40 pairs, seed=0, 10000 resamples)
+  wrapped_ind-memory30 median diff: +0.002  95% CI [-0.022, +0.022] (n=40 pairs, seed=0, 10000 resamples)
+OK: Experiment A statistics regenerated deterministically
