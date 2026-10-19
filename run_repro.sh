@@ -47,6 +47,7 @@ run_one test_wrapper python3 test_wrapper.py
 run_one agent_wrapped_checks python3 agent_wrapped.py
 run_one test_agent_nn python3 test_agent_nn.py || true
 run_one analyze_replication python3 analyze_replication.py
+run_one analyze_expa python3 analyze_expa.py
 
 echo "done: $OUT"
 ls "$OUT"
