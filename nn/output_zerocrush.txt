@@ -1,0 +1,9 @@
+records: 200 present
+=== zero-crush descriptives (Clopper-Pearson 95% CI) ===
+  wrapped_ind: 96/100 = 0.960  95% CI [0.901, 0.989]
+  phase_only_new: 67/100 = 0.670  95% CI [0.569, 0.761]
+=== PRIMARY: wrapped_ind vs phase_only_new (two-sided exact McNemar, alpha=0.05) ===
+  paired seeds: 100/100
+  discordant: wrapped_ind-only 32, phase_only_new-only 3 (n_d=35)
+  direction +  p=0.0000  REJECT null
+OK: zero-crush statistics regenerated deterministically
