@@ -1,0 +1,763 @@
+=== per-arm per-world (analysis source) ===
+memory         W1: n=100 succ=1.000 ticks=27.97 crush=0.040 stall=0.370 sw=0.00 fd={'familiar': 100} class={'STOP': 37, 'CHOOSE': 63}
+memory         W1m: n=100 succ=1.000 ticks=27.97 crush=0.040 stall=0.370 sw=0.00 fd={'familiar': 100} class={'STOP': 37, 'CHOOSE': 63}
+memory         W2: n=100 succ=1.000 ticks=27.97 crush=0.040 stall=0.370 sw=0.00 fd={'familiar': 100} class={'STOP': 37, 'CHOOSE': 63}
+memory         W5: n=100 succ=0.990 ticks=29.61 crush=0.040 stall=0.370 sw=0.00 fd={'familiar': 99, 'other': 1} class={'STOP': 36, 'CHOOSE': 63, 'FAIL': 1}
+oracle_ind     W1: n=150 succ=1.000 ticks=29.17 crush=0.000 stall=0.453 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 82, 'STOP': 68}
+oracle_ind     W1m: n=150 succ=1.000 ticks=29.17 crush=0.000 stall=0.453 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 82, 'STOP': 68}
+oracle_ind     W2: n=150 succ=1.000 ticks=29.17 crush=0.000 stall=0.447 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 83, 'STOP': 67}
+oracle_ind     W5: n=150 succ=1.000 ticks=29.18 crush=0.000 stall=0.447 sw=0.01 fd={'familiar': 150} class={'CHOOSE': 83, 'STOP': 67}
+oracle_new     W1: n=150 succ=1.000 ticks=33.07 crush=0.007 stall=0.360 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 96, 'STOP': 54}
+oracle_new     W1m: n=150 succ=1.000 ticks=33.07 crush=0.007 stall=0.360 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 96, 'STOP': 54}
+oracle_new     W2: n=150 succ=1.000 ticks=33.07 crush=0.007 stall=0.313 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 103, 'STOP': 47}
+oracle_new     W5: n=150 succ=1.000 ticks=33.07 crush=0.007 stall=0.313 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 103, 'STOP': 47}
+phase_only_new W1: n=150 succ=1.000 ticks=25.69 crush=0.007 stall=0.227 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 116, 'STOP': 34}
+phase_only_new W1m: n=150 succ=1.000 ticks=25.69 crush=0.007 stall=0.227 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 116, 'STOP': 34}
+phase_only_new W2: n=150 succ=1.000 ticks=25.69 crush=0.007 stall=0.227 sw=0.00 fd={'familiar': 150} class={'CHOOSE': 116, 'STOP': 34}
+phase_only_new W5: n=150 succ=1.000 ticks=26.03 crush=0.027 stall=0.227 sw=0.04 fd={'familiar': 150} class={'CHOOSE': 116, 'STOP': 34}
+plain          W1: n=100 succ=0.860 ticks=47.26 crush=0.030 stall=0.230 sw=0.00 fd={'familiar': 86, 'none': 14} class={'CHOOSE': 77, 'STOP': 9, 'FAIL': 14}
+plain          W1m: n=100 succ=0.860 ticks=47.26 crush=0.030 stall=0.230 sw=0.00 fd={'familiar': 86, 'none': 14} class={'CHOOSE': 77, 'STOP': 9, 'FAIL': 14}
+plain          W2: n=100 succ=0.860 ticks=47.26 crush=0.030 stall=0.230 sw=0.00 fd={'familiar': 86, 'none': 14} class={'CHOOSE': 77, 'STOP': 9, 'FAIL': 14}
+plain          W5: n=100 succ=0.860 ticks=47.26 crush=0.030 stall=0.230 sw=0.00 fd={'familiar': 86, 'none': 14} class={'CHOOSE': 77, 'STOP': 9, 'FAIL': 14}
+wrapped        W1: n=100 succ=1.000 ticks=23.25 crush=0.020 stall=0.050 sw=0.00 fd={'familiar': 100} class={'CHOOSE': 95, 'STOP': 5}
+wrapped        W1m: n=100 succ=1.000 ticks=23.25 crush=0.020 stall=0.050 sw=0.00 fd={'familiar': 100} class={'CHOOSE': 95, 'STOP': 5}
+wrapped        W2: n=100 succ=1.000 ticks=23.25 crush=0.020 stall=0.050 sw=0.00 fd={'familiar': 100} class={'CHOOSE': 95, 'STOP': 5}
+wrapped        W5: n=100 succ=1.000 ticks=23.42 crush=0.030 stall=0.050 sw=0.02 fd={'familiar': 100} class={'CHOOSE': 95, 'STOP': 5}
+
+=== per-agent first-door (W2, W5) ===
+memory        /0   W2: {'familiar': 20} | W5: {'familiar': 20}
+memory        /1   W2: {'familiar': 20} | W5: {'familiar': 19, 'other': 1}
+memory        /2   W2: {'familiar': 20} | W5: {'familiar': 20}
+memory        /3   W2: {'familiar': 20} | W5: {'familiar': 20}
+memory        /4   W2: {'familiar': 20} | W5: {'familiar': 20}
+oracle_ind    /100 W2: {'familiar': 30} | W5: {'familiar': 30}
+oracle_ind    /101 W2: {'familiar': 30} | W5: {'familiar': 30}
+oracle_ind    /102 W2: {'familiar': 30} | W5: {'familiar': 30}
+oracle_ind    /103 W2: {'familiar': 30} | W5: {'familiar': 30}
+oracle_ind    /104 W2: {'familiar': 30} | W5: {'familiar': 30}
+oracle_new    /100 W2: {'familiar': 30} | W5: {'familiar': 30}
+oracle_new    /101 W2: {'familiar': 30} | W5: {'familiar': 30}
+oracle_new    /102 W2: {'familiar': 30} | W5: {'familiar': 30}
+oracle_new    /103 W2: {'familiar': 30} | W5: {'familiar': 30}
+oracle_new    /104 W2: {'familiar': 30} | W5: {'familiar': 30}
+phase_only_new/100 W2: {'familiar': 30} | W5: {'familiar': 30}
+phase_only_new/101 W2: {'familiar': 30} | W5: {'familiar': 30}
+phase_only_new/102 W2: {'familiar': 30} | W5: {'familiar': 30}
+phase_only_new/103 W2: {'familiar': 30} | W5: {'familiar': 30}
+phase_only_new/104 W2: {'familiar': 30} | W5: {'familiar': 30}
+plain         /0   W2: {'familiar': 20} | W5: {'familiar': 20}
+plain         /1   W2: {'none': 14, 'familiar': 6} | W5: {'none': 14, 'familiar': 6}
+plain         /2   W2: {'familiar': 20} | W5: {'familiar': 20}
+plain         /3   W2: {'familiar': 20} | W5: {'familiar': 20}
+plain         /4   W2: {'familiar': 20} | W5: {'familiar': 20}
+wrapped       /0   W2: {'familiar': 20} | W5: {'familiar': 20}
+wrapped       /1   W2: {'familiar': 20} | W5: {'familiar': 20}
+wrapped       /2   W2: {'familiar': 20} | W5: {'familiar': 20}
+wrapped       /3   W2: {'familiar': 20} | W5: {'familiar': 20}
+wrapped       /4   W2: {'familiar': 20} | W5: {'familiar': 20}
+
+=== stall episodes (which door, which world) ===
+memory        /0   W1 ph00: kind=no-move-run first_door=[5, 5] ticks=47 crush=1
+memory        /0   W1 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+memory        /0   W1 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+memory        /0   W1 ph09: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+memory        /0   W1 ph10: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+memory        /0   W1 ph11: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+memory        /0   W1 ph12: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+memory        /0   W1 ph13: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+memory        /0   W1 ph14: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+memory        /0   W1 ph15: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+memory        /0   W1 ph16: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+memory        /0   W1 ph17: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+memory        /0   W1 ph18: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+memory        /0   W1 ph19: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+memory        /0   W2 ph00: kind=no-move-run first_door=[5, 5] ticks=47 crush=1
+memory        /0   W2 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+memory        /0   W2 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+memory        /0   W2 ph09: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+memory        /0   W2 ph10: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+memory        /0   W2 ph11: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+memory        /0   W2 ph12: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+memory        /0   W2 ph13: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+memory        /0   W2 ph14: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+memory        /0   W2 ph15: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+memory        /0   W2 ph16: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+memory        /0   W2 ph17: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+memory        /0   W2 ph18: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+memory        /0   W2 ph19: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+memory        /0   W5 ph00: kind=no-move-run first_door=[5, 5] ticks=47 crush=1
+memory        /0   W5 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+memory        /0   W5 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+memory        /0   W5 ph09: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+memory        /0   W5 ph10: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+memory        /0   W5 ph11: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+memory        /0   W5 ph12: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+memory        /0   W5 ph13: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+memory        /0   W5 ph14: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+memory        /0   W5 ph15: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+memory        /0   W5 ph16: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+memory        /0   W5 ph17: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+memory        /0   W5 ph18: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+memory        /0   W5 ph19: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+memory        /1   W1 ph00: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+memory        /1   W1 ph01: kind=no-move-run first_door=[5, 5] ticks=48 crush=0
+memory        /1   W1 ph02: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+memory        /1   W1 ph03: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+memory        /1   W1 ph04: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+memory        /1   W1 ph05: kind=no-move-run first_door=[5, 5] ticks=44 crush=0
+memory        /1   W1 ph06: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+memory        /1   W1 ph07: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+memory        /1   W1 ph08: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+memory        /1   W1 ph09: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+memory        /1   W1 ph10: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+memory        /1   W1 ph11: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+memory        /1   W1 ph12: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+memory        /1   W1 ph13: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+memory        /1   W1 ph14: kind=no-move-run first_door=[5, 5] ticks=55 crush=0
+memory        /1   W1 ph15: kind=no-move-run first_door=[5, 5] ticks=54 crush=0
+memory        /1   W1 ph16: kind=no-move-run first_door=[5, 5] ticks=53 crush=0
+memory        /1   W1 ph17: kind=no-move-run first_door=[5, 5] ticks=52 crush=0
+memory        /1   W1 ph18: kind=no-move-run first_door=[5, 5] ticks=51 crush=0
+memory        /1   W1 ph19: kind=no-move-run first_door=[5, 5] ticks=50 crush=0
+memory        /1   W2 ph00: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+memory        /1   W2 ph01: kind=no-move-run first_door=[5, 5] ticks=48 crush=0
+memory        /1   W2 ph02: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+memory        /1   W2 ph03: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+memory        /1   W2 ph04: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+memory        /1   W2 ph05: kind=no-move-run first_door=[5, 5] ticks=44 crush=0
+memory        /1   W2 ph06: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+memory        /1   W2 ph07: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+memory        /1   W2 ph08: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+memory        /1   W2 ph09: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+memory        /1   W2 ph10: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+memory        /1   W2 ph11: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+memory        /1   W2 ph12: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+memory        /1   W2 ph13: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+memory        /1   W2 ph14: kind=no-move-run first_door=[5, 5] ticks=55 crush=0
+memory        /1   W2 ph15: kind=no-move-run first_door=[5, 5] ticks=54 crush=0
+memory        /1   W2 ph16: kind=no-move-run first_door=[5, 5] ticks=53 crush=0
+memory        /1   W2 ph17: kind=no-move-run first_door=[5, 5] ticks=52 crush=0
+memory        /1   W2 ph18: kind=no-move-run first_door=[5, 5] ticks=51 crush=0
+memory        /1   W2 ph19: kind=no-move-run first_door=[5, 5] ticks=50 crush=0
+memory        /1   W5 ph00: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+memory        /1   W5 ph01: kind=no-move-run first_door=[5, 5] ticks=48 crush=0
+memory        /1   W5 ph02: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+memory        /1   W5 ph03: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+memory        /1   W5 ph04: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+memory        /1   W5 ph05: kind=no-move-run first_door=[5, 5] ticks=44 crush=0
+memory        /1   W5 ph06: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+memory        /1   W5 ph07: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+memory        /1   W5 ph08: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+memory        /1   W5 ph09: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+memory        /1   W5 ph10: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+memory        /1   W5 ph11: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+memory        /1   W5 ph12: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+memory        /1   W5 ph13: kind=no-move-run first_door=[5, 3] ticks=200 crush=0
+memory        /1   W5 ph14: kind=no-move-run first_door=[5, 5] ticks=55 crush=0
+memory        /1   W5 ph15: kind=no-move-run first_door=[5, 5] ticks=54 crush=0
+memory        /1   W5 ph16: kind=no-move-run first_door=[5, 5] ticks=53 crush=0
+memory        /1   W5 ph17: kind=no-move-run first_door=[5, 5] ticks=52 crush=0
+memory        /1   W5 ph18: kind=no-move-run first_door=[5, 5] ticks=51 crush=0
+memory        /1   W5 ph19: kind=no-move-run first_door=[5, 5] ticks=50 crush=0
+memory        /2   W1 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+memory        /2   W2 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+memory        /2   W5 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+memory        /3   W1 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+memory        /3   W1 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+memory        /3   W2 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+memory        /3   W2 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+memory        /3   W5 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+memory        /3   W5 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+oracle_ind    /100 W1 ph03: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /100 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /100 W1 ph06: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_ind    /100 W1 ph07: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /100 W1 ph08: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /100 W1 ph09: kind=dwell first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /100 W1 ph10: kind=dwell first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /100 W1 ph11: kind=dwell first_door=[5, 5] ticks=31 crush=0
+oracle_ind    /100 W1 ph12: kind=dwell first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /100 W1 ph13: kind=dwell first_door=[5, 5] ticks=29 crush=0
+oracle_ind    /100 W1 ph14: kind=dwell first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /100 W2 ph03: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /100 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /100 W2 ph06: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_ind    /100 W2 ph07: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /100 W2 ph08: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /100 W2 ph09: kind=dwell first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /100 W2 ph10: kind=dwell first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /100 W2 ph11: kind=dwell first_door=[5, 5] ticks=31 crush=0
+oracle_ind    /100 W2 ph12: kind=dwell first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /100 W2 ph13: kind=dwell first_door=[5, 5] ticks=29 crush=0
+oracle_ind    /100 W2 ph14: kind=dwell first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /100 W5 ph03: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /100 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /100 W5 ph06: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_ind    /100 W5 ph07: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /100 W5 ph08: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /100 W5 ph09: kind=dwell first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /100 W5 ph10: kind=dwell first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /100 W5 ph11: kind=dwell first_door=[5, 5] ticks=31 crush=0
+oracle_ind    /100 W5 ph12: kind=dwell first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /100 W5 ph13: kind=dwell first_door=[5, 5] ticks=29 crush=0
+oracle_ind    /100 W5 ph14: kind=dwell first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /101 W1 ph00: kind=two-cycle first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /101 W1 ph01: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+oracle_ind    /101 W1 ph02: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /101 W1 ph03: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /101 W1 ph04: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /101 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_ind    /101 W1 ph06: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /101 W1 ph07: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /101 W1 ph08: kind=no-move-run first_door=[5, 5] ticks=58 crush=0
+oracle_ind    /101 W1 ph09: kind=no-move-run first_door=[5, 5] ticks=57 crush=0
+oracle_ind    /101 W1 ph10: kind=no-move-run first_door=[5, 5] ticks=56 crush=0
+oracle_ind    /101 W1 ph11: kind=no-move-run first_door=[5, 5] ticks=55 crush=0
+oracle_ind    /101 W1 ph12: kind=no-move-run first_door=[5, 5] ticks=54 crush=0
+oracle_ind    /101 W1 ph13: kind=no-move-run first_door=[5, 5] ticks=53 crush=0
+oracle_ind    /101 W1 ph14: kind=no-move-run first_door=[5, 5] ticks=52 crush=0
+oracle_ind    /101 W1 ph15: kind=no-move-run first_door=[5, 5] ticks=51 crush=0
+oracle_ind    /101 W1 ph16: kind=no-move-run first_door=[5, 5] ticks=50 crush=0
+oracle_ind    /101 W1 ph17: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_ind    /101 W1 ph18: kind=no-move-run first_door=[5, 5] ticks=48 crush=0
+oracle_ind    /101 W1 ph19: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+oracle_ind    /101 W1 ph20: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+oracle_ind    /101 W1 ph21: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+oracle_ind    /101 W1 ph22: kind=two-cycle first_door=[5, 5] ticks=44 crush=0
+oracle_ind    /101 W1 ph23: kind=two-cycle first_door=[5, 5] ticks=43 crush=0
+oracle_ind    /101 W1 ph24: kind=two-cycle first_door=[5, 5] ticks=42 crush=0
+oracle_ind    /101 W1 ph25: kind=two-cycle first_door=[5, 5] ticks=41 crush=0
+oracle_ind    /101 W1 ph26: kind=two-cycle first_door=[5, 5] ticks=40 crush=0
+oracle_ind    /101 W1 ph27: kind=two-cycle first_door=[5, 5] ticks=39 crush=0
+oracle_ind    /101 W1 ph28: kind=two-cycle first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /101 W1 ph29: kind=two-cycle first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /101 W2 ph00: kind=two-cycle first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /101 W2 ph01: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+oracle_ind    /101 W2 ph02: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /101 W2 ph03: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /101 W2 ph04: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /101 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_ind    /101 W2 ph06: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /101 W2 ph07: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /101 W2 ph08: kind=no-move-run first_door=[5, 5] ticks=58 crush=0
+oracle_ind    /101 W2 ph09: kind=no-move-run first_door=[5, 5] ticks=57 crush=0
+oracle_ind    /101 W2 ph10: kind=no-move-run first_door=[5, 5] ticks=56 crush=0
+oracle_ind    /101 W2 ph11: kind=no-move-run first_door=[5, 5] ticks=55 crush=0
+oracle_ind    /101 W2 ph12: kind=no-move-run first_door=[5, 5] ticks=54 crush=0
+oracle_ind    /101 W2 ph13: kind=no-move-run first_door=[5, 5] ticks=53 crush=0
+oracle_ind    /101 W2 ph14: kind=no-move-run first_door=[5, 5] ticks=52 crush=0
+oracle_ind    /101 W2 ph15: kind=no-move-run first_door=[5, 5] ticks=51 crush=0
+oracle_ind    /101 W2 ph16: kind=no-move-run first_door=[5, 5] ticks=50 crush=0
+oracle_ind    /101 W2 ph17: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_ind    /101 W2 ph18: kind=no-move-run first_door=[5, 5] ticks=48 crush=0
+oracle_ind    /101 W2 ph19: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+oracle_ind    /101 W2 ph20: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+oracle_ind    /101 W2 ph21: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+oracle_ind    /101 W2 ph22: kind=two-cycle first_door=[5, 5] ticks=44 crush=0
+oracle_ind    /101 W2 ph23: kind=two-cycle first_door=[5, 5] ticks=43 crush=0
+oracle_ind    /101 W2 ph24: kind=two-cycle first_door=[5, 5] ticks=42 crush=0
+oracle_ind    /101 W2 ph25: kind=two-cycle first_door=[5, 5] ticks=41 crush=0
+oracle_ind    /101 W2 ph26: kind=two-cycle first_door=[5, 5] ticks=40 crush=0
+oracle_ind    /101 W2 ph27: kind=two-cycle first_door=[5, 5] ticks=39 crush=0
+oracle_ind    /101 W2 ph28: kind=two-cycle first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /101 W2 ph29: kind=two-cycle first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /101 W5 ph00: kind=two-cycle first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /101 W5 ph01: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+oracle_ind    /101 W5 ph02: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /101 W5 ph03: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /101 W5 ph04: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /101 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_ind    /101 W5 ph06: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /101 W5 ph07: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /101 W5 ph08: kind=no-move-run first_door=[5, 5] ticks=58 crush=0
+oracle_ind    /101 W5 ph09: kind=no-move-run first_door=[5, 5] ticks=57 crush=0
+oracle_ind    /101 W5 ph10: kind=no-move-run first_door=[5, 5] ticks=56 crush=0
+oracle_ind    /101 W5 ph11: kind=no-move-run first_door=[5, 5] ticks=55 crush=0
+oracle_ind    /101 W5 ph12: kind=no-move-run first_door=[5, 5] ticks=54 crush=0
+oracle_ind    /101 W5 ph13: kind=no-move-run first_door=[5, 5] ticks=53 crush=0
+oracle_ind    /101 W5 ph14: kind=no-move-run first_door=[5, 5] ticks=52 crush=0
+oracle_ind    /101 W5 ph15: kind=no-move-run first_door=[5, 5] ticks=51 crush=0
+oracle_ind    /101 W5 ph16: kind=no-move-run first_door=[5, 5] ticks=50 crush=0
+oracle_ind    /101 W5 ph17: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_ind    /101 W5 ph18: kind=no-move-run first_door=[5, 5] ticks=48 crush=0
+oracle_ind    /101 W5 ph19: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+oracle_ind    /101 W5 ph20: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+oracle_ind    /101 W5 ph21: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+oracle_ind    /101 W5 ph22: kind=two-cycle first_door=[5, 5] ticks=44 crush=0
+oracle_ind    /101 W5 ph23: kind=two-cycle first_door=[5, 5] ticks=43 crush=0
+oracle_ind    /101 W5 ph24: kind=two-cycle first_door=[5, 5] ticks=42 crush=0
+oracle_ind    /101 W5 ph25: kind=two-cycle first_door=[5, 5] ticks=41 crush=0
+oracle_ind    /101 W5 ph26: kind=two-cycle first_door=[5, 5] ticks=40 crush=0
+oracle_ind    /101 W5 ph27: kind=two-cycle first_door=[5, 5] ticks=39 crush=0
+oracle_ind    /101 W5 ph28: kind=two-cycle first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /101 W5 ph29: kind=two-cycle first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /102 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /102 W1 ph06: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /102 W1 ph07: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /102 W1 ph08: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+oracle_ind    /102 W1 ph09: kind=dwell first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /102 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /102 W2 ph06: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /102 W2 ph07: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /102 W2 ph08: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+oracle_ind    /102 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /102 W5 ph06: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /102 W5 ph07: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /102 W5 ph08: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+oracle_ind    /103 W1 ph03: kind=dwell first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /103 W1 ph04: kind=two-cycle first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /103 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /103 W1 ph06: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /103 W1 ph07: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /103 W1 ph08: kind=two-cycle first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /103 W1 ph09: kind=two-cycle first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /103 W1 ph10: kind=two-cycle first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /103 W1 ph11: kind=two-cycle first_door=[5, 5] ticks=31 crush=0
+oracle_ind    /103 W1 ph12: kind=two-cycle first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /103 W1 ph13: kind=two-cycle first_door=[5, 5] ticks=29 crush=0
+oracle_ind    /103 W1 ph14: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /103 W1 ph16: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /103 W2 ph03: kind=dwell first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /103 W2 ph04: kind=two-cycle first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /103 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /103 W2 ph06: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /103 W2 ph07: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /103 W2 ph08: kind=two-cycle first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /103 W2 ph09: kind=two-cycle first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /103 W2 ph10: kind=two-cycle first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /103 W2 ph11: kind=two-cycle first_door=[5, 5] ticks=31 crush=0
+oracle_ind    /103 W2 ph12: kind=two-cycle first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /103 W2 ph13: kind=two-cycle first_door=[5, 5] ticks=29 crush=0
+oracle_ind    /103 W2 ph14: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /103 W2 ph16: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /103 W5 ph03: kind=dwell first_door=[5, 5] ticks=36 crush=0
+oracle_ind    /103 W5 ph04: kind=two-cycle first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /103 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /103 W5 ph06: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_ind    /103 W5 ph07: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /103 W5 ph08: kind=two-cycle first_door=[5, 5] ticks=34 crush=0
+oracle_ind    /103 W5 ph09: kind=two-cycle first_door=[5, 5] ticks=33 crush=0
+oracle_ind    /103 W5 ph10: kind=two-cycle first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /103 W5 ph11: kind=two-cycle first_door=[5, 5] ticks=31 crush=0
+oracle_ind    /103 W5 ph12: kind=two-cycle first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /103 W5 ph13: kind=two-cycle first_door=[5, 5] ticks=29 crush=0
+oracle_ind    /103 W5 ph14: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /103 W5 ph16: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /104 W1 ph02: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /104 W1 ph03: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+oracle_ind    /104 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /104 W1 ph07: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_ind    /104 W1 ph08: kind=dwell first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /104 W1 ph14: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /104 W1 ph15: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+oracle_ind    /104 W1 ph16: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /104 W1 ph17: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+oracle_ind    /104 W2 ph02: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /104 W2 ph03: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+oracle_ind    /104 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /104 W2 ph07: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_ind    /104 W2 ph08: kind=dwell first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /104 W2 ph14: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /104 W2 ph15: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+oracle_ind    /104 W2 ph16: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /104 W2 ph17: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+oracle_ind    /104 W5 ph02: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /104 W5 ph03: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+oracle_ind    /104 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_ind    /104 W5 ph07: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_ind    /104 W5 ph08: kind=dwell first_door=[5, 5] ticks=32 crush=0
+oracle_ind    /104 W5 ph14: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+oracle_ind    /104 W5 ph15: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+oracle_ind    /104 W5 ph16: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+oracle_ind    /104 W5 ph17: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+oracle_new    /101 W1 ph00: kind=no-move-run first_door=[5, 5] ticks=71 crush=0
+oracle_new    /101 W1 ph01: kind=no-move-run first_door=[5, 5] ticks=70 crush=0
+oracle_new    /101 W1 ph02: kind=no-move-run first_door=[5, 5] ticks=69 crush=0
+oracle_new    /101 W1 ph03: kind=no-move-run first_door=[5, 5] ticks=68 crush=0
+oracle_new    /101 W1 ph04: kind=no-move-run first_door=[5, 5] ticks=67 crush=0
+oracle_new    /101 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=66 crush=0
+oracle_new    /101 W1 ph06: kind=no-move-run first_door=[5, 5] ticks=65 crush=0
+oracle_new    /101 W1 ph07: kind=no-move-run first_door=[5, 5] ticks=64 crush=0
+oracle_new    /101 W1 ph08: kind=no-move-run first_door=[5, 5] ticks=63 crush=0
+oracle_new    /101 W1 ph09: kind=no-move-run first_door=[5, 5] ticks=62 crush=0
+oracle_new    /101 W1 ph10: kind=no-move-run first_door=[5, 5] ticks=61 crush=0
+oracle_new    /101 W1 ph11: kind=no-move-run first_door=[5, 5] ticks=60 crush=0
+oracle_new    /101 W1 ph12: kind=no-move-run first_door=[5, 5] ticks=59 crush=0
+oracle_new    /101 W1 ph13: kind=no-move-run first_door=[5, 5] ticks=58 crush=0
+oracle_new    /101 W1 ph28: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+oracle_new    /101 W1 ph29: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+oracle_new    /101 W2 ph00: kind=no-move-run first_door=[5, 5] ticks=71 crush=0
+oracle_new    /101 W2 ph01: kind=no-move-run first_door=[5, 5] ticks=70 crush=0
+oracle_new    /101 W2 ph02: kind=no-move-run first_door=[5, 5] ticks=69 crush=0
+oracle_new    /101 W2 ph03: kind=no-move-run first_door=[5, 5] ticks=68 crush=0
+oracle_new    /101 W2 ph04: kind=no-move-run first_door=[5, 5] ticks=67 crush=0
+oracle_new    /101 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=66 crush=0
+oracle_new    /101 W2 ph06: kind=no-move-run first_door=[5, 5] ticks=65 crush=0
+oracle_new    /101 W2 ph07: kind=no-move-run first_door=[5, 5] ticks=64 crush=0
+oracle_new    /101 W2 ph08: kind=no-move-run first_door=[5, 5] ticks=63 crush=0
+oracle_new    /101 W2 ph09: kind=no-move-run first_door=[5, 5] ticks=62 crush=0
+oracle_new    /101 W2 ph10: kind=no-move-run first_door=[5, 5] ticks=61 crush=0
+oracle_new    /101 W2 ph11: kind=no-move-run first_door=[5, 5] ticks=60 crush=0
+oracle_new    /101 W2 ph12: kind=no-move-run first_door=[5, 5] ticks=59 crush=0
+oracle_new    /101 W2 ph13: kind=no-move-run first_door=[5, 5] ticks=58 crush=0
+oracle_new    /101 W2 ph28: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+oracle_new    /101 W2 ph29: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+oracle_new    /101 W5 ph00: kind=no-move-run first_door=[5, 5] ticks=71 crush=0
+oracle_new    /101 W5 ph01: kind=no-move-run first_door=[5, 5] ticks=70 crush=0
+oracle_new    /101 W5 ph02: kind=no-move-run first_door=[5, 5] ticks=69 crush=0
+oracle_new    /101 W5 ph03: kind=no-move-run first_door=[5, 5] ticks=68 crush=0
+oracle_new    /101 W5 ph04: kind=no-move-run first_door=[5, 5] ticks=67 crush=0
+oracle_new    /101 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=66 crush=0
+oracle_new    /101 W5 ph06: kind=no-move-run first_door=[5, 5] ticks=65 crush=0
+oracle_new    /101 W5 ph07: kind=no-move-run first_door=[5, 5] ticks=64 crush=0
+oracle_new    /101 W5 ph08: kind=no-move-run first_door=[5, 5] ticks=63 crush=0
+oracle_new    /101 W5 ph09: kind=no-move-run first_door=[5, 5] ticks=62 crush=0
+oracle_new    /101 W5 ph10: kind=no-move-run first_door=[5, 5] ticks=61 crush=0
+oracle_new    /101 W5 ph11: kind=no-move-run first_door=[5, 5] ticks=60 crush=0
+oracle_new    /101 W5 ph12: kind=no-move-run first_door=[5, 5] ticks=59 crush=0
+oracle_new    /101 W5 ph13: kind=no-move-run first_door=[5, 5] ticks=58 crush=0
+oracle_new    /101 W5 ph28: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+oracle_new    /101 W5 ph29: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+oracle_new    /102 W1 ph00: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_new    /102 W1 ph01: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_new    /102 W1 ph02: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_new    /102 W1 ph03: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+oracle_new    /102 W1 ph04: kind=dwell first_door=[5, 5] ticks=45 crush=0
+oracle_new    /102 W1 ph05: kind=dwell first_door=[5, 5] ticks=44 crush=0
+oracle_new    /102 W1 ph06: kind=dwell first_door=[5, 5] ticks=43 crush=0
+oracle_new    /102 W1 ph07: kind=dwell first_door=[5, 5] ticks=42 crush=0
+oracle_new    /102 W1 ph08: kind=dwell first_door=[5, 5] ticks=41 crush=0
+oracle_new    /102 W1 ph09: kind=dwell first_door=[5, 5] ticks=40 crush=0
+oracle_new    /102 W1 ph10: kind=dwell first_door=[5, 5] ticks=39 crush=0
+oracle_new    /102 W1 ph18: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_new    /102 W1 ph20: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+oracle_new    /102 W1 ph22: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+oracle_new    /102 W1 ph24: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+oracle_new    /102 W1 ph26: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+oracle_new    /102 W1 ph27: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+oracle_new    /102 W1 ph28: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+oracle_new    /102 W1 ph29: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_new    /102 W2 ph00: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_new    /102 W2 ph01: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_new    /102 W2 ph02: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_new    /102 W2 ph03: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+oracle_new    /102 W2 ph18: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_new    /102 W2 ph20: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+oracle_new    /102 W2 ph22: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+oracle_new    /102 W2 ph24: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+oracle_new    /102 W2 ph26: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+oracle_new    /102 W2 ph27: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+oracle_new    /102 W2 ph28: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+oracle_new    /102 W2 ph29: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_new    /102 W5 ph00: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_new    /102 W5 ph01: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_new    /102 W5 ph02: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_new    /102 W5 ph03: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+oracle_new    /102 W5 ph18: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_new    /102 W5 ph20: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+oracle_new    /102 W5 ph22: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+oracle_new    /102 W5 ph24: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+oracle_new    /102 W5 ph26: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+oracle_new    /102 W5 ph27: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+oracle_new    /102 W5 ph28: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+oracle_new    /102 W5 ph29: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_new    /104 W1 ph00: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_new    /104 W1 ph01: kind=no-move-run first_door=[5, 5] ticks=48 crush=0
+oracle_new    /104 W1 ph02: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+oracle_new    /104 W1 ph03: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+oracle_new    /104 W1 ph04: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+oracle_new    /104 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=44 crush=0
+oracle_new    /104 W1 ph06: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+oracle_new    /104 W1 ph07: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+oracle_new    /104 W1 ph08: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+oracle_new    /104 W1 ph09: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+oracle_new    /104 W1 ph10: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+oracle_new    /104 W1 ph11: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_new    /104 W1 ph12: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_new    /104 W1 ph13: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_new    /104 W1 ph14: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_new    /104 W1 ph15: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_new    /104 W1 ph16: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_new    /104 W1 ph17: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+oracle_new    /104 W1 ph18: kind=dwell first_door=[5, 5] ticks=31 crush=0
+oracle_new    /104 W2 ph00: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_new    /104 W2 ph01: kind=no-move-run first_door=[5, 5] ticks=48 crush=0
+oracle_new    /104 W2 ph02: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+oracle_new    /104 W2 ph03: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+oracle_new    /104 W2 ph04: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+oracle_new    /104 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=44 crush=0
+oracle_new    /104 W2 ph06: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+oracle_new    /104 W2 ph07: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+oracle_new    /104 W2 ph08: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+oracle_new    /104 W2 ph09: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+oracle_new    /104 W2 ph10: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+oracle_new    /104 W2 ph11: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_new    /104 W2 ph12: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_new    /104 W2 ph13: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_new    /104 W2 ph14: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_new    /104 W2 ph15: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_new    /104 W2 ph16: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_new    /104 W2 ph17: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+oracle_new    /104 W2 ph18: kind=dwell first_door=[5, 5] ticks=31 crush=0
+oracle_new    /104 W5 ph00: kind=no-move-run first_door=[5, 5] ticks=49 crush=0
+oracle_new    /104 W5 ph01: kind=no-move-run first_door=[5, 5] ticks=48 crush=0
+oracle_new    /104 W5 ph02: kind=no-move-run first_door=[5, 5] ticks=47 crush=0
+oracle_new    /104 W5 ph03: kind=no-move-run first_door=[5, 5] ticks=46 crush=0
+oracle_new    /104 W5 ph04: kind=no-move-run first_door=[5, 5] ticks=45 crush=0
+oracle_new    /104 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=44 crush=0
+oracle_new    /104 W5 ph06: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+oracle_new    /104 W5 ph07: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+oracle_new    /104 W5 ph08: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+oracle_new    /104 W5 ph09: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+oracle_new    /104 W5 ph10: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+oracle_new    /104 W5 ph11: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+oracle_new    /104 W5 ph12: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+oracle_new    /104 W5 ph13: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+oracle_new    /104 W5 ph14: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+oracle_new    /104 W5 ph15: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+oracle_new    /104 W5 ph16: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+oracle_new    /104 W5 ph17: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+oracle_new    /104 W5 ph18: kind=dwell first_door=[5, 5] ticks=31 crush=0
+phase_only_new/100 W1 ph03: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+phase_only_new/100 W1 ph04: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+phase_only_new/100 W2 ph03: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+phase_only_new/100 W2 ph04: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+phase_only_new/100 W5 ph03: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+phase_only_new/100 W5 ph04: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+phase_only_new/101 W1 ph00: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+phase_only_new/101 W1 ph01: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+phase_only_new/101 W1 ph02: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+phase_only_new/101 W1 ph03: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+phase_only_new/101 W1 ph04: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+phase_only_new/101 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+phase_only_new/101 W1 ph06: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+phase_only_new/101 W1 ph07: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+phase_only_new/101 W1 ph08: kind=dwell first_door=[5, 5] ticks=33 crush=0
+phase_only_new/101 W1 ph28: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+phase_only_new/101 W1 ph29: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+phase_only_new/101 W2 ph00: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+phase_only_new/101 W2 ph01: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+phase_only_new/101 W2 ph02: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+phase_only_new/101 W2 ph03: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+phase_only_new/101 W2 ph04: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+phase_only_new/101 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+phase_only_new/101 W2 ph06: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+phase_only_new/101 W2 ph07: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+phase_only_new/101 W2 ph08: kind=dwell first_door=[5, 5] ticks=33 crush=0
+phase_only_new/101 W2 ph28: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+phase_only_new/101 W2 ph29: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+phase_only_new/101 W5 ph00: kind=no-move-run first_door=[5, 5] ticks=41 crush=0
+phase_only_new/101 W5 ph01: kind=no-move-run first_door=[5, 5] ticks=40 crush=0
+phase_only_new/101 W5 ph02: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+phase_only_new/101 W5 ph03: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+phase_only_new/101 W5 ph04: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+phase_only_new/101 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+phase_only_new/101 W5 ph06: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+phase_only_new/101 W5 ph07: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+phase_only_new/101 W5 ph08: kind=dwell first_door=[5, 5] ticks=33 crush=0
+phase_only_new/101 W5 ph28: kind=no-move-run first_door=[5, 5] ticks=43 crush=0
+phase_only_new/101 W5 ph29: kind=no-move-run first_door=[5, 5] ticks=42 crush=0
+phase_only_new/102 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+phase_only_new/102 W1 ph07: kind=dwell first_door=[5, 5] ticks=34 crush=0
+phase_only_new/102 W1 ph08: kind=dwell first_door=[5, 5] ticks=33 crush=0
+phase_only_new/102 W1 ph09: kind=dwell first_door=[5, 5] ticks=32 crush=0
+phase_only_new/102 W1 ph10: kind=dwell first_door=[5, 5] ticks=31 crush=0
+phase_only_new/102 W1 ph11: kind=dwell first_door=[5, 5] ticks=30 crush=0
+phase_only_new/102 W1 ph12: kind=dwell first_door=[5, 5] ticks=29 crush=0
+phase_only_new/102 W1 ph22: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+phase_only_new/102 W1 ph23: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+phase_only_new/102 W1 ph27: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+phase_only_new/102 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+phase_only_new/102 W2 ph07: kind=dwell first_door=[5, 5] ticks=34 crush=0
+phase_only_new/102 W2 ph08: kind=dwell first_door=[5, 5] ticks=33 crush=0
+phase_only_new/102 W2 ph09: kind=dwell first_door=[5, 5] ticks=32 crush=0
+phase_only_new/102 W2 ph10: kind=dwell first_door=[5, 5] ticks=31 crush=0
+phase_only_new/102 W2 ph11: kind=dwell first_door=[5, 5] ticks=30 crush=0
+phase_only_new/102 W2 ph12: kind=dwell first_door=[5, 5] ticks=29 crush=0
+phase_only_new/102 W2 ph22: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+phase_only_new/102 W2 ph23: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+phase_only_new/102 W2 ph27: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+phase_only_new/102 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+phase_only_new/102 W5 ph07: kind=dwell first_door=[5, 5] ticks=34 crush=0
+phase_only_new/102 W5 ph08: kind=dwell first_door=[5, 5] ticks=33 crush=0
+phase_only_new/102 W5 ph09: kind=dwell first_door=[5, 5] ticks=32 crush=0
+phase_only_new/102 W5 ph10: kind=dwell first_door=[5, 5] ticks=31 crush=0
+phase_only_new/102 W5 ph11: kind=dwell first_door=[5, 5] ticks=30 crush=0
+phase_only_new/102 W5 ph12: kind=dwell first_door=[5, 5] ticks=29 crush=0
+phase_only_new/102 W5 ph22: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+phase_only_new/102 W5 ph23: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+phase_only_new/102 W5 ph27: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+phase_only_new/103 W1 ph04: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+phase_only_new/103 W1 ph05: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+phase_only_new/103 W1 ph06: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+phase_only_new/103 W1 ph07: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+phase_only_new/103 W1 ph08: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+phase_only_new/103 W1 ph09: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+phase_only_new/103 W1 ph10: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+phase_only_new/103 W1 ph11: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+phase_only_new/103 W1 ph12: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+phase_only_new/103 W1 ph13: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+phase_only_new/103 W1 ph14: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+phase_only_new/103 W2 ph04: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+phase_only_new/103 W2 ph05: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+phase_only_new/103 W2 ph06: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+phase_only_new/103 W2 ph07: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+phase_only_new/103 W2 ph08: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+phase_only_new/103 W2 ph09: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+phase_only_new/103 W2 ph10: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+phase_only_new/103 W2 ph11: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+phase_only_new/103 W2 ph12: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+phase_only_new/103 W2 ph13: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+phase_only_new/103 W2 ph14: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+phase_only_new/103 W5 ph04: kind=no-move-run first_door=[5, 5] ticks=39 crush=0
+phase_only_new/103 W5 ph05: kind=no-move-run first_door=[5, 5] ticks=38 crush=0
+phase_only_new/103 W5 ph06: kind=no-move-run first_door=[5, 5] ticks=37 crush=0
+phase_only_new/103 W5 ph07: kind=no-move-run first_door=[5, 5] ticks=36 crush=0
+phase_only_new/103 W5 ph08: kind=no-move-run first_door=[5, 5] ticks=35 crush=0
+phase_only_new/103 W5 ph09: kind=no-move-run first_door=[5, 5] ticks=34 crush=0
+phase_only_new/103 W5 ph10: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+phase_only_new/103 W5 ph11: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+phase_only_new/103 W5 ph12: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+phase_only_new/103 W5 ph13: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+phase_only_new/103 W5 ph14: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+plain         /0   W1 ph01: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+plain         /0   W2 ph01: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+plain         /0   W5 ph01: kind=no-move-run first_door=[5, 5] ticks=29 crush=0
+plain         /1   W1 ph00: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph01: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph02: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph03: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph04: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph05: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph06: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph07: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph08: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph09: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph16: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph17: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph18: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W1 ph19: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph00: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph01: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph02: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph03: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph04: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph05: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph06: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph07: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph08: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph09: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph16: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph17: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph18: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W2 ph19: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph00: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph01: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph02: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph03: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph04: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph05: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph06: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph07: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph08: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph09: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph16: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph17: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph18: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /1   W5 ph19: kind=no-move-run first_door=None ticks=200 crush=0
+plain         /3   W1 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+plain         /3   W1 ph02: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+plain         /3   W1 ph03: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+plain         /3   W1 ph04: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+plain         /3   W1 ph05: kind=two-cycle first_door=[5, 5] ticks=26 crush=0
+plain         /3   W1 ph06: kind=two-cycle first_door=[5, 5] ticks=26 crush=0
+plain         /3   W2 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+plain         /3   W2 ph02: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+plain         /3   W2 ph03: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+plain         /3   W2 ph04: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+plain         /3   W2 ph05: kind=two-cycle first_door=[5, 5] ticks=26 crush=0
+plain         /3   W2 ph06: kind=two-cycle first_door=[5, 5] ticks=26 crush=0
+plain         /3   W5 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+plain         /3   W5 ph02: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+plain         /3   W5 ph03: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+plain         /3   W5 ph04: kind=two-cycle first_door=[5, 5] ticks=28 crush=0
+plain         /3   W5 ph05: kind=two-cycle first_door=[5, 5] ticks=26 crush=0
+plain         /3   W5 ph06: kind=two-cycle first_door=[5, 5] ticks=26 crush=0
+plain         /4   W1 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+plain         /4   W1 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+plain         /4   W2 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+plain         /4   W2 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+plain         /4   W5 ph01: kind=no-move-run first_door=[5, 5] ticks=28 crush=0
+plain         /4   W5 ph02: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+wrapped       /0   W1 ph03: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+wrapped       /0   W2 ph03: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+wrapped       /0   W5 ph03: kind=no-move-run first_door=[5, 5] ticks=27 crush=0
+wrapped       /2   W1 ph14: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+wrapped       /2   W1 ph15: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+wrapped       /2   W1 ph16: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+wrapped       /2   W1 ph17: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+wrapped       /2   W2 ph14: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+wrapped       /2   W2 ph15: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+wrapped       /2   W2 ph16: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+wrapped       /2   W2 ph17: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+wrapped       /2   W5 ph14: kind=no-move-run first_door=[5, 5] ticks=33 crush=0
+wrapped       /2   W5 ph15: kind=no-move-run first_door=[5, 5] ticks=32 crush=0
+wrapped       /2   W5 ph16: kind=no-move-run first_door=[5, 5] ticks=31 crush=0
+wrapped       /2   W5 ph17: kind=no-move-run first_door=[5, 5] ticks=30 crush=0
+
+=== blank-feature episodes in remedy wrapped evals ===
+wrapped/0 W1m ph14: blank_steps=6 ticks=36 first_door=[5, 5] reached=True
+wrapped/0 W2 ph14: blank_steps=6 ticks=36 first_door=[5, 5] reached=True
+wrapped/0 W5 ph14: blank_steps=6 ticks=36 first_door=[5, 5] reached=True
+
+=== switch episodes (W2, W5) ===
+oracle_ind    /104 W5 ph27: switches=1 entries=[[5, 5], [5, 9]] ticks=20
+phase_only_new/102 W5 ph00: switches=2 entries=[[5, 5], [5, 7], [5, 5]] ticks=41
+phase_only_new/102 W5 ph28: switches=2 entries=[[5, 5], [5, 7], [5, 5]] ticks=43
+phase_only_new/102 W5 ph29: switches=2 entries=[[5, 5], [5, 7], [5, 5]] ticks=42
+wrapped       /3   W5 ph15: switches=2 entries=[[5, 5], [5, 7], [5, 5]] ticks=36
+
+=== FAIL episodes ===
+memory        /1   W5 ph13: ticks=200 crush=0 first_door=[5, 3]
+plain         /1   W1 ph00: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph01: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph02: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph03: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph04: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph05: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph06: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph07: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph08: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph09: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph16: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph17: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph18: ticks=200 crush=0 first_door=None
+plain         /1   W1 ph19: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph00: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph01: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph02: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph03: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph04: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph05: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph06: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph07: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph08: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph09: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph16: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph17: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph18: ticks=200 crush=0 first_door=None
+plain         /1   W2 ph19: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph00: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph01: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph02: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph03: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph04: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph05: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph06: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph07: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph08: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph09: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph16: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph17: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph18: ticks=200 crush=0 first_door=None
+plain         /1   W5 ph19: ticks=200 crush=0 first_door=None

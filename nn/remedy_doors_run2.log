@@ -1,0 +1,16 @@
+wrapped/0 W1m: already done, skipping
+wrapped/4 W1m: already done, skipping
+wrapped/0 W2: already done, skipping
+wrapped/0 W5: already done, skipping
+wrapped/1 W2: already done, skipping
+wrapped/1 W5: already done, skipping
+wrapped/2 W2: already done, skipping
+wrapped/2 W5: already done, skipping
+wrapped/3 W2: training (fresh)...
+wrapped/3 W2: succ=1.00 ticks=23.25 crush=0.050 episodes-with-blank-features=0
+wrapped/3 W5: training (fresh)...
+wrapped/3 W5: succ=1.00 ticks=24.10 crush=0.100 episodes-with-blank-features=0
+wrapped/4 W2: training (fresh)...
+wrapped/4 W2: succ=1.00 ticks=22.40 crush=0.050 episodes-with-blank-features=0
+wrapped/4 W5: training (fresh)...
+wrapped/4 W5: succ=1.00 ticks=22.40 crush=0.050 episodes-with-blank-features=0
