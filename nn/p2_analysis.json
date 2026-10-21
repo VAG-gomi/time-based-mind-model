@@ -1,0 +1,5565 @@
+{
+ "pairs": {
+  "oracle_ind/101 30/14": {
+   "ticks": {
+    "median": 43.5,
+    "min": 33,
+    "max": 58,
+    "mean": 44.43333333333333
+   },
+   "approach": {
+    "median": 23.5,
+    "min": 9,
+    "max": 31,
+    "mean": 21.633333333333333
+   },
+   "staging": {
+    "median": 1.0,
+    "min": 1,
+    "max": 1,
+    "mean": 1.0
+   },
+   "escape": {
+    "median": 26.0,
+    "min": 8,
+    "max": 26,
+    "mean": 21.8
+   },
+   "approach_escape": {
+    "median": 42.5,
+    "min": 32,
+    "max": 57,
+    "mean": 43.43333333333333
+   },
+   "dwell": {
+    "median": 20.0,
+    "min": 12,
+    "max": 26,
+    "mean": 18.833333333333332
+   },
+   "revisits": {
+    "median": 14.0,
+    "min": 0,
+    "max": 14,
+    "mean": 11.033333333333333
+   },
+   "max_revisit": {
+    "median": 7.0,
+    "min": 0,
+    "max": 7,
+    "mean": 5.566666666666666
+   },
+   "n": 30
+  },
+  "oracle_ind/102 30/14": {
+   "ticks": {
+    "median": 20.5,
+    "min": 18,
+    "max": 35,
+    "mean": 23.1
+   },
+   "approach": {
+    "median": 9.0,
+    "min": 9,
+    "max": 24,
+    "mean": 12.0
+   },
+   "staging": {
+    "median": 1.0,
+    "min": 1,
+    "max": 18,
+    "mean": 3.1
+   },
+   "escape": {
+    "median": 8.0,
+    "min": 8,
+    "max": 8,
+    "mean": 8.0
+   },
+   "approach_escape": {
+    "median": 17.0,
+    "min": 17,
+    "max": 32,
+    "mean": 20.0
+   },
+   "dwell": {
+    "median": 5.0,
+    "min": 3,
+    "max": 19,
+    "mean": 6.8
+   },
+   "revisits": {
+    "median": 0.0,
+    "min": 0,
+    "max": 12,
+    "mean": 0.4
+   },
+   "max_revisit": {
+    "median": 0.0,
+    "min": 0,
+    "max": 4,
+    "mean": 0.13333333333333333
+   },
+   "n": 30
+  },
+  "oracle_new/101 30/14": {
+   "ticks": {
+    "median": 41.5,
+    "min": 18,
+    "max": 71,
+    "mean": 42.46666666666667
+   },
+   "approach": {
+    "median": 32.5,
+    "min": 9,
+    "max": 62,
+    "mean": 32.766666666666666
+   },
+   "staging": {
+    "median": 1.0,
+    "min": 1,
+    "max": 4,
+    "mean": 1.6666666666666667
+   },
+   "escape": {
+    "median": 8.0,
+    "min": 8,
+    "max": 9,
+    "mean": 8.033333333333333
+   },
+   "approach_escape": {
+    "median": 40.5,
+    "min": 17,
+    "max": 70,
+    "mean": 40.8
+   },
+   "dwell": {
+    "median": 15.0,
+    "min": 4,
+    "max": 25,
+    "mean": 15.166666666666666
+   },
+   "revisits": {
+    "median": 1.0,
+    "min": 0,
+    "max": 13,
+    "mean": 6.3
+   },
+   "max_revisit": {
+    "median": 1.0,
+    "min": 0,
+    "max": 6,
+    "mean": 3.033333333333333
+   },
+   "n": 30
+  },
+  "phase_only_new/101 30/14": {
+   "ticks": {
+    "median": 28.5,
+    "min": 18,
+    "max": 43,
+    "mean": 28.833333333333332
+   },
+   "approach": {
+    "median": 14.5,
+    "min": 9,
+    "max": 34,
+    "mean": 16.5
+   },
+   "staging": {
+    "median": 4.0,
+    "min": 1,
+    "max": 4,
+    "mean": 2.9
+   },
+   "escape": {
+    "median": 10.0,
+    "min": 8,
+    "max": 10,
+    "mean": 9.433333333333334
+   },
+   "approach_escape": {
+    "median": 24.5,
+    "min": 17,
+    "max": 42,
+    "mean": 25.933333333333334
+   },
+   "dwell": {
+    "median": 10.5,
+    "min": 4,
+    "max": 30,
+    "mean": 12.266666666666667
+   },
+   "revisits": {
+    "median": 0.0,
+    "min": 0,
+    "max": 2,
+    "mean": 0.13333333333333333
+   },
+   "max_revisit": {
+    "median": 0.0,
+    "min": 0,
+    "max": 1,
+    "mean": 0.06666666666666667
+   },
+   "n": 30
+  },
+  "wrapped_ind/101 20/10": {
+   "ticks": {
+    "median": 24.5,
+    "min": 19,
+    "max": 33,
+    "mean": 25.45
+   },
+   "approach": {
+    "median": 15.0,
+    "min": 10,
+    "max": 23,
+    "mean": 15.8
+   },
+   "staging": {
+    "median": 1.0,
+    "min": 1,
+    "max": 1,
+    "mean": 1.0
+   },
+   "escape": {
+    "median": 9.0,
+    "min": 8,
+    "max": 9,
+    "mean": 8.65
+   },
+   "approach_escape": {
+    "median": 23.5,
+    "min": 18,
+    "max": 32,
+    "mean": 24.45
+   },
+   "dwell": {
+    "median": 8.0,
+    "min": 6,
+    "max": 12,
+    "mean": 8.05
+   },
+   "revisits": {
+    "median": 0.0,
+    "min": 0,
+    "max": 7,
+    "mean": 1.7
+   },
+   "max_revisit": {
+    "median": 0.0,
+    "min": 0,
+    "max": 4,
+    "mean": 1.0
+   },
+   "n": 20
+  },
+  "wrapped_ind/101 30/14": {
+   "ticks": {
+    "median": 20.5,
+    "min": 18,
+    "max": 36,
+    "mean": 23.133333333333333
+   },
+   "approach": {
+    "median": 9.0,
+    "min": 9,
+    "max": 21,
+    "mean": 12.166666666666666
+   },
+   "staging": {
+    "median": 3.0,
+    "min": 1,
+    "max": 19,
+    "mean": 2.966666666666667
+   },
+   "escape": {
+    "median": 8.0,
+    "min": 8,
+    "max": 8,
+    "mean": 8.0
+   },
+   "approach_escape": {
+    "median": 17.0,
+    "min": 17,
+    "max": 29,
+    "mean": 20.166666666666668
+   },
+   "dwell": {
+    "median": 5.0,
+    "min": 4,
+    "max": 14,
+    "mean": 5.966666666666667
+   },
+   "revisits": {
+    "median": 0.0,
+    "min": 0,
+    "max": 11,
+    "mean": 2.6666666666666665
+   },
+   "max_revisit": {
+    "median": 0.0,
+    "min": 0,
+    "max": 6,
+    "mean": 1.3666666666666667
+   },
+   "n": 30
+  },
+  "wrapped_ind/102 20/10": {
+   "ticks": {
+    "median": 20.5,
+    "min": 18,
+    "max": 29,
+    "mean": 21.6
+   },
+   "approach": {
+    "median": 9.0,
+    "min": 9,
+    "max": 13,
+    "mean": 9.8
+   },
+   "staging": {
+    "median": 2.5,
+    "min": 1,
+    "max": 10,
+    "mean": 3.5
+   },
+   "escape": {
+    "median": 8.0,
+    "min": 8,
+    "max": 11,
+    "mean": 8.3
+   },
+   "approach_escape": {
+    "median": 18.0,
+    "min": 17,
+    "max": 21,
+    "mean": 18.1
+   },
+   "dwell": {
+    "median": 5.0,
+    "min": 4,
+    "max": 7,
+    "mean": 5.2
+   },
+   "revisits": {
+    "median": 0.0,
+    "min": 0,
+    "max": 5,
+    "mean": 1.1
+   },
+   "max_revisit": {
+    "median": 0.0,
+    "min": 0,
+    "max": 3,
+    "mean": 0.65
+   },
+   "n": 20
+  },
+  "wrapped_ind/102 30/14": {
+   "ticks": {
+    "median": 22.5,
+    "min": 18,
+    "max": 37,
+    "mean": 24.033333333333335
+   },
+   "approach": {
+    "median": 9.0,
+    "min": 9,
+    "max": 14,
+    "mean": 9.666666666666666
+   },
+   "staging": {
+    "median": 1.0,
+    "min": 1,
+    "max": 20,
+    "mean": 6.366666666666666
+   },
+   "escape": {
+    "median": 8.0,
+    "min": 8,
+    "max": 8,
+    "mean": 8.0
+   },
+   "approach_escape": {
+    "median": 17.0,
+    "min": 17,
+    "max": 22,
+    "mean": 17.666666666666668
+   },
+   "dwell": {
+    "median": 5.0,
+    "min": 4,
+    "max": 8,
+    "mean": 5.066666666666666
+   },
+   "revisits": {
+    "median": 0.0,
+    "min": 0,
+    "max": 14,
+    "mean": 1.0
+   },
+   "max_revisit": {
+    "median": 0.0,
+    "min": 0,
+    "max": 7,
+    "mean": 0.5
+   },
+   "n": 30
+  },
+  "wrapped_ind/104 20/10": {
+   "ticks": {
+    "median": 20.5,
+    "min": 18,
+    "max": 30,
+    "mean": 21.9
+   },
+   "approach": {
+    "median": 9.5,
+    "min": 9,
+    "max": 19,
+    "mean": 11.75
+   },
+   "staging": {
+    "median": 3.0,
+    "min": 1,
+    "max": 3,
+    "mean": 2.15
+   },
+   "escape": {
+    "median": 8.0,
+    "min": 8,
+    "max": 8,
+    "mean": 8.0
+   },
+   "approach_escape": {
+    "median": 17.5,
+    "min": 17,
+    "max": 27,
+    "mean": 19.75
+   },
+   "dwell": {
+    "median": 5.0,
+    "min": 5,
+    "max": 10,
+    "mean": 5.85
+   },
+   "revisits": {
+    "median": 0.0,
+    "min": 0,
+    "max": 4,
+    "mean": 0.2
+   },
+   "max_revisit": {
+    "median": 0.0,
+    "min": 0,
+    "max": 1,
+    "mean": 0.05
+   },
+   "n": 20
+  },
+  "wrapped_ind/106 20/10": {
+   "ticks": {
+    "median": 24.5,
+    "min": 18,
+    "max": 39,
+    "mean": 25.2
+   },
+   "approach": {
+    "median": 15.0,
+    "min": 9,
+    "max": 21,
+    "mean": 14.25
+   },
+   "staging": {
+    "median": 1.0,
+    "min": 1,
+    "max": 6,
+    "mean": 1.25
+   },
+   "escape": {
+    "median": 9.0,
+    "min": 8,
+    "max": 18,
+    "mean": 9.7
+   },
+   "approach_escape": {
+    "median": 23.5,
+    "min": 17,
+    "max": 38,
+    "mean": 23.95
+   },
+   "dwell": {
+    "median": 8.0,
+    "min": 4,
+    "max": 16,
+    "mean": 8.4
+   },
+   "revisits": {
+    "median": 1.5,
+    "min": 0,
+    "max": 8,
+    "mean": 2.4
+   },
+   "max_revisit": {
+    "median": 1.0,
+    "min": 0,
+    "max": 4,
+    "mean": 1.2
+   },
+   "n": 20
+  },
+  "wrapped_ind/108 20/10": {
+   "ticks": {
+    "median": 32.0,
+    "min": 20,
+    "max": 39,
+    "mean": 30.75
+   },
+   "approach": {
+    "median": 21.5,
+    "min": 10,
+    "max": 29,
+    "mean": 20.5
+   },
+   "staging": {
+    "median": 1.0,
+    "min": 1,
+    "max": 1,
+    "mean": 1.0
+   },
+   "escape": {
+    "median": 9.0,
+    "min": 9,
+    "max": 10,
+    "mean": 9.25
+   },
+   "approach_escape": {
+    "median": 31.0,
+    "min": 19,
+    "max": 38,
+    "mean": 29.75
+   },
+   "dwell": {
+    "median": 17.5,
+    "min": 6,
+    "max": 19,
+    "mean": 15.4
+   },
+   "revisits": {
+    "median": 0.0,
+    "min": 0,
+    "max": 2,
+    "mean": 0.8
+   },
+   "max_revisit": {
+    "median": 0.0,
+    "min": 0,
+    "max": 1,
+    "mean": 0.4
+   },
+   "n": 20
+  },
+  "wrapped_ind/109 20/10": {
+   "ticks": {
+    "median": 32.5,
+    "min": 24,
+    "max": 42,
+    "mean": 32.55
+   },
+   "approach": {
+    "median": 9.0,
+    "min": 9,
+    "max": 14,
+    "mean": 10.2
+   },
+   "staging": {
+    "median": 3.5,
+    "min": 1,
+    "max": 10,
+    "mean": 3.7
+   },
+   "escape": {
+    "median": 20.0,
+    "min": 14,
+    "max": 20,
+    "mean": 18.65
+   },
+   "approach_escape": {
+    "median": 29.0,
+    "min": 23,
+    "max": 34,
+    "mean": 28.85
+   },
+   "dwell": {
+    "median": 7.0,
+    "min": 4,
+    "max": 9,
+    "mean": 6.45
+   },
+   "revisits": {
+    "median": 6.5,
+    "min": 5,
+    "max": 13,
+    "mean": 7.3
+   },
+   "max_revisit": {
+    "median": 3.0,
+    "min": 3,
+    "max": 4,
+    "mean": 3.05
+   },
+   "n": 20
+  }
+ },
+ "episodes": {
+  "oracle_ind/101 30/14": [
+   {
+    "start_phase": 0,
+    "ticks": 36,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 35,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 39,
+    "crushes": 0,
+    "reached": true,
+    "approach": 30,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 38,
+    "dwell": 12,
+    "revisits": 3,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 38,
+    "crushes": 0,
+    "reached": true,
+    "approach": 29,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 37,
+    "dwell": 12,
+    "revisits": 3,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 37,
+    "crushes": 0,
+    "reached": true,
+    "approach": 28,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 36,
+    "dwell": 12,
+    "revisits": 3,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 36,
+    "crushes": 0,
+    "reached": true,
+    "approach": 27,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 35,
+    "dwell": 12,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 35,
+    "crushes": 0,
+    "reached": true,
+    "approach": 26,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 34,
+    "dwell": 12,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 34,
+    "crushes": 0,
+    "reached": true,
+    "approach": 25,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 33,
+    "dwell": 12,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 33,
+    "crushes": 0,
+    "reached": true,
+    "approach": 24,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 32,
+    "dwell": 12,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 58,
+    "crushes": 0,
+    "reached": true,
+    "approach": 31,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 57,
+    "dwell": 26,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 57,
+    "crushes": 0,
+    "reached": true,
+    "approach": 30,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 56,
+    "dwell": 25,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 56,
+    "crushes": 0,
+    "reached": true,
+    "approach": 29,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 55,
+    "dwell": 24,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 55,
+    "crushes": 0,
+    "reached": true,
+    "approach": 28,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 54,
+    "dwell": 23,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 54,
+    "crushes": 0,
+    "reached": true,
+    "approach": 27,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 53,
+    "dwell": 22,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 53,
+    "crushes": 0,
+    "reached": true,
+    "approach": 26,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 52,
+    "dwell": 21,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 52,
+    "crushes": 0,
+    "reached": true,
+    "approach": 25,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 51,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 51,
+    "crushes": 0,
+    "reached": true,
+    "approach": 24,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 50,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 50,
+    "crushes": 0,
+    "reached": true,
+    "approach": 23,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 49,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 49,
+    "crushes": 0,
+    "reached": true,
+    "approach": 22,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 48,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 48,
+    "crushes": 0,
+    "reached": true,
+    "approach": 21,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 47,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 47,
+    "crushes": 0,
+    "reached": true,
+    "approach": 20,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 46,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 20,
+    "ticks": 46,
+    "crushes": 0,
+    "reached": true,
+    "approach": 19,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 45,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 21,
+    "ticks": 45,
+    "crushes": 0,
+    "reached": true,
+    "approach": 18,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 44,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 22,
+    "ticks": 44,
+    "crushes": 0,
+    "reached": true,
+    "approach": 17,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 43,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 23,
+    "ticks": 43,
+    "crushes": 0,
+    "reached": true,
+    "approach": 16,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 42,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 24,
+    "ticks": 42,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 41,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 25,
+    "ticks": 41,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 40,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 26,
+    "ticks": 40,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 39,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 27,
+    "ticks": 39,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 38,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 28,
+    "ticks": 38,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 37,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 29,
+    "ticks": 37,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 1,
+    "escape": 26,
+    "approach_escape": 36,
+    "dwell": 20,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "oracle_ind/102 30/14": [
+   {
+    "start_phase": 0,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 35,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 18,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 12,
+    "max_revisit": 4,
+    "stage_actions": {
+     "down": 4,
+     "left": 4,
+     "right": 6,
+     "up": 4
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 34,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 17,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 15,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 33,
+    "crushes": 0,
+    "reached": true,
+    "approach": 24,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 32,
+    "dwell": 19,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 32,
+    "crushes": 0,
+    "reached": true,
+    "approach": 23,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 31,
+    "dwell": 18,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 31,
+    "crushes": 0,
+    "reached": true,
+    "approach": 22,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 30,
+    "dwell": 17,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 21,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 29,
+    "dwell": 16,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 29,
+    "crushes": 0,
+    "reached": true,
+    "approach": 17,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 25,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 16,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 24,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 27,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 23,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 22,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 21,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 20,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 18,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 3,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 3,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 20,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 2,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 3,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 21,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 22,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 23,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 24,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 25,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 26,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 27,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 28,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 29,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "oracle_new/101 30/14": [
+   {
+    "start_phase": 0,
+    "ticks": 71,
+    "crushes": 0,
+    "reached": true,
+    "approach": 62,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 70,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 70,
+    "crushes": 0,
+    "reached": true,
+    "approach": 61,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 69,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 69,
+    "crushes": 0,
+    "reached": true,
+    "approach": 60,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 68,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 68,
+    "crushes": 0,
+    "reached": true,
+    "approach": 59,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 67,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 67,
+    "crushes": 0,
+    "reached": true,
+    "approach": 58,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 66,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 66,
+    "crushes": 0,
+    "reached": true,
+    "approach": 57,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 65,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 65,
+    "crushes": 0,
+    "reached": true,
+    "approach": 56,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 64,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 64,
+    "crushes": 0,
+    "reached": true,
+    "approach": 55,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 63,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 63,
+    "crushes": 0,
+    "reached": true,
+    "approach": 54,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 62,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 62,
+    "crushes": 0,
+    "reached": true,
+    "approach": 53,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 61,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 61,
+    "crushes": 0,
+    "reached": true,
+    "approach": 52,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 60,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 60,
+    "crushes": 0,
+    "reached": true,
+    "approach": 51,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 59,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 59,
+    "crushes": 0,
+    "reached": true,
+    "approach": 50,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 58,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 58,
+    "crushes": 0,
+    "reached": true,
+    "approach": 49,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 57,
+    "dwell": 25,
+    "revisits": 13,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 22,
+    "dwell": 9,
+    "revisits": 1,
+    "max_revisit": 1,
+    "stage_actions": {
+     "down": 1,
+     "right": 2,
+     "up": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 21,
+    "dwell": 8,
+    "revisits": 1,
+    "max_revisit": 1,
+    "stage_actions": {
+     "down": 1,
+     "right": 2,
+     "up": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 20,
+    "dwell": 7,
+    "revisits": 1,
+    "max_revisit": 1,
+    "stage_actions": {
+     "down": 1,
+     "right": 2,
+     "up": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 6,
+    "revisits": 1,
+    "max_revisit": 1,
+    "stage_actions": {
+     "down": 1,
+     "right": 2,
+     "up": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 18,
+    "dwell": 5,
+    "revisits": 1,
+    "max_revisit": 1,
+    "stage_actions": {
+     "down": 1,
+     "right": 2,
+     "up": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 1,
+    "max_revisit": 1,
+    "stage_actions": {
+     "down": 1,
+     "right": 2,
+     "up": 1
+    }
+   },
+   {
+    "start_phase": 20,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 1,
+    "max_revisit": 1,
+    "stage_actions": {
+     "down": 1,
+     "up": 1,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 21,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 22,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 23,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 24,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 25,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 26,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 18,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 27,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 28,
+    "ticks": 42,
+    "crushes": 0,
+    "reached": true,
+    "approach": 33,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 41,
+    "dwell": 15,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 29,
+    "ticks": 41,
+    "crushes": 0,
+    "reached": true,
+    "approach": 32,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 40,
+    "dwell": 15,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "phase_only_new/101 30/14": [
+   {
+    "start_phase": 0,
+    "ticks": 41,
+    "crushes": 0,
+    "reached": true,
+    "approach": 32,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 40,
+    "dwell": 28,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 40,
+    "crushes": 0,
+    "reached": true,
+    "approach": 26,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 36,
+    "dwell": 19,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 39,
+    "crushes": 0,
+    "reached": true,
+    "approach": 25,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 35,
+    "dwell": 18,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 38,
+    "crushes": 0,
+    "reached": true,
+    "approach": 24,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 34,
+    "dwell": 20,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 37,
+    "crushes": 0,
+    "reached": true,
+    "approach": 23,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 33,
+    "dwell": 19,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 36,
+    "crushes": 0,
+    "reached": true,
+    "approach": 22,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 32,
+    "dwell": 18,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 35,
+    "crushes": 0,
+    "reached": true,
+    "approach": 21,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 31,
+    "dwell": 17,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 34,
+    "crushes": 0,
+    "reached": true,
+    "approach": 20,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 30,
+    "dwell": 16,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 33,
+    "crushes": 0,
+    "reached": true,
+    "approach": 19,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 29,
+    "dwell": 15,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 32,
+    "crushes": 0,
+    "reached": true,
+    "approach": 18,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 28,
+    "dwell": 14,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 31,
+    "crushes": 0,
+    "reached": true,
+    "approach": 17,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 27,
+    "dwell": 13,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 16,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 26,
+    "dwell": 12,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 29,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 25,
+    "dwell": 11,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 24,
+    "dwell": 10,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 27,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 23,
+    "dwell": 9,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 22,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 21,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 20,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 4,
+    "escape": 10,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 3,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 3,
+    "escape": 10,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 20,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 2,
+    "escape": 10,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 1,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 21,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 10,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 22,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 18,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 23,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 24,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 25,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 26,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 27,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 28,
+    "ticks": 43,
+    "crushes": 0,
+    "reached": true,
+    "approach": 34,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 42,
+    "dwell": 30,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 29,
+    "ticks": 42,
+    "crushes": 0,
+    "reached": true,
+    "approach": 33,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 41,
+    "dwell": 29,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "wrapped_ind/101 20/10": [
+   {
+    "start_phase": 0,
+    "ticks": 31,
+    "crushes": 0,
+    "reached": true,
+    "approach": 21,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 30,
+    "dwell": 8,
+    "revisits": 5,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 20,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 29,
+    "dwell": 8,
+    "revisits": 5,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 29,
+    "crushes": 0,
+    "reached": true,
+    "approach": 19,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 28,
+    "dwell": 8,
+    "revisits": 3,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 18,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 27,
+    "dwell": 8,
+    "revisits": 3,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 27,
+    "crushes": 0,
+    "reached": true,
+    "approach": 17,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 26,
+    "dwell": 6,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 16,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 25,
+    "dwell": 8,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 24,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 23,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 22,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 23,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 22,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 16,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 24,
+    "dwell": 12,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 23,
+    "dwell": 11,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 22,
+    "dwell": 10,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 21,
+    "dwell": 9,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 20,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 18,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 33,
+    "crushes": 0,
+    "reached": true,
+    "approach": 23,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 32,
+    "dwell": 8,
+    "revisits": 7,
+    "max_revisit": 4,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 32,
+    "crushes": 0,
+    "reached": true,
+    "approach": 22,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 31,
+    "dwell": 8,
+    "revisits": 7,
+    "max_revisit": 4,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "wrapped_ind/101 30/14": [
+   {
+    "start_phase": 0,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 36,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 19,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 3,
+    "max_revisit": 2,
+    "stage_actions": {
+     "down": 2,
+     "left": 1,
+     "right": 14,
+     "up": 2
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 34,
+    "crushes": 0,
+    "reached": true,
+    "approach": 21,
+    "staging": 5,
+    "escape": 8,
+    "approach_escape": 29,
+    "dwell": 14,
+    "revisits": 9,
+    "max_revisit": 5,
+    "stage_actions": {
+     "right": 5
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 33,
+    "crushes": 0,
+    "reached": true,
+    "approach": 20,
+    "staging": 5,
+    "escape": 8,
+    "approach_escape": 28,
+    "dwell": 8,
+    "revisits": 6,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 5
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 32,
+    "crushes": 0,
+    "reached": true,
+    "approach": 21,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 29,
+    "dwell": 4,
+    "revisits": 11,
+    "max_revisit": 6,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 31,
+    "crushes": 0,
+    "reached": true,
+    "approach": 19,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 27,
+    "dwell": 4,
+    "revisits": 9,
+    "max_revisit": 5,
+    "stage_actions": {
+     "right": 4
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 17,
+    "staging": 5,
+    "escape": 8,
+    "approach_escape": 25,
+    "dwell": 8,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 5
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 29,
+    "crushes": 0,
+    "reached": true,
+    "approach": 18,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 26,
+    "dwell": 10,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 17,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 25,
+    "dwell": 10,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 27,
+    "crushes": 0,
+    "reached": true,
+    "approach": 16,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 24,
+    "dwell": 10,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 23,
+    "dwell": 10,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 21,
+    "dwell": 8,
+    "revisits": 4,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 4
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 21,
+    "dwell": 8,
+    "revisits": 4,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 6,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 4
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 6,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 4,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 4
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 20,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 2,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 21,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 22,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 23,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 24,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 25,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 26,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 27,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 28,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 29,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "wrapped_ind/102 20/10": [
+   {
+    "start_phase": 0,
+    "ticks": 29,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 10,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 5,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 3,
+     "up": 3,
+     "right": 4
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 10,
+    "escape": 8,
+    "approach_escape": 18,
+    "dwell": 5,
+    "revisits": 5,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 3,
+     "up": 3,
+     "right": 4
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 27,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 10,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 5,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 3,
+     "up": 3,
+     "right": 4
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 7,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 6,
+    "revisits": 4,
+    "max_revisit": 2,
+    "stage_actions": {
+     "down": 2,
+     "up": 2,
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 7,
+    "escape": 8,
+    "approach_escape": 18,
+    "dwell": 5,
+    "revisits": 3,
+    "max_revisit": 2,
+    "stage_actions": {
+     "down": 2,
+     "up": 2,
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 21,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 20,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 18,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 3
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 2,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 11,
+    "approach_escape": 20,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 10,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 18,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "wrapped_ind/102 30/14": [
+   {
+    "start_phase": 0,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 37,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 20,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "stay": 1,
+     "down": 1,
+     "left": 7,
+     "right": 10,
+     "up": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 36,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 19,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 14,
+    "max_revisit": 7,
+    "stage_actions": {
+     "down": 1,
+     "left": 7,
+     "right": 10,
+     "up": 1
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 34,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 15,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 6,
+     "stay": 9
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 33,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 16,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 7,
+     "stay": 9
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 32,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 15,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 6,
+     "stay": 9
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 31,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 14,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 5,
+     "stay": 9
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 13,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 4,
+     "stay": 9
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 29,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 12,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 3,
+     "stay": 9
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 11,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 2,
+     "stay": 9
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 27,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 10,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 9,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 9,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 8,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 8,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 7,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 7,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 6,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 6,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 5,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 22,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 21,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 20,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 20,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 21,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 22,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 18,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 23,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 24,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 25,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 26,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 27,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 28,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 29,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 18,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "wrapped_ind/104 20/10": [
+   {
+    "start_phase": 0,
+    "ticks": 29,
+    "crushes": 0,
+    "reached": true,
+    "approach": 18,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 26,
+    "dwell": 10,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 17,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 25,
+    "dwell": 9,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 27,
+    "crushes": 0,
+    "reached": true,
+    "approach": 16,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 24,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 23,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 22,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 21,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 20,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 18,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 2,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "stay": 1,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 19,
+    "staging": 3,
+    "escape": 8,
+    "approach_escape": 27,
+    "dwell": 5,
+    "revisits": 4,
+    "max_revisit": 1,
+    "stage_actions": {
+     "stay": 2,
+     "right": 1
+    }
+   }
+  ],
+  "wrapped_ind/106 20/10": [
+   {
+    "start_phase": 0,
+    "ticks": 31,
+    "crushes": 0,
+    "reached": true,
+    "approach": 21,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 30,
+    "dwell": 15,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 6,
+    "escape": 9,
+    "approach_escape": 24,
+    "dwell": 5,
+    "revisits": 4,
+    "max_revisit": 1,
+    "stage_actions": {
+     "down": 1,
+     "stay": 3,
+     "up": 1,
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 29,
+    "crushes": 0,
+    "reached": true,
+    "approach": 19,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 28,
+    "dwell": 8,
+    "revisits": 3,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 18,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 27,
+    "dwell": 8,
+    "revisits": 1,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 39,
+    "crushes": 0,
+    "reached": true,
+    "approach": 20,
+    "staging": 1,
+    "escape": 18,
+    "approach_escape": 38,
+    "dwell": 16,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 16,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 25,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 24,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 18,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 27,
+    "dwell": 12,
+    "revisits": 8,
+    "max_revisit": 4,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 27,
+    "crushes": 0,
+    "reached": true,
+    "approach": 17,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 26,
+    "dwell": 12,
+    "revisits": 8,
+    "max_revisit": 4,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 21,
+    "dwell": 5,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 24,
+    "dwell": 10,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 15,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 23,
+    "dwell": 10,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 22,
+    "dwell": 8,
+    "revisits": 4,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 21,
+    "dwell": 8,
+    "revisits": 4,
+    "max_revisit": 2,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 20,
+    "dwell": 6,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 19,
+    "dwell": 6,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 19,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 18,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 18,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 8,
+    "approach_escape": 17,
+    "dwell": 4,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 14,
+    "approach_escape": 23,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 13,
+    "approach_escape": 22,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "wrapped_ind/108 20/10": [
+   {
+    "start_phase": 0,
+    "ticks": 33,
+    "crushes": 0,
+    "reached": true,
+    "approach": 23,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 32,
+    "dwell": 19,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 32,
+    "crushes": 0,
+    "reached": true,
+    "approach": 22,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 31,
+    "dwell": 18,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 31,
+    "crushes": 0,
+    "reached": true,
+    "approach": 21,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 30,
+    "dwell": 17,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 20,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 29,
+    "dwell": 16,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 34,
+    "crushes": 0,
+    "reached": true,
+    "approach": 23,
+    "staging": 1,
+    "escape": 10,
+    "approach_escape": 33,
+    "dwell": 19,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 33,
+    "crushes": 0,
+    "reached": true,
+    "approach": 22,
+    "staging": 1,
+    "escape": 10,
+    "approach_escape": 32,
+    "dwell": 18,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 32,
+    "crushes": 0,
+    "reached": true,
+    "approach": 21,
+    "staging": 1,
+    "escape": 10,
+    "approach_escape": 31,
+    "dwell": 17,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 31,
+    "crushes": 0,
+    "reached": true,
+    "approach": 20,
+    "staging": 1,
+    "escape": 10,
+    "approach_escape": 30,
+    "dwell": 16,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 19,
+    "staging": 1,
+    "escape": 10,
+    "approach_escape": 29,
+    "dwell": 15,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 23,
+    "dwell": 9,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 23,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 22,
+    "dwell": 9,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 22,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 21,
+    "dwell": 8,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 21,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 20,
+    "dwell": 7,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 20,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 19,
+    "dwell": 6,
+    "revisits": 0,
+    "max_revisit": 0,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 39,
+    "crushes": 0,
+    "reached": true,
+    "approach": 29,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 38,
+    "dwell": 19,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 38,
+    "crushes": 0,
+    "reached": true,
+    "approach": 28,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 37,
+    "dwell": 19,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 37,
+    "crushes": 0,
+    "reached": true,
+    "approach": 27,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 36,
+    "dwell": 19,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 36,
+    "crushes": 0,
+    "reached": true,
+    "approach": 26,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 35,
+    "dwell": 19,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 35,
+    "crushes": 0,
+    "reached": true,
+    "approach": 25,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 34,
+    "dwell": 19,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 34,
+    "crushes": 0,
+    "reached": true,
+    "approach": 24,
+    "staging": 1,
+    "escape": 9,
+    "approach_escape": 33,
+    "dwell": 19,
+    "revisits": 2,
+    "max_revisit": 1,
+    "stage_actions": {
+     "right": 1
+    }
+   }
+  ],
+  "wrapped_ind/109 20/10": [
+   {
+    "start_phase": 0,
+    "ticks": 41,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 9,
+    "escape": 20,
+    "approach_escape": 32,
+    "dwell": 7,
+    "revisits": 12,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 3,
+     "up": 3,
+     "stay": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 1,
+    "ticks": 40,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 8,
+    "escape": 20,
+    "approach_escape": 32,
+    "dwell": 7,
+    "revisits": 11,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 3,
+     "up": 3,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 2,
+    "ticks": 39,
+    "crushes": 0,
+    "reached": true,
+    "approach": 14,
+    "staging": 5,
+    "escape": 20,
+    "approach_escape": 34,
+    "dwell": 9,
+    "revisits": 9,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 1,
+     "up": 1,
+     "stay": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 3,
+    "ticks": 38,
+    "crushes": 0,
+    "reached": true,
+    "approach": 13,
+    "staging": 5,
+    "escape": 20,
+    "approach_escape": 33,
+    "dwell": 8,
+    "revisits": 7,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 1,
+     "up": 1,
+     "stay": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 4,
+    "ticks": 37,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 5,
+    "escape": 20,
+    "approach_escape": 32,
+    "dwell": 7,
+    "revisits": 7,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 1,
+     "up": 1,
+     "stay": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 5,
+    "ticks": 36,
+    "crushes": 0,
+    "reached": true,
+    "approach": 11,
+    "staging": 5,
+    "escape": 20,
+    "approach_escape": 31,
+    "dwell": 7,
+    "revisits": 7,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 1,
+     "up": 1,
+     "stay": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 6,
+    "ticks": 35,
+    "crushes": 0,
+    "reached": true,
+    "approach": 10,
+    "staging": 5,
+    "escape": 20,
+    "approach_escape": 30,
+    "dwell": 7,
+    "revisits": 7,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 1,
+     "up": 1,
+     "stay": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 7,
+    "ticks": 34,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 5,
+    "escape": 20,
+    "approach_escape": 29,
+    "dwell": 7,
+    "revisits": 7,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 1,
+     "up": 1,
+     "stay": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 8,
+    "ticks": 33,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 4,
+    "escape": 20,
+    "approach_escape": 29,
+    "dwell": 7,
+    "revisits": 7,
+    "max_revisit": 3,
+    "stage_actions": {
+     "down": 1,
+     "up": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 9,
+    "ticks": 32,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 3,
+    "escape": 20,
+    "approach_escape": 29,
+    "dwell": 7,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "stay": 1,
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 10,
+    "ticks": 31,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 2,
+    "escape": 20,
+    "approach_escape": 29,
+    "dwell": 7,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 2
+    }
+   },
+   {
+    "start_phase": 11,
+    "ticks": 30,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 20,
+    "approach_escape": 29,
+    "dwell": 7,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 12,
+    "ticks": 29,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 19,
+    "approach_escape": 28,
+    "dwell": 6,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 13,
+    "ticks": 28,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 18,
+    "approach_escape": 27,
+    "dwell": 5,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 14,
+    "ticks": 27,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 17,
+    "approach_escape": 26,
+    "dwell": 5,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 15,
+    "ticks": 26,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 16,
+    "approach_escape": 25,
+    "dwell": 5,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 16,
+    "ticks": 25,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 15,
+    "approach_escape": 24,
+    "dwell": 5,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 17,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 14,
+    "approach_escape": 23,
+    "dwell": 5,
+    "revisits": 6,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 18,
+    "ticks": 24,
+    "crushes": 0,
+    "reached": true,
+    "approach": 9,
+    "staging": 1,
+    "escape": 14,
+    "approach_escape": 23,
+    "dwell": 4,
+    "revisits": 5,
+    "max_revisit": 3,
+    "stage_actions": {
+     "right": 1
+    }
+   },
+   {
+    "start_phase": 19,
+    "ticks": 42,
+    "crushes": 0,
+    "reached": true,
+    "approach": 12,
+    "staging": 10,
+    "escape": 20,
+    "approach_escape": 32,
+    "dwell": 7,
+    "revisits": 13,
+    "max_revisit": 4,
+    "stage_actions": {
+     "down": 4,
+     "up": 4,
+     "right": 2
+    }
+   }
+  ]
+ }
+}
