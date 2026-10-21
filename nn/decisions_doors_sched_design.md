@@ -122,6 +122,16 @@ the doors main run. If drift recurs, the rule is the same:
 report, do not evaluate, until explained; drifted rows
 retained for audit and excluded; files never pooled.
 
+**Amendment (2026-10-21, before any evaluation run).**
+The 0c check for wrapped runs on its OWN training, separate
+from the sched-eval trainings (5 extra trainings): a wrapped
+encoder cannot serve both a 0c eval and a sched eval without
+drift, because the 0c eval itself consumes model observations
+(the doors lesson — the drift struck during W1 itself for
+wrapped/0). A sched row is kept only if its seed's separate
+0c training matched; otherwise it is discarded and reported.
+Wrapped total: 15 trainings (5 0c + 10 eval), not 10.
+
 ## Per-episode endpoints
 
 Success; ticks; crushes; first door cell entered (or none);
@@ -163,12 +173,12 @@ before running, and will be restated in the final report.
 
 ## Compute estimate (no JIT trigger)
 
-Regression subset: 6 trainings (~27 min). Main run: 25
-sequential trainings (non-wrapped) + 10 fresh wrapped
-trainings = 35 trainings (~2.6h). Total ≈ 3.1h, under both
-JIT-trigger thresholds (4h; 150 arm-runs: 41 trainings, 60
-sched evals + checks < 150). No trigger fires; no JIT work
-(ruled E, trigger-gated).
+Regression subset: 7 trainings (~31 min; wrapped needs a fresh
+training per world). Main run: 25 sequential trainings
+(non-wrapped) + 15 wrapped trainings = 40 trainings (~3h).
+Total ≈ 3.5h, under both JIT-trigger thresholds (4h; 150
+arm-runs: 47 trainings, 60 sched evals + checks < 150). No
+trigger fires; no JIT work (ruled E, trigger-gated).
 
 ## Out of scope (explicitly forbidden)
 
