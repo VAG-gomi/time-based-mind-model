@@ -810,7 +810,21 @@ evaluation job.
   but no order-of-magnitude change is expected
   — the per-episode work is the same network
   update count). Step 3 analysis is additional
-  to this estimate, not included in it. The
+  to this estimate, not included in it.
+
+  **Instructor amendment (2026-10-22, after
+  sanity):** sanity took ~15.3 minutes for 6
+  trainings (~2.55 minutes each), vs P-Da
+  sanity ~10.2 minutes (~1.7 minutes each). At
+  sanity pace, 50 Step 1 trainings alone are
+  ~128 minutes, plus 150 eval jobs, so Steps
+  1–2 are now estimated at ~2.5 hours, not
+  1.5–2 hours. This remains under the 4-hour
+  time threshold; the arm-run trigger status
+  is unchanged (it fires on counts, not time).
+  The owner gate ruling should be made on this
+  corrected estimate, not on the 1.5–2 hour
+  figure above. The
   time estimate does NOT change the ruling:
   it is under the 4-hour time threshold, but
   the arm-run trigger already fires, and the
