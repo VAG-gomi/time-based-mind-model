@@ -1,0 +1,36 @@
+FT1 spike cProfile: wrapped/0, 200 fine-tune episodes on (5,8), SPIKE only
+NOTE: cProfile time is profiler accounting, NOT wall time; shares only.
+
+         4485434 function calls (4461628 primitive calls) in 20.621 seconds
+
+   Ordered by: cumulative time
+   List reduced from 100 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.124    0.124   20.621   20.621 /home/hatch/workspace/time-mind-model/nn/train_ft1.py:183(finetune_neural)
+    23806    0.645    0.000   19.241    0.001 /home/hatch/workspace/time-mind-model/nn/agent_nn.py:180(train_step)
+   235366    7.103    0.000    7.103    0.000 {method 'dot' of 'numpy.ndarray' objects}
+    23775    0.236    0.000    4.804    0.000 /home/hatch/workspace/time-mind-model/nn/agent_nn.py:111(sample)
+    70133    0.912    0.000    4.575    0.000 /home/hatch/workspace/time-mind-model/nn/nnet.py:105(forward)
+    23775    4.343    0.000    4.565    0.000 {method 'choice' of 'numpy.random.mtrand.RandomState' objects}
+    23775    0.336    0.000    4.011    0.000 /home/hatch/workspace/time-mind-model/nn/nnet.py:120(backward)
+    23775    2.376    0.000    2.450    0.000 /home/hatch/workspace/time-mind-model/nn/nnet.py:170(step)
+    47550    1.568    0.000    1.769    0.000 /usr/lib/python3/dist-packages/numpy/core/shape_base.py:372(stack)
+    23775    0.355    0.000    0.854    0.000 /home/hatch/workspace/time-mind-model/nn/nnet.py:195(masked_mse_grad)
+    23806    0.095    0.000    0.551    0.000 /home/hatch/workspace/time-mind-model/nn/agent_nn.py:175(act)
+   118875    0.383    0.000    0.383    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+    24006    0.110    0.000    0.348    0.000 /home/hatch/workspace/time-mind-model/nn/agent_wrapped.py:95(encode)
+    23775    0.047    0.000    0.324    0.000 /usr/lib/python3/dist-packages/numpy/core/fromnumeric.py:3385(mean)
+    23806    0.063    0.000    0.307    0.000 /home/hatch/workspace/time-mind-model/nn/agent_nn.py:81(env_step)
+    23775    0.118    0.000    0.277    0.000 /usr/lib/python3/dist-packages/numpy/core/_methods.py:101(_mean)
+    23775    0.034    0.000    0.215    0.000 /usr/lib/python3/dist-packages/numpy/core/fromnumeric.py:2979(prod)
+    47550    0.041    0.000    0.201    0.000 {method 'sum' of 'numpy.ndarray' objects}
+    23806    0.116    0.000    0.198    0.000 /home/hatch/workspace/time-mind-model/nn/world_pdb2.py:150(step)
+    71325    0.193    0.000    0.193    0.000 {built-in method numpy.array}
+    23775    0.074    0.000    0.181    0.000 /usr/lib/python3/dist-packages/numpy/core/fromnumeric.py:71(_wrapreduction)
+  1545375    0.175    0.000    0.175    0.000 {built-in method numpy.asanyarray}
+    23775    0.028    0.000    0.168    0.000 {method 'max' of 'numpy.ndarray' objects}
+    47550    0.021    0.000    0.160    0.000 /usr/lib/python3/dist-packages/numpy/core/_methods.py:47(_sum)
+    23775    0.013    0.000    0.140    0.000 /usr/lib/python3/dist-packages/numpy/core/_methods.py:39(_amax)
+
+
