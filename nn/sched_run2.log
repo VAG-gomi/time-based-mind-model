@@ -1,0 +1,39 @@
+wrapped/0: all sched worlds done, skipping
+wrapped/1: all sched worlds done, skipping
+wrapped/2: all sched worlds done, skipping
+wrapped/3: all sched worlds done, skipping
+wrapped/4: all sched worlds done, skipping
+plain/0: all sched worlds done, skipping
+plain/1: all sched worlds done, skipping
+plain/2: all sched worlds done, skipping
+plain/3: all sched worlds done, skipping
+plain/4: all sched worlds done, skipping
+memory/0: all sched worlds done, skipping
+memory/1: all sched worlds done, skipping
+memory/2: all sched worlds done, skipping
+memory/3: all sched worlds done, skipping
+memory/4: all sched worlds done, skipping
+oracle_ind/100: all sched worlds done, skipping
+oracle_ind/101: all sched worlds done, skipping
+oracle_ind/102: all sched worlds done, skipping
+oracle_ind/103: all sched worlds done, skipping
+oracle_ind/104: all sched worlds done, skipping
+oracle_new/100: all sched worlds done, skipping
+oracle_new/101: all sched worlds done, skipping
+oracle_new/102: all sched worlds done, skipping
+oracle_new/103: all sched worlds done, skipping
+oracle_new/104: all sched worlds done, skipping
+phase_only_new/100: all sched worlds done, skipping
+phase_only_new/101: all sched worlds done, skipping
+phase_only_new/102 30/14: training...
+phase_only_new/102 0c -> MATCH
+phase_only_new/102 W2s: succ=1.00 ticks=26.20 crush=0.033 conflict=3 {'waits-at-familiar': 3}
+phase_only_new/102 W5s: succ=1.00 ticks=26.70 crush=0.067 conflict=3 {'waits-at-familiar': 3}
+phase_only_new/103 30/14: training...
+phase_only_new/103 0c -> MATCH
+phase_only_new/103 W2s: succ=1.00 ticks=26.00 crush=0.000 conflict=0 {}
+phase_only_new/103 W5s: succ=1.00 ticks=26.00 crush=0.000 conflict=0 {}
+phase_only_new/104 30/14: training...
+phase_only_new/104 0c -> MATCH
+phase_only_new/104 W2s: succ=1.00 ticks=23.70 crush=0.000 conflict=18 {'waits-at-familiar': 18}
+phase_only_new/104 W5s: succ=1.00 ticks=23.70 crush=0.000 conflict=20 {'waits-at-familiar': 20}

@@ -1,0 +1,250 @@
+=== per-arm per-world (sched run) ===
+memory         W2s: n=100 succ=1.000 ticks=27.97 crush=0.040 stall=0.370 sw=0.00 fd={'familiar': 100} conflict=48 {'waits-at-familiar': 48} noarr=0
+memory         W5s: n=100 succ=0.990 ticks=27.89 crush=0.040 stall=0.370 sw=0.00 fd={'familiar': 99, 'other': 1} conflict=46 {'waits-at-familiar': 45, 'takes-open-rival': 1} noarr=0
+oracle_ind     W2s: n=150 succ=1.000 ticks=29.17 crush=0.000 stall=0.447 sw=0.00 fd={'familiar': 150} conflict=19 {'waits-at-familiar': 19} noarr=0
+oracle_ind     W5s: n=150 succ=1.000 ticks=29.18 crush=0.000 stall=0.447 sw=0.01 fd={'familiar': 150} conflict=27 {'waits-at-familiar': 27} noarr=0
+oracle_new     W2s: n=150 succ=1.000 ticks=33.07 crush=0.007 stall=0.313 sw=0.00 fd={'familiar': 150} conflict=32 {'waits-at-familiar': 32} noarr=0
+oracle_new     W5s: n=150 succ=1.000 ticks=32.61 crush=0.007 stall=0.313 sw=0.00 fd={'familiar': 136, 'other': 14} conflict=48 {'waits-at-familiar': 34, 'takes-open-rival': 14} noarr=0
+phase_only_new W2s: n=150 succ=1.000 ticks=25.69 crush=0.007 stall=0.227 sw=0.00 fd={'familiar': 150} conflict=59 {'waits-at-familiar': 59} noarr=0
+phase_only_new W5s: n=150 succ=1.000 ticks=25.79 crush=0.013 stall=0.227 sw=0.01 fd={'familiar': 150} conflict=63 {'waits-at-familiar': 63} noarr=0
+plain          W2s: n=100 succ=0.860 ticks=22.40 crush=0.030 stall=0.230 sw=0.00 fd={'familiar': 86, 'none': 14} conflict=30 {'waits-at-familiar': 30} noarr=14
+plain          W5s: n=100 succ=0.860 ticks=22.40 crush=0.030 stall=0.230 sw=0.00 fd={'familiar': 86, 'none': 14} conflict=39 {'waits-at-familiar': 39} noarr=14
+wrapped        W2s: n=100 succ=1.000 ticks=23.25 crush=0.020 stall=0.050 sw=0.00 fd={'familiar': 100} conflict=34 {'waits-at-familiar': 34} noarr=0
+wrapped        W5s: n=100 succ=1.000 ticks=23.13 crush=0.020 stall=0.050 sw=0.00 fd={'familiar': 94, 'other': 6} conflict=34 {'waits-at-familiar': 28, 'takes-open-rival': 6} noarr=0
+
+=== per-arm per-world same-schedule comparison (W2/W5) ===
+memory         W2->W2s: succ 1.000->1.000 ticks 27.97->27.97 crush 0.040->0.040 stall 0.370->0.370
+memory         W5->W5s: succ 0.990->0.990 ticks 27.89->27.89 crush 0.040->0.040 stall 0.370->0.370
+oracle_ind     W2->W2s: succ 1.000->1.000 ticks 29.17->29.17 crush 0.000->0.000 stall 0.447->0.447
+oracle_ind     W5->W5s: succ 1.000->1.000 ticks 29.18->29.18 crush 0.000->0.000 stall 0.447->0.447
+oracle_new     W2->W2s: succ 1.000->1.000 ticks 33.07->33.07 crush 0.007->0.007 stall 0.313->0.313
+oracle_new     W5->W5s: succ 1.000->1.000 ticks 33.07->32.61 crush 0.007->0.007 stall 0.313->0.313
+phase_only_new W2->W2s: succ 1.000->1.000 ticks 25.69->25.69 crush 0.007->0.007 stall 0.227->0.227
+phase_only_new W5->W5s: succ 1.000->1.000 ticks 26.03->25.79 crush 0.027->0.013 stall 0.227->0.227
+plain          W2->W2s: succ 0.860->0.860 ticks 22.40->22.40 crush 0.030->0.030 stall 0.230->0.230
+plain          W5->W5s: succ 0.860->0.860 ticks 22.40->22.40 crush 0.030->0.030 stall 0.230->0.230
+wrapped        W2->W2s: succ 1.000->1.000 ticks 23.25->23.25 crush 0.020->0.020 stall 0.050->0.050
+wrapped        W5->W5s: succ 1.000->1.000 ticks 23.42->23.13 crush 0.030->0.020 stall 0.050->0.050
+
+=== per-agent conflict outcomes (W2s, W5s) ===
+memory        /0   W2s: 8 {'waits-at-familiar': 8} | W5s: 6 {'waits-at-familiar': 6}
+memory        /1   W2s: 10 {'waits-at-familiar': 10} | W5s: 10 {'waits-at-familiar': 9, 'takes-open-rival': 1}
+memory        /2   W2s: 10 {'waits-at-familiar': 10} | W5s: 8 {'waits-at-familiar': 8}
+memory        /3   W2s: 10 {'waits-at-familiar': 10} | W5s: 12 {'waits-at-familiar': 12}
+memory        /4   W2s: 10 {'waits-at-familiar': 10} | W5s: 10 {'waits-at-familiar': 10}
+oracle_ind    /100 W2s: 0 {} | W5s: 0 {}
+oracle_ind    /101 W2s: 0 {} | W5s: 7 {'waits-at-familiar': 7}
+oracle_ind    /102 W2s: 13 {'waits-at-familiar': 13} | W5s: 13 {'waits-at-familiar': 13}
+oracle_ind    /103 W2s: 0 {} | W5s: 0 {}
+oracle_ind    /104 W2s: 6 {'waits-at-familiar': 6} | W5s: 7 {'waits-at-familiar': 7}
+oracle_new    /100 W2s: 2 {'waits-at-familiar': 2} | W5s: 2 {'waits-at-familiar': 2}
+oracle_new    /101 W2s: 7 {'waits-at-familiar': 7} | W5s: 23 {'takes-open-rival': 14, 'waits-at-familiar': 9}
+oracle_new    /102 W2s: 23 {'waits-at-familiar': 23} | W5s: 23 {'waits-at-familiar': 23}
+oracle_new    /103 W2s: 0 {} | W5s: 0 {}
+oracle_new    /104 W2s: 0 {} | W5s: 0 {}
+phase_only_new/100 W2s: 18 {'waits-at-familiar': 18} | W5s: 18 {'waits-at-familiar': 18}
+phase_only_new/101 W2s: 20 {'waits-at-familiar': 20} | W5s: 22 {'waits-at-familiar': 22}
+phase_only_new/102 W2s: 3 {'waits-at-familiar': 3} | W5s: 3 {'waits-at-familiar': 3}
+phase_only_new/103 W2s: 0 {} | W5s: 0 {}
+phase_only_new/104 W2s: 18 {'waits-at-familiar': 18} | W5s: 20 {'waits-at-familiar': 20}
+plain         /0   W2s: 1 {'waits-at-familiar': 1} | W5s: 1 {'waits-at-familiar': 1}
+plain         /1   W2s: 5 {'waits-at-familiar': 5} | W5s: 5 {'waits-at-familiar': 5}
+plain         /2   W2s: 9 {'waits-at-familiar': 9} | W5s: 9 {'waits-at-familiar': 9}
+plain         /3   W2s: 1 {'waits-at-familiar': 1} | W5s: 10 {'waits-at-familiar': 10}
+plain         /4   W2s: 14 {'waits-at-familiar': 14} | W5s: 14 {'waits-at-familiar': 14}
+wrapped       /0   W2s: 14 {'waits-at-familiar': 14} | W5s: 14 {'waits-at-familiar': 14}
+wrapped       /1   W2s: 0 {} | W5s: 0 {}
+wrapped       /2   W2s: 6 {'waits-at-familiar': 6} | W5s: 6 {'takes-open-rival': 6}
+wrapped       /3   W2s: 10 {'waits-at-familiar': 10} | W5s: 10 {'waits-at-familiar': 10}
+wrapped       /4   W2s: 4 {'waits-at-familiar': 4} | W5s: 4 {'waits-at-familiar': 4}
+
+=== takes-open-rival episodes in detail ===
+memory        /1   W5s ph13: arrival=[4, 1] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 3] wait=3 ticks=200 crush=0 stall=True reached=False
+oracle_new    /101 W5s ph00: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=66 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph01: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=65 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph02: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=64 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph03: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=63 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph04: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=62 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph05: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=61 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph06: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=60 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph07: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=59 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph08: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=58 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph09: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=57 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph10: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=56 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph11: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=55 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph12: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=54 crush=0 stall=True reached=True
+oracle_new    /101 W5s ph13: arrival=[4, 7] fam_closed=True rivals_open=[[5, 1], [5, 3], [5, 7]] first_door=[5, 7] wait=1 ticks=53 crush=0 stall=True reached=True
+wrapped       /2   W5s ph03: arrival=[4, 3] fam_closed=True rivals_open=[[5, 1], [5, 3]] first_door=[5, 3] wait=1 ticks=24 crush=0 stall=False reached=True
+wrapped       /2   W5s ph04: arrival=[4, 3] fam_closed=True rivals_open=[[5, 1], [5, 3]] first_door=[5, 3] wait=1 ticks=23 crush=0 stall=False reached=True
+wrapped       /2   W5s ph05: arrival=[4, 3] fam_closed=True rivals_open=[[5, 1], [5, 3]] first_door=[5, 3] wait=1 ticks=22 crush=0 stall=False reached=True
+wrapped       /2   W5s ph06: arrival=[4, 3] fam_closed=True rivals_open=[[5, 1], [5, 3]] first_door=[5, 3] wait=1 ticks=21 crush=0 stall=False reached=True
+wrapped       /2   W5s ph07: arrival=[4, 3] fam_closed=True rivals_open=[[5, 1], [5, 3]] first_door=[5, 3] wait=1 ticks=20 crush=0 stall=False reached=True
+wrapped       /2   W5s ph08: arrival=[4, 3] fam_closed=True rivals_open=[[5, 1], [5, 3]] first_door=[5, 3] wait=1 ticks=19 crush=0 stall=False reached=True
+
+=== arrival-cell cut: conflict outcomes by arrival cell ===
+  takes-open-rival via rival-staging: 21
+  waits-at-familiar via familiar-staging: 247
+  waits-at-familiar via rival-staging: 211
+
+=== waits-at-familiar: arrival cell + staging wait ===
+waits-at-familiar total: 458; arrived at rival staging then walked to familiar: 211
+staging wait ticks: mean 7.5 median 5 min 2 max 42
+  walk-past-rival: memory/0 W5s ph03 arrival=[4, 3] first_door=[5, 5] wait=11 ticks=26
+  walk-past-rival: memory/1 W2s ph05 arrival=[4, 1] first_door=[5, 5] wait=31 ticks=44
+  walk-past-rival: memory/1 W2s ph06 arrival=[4, 1] first_door=[5, 5] wait=30 ticks=43
+  walk-past-rival: memory/1 W2s ph07 arrival=[4, 1] first_door=[5, 5] wait=29 ticks=42
+  walk-past-rival: memory/1 W2s ph08 arrival=[4, 1] first_door=[5, 5] wait=28 ticks=41
+  walk-past-rival: memory/1 W2s ph09 arrival=[4, 1] first_door=[5, 5] wait=27 ticks=40
+  walk-past-rival: memory/1 W2s ph10 arrival=[4, 1] first_door=[5, 5] wait=26 ticks=39
+  walk-past-rival: memory/1 W2s ph11 arrival=[4, 1] first_door=[5, 5] wait=25 ticks=38
+  walk-past-rival: memory/1 W2s ph12 arrival=[4, 1] first_door=[5, 5] wait=24 ticks=37
+  walk-past-rival: memory/1 W2s ph13 arrival=[4, 1] first_door=[5, 5] wait=23 ticks=36
+  walk-past-rival: memory/1 W2s ph14 arrival=[4, 1] first_door=[5, 5] wait=42 ticks=55
+  walk-past-rival: memory/1 W5s ph05 arrival=[4, 1] first_door=[5, 5] wait=31 ticks=44
+  walk-past-rival: memory/1 W5s ph06 arrival=[4, 1] first_door=[5, 5] wait=30 ticks=43
+  walk-past-rival: memory/1 W5s ph07 arrival=[4, 1] first_door=[5, 5] wait=29 ticks=42
+  walk-past-rival: memory/1 W5s ph08 arrival=[4, 1] first_door=[5, 5] wait=28 ticks=41
+  walk-past-rival: memory/1 W5s ph09 arrival=[4, 1] first_door=[5, 5] wait=27 ticks=40
+  walk-past-rival: memory/1 W5s ph10 arrival=[4, 1] first_door=[5, 5] wait=26 ticks=39
+  walk-past-rival: memory/1 W5s ph11 arrival=[4, 1] first_door=[5, 5] wait=25 ticks=38
+  walk-past-rival: memory/1 W5s ph12 arrival=[4, 1] first_door=[5, 5] wait=24 ticks=37
+  walk-past-rival: memory/1 W5s ph14 arrival=[4, 1] first_door=[5, 5] wait=42 ticks=55
+
+=== stalls inside conflict episodes ===
+memory        /0   W2s ph01: outcome=waits-at-familiar kind=no-move-run ticks=28 first_door=[5, 5]
+memory        /0   W2s ph02: outcome=waits-at-familiar kind=no-move-run ticks=27 first_door=[5, 5]
+memory        /1   W2s ph05: outcome=waits-at-familiar kind=no-move-run ticks=44 first_door=[5, 5]
+memory        /1   W2s ph06: outcome=waits-at-familiar kind=no-move-run ticks=43 first_door=[5, 5]
+memory        /1   W2s ph07: outcome=waits-at-familiar kind=no-move-run ticks=42 first_door=[5, 5]
+memory        /1   W2s ph08: outcome=waits-at-familiar kind=no-move-run ticks=41 first_door=[5, 5]
+memory        /1   W2s ph09: outcome=waits-at-familiar kind=no-move-run ticks=40 first_door=[5, 5]
+memory        /1   W2s ph10: outcome=waits-at-familiar kind=no-move-run ticks=39 first_door=[5, 5]
+memory        /1   W2s ph11: outcome=waits-at-familiar kind=no-move-run ticks=38 first_door=[5, 5]
+memory        /1   W2s ph12: outcome=waits-at-familiar kind=no-move-run ticks=37 first_door=[5, 5]
+memory        /1   W2s ph13: outcome=waits-at-familiar kind=no-move-run ticks=36 first_door=[5, 5]
+memory        /1   W2s ph14: outcome=waits-at-familiar kind=no-move-run ticks=55 first_door=[5, 5]
+memory        /1   W5s ph05: outcome=waits-at-familiar kind=no-move-run ticks=44 first_door=[5, 5]
+memory        /1   W5s ph06: outcome=waits-at-familiar kind=no-move-run ticks=43 first_door=[5, 5]
+memory        /1   W5s ph07: outcome=waits-at-familiar kind=no-move-run ticks=42 first_door=[5, 5]
+memory        /1   W5s ph08: outcome=waits-at-familiar kind=no-move-run ticks=41 first_door=[5, 5]
+memory        /1   W5s ph09: outcome=waits-at-familiar kind=no-move-run ticks=40 first_door=[5, 5]
+memory        /1   W5s ph10: outcome=waits-at-familiar kind=no-move-run ticks=39 first_door=[5, 5]
+memory        /1   W5s ph11: outcome=waits-at-familiar kind=no-move-run ticks=38 first_door=[5, 5]
+memory        /1   W5s ph12: outcome=waits-at-familiar kind=no-move-run ticks=37 first_door=[5, 5]
+memory        /1   W5s ph13: outcome=takes-open-rival kind=no-move-run ticks=200 first_door=[5, 3]
+memory        /1   W5s ph14: outcome=waits-at-familiar kind=no-move-run ticks=55 first_door=[5, 5]
+memory        /2   W2s ph02: outcome=waits-at-familiar kind=no-move-run ticks=27 first_door=[5, 5]
+memory        /3   W2s ph01: outcome=waits-at-familiar kind=no-move-run ticks=28 first_door=[5, 5]
+memory        /3   W2s ph02: outcome=waits-at-familiar kind=no-move-run ticks=27 first_door=[5, 5]
+memory        /3   W5s ph01: outcome=waits-at-familiar kind=no-move-run ticks=28 first_door=[5, 5]
+memory        /3   W5s ph02: outcome=waits-at-familiar kind=no-move-run ticks=27 first_door=[5, 5]
+oracle_ind    /101 W5s ph01: outcome=waits-at-familiar kind=no-move-run ticks=39 first_door=[5, 5]
+oracle_ind    /101 W5s ph02: outcome=waits-at-familiar kind=no-move-run ticks=38 first_door=[5, 5]
+oracle_ind    /101 W5s ph03: outcome=waits-at-familiar kind=no-move-run ticks=37 first_door=[5, 5]
+oracle_ind    /101 W5s ph04: outcome=waits-at-familiar kind=no-move-run ticks=36 first_door=[5, 5]
+oracle_ind    /101 W5s ph05: outcome=waits-at-familiar kind=no-move-run ticks=35 first_door=[5, 5]
+oracle_ind    /101 W5s ph06: outcome=waits-at-familiar kind=no-move-run ticks=34 first_door=[5, 5]
+oracle_ind    /101 W5s ph07: outcome=waits-at-familiar kind=no-move-run ticks=33 first_door=[5, 5]
+oracle_ind    /102 W2s ph05: outcome=waits-at-familiar kind=no-move-run ticks=34 first_door=[5, 5]
+oracle_ind    /102 W5s ph05: outcome=waits-at-familiar kind=no-move-run ticks=34 first_door=[5, 5]
+oracle_ind    /104 W5s ph08: outcome=waits-at-familiar kind=dwell ticks=32 first_door=[5, 5]
+oracle_new    /101 W5s ph00: outcome=takes-open-rival kind=no-move-run ticks=66 first_door=[5, 7]
+oracle_new    /101 W5s ph01: outcome=takes-open-rival kind=no-move-run ticks=65 first_door=[5, 7]
+oracle_new    /101 W5s ph02: outcome=takes-open-rival kind=no-move-run ticks=64 first_door=[5, 7]
+oracle_new    /101 W5s ph03: outcome=takes-open-rival kind=no-move-run ticks=63 first_door=[5, 7]
+oracle_new    /101 W5s ph04: outcome=takes-open-rival kind=no-move-run ticks=62 first_door=[5, 7]
+oracle_new    /101 W5s ph05: outcome=takes-open-rival kind=no-move-run ticks=61 first_door=[5, 7]
+oracle_new    /101 W5s ph06: outcome=takes-open-rival kind=no-move-run ticks=60 first_door=[5, 7]
+oracle_new    /101 W5s ph07: outcome=takes-open-rival kind=no-move-run ticks=59 first_door=[5, 7]
+oracle_new    /101 W5s ph08: outcome=takes-open-rival kind=no-move-run ticks=58 first_door=[5, 7]
+oracle_new    /101 W5s ph09: outcome=takes-open-rival kind=no-move-run ticks=57 first_door=[5, 7]
+oracle_new    /101 W5s ph10: outcome=takes-open-rival kind=no-move-run ticks=56 first_door=[5, 7]
+oracle_new    /101 W5s ph11: outcome=takes-open-rival kind=no-move-run ticks=55 first_door=[5, 7]
+oracle_new    /101 W5s ph12: outcome=takes-open-rival kind=no-move-run ticks=54 first_door=[5, 7]
+oracle_new    /101 W5s ph13: outcome=takes-open-rival kind=no-move-run ticks=53 first_door=[5, 7]
+oracle_new    /102 W2s ph00: outcome=waits-at-familiar kind=no-move-run ticks=49 first_door=[5, 5]
+oracle_new    /102 W2s ph03: outcome=waits-at-familiar kind=no-move-run ticks=46 first_door=[5, 5]
+oracle_new    /102 W2s ph18: outcome=waits-at-familiar kind=no-move-run ticks=49 first_door=[5, 5]
+oracle_new    /102 W2s ph20: outcome=waits-at-familiar kind=no-move-run ticks=47 first_door=[5, 5]
+oracle_new    /102 W2s ph22: outcome=waits-at-familiar kind=no-move-run ticks=45 first_door=[5, 5]
+oracle_new    /102 W2s ph24: outcome=waits-at-familiar kind=no-move-run ticks=43 first_door=[5, 5]
+oracle_new    /102 W5s ph00: outcome=waits-at-familiar kind=no-move-run ticks=49 first_door=[5, 5]
+oracle_new    /102 W5s ph03: outcome=waits-at-familiar kind=no-move-run ticks=46 first_door=[5, 5]
+oracle_new    /102 W5s ph18: outcome=waits-at-familiar kind=no-move-run ticks=49 first_door=[5, 5]
+oracle_new    /102 W5s ph20: outcome=waits-at-familiar kind=no-move-run ticks=47 first_door=[5, 5]
+oracle_new    /102 W5s ph22: outcome=waits-at-familiar kind=no-move-run ticks=45 first_door=[5, 5]
+oracle_new    /102 W5s ph24: outcome=waits-at-familiar kind=no-move-run ticks=43 first_door=[5, 5]
+phase_only_new/100 W2s ph03: outcome=waits-at-familiar kind=no-move-run ticks=36 first_door=[5, 5]
+phase_only_new/100 W2s ph04: outcome=waits-at-familiar kind=no-move-run ticks=35 first_door=[5, 5]
+phase_only_new/100 W5s ph03: outcome=waits-at-familiar kind=no-move-run ticks=36 first_door=[5, 5]
+phase_only_new/100 W5s ph04: outcome=waits-at-familiar kind=no-move-run ticks=35 first_door=[5, 5]
+phase_only_new/101 W2s ph01: outcome=waits-at-familiar kind=no-move-run ticks=40 first_door=[5, 5]
+phase_only_new/101 W2s ph02: outcome=waits-at-familiar kind=no-move-run ticks=39 first_door=[5, 5]
+phase_only_new/101 W2s ph03: outcome=waits-at-familiar kind=no-move-run ticks=38 first_door=[5, 5]
+phase_only_new/101 W2s ph04: outcome=waits-at-familiar kind=no-move-run ticks=37 first_door=[5, 5]
+phase_only_new/101 W2s ph05: outcome=waits-at-familiar kind=no-move-run ticks=36 first_door=[5, 5]
+phase_only_new/101 W2s ph06: outcome=waits-at-familiar kind=no-move-run ticks=35 first_door=[5, 5]
+phase_only_new/101 W2s ph07: outcome=waits-at-familiar kind=no-move-run ticks=34 first_door=[5, 5]
+phase_only_new/101 W2s ph08: outcome=waits-at-familiar kind=dwell ticks=33 first_door=[5, 5]
+phase_only_new/101 W5s ph01: outcome=waits-at-familiar kind=no-move-run ticks=40 first_door=[5, 5]
+phase_only_new/101 W5s ph02: outcome=waits-at-familiar kind=no-move-run ticks=39 first_door=[5, 5]
+phase_only_new/101 W5s ph03: outcome=waits-at-familiar kind=no-move-run ticks=38 first_door=[5, 5]
+phase_only_new/101 W5s ph04: outcome=waits-at-familiar kind=no-move-run ticks=37 first_door=[5, 5]
+phase_only_new/101 W5s ph05: outcome=waits-at-familiar kind=no-move-run ticks=36 first_door=[5, 5]
+phase_only_new/101 W5s ph06: outcome=waits-at-familiar kind=no-move-run ticks=35 first_door=[5, 5]
+phase_only_new/101 W5s ph07: outcome=waits-at-familiar kind=no-move-run ticks=34 first_door=[5, 5]
+phase_only_new/101 W5s ph08: outcome=waits-at-familiar kind=dwell ticks=33 first_door=[5, 5]
+phase_only_new/102 W2s ph05: outcome=waits-at-familiar kind=no-move-run ticks=34 first_door=[5, 5]
+phase_only_new/102 W5s ph05: outcome=waits-at-familiar kind=no-move-run ticks=34 first_door=[5, 5]
+plain         /0   W2s ph01: outcome=waits-at-familiar kind=no-move-run ticks=29 first_door=[5, 5]
+plain         /0   W5s ph01: outcome=waits-at-familiar kind=no-move-run ticks=29 first_door=[5, 5]
+plain         /3   W2s ph01: outcome=waits-at-familiar kind=no-move-run ticks=28 first_door=[5, 5]
+plain         /3   W5s ph03: outcome=waits-at-familiar kind=two-cycle ticks=28 first_door=[5, 5]
+plain         /3   W5s ph04: outcome=waits-at-familiar kind=two-cycle ticks=28 first_door=[5, 5]
+plain         /3   W5s ph05: outcome=waits-at-familiar kind=two-cycle ticks=26 first_door=[5, 5]
+plain         /3   W5s ph06: outcome=waits-at-familiar kind=two-cycle ticks=26 first_door=[5, 5]
+plain         /4   W2s ph01: outcome=waits-at-familiar kind=no-move-run ticks=28 first_door=[5, 5]
+plain         /4   W2s ph02: outcome=waits-at-familiar kind=no-move-run ticks=27 first_door=[5, 5]
+plain         /4   W5s ph01: outcome=waits-at-familiar kind=no-move-run ticks=28 first_door=[5, 5]
+plain         /4   W5s ph02: outcome=waits-at-familiar kind=no-move-run ticks=27 first_door=[5, 5]
+wrapped       /0   W2s ph03: outcome=waits-at-familiar kind=no-move-run ticks=27 first_door=[5, 5]
+wrapped       /0   W5s ph03: outcome=waits-at-familiar kind=no-move-run ticks=27 first_door=[5, 5]
+
+=== FAIL episodes (sched worlds) ===
+memory        /1   W5s ph13: ticks=200 crush=0 first_door=[5, 3] conflict=True outcome=takes-open-rival arrival={'tick': 18, 'cell': [4, 1], 'familiar_closed': True, 'rivals_open': [[5, 1], [5, 3], [5, 7]]}
+plain         /1   W2s ph00: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph01: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph02: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph03: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph04: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph05: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph06: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph07: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph08: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph09: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph16: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph17: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph18: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W2s ph19: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph00: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph01: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph02: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph03: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph04: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph05: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph06: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph07: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph08: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph09: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph16: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph17: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph18: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+plain         /1   W5s ph19: ticks=200 crush=0 first_door=None conflict=False outcome=None arrival=None
+
+=== blank-feature episodes (wrapped sched evals) ===
+wrapped/0 W2s ph14: blank_steps=6 ticks=36 first_door=[5, 5] reached=True conflict=True
+wrapped/0 W5s ph14: blank_steps=6 ticks=36 first_door=[5, 5] reached=True conflict=True
+
+=== switch episodes (sched worlds) ===
+oracle_ind    /104 W5s ph27: switches=1 entries=[[5, 5], [5, 9]] ticks=20 crush=0
+phase_only_new/102 W5s ph28: switches=2 entries=[[5, 5], [5, 7], [5, 5]] ticks=41 crush=1
