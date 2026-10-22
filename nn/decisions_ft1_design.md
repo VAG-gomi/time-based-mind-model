@@ -727,3 +727,15 @@ outputs, never Step 1 records, and their
 weights are discarded. A second owner ruling
 is still required after the spike numbers
 before Step 1 starts.**
+
+**Owner second ruling (2026-10-22, after
+spike commit 2f74b98): PROCEED on the
+current substrate, no substrate change.**
+Steps 1–3 are authorised on the hand-written
+numpy substrate, at the spike-projected pace
+(Steps 1–2 ≈40.1 min composition, range
+29.4–55.6 min). Spike fine-tunes are
+measurement only and are NOT Step 1 records;
+Step 1 fine-tunes fresh from the checkpoints
+even where a sanity or spike fine-tune used
+the same agent.
