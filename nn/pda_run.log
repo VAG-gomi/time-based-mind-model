@@ -1,0 +1,202 @@
+wrapped/0 E0: fresh training...
+wrapped/0 E0: succ=0.10 ticks=18.00 crush=0.000 entered=2 blank_eps=0
+wrapped/0 E1: fresh training...
+wrapped/0 E1: succ=1.00 ticks=21.15 crush=0.000 entered=20 blank_eps=0
+wrapped/0 E2: fresh training...
+wrapped/0 E2: succ=1.00 ticks=22.60 crush=0.000 entered=20 blank_eps=0
+wrapped/0 E3: fresh training...
+wrapped/0 E3: succ=0.00 ticks=nan crush=0.000 entered=0 blank_eps=0
+wrapped/0 E4: fresh training...
+wrapped/0 E4: succ=1.00 ticks=21.15 crush=0.000 entered=20 blank_eps=0
+wrapped/1 E0: fresh training...
+wrapped/1 E0: succ=0.30 ticks=20.17 crush=0.000 entered=6 blank_eps=0
+wrapped/1 E1: fresh training...
+wrapped/1 E1: succ=1.00 ticks=19.25 crush=0.000 entered=20 blank_eps=0
+wrapped/1 E2: fresh training...
+wrapped/1 E2: succ=1.00 ticks=24.00 crush=0.000 entered=20 blank_eps=0
+wrapped/1 E3: fresh training...
+wrapped/1 E3: succ=0.00 ticks=nan crush=0.000 entered=0 blank_eps=0
+wrapped/1 E4: fresh training...
+wrapped/0: all P-Da worlds done, skipping
+wrapped/1 E4: fresh training...
+wrapped/1 E4: succ=1.00 ticks=19.25 crush=0.000 entered=20 blank_eps=0
+wrapped/2 E0: fresh training...
+wrapped/2 E0: succ=0.55 ticks=23.00 crush=0.000 entered=11 blank_eps=0
+wrapped/2 E1: fresh training...
+wrapped/2 E1: succ=1.00 ticks=25.15 crush=0.000 entered=20 blank_eps=0
+wrapped/2 E2: fresh training...
+wrapped/2 E2: succ=1.00 ticks=31.20 crush=0.000 entered=20 blank_eps=0
+wrapped/2 E3: fresh training...
+wrapped/2 E3: succ=0.00 ticks=nan crush=0.000 entered=0 blank_eps=0
+wrapped/2 E4: fresh training...
+wrapped/2 E4: succ=1.00 ticks=25.15 crush=0.000 entered=20 blank_eps=0
+wrapped/3 E0: fresh training...
+wrapped/3 E0: succ=0.30 ticks=18.50 crush=0.000 entered=6 blank_eps=0
+wrapped/3 E1: fresh training...
+wrapped/3 E1: succ=1.00 ticks=21.95 crush=0.000 entered=20 blank_eps=0
+wrapped/3 E2: fresh training...
+wrapped/3 E2: succ=1.00 ticks=25.85 crush=0.000 entered=20 blank_eps=0
+wrapped/3 E3: fresh training...
+wrapped/3 E3: succ=0.00 ticks=nan crush=0.000 entered=0 blank_eps=0
+wrapped/3 E4: fresh training...
+wrapped/3 E4: succ=1.00 ticks=21.95 crush=0.000 entered=20 blank_eps=0
+wrapped/4 E0: fresh training...
+wrapped/4 E0: succ=0.00 ticks=nan crush=0.000 entered=0 blank_eps=0
+wrapped/4 E1: fresh training...
+wrapped/4 E1: succ=1.00 ticks=27.40 crush=0.000 entered=20 blank_eps=0
+wrapped/4 E2: fresh training...
+wrapped/4 E2: succ=1.00 ticks=27.40 crush=0.000 entered=20 blank_eps=0
+wrapped/4 E3: fresh training...
+wrapped/4 E3: succ=0.00 ticks=nan crush=4.100 entered=18 blank_eps=0
+wrapped/4 E4: fresh training...
+wrapped/4 E4: succ=1.00 ticks=27.40 crush=0.000 entered=20 blank_eps=0
+plain/0 20/10: training...
+plain/0 E0: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/0 E1: succ=1.00 ticks=23.10 crush=0.000 entered=20
+plain/0 E2: succ=1.00 ticks=23.10 crush=0.000 entered=20
+plain/0 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/0 E4: succ=1.00 ticks=23.10 crush=0.000 entered=20
+plain/1 20/10: training...
+plain/1 E0: succ=0.40 ticks=21.25 crush=0.050 entered=9
+plain/1 E1: succ=1.00 ticks=20.75 crush=0.050 entered=20
+plain/1 E2: succ=1.00 ticks=24.25 crush=0.000 entered=20
+plain/1 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/1 E4: succ=1.00 ticks=20.75 crush=0.050 entered=20
+plain/2 20/10: training...
+plain/2 E0: succ=0.40 ticks=27.50 crush=0.000 entered=8
+plain/2 E1: succ=1.00 ticks=28.70 crush=0.050 entered=20
+plain/2 E2: succ=0.55 ticks=28.82 crush=0.050 entered=12
+plain/2 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/2 E4: succ=1.00 ticks=28.70 crush=0.050 entered=20
+plain/3 20/10: training...
+plain/3 E0: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/3 E1: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/3 E2: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/3 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/3 E4: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/4 20/10: training...
+plain/4 E0: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/4 E1: succ=1.00 ticks=22.00 crush=0.050 entered=20
+plain/4 E2: succ=1.00 ticks=22.00 crush=0.050 entered=20
+plain/4 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+plain/4 E4: succ=1.00 ticks=22.00 crush=0.050 entered=20
+memory/0 20/10: training...
+memory/0 E0: succ=1.00 ticks=39.50 crush=0.000 entered=20
+memory/0 E1: succ=1.00 ticks=36.50 crush=0.000 entered=20
+memory/0 E2: succ=1.00 ticks=36.50 crush=0.000 entered=20
+memory/0 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+memory/0 E4: succ=1.00 ticks=36.50 crush=0.000 entered=20
+memory/1 20/10: training...
+memory/1 E0: succ=1.00 ticks=41.50 crush=0.000 entered=20
+memory/1 E1: succ=1.00 ticks=41.50 crush=0.000 entered=20
+memory/1 E2: succ=0.00 ticks=nan crush=0.000 entered=0
+memory/1 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+memory/1 E4: succ=1.00 ticks=41.50 crush=0.000 entered=20
+memory/2 20/10: training...
+memory/2 E0: succ=1.00 ticks=24.75 crush=0.050 entered=20
+memory/2 E1: succ=1.00 ticks=24.75 crush=0.050 entered=20
+memory/2 E2: succ=0.00 ticks=nan crush=0.000 entered=0
+memory/2 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+memory/2 E4: succ=1.00 ticks=24.75 crush=0.050 entered=20
+memory/3 20/10: training...
+memory/3 E0: succ=0.05 ticks=29.00 crush=0.000 entered=1
+memory/3 E1: succ=1.00 ticks=24.20 crush=0.100 entered=20
+memory/3 E2: succ=1.00 ticks=24.30 crush=0.100 entered=20
+memory/3 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+memory/3 E4: succ=1.00 ticks=24.20 crush=0.100 entered=20
+memory/4 20/10: training...
+memory/4 E0: succ=0.10 ticks=41.50 crush=0.000 entered=2
+memory/4 E1: succ=0.10 ticks=23.50 crush=0.000 entered=2
+memory/4 E2: succ=0.10 ticks=23.50 crush=0.000 entered=2
+memory/4 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+memory/4 E4: succ=0.10 ticks=23.50 crush=0.000 entered=2
+oracle_ind/100 30/14: training...
+oracle_ind/100 E0: succ=0.07 ticks=18.00 crush=0.000 entered=2
+oracle_ind/100 E1: succ=1.00 ticks=26.30 crush=0.000 entered=30
+oracle_ind/100 E2: succ=1.00 ticks=27.53 crush=0.000 entered=30
+oracle_ind/100 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_ind/100 E4: succ=1.00 ticks=26.30 crush=0.000 entered=30
+oracle_ind/101 30/14: training...
+oracle_ind/101 E0: succ=0.27 ticks=28.88 crush=0.000 entered=8
+oracle_ind/101 E1: succ=1.00 ticks=25.33 crush=0.000 entered=30
+oracle_ind/101 E2: succ=1.00 ticks=27.63 crush=0.000 entered=30
+oracle_ind/101 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_ind/101 E4: succ=1.00 ticks=25.33 crush=0.000 entered=30
+oracle_ind/102 30/14: training...
+oracle_ind/102 E0: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_ind/102 E1: succ=1.00 ticks=27.33 crush=0.000 entered=30
+oracle_ind/102 E2: succ=1.00 ticks=27.33 crush=0.000 entered=30
+oracle_ind/102 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_ind/102 E4: succ=1.00 ticks=27.33 crush=0.000 entered=30
+oracle_ind/103 30/14: training...
+oracle_ind/103 E0: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_ind/103 E1: succ=1.00 ticks=21.23 crush=0.000 entered=30
+oracle_ind/103 E2: succ=1.00 ticks=21.23 crush=0.000 entered=30
+oracle_ind/103 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_ind/103 E4: succ=1.00 ticks=21.23 crush=0.000 entered=30
+oracle_ind/104 30/14: training...
+oracle_ind/104 E0: succ=0.03 ticks=25.00 crush=0.000 entered=1
+oracle_ind/104 E1: succ=1.00 ticks=25.20 crush=0.000 entered=30
+oracle_ind/104 E2: succ=1.00 ticks=25.73 crush=0.000 entered=30
+oracle_ind/104 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_ind/104 E4: succ=1.00 ticks=25.20 crush=0.000 entered=30
+oracle_new/100 30/14: training...
+oracle_new/100 E0: succ=0.57 ticks=23.71 crush=0.000 entered=17
+oracle_new/100 E1: succ=1.00 ticks=26.13 crush=0.000 entered=30
+oracle_new/100 E2: succ=1.00 ticks=40.47 crush=0.000 entered=30
+oracle_new/100 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_new/100 E4: succ=1.00 ticks=26.13 crush=0.000 entered=30
+oracle_new/101 30/14: training...
+oracle_new/101 E0: succ=0.20 ticks=18.67 crush=0.000 entered=6
+oracle_new/101 E1: succ=1.00 ticks=22.40 crush=0.000 entered=30
+oracle_new/101 E2: succ=1.00 ticks=27.17 crush=0.000 entered=30
+oracle_new/101 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_new/101 E4: succ=1.00 ticks=22.40 crush=0.000 entered=30
+oracle_new/102 30/14: training...
+oracle_new/102 E0: succ=0.10 ticks=19.67 crush=0.000 entered=3
+oracle_new/102 E1: succ=1.00 ticks=22.30 crush=0.000 entered=30
+oracle_new/102 E2: succ=1.00 ticks=24.57 crush=0.000 entered=30
+oracle_new/102 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_new/102 E4: succ=1.00 ticks=23.50 crush=0.000 entered=30
+oracle_new/103 30/14: training...
+oracle_new/103 E0: succ=0.07 ticks=18.50 crush=0.000 entered=2
+oracle_new/103 E1: succ=1.00 ticks=21.67 crush=0.000 entered=30
+oracle_new/103 E2: succ=1.00 ticks=23.33 crush=0.000 entered=30
+oracle_new/103 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_new/103 E4: succ=1.00 ticks=21.67 crush=0.000 entered=30
+oracle_new/104 30/14: training...
+oracle_new/104 E0: succ=0.30 ticks=19.67 crush=0.000 entered=9
+oracle_new/104 E1: succ=1.00 ticks=20.33 crush=0.000 entered=30
+oracle_new/104 E2: succ=1.00 ticks=27.33 crush=0.000 entered=30
+oracle_new/104 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+oracle_new/104 E4: succ=1.00 ticks=20.33 crush=0.000 entered=30
+phase_only_new/100 30/14: training...
+phase_only_new/100 E0: succ=0.10 ticks=18.00 crush=0.000 entered=3
+phase_only_new/100 E1: succ=1.00 ticks=21.23 crush=0.000 entered=30
+phase_only_new/100 E2: succ=1.00 ticks=23.73 crush=0.000 entered=30
+phase_only_new/100 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+phase_only_new/100 E4: succ=1.00 ticks=21.23 crush=0.000 entered=30
+phase_only_new/101 30/14: training...
+phase_only_new/101 E0: succ=0.03 ticks=18.00 crush=0.000 entered=1
+phase_only_new/101 E1: succ=1.00 ticks=21.87 crush=0.000 entered=30
+phase_only_new/101 E2: succ=1.00 ticks=22.73 crush=0.000 entered=30
+phase_only_new/101 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+phase_only_new/101 E4: succ=1.00 ticks=21.87 crush=0.000 entered=30
+phase_only_new/102 30/14: training...
+phase_only_new/102 E0: succ=0.13 ticks=18.00 crush=0.000 entered=4
+phase_only_new/102 E1: succ=1.00 ticks=20.07 crush=0.000 entered=30
+phase_only_new/102 E2: succ=1.00 ticks=23.33 crush=0.000 entered=30
+phase_only_new/102 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+phase_only_new/102 E4: succ=1.00 ticks=20.07 crush=0.000 entered=30
+phase_only_new/103 30/14: training...
+phase_only_new/103 E0: succ=0.97 ticks=32.52 crush=0.000 entered=29
+phase_only_new/103 E1: succ=1.00 ticks=21.97 crush=0.000 entered=30
+phase_only_new/103 E2: succ=1.00 ticks=34.57 crush=0.000 entered=30
+phase_only_new/103 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+phase_only_new/103 E4: succ=1.00 ticks=21.97 crush=0.000 entered=30
+phase_only_new/104 30/14: training...
+phase_only_new/104 E0: succ=0.03 ticks=23.00 crush=0.000 entered=1
+phase_only_new/104 E1: succ=1.00 ticks=35.87 crush=0.000 entered=30
+phase_only_new/104 E2: succ=1.00 ticks=35.87 crush=0.000 entered=30
+phase_only_new/104 E3: succ=0.00 ticks=nan crush=0.000 entered=0
+phase_only_new/104 E4: succ=1.00 ticks=35.87 crush=0.000 entered=30
