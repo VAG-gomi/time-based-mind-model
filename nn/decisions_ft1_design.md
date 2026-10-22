@@ -706,3 +706,24 @@ snapshots are kept. Step 1 reuses the 6
 sanity snapshots and realises the remaining
 16 fresh, each verified against its P-Db2
 record before fine-tuning.
+
+**Owner ruling at the Step 0 gate
+(2026-10-22): BENCHMARK SPIKE FIRST,
+measurement only.** At the gate (182
+arm-runs, trigger FIRES; projected total
+≈48 min, under one hour), the owner chose
+the spike before any Step 1 fine-tuning,
+per the trigger framework. The spike
+measures current-substrate FT1 costs only
+(fine-tune pace per arm from the 6 loaded
+sanity snapshots, eval-sample pace,
+hotspots, projected Steps 1–2 time, and the
+equivalence gap for a future candidate).
+**The spike authorises NO Step 1
+fine-tuning, NO substrate change, and NO
+JIT/vectorized implementation; spike
+fine-tunes are SPIKE-labelled measurement
+outputs, never Step 1 records, and their
+weights are discarded. A second owner ruling
+is still required after the spike numbers
+before Step 1 starts.**
