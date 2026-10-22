@@ -1,0 +1,226 @@
+wrapped/0: loading Step 0 snapshot /home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/wrapped_0.pkl ...
+wrapped/0: snapshot load-audit PASS
+wrapped/0: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/wrapped_0.pkl)
+wrapped/0: fine-tune done (reached=105, crushes=7, (5,8) entries=129)
+wrapped/1: realising P-Db2 checkpoint (2000 episodes)...
+wrapped/1: checkpoint verified exact vs P-Db2 (reached=1716, crushes=195)
+wrapped/1: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/wrapped_1.pkl)
+wrapped/1: fine-tune done (reached=158, crushes=15, (5,8) entries=164)
+wrapped/2: realising P-Db2 checkpoint (2000 episodes)...
+wrapped/2: checkpoint verified exact vs P-Db2 (reached=1739, crushes=205)
+wrapped/2: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/wrapped_2.pkl)
+wrapped/2: fine-tune done (reached=97, crushes=7, (5,8) entries=120)
+wrapped/3: realising P-Db2 checkpoint (2000 episodes)...
+wrapped/3: checkpoint verified exact vs P-Db2 (reached=1710, crushes=212)
+=== RELAUNCH after interruption (previous run dead after wrapped/3 checkpoint verification, no fine-tune record for wrapped/3; resume-safe skip expected for wrapped/0,1,2) ===
+wrapped/0: fine-tune record + snapshot present, skipping
+wrapped/1: fine-tune record + snapshot present, skipping
+wrapped/2: fine-tune record + snapshot present, skipping
+wrapped/3: realising P-Db2 checkpoint (2000 episodes)...
+wrapped/3: checkpoint verified exact vs P-Db2 (reached=1710, crushes=212)
+wrapped/3: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/wrapped_3.pkl)
+wrapped/3: fine-tune done (reached=0, crushes=1, (5,8) entries=3)
+wrapped/4: realising P-Db2 checkpoint (2000 episodes)...
+wrapped/4: checkpoint verified exact vs P-Db2 (reached=1746, crushes=169)
+wrapped/4: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/wrapped_4.pkl)
+wrapped/4: fine-tune done (reached=127, crushes=10, (5,8) entries=132)
+plain/0: loading Step 0 snapshot /home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/plain_0.pkl ...
+plain/0: snapshot load-audit PASS
+plain/0: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/plain_0.pkl)
+plain/0: fine-tune done (reached=188, crushes=22, (5,8) entries=189)
+plain/2: realising P-Db2 checkpoint (2000 episodes)...
+plain/2: checkpoint verified exact vs P-Db2 (reached=1658, crushes=267)
+plain/2: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/plain_2.pkl)
+plain/2: fine-tune done (reached=22, crushes=5, (5,8) entries=40)
+plain/3: realising P-Db2 checkpoint (2000 episodes)...
+plain/3: checkpoint verified exact vs P-Db2 (reached=1711, crushes=249)
+plain/3: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/plain_3.pkl)
+plain/3: fine-tune done (reached=20, crushes=12, (5,8) entries=48)
+memory/0: loading Step 0 snapshot /home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/memory_0.pkl ...
+memory/0: snapshot load-audit PASS
+memory/0: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/memory_0.pkl)
+memory/0: fine-tune done (reached=30, crushes=13, (5,8) entries=79)
+memory/2: realising P-Db2 checkpoint (2000 episodes)...
+memory/2: checkpoint verified exact vs P-Db2 (reached=1717, crushes=215)
+memory/2: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/memory_2.pkl)
+memory/2: fine-tune done (reached=24, crushes=6, (5,8) entries=29)
+memory/3: realising P-Db2 checkpoint (2000 episodes)...
+memory/3: checkpoint verified exact vs P-Db2 (reached=1694, crushes=263)
+memory/3: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/memory_3.pkl)
+memory/3: fine-tune done (reached=161, crushes=17, (5,8) entries=167)
+memory/4: realising P-Db2 checkpoint (2000 episodes)...
+memory/4: checkpoint verified exact vs P-Db2 (reached=1738, crushes=211)
+memory/4: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/memory_4.pkl)
+memory/4: fine-tune done (reached=180, crushes=7, (5,8) entries=183)
+oracle_ind/100: loading Step 0 snapshot /home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/oracle_ind_100.pkl ...
+oracle_ind/100: snapshot load-audit PASS
+oracle_ind/100: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/oracle_ind_100.pkl)
+oracle_ind/100: fine-tune done (reached=12, crushes=12, (5,8) entries=27)
+oracle_ind/101: realising P-Db2 checkpoint (2000 episodes)...
+oracle_ind/101: checkpoint verified exact vs P-Db2 (reached=1719, crushes=167)
+oracle_ind/101: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/oracle_ind_101.pkl)
+oracle_ind/101: fine-tune done (reached=92, crushes=10, (5,8) entries=105)
+oracle_ind/102: realising P-Db2 checkpoint (2000 episodes)...
+oracle_ind/102: checkpoint verified exact vs P-Db2 (reached=1747, crushes=141)
+oracle_ind/102: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/oracle_ind_102.pkl)
+oracle_ind/102: fine-tune done (reached=0, crushes=3, (5,8) entries=4)
+oracle_ind/103: realising P-Db2 checkpoint (2000 episodes)...
+oracle_ind/103: checkpoint verified exact vs P-Db2 (reached=1766, crushes=138)
+oracle_ind/103: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/oracle_ind_103.pkl)
+oracle_ind/103: fine-tune done (reached=6, crushes=5, (5,8) entries=14)
+oracle_new/100: loading Step 0 snapshot /home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/oracle_new_100.pkl ...
+oracle_new/100: snapshot load-audit PASS
+oracle_new/100: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/oracle_new_100.pkl)
+oracle_new/100: fine-tune done (reached=0, crushes=3, (5,8) entries=2)
+oracle_new/101: realising P-Db2 checkpoint (2000 episodes)...
+oracle_new/101: checkpoint verified exact vs P-Db2 (reached=1727, crushes=145)
+oracle_new/101: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/oracle_new_101.pkl)
+oracle_new/101: fine-tune done (reached=179, crushes=7, (5,8) entries=181)
+oracle_new/102: realising P-Db2 checkpoint (2000 episodes)...
+oracle_new/102: checkpoint verified exact vs P-Db2 (reached=1760, crushes=144)
+oracle_new/102: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/oracle_new_102.pkl)
+oracle_new/102: fine-tune done (reached=88, crushes=10, (5,8) entries=100)
+oracle_new/103: realising P-Db2 checkpoint (2000 episodes)...
+oracle_new/103: checkpoint verified exact vs P-Db2 (reached=1754, crushes=170)
+oracle_new/103: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/oracle_new_103.pkl)
+oracle_new/103: fine-tune done (reached=182, crushes=14, (5,8) entries=185)
+phase_only_new/102: loading Step 0 snapshot /home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/phase_only_new_102.pkl ...
+phase_only_new/102: snapshot load-audit PASS
+phase_only_new/102: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/phase_only_new_102.pkl)
+phase_only_new/102: fine-tune done (reached=103, crushes=12, (5,8) entries=113)
+phase_only_new/104: realising P-Db2 checkpoint (2000 episodes)...
+phase_only_new/104: checkpoint verified exact vs P-Db2 (reached=1797, crushes=156)
+phase_only_new/104: fine-tuned snapshot saved (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1_finetuned/phase_only_new_104.pkl)
+phase_only_new/104: fine-tune done (reached=178, crushes=11, (5,8) entries=180)
+wrapped/0 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/0 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/0 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/0 F3: succ=1.00 ticks=24.55 crush=0 entered=20 blank_eps=1
+wrapped/0 F4: succ=1.00 ticks=24.00 crush=0 entered=20 blank_eps=1
+wrapped/0 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/1 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/1 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/1 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/1 F3: succ=1.00 ticks=45.50 crush=0 entered=20 blank_eps=1
+wrapped/1 F4: succ=1.00 ticks=45.50 crush=0 entered=20 blank_eps=1
+wrapped/1 G1: succ=0.00 ticks=nan crush=0 entered=1 blank_eps=1
+wrapped/2 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/2 F1: succ=0.35 ticks=24.86 crush=0 entered=7 blank_eps=1
+wrapped/2 F2: succ=0.35 ticks=24.86 crush=0 entered=7 blank_eps=1
+wrapped/2 F3: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/2 F4: succ=0.35 ticks=24.86 crush=0 entered=7 blank_eps=1
+wrapped/2 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/3 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/3 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/3 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/3 F3: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/3 F4: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/3 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/4 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/4 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/4 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+wrapped/4 F3: succ=1.00 ticks=24.00 crush=1 entered=20 blank_eps=1
+wrapped/4 F4: succ=1.00 ticks=24.00 crush=1 entered=20 blank_eps=1
+wrapped/4 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=1
+plain/0 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/0 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/0 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/0 F3: succ=1.00 ticks=23.25 crush=0 entered=20 blank_eps=0
+plain/0 F4: succ=1.00 ticks=23.25 crush=0 entered=20 blank_eps=0
+plain/0 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/2 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/2 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/2 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/2 F3: succ=0.00 ticks=nan crush=0 entered=20 blank_eps=0
+plain/2 F4: succ=0.00 ticks=nan crush=0 entered=20 blank_eps=0
+plain/2 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/3 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/3 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/3 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/3 F3: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/3 F4: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+plain/3 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+memory/0 F0: succ=0.00 ticks=nan crush=1 entered=18 blank_eps=0
+memory/0 F1: succ=0.00 ticks=nan crush=1 entered=19 blank_eps=0
+memory/0 F2: succ=0.00 ticks=nan crush=0 entered=19 blank_eps=0
+memory/0 F3: succ=0.00 ticks=nan crush=0 entered=19 blank_eps=0
+memory/0 F4: succ=0.00 ticks=nan crush=1 entered=19 blank_eps=0
+memory/0 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+memory/2 F0: succ=0.00 ticks=nan crush=0 entered=1 blank_eps=0
+memory/2 F1: succ=0.00 ticks=nan crush=0 entered=2 blank_eps=0
+memory/2 F2: succ=0.00 ticks=nan crush=0 entered=1 blank_eps=0
+memory/2 F3: succ=1.00 ticks=26.60 crush=0 entered=20 blank_eps=0
+memory/2 F4: succ=0.90 ticks=26.56 crush=0 entered=20 blank_eps=0
+memory/2 G1: succ=0.00 ticks=nan crush=0 entered=4 blank_eps=0
+memory/3 F0: succ=1.00 ticks=30.05 crush=1 entered=20 blank_eps=0
+memory/3 F1: succ=1.00 ticks=30.05 crush=1 entered=20 blank_eps=0
+memory/3 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+memory/3 F3: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+memory/3 F4: succ=1.00 ticks=30.05 crush=1 entered=20 blank_eps=0
+memory/3 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+memory/4 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+memory/4 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+memory/4 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+memory/4 F3: succ=0.55 ticks=22.18 crush=0 entered=11 blank_eps=0
+memory/4 F4: succ=0.55 ticks=22.18 crush=0 entered=11 blank_eps=0
+memory/4 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/100 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/100 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/100 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/100 F3: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/100 F4: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/100 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/101 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/101 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/101 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/101 F3: succ=1.00 ticks=28.97 crush=1 entered=30 blank_eps=0
+oracle_ind/101 F4: succ=1.00 ticks=28.97 crush=1 entered=30 blank_eps=0
+oracle_ind/101 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/102 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/102 F1: succ=1.00 ticks=97.50 crush=0 entered=30 blank_eps=0
+oracle_ind/102 F2: succ=1.00 ticks=97.50 crush=0 entered=30 blank_eps=0
+oracle_ind/102 F3: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/102 F4: succ=1.00 ticks=97.50 crush=0 entered=30 blank_eps=0
+oracle_ind/102 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/103 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/103 F1: succ=0.00 ticks=nan crush=0 entered=30 blank_eps=0
+oracle_ind/103 F2: succ=0.00 ticks=nan crush=0 entered=30 blank_eps=0
+oracle_ind/103 F3: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_ind/103 F4: succ=0.00 ticks=nan crush=0 entered=30 blank_eps=0
+oracle_ind/103 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/100 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/100 F1: succ=0.00 ticks=nan crush=180 entered=29 blank_eps=0
+oracle_new/100 F2: succ=0.00 ticks=nan crush=180 entered=29 blank_eps=0
+oracle_new/100 F3: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/100 F4: succ=0.00 ticks=nan crush=156 entered=29 blank_eps=0
+oracle_new/100 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/101 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/101 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/101 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/101 F3: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/101 F4: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/101 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/102 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/102 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/102 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/102 F3: succ=1.00 ticks=25.93 crush=0 entered=30 blank_eps=0
+oracle_new/102 F4: succ=1.00 ticks=25.93 crush=0 entered=30 blank_eps=0
+oracle_new/102 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/103 F0: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/103 F1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/103 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+oracle_new/103 F3: succ=0.80 ticks=25.21 crush=0 entered=24 blank_eps=0
+oracle_new/103 F4: succ=0.80 ticks=25.21 crush=0 entered=24 blank_eps=0
+oracle_new/103 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+phase_only_new/102 F0: succ=0.00 ticks=nan crush=0 entered=6 blank_eps=0
+phase_only_new/102 F1: succ=0.03 ticks=21.00 crush=0 entered=7 blank_eps=0
+phase_only_new/102 F2: succ=0.03 ticks=21.00 crush=0 entered=1 blank_eps=0
+phase_only_new/102 F3: succ=1.00 ticks=31.60 crush=0 entered=30 blank_eps=0
+phase_only_new/102 F4: succ=0.80 ticks=28.75 crush=0 entered=30 blank_eps=0
+phase_only_new/102 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+phase_only_new/104 F0: succ=0.60 ticks=47.44 crush=0 entered=18 blank_eps=0
+phase_only_new/104 F1: succ=0.60 ticks=47.44 crush=0 entered=18 blank_eps=0
+phase_only_new/104 F2: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0
+phase_only_new/104 F3: succ=0.40 ticks=23.58 crush=0 entered=12 blank_eps=0
+phase_only_new/104 F4: succ=1.00 ticks=37.90 crush=0 entered=30 blank_eps=0
+phase_only_new/104 G1: succ=0.00 ticks=nan crush=0 entered=0 blank_eps=0

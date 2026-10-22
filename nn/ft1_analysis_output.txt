@@ -1,0 +1,1011 @@
+== §1 Verification ==
+fine-tune summaries: 22 agents: 22
+eval records: 3240
+eval jobs: 132 unexpected counts: []
+duplicate (arm,seed,world,phase): 0
+  F0 episodes 540 reached 38
+  F1 episodes 540 reached 76
+  F2 episodes 540 reached 38
+  F3 episodes 540 reached 237
+  F4 episodes 540 reached 304
+  G1 episodes 540 reached 0
+Step 0c check per agent (checkpoint + fine-tune + 6 worlds):
+   memory 0 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   memory 2 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   memory 3 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   memory 4 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   oracle_ind 100 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   oracle_ind 101 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   oracle_ind 102 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   oracle_ind 103 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   oracle_new 100 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   oracle_new 101 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   oracle_new 102 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   oracle_new 103 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   phase_only_new 102 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   phase_only_new 104 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   plain 0 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   plain 2 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   plain 3 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   wrapped 0 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   wrapped 1 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   wrapped 2 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   wrapped 3 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+   wrapped 4 worlds ['F0', 'F1', 'F2', 'F3', 'F4', 'G1'] OK
+
+== §2 Per-arm x world (reached/total, entered, mean ticks over reached, crushes) ==
+  memory          F0 reached 20/80 entered 39 ticks 30.05 crushes 2
+  memory          F1 reached 20/80 entered 41 ticks 30.05 crushes 2
+  memory          F2 reached 0/80 entered 20 ticks nan crushes 0
+  memory          F3 reached 31/80 entered 50 ticks 25.03 crushes 0
+  memory          F4 reached 49/80 entered 70 ticks 27.00 crushes 2
+  memory          G1 reached 0/80 entered 4 ticks nan crushes 0
+  memory          first doors F1: {(5, 5): 39, (5, 7): 2, None: 39}
+  oracle_ind      F0 reached 0/120 entered 0 ticks nan crushes 0
+  oracle_ind      F1 reached 30/120 entered 60 ticks 97.50 crushes 0
+  oracle_ind      F2 reached 30/120 entered 60 ticks 97.50 crushes 0
+  oracle_ind      F3 reached 30/120 entered 30 ticks 28.97 crushes 1
+  oracle_ind      F4 reached 60/120 entered 90 ticks 63.23 crushes 1
+  oracle_ind      G1 reached 0/120 entered 0 ticks nan crushes 0
+  oracle_ind      first doors F1: {None: 60, (5, 9): 30, (5, 1): 30}
+  oracle_new      F0 reached 0/120 entered 0 ticks nan crushes 0
+  oracle_new      F1 reached 0/120 entered 29 ticks nan crushes 180
+  oracle_new      F2 reached 0/120 entered 29 ticks nan crushes 180
+  oracle_new      F3 reached 54/120 entered 54 ticks 25.61 crushes 0
+  oracle_new      F4 reached 54/120 entered 83 ticks 25.61 crushes 156
+  oracle_new      G1 reached 0/120 entered 0 ticks nan crushes 0
+  oracle_new      first doors F1: {(5, 7): 26, (5, 3): 3, None: 91}
+  phase_only_new  F0 reached 18/60 entered 24 ticks 47.44 crushes 0
+  phase_only_new  F1 reached 19/60 entered 25 ticks 46.05 crushes 0
+  phase_only_new  F2 reached 1/60 entered 1 ticks 21.00 crushes 0
+  phase_only_new  F3 reached 42/60 entered 42 ticks 29.31 crushes 0
+  phase_only_new  F4 reached 54/60 entered 60 ticks 33.83 crushes 0
+  phase_only_new  G1 reached 0/60 entered 0 ticks nan crushes 0
+  phase_only_new  first doors F1: {None: 35, (5, 7): 1, (5, 5): 24}
+  plain           F0 reached 0/60 entered 0 ticks nan crushes 0
+  plain           F1 reached 0/60 entered 0 ticks nan crushes 0
+  plain           F2 reached 0/60 entered 0 ticks nan crushes 0
+  plain           F3 reached 20/60 entered 40 ticks 23.25 crushes 0
+  plain           F4 reached 20/60 entered 40 ticks 23.25 crushes 0
+  plain           G1 reached 0/60 entered 0 ticks nan crushes 0
+  plain           first doors F1: {None: 60}
+  wrapped         F0 reached 0/100 entered 0 ticks nan crushes 0
+  wrapped         F1 reached 7/100 entered 7 ticks 24.86 crushes 0
+  wrapped         F2 reached 7/100 entered 7 ticks 24.86 crushes 0
+  wrapped         F3 reached 60/100 entered 60 ticks 31.35 crushes 1
+  wrapped         F4 reached 67/100 entered 67 ticks 30.51 crushes 1
+  wrapped         G1 reached 0/100 entered 1 ticks nan crushes 0
+  wrapped         first doors F1: {None: 93, (5, 3): 7}
+  TOTAL F0 reached 38/540 entered 63
+    first doors: {None: 477, (5, 5): 63}
+  TOTAL F1 reached 76/540 entered 162
+    first doors: {None: 378, (5, 3): 10, (5, 5): 63, (5, 7): 29, (5, 9): 30, (5, 1): 30}
+  TOTAL F2 reached 38/540 entered 117
+    first doors: {None: 423, (5, 3): 10, (5, 7): 47, (5, 9): 30, (5, 1): 30}
+  TOTAL F3 reached 237/540 entered 276
+    first doors: {(5, 8): 276, None: 264}
+  TOTAL F4 reached 304/540 entered 410
+    first doors: {(5, 8): 248, None: 130, (5, 3): 10, (5, 5): 63, (5, 7): 29, (5, 9): 30, (5, 1): 30}
+  TOTAL G1 reached 0/540 entered 5
+    first doors: {None: 535, (5, 6): 5}
+
+P-Db2 F0 medians (kept): {'memory/0': None, 'memory/2': None, 'memory/3': None, 'memory/4': None, 'oracle_ind/100': 33.5, 'oracle_ind/101': 42.5, 'oracle_ind/102': 24.5, 'oracle_ind/103': 27, 'oracle_new/100': 27, 'oracle_new/101': 20.5, 'oracle_new/102': 28, 'oracle_new/103': 18.5, 'phase_only_new/102': None, 'phase_only_new/104': None, 'plain/0': None, 'plain/2': None, 'plain/3': None, 'wrapped/0': 18.0, 'wrapped/1': 21, 'wrapped/2': 33.5, 'wrapped/3': 18.0, 'wrapped/4': 27}
+P-Db2 preferred doors (kept): {'memory/0': (5, 9), 'memory/2': (5, 3), 'memory/3': (5, 3), 'memory/4': (5, 9), 'oracle_ind/100': (5, 1), 'oracle_ind/101': (5, 3), 'oracle_ind/102': (5, 5), 'oracle_ind/103': (5, 3), 'oracle_new/100': (5, 7), 'oracle_new/101': (5, 3), 'oracle_new/102': (5, 3), 'oracle_new/103': (5, 5), 'phase_only_new/102': (5, 9), 'phase_only_new/104': (5, 1), 'plain/0': (5, 3), 'plain/2': (5, 9), 'plain/3': (5, 3), 'wrapped/0': (5, 9), 'wrapped/1': (5, 3), 'wrapped/2': (5, 5), 'wrapped/3': (5, 7), 'wrapped/4': (5, 3)}
+
+== §3 F3 classes (F->D->W->R) ==
+  F3 {'W': 15, 'R': 117, 'F': 264, 'D': 144} reached by class: {'W': 15, 'R': 97, 'F': 0, 'D': 125}
+  per-agent reached: [('memory', 2, 20), ('memory', 4, 11), ('oracle_ind', 101, 30), ('oracle_new', 102, 30), ('oracle_new', 103, 24), ('phase_only_new', 102, 30), ('phase_only_new', 104, 12), ('plain', 0, 20), ('wrapped', 0, 20), ('wrapped', 1, 20), ('wrapped', 4, 20)]
+  G1 {'F': 535, 'W': 1, 'D': 4} reached by class: {'F': 0, 'W': 0, 'D': 0}
+  per-agent reached: []
+
+== §4 G1 transfer (PROMINENT: after-only, no baseline) ==
+  G1 entered: 5 reached: 0
+    wrapped 1 phase 18 class W reached False ticks 200 post_entry_ticks 188 post_entry_stall True (4,5) before entry: False first staging (4,6): True
+    memory 2 phase 10 class D reached False ticks 200 post_entry_ticks 188 post_entry_stall True (4,5) before entry: True first staging (4,6): True
+    memory 2 phase 11 class D reached False ticks 200 post_entry_ticks 187 post_entry_stall True (4,5) before entry: True first staging (4,6): True
+    memory 2 phase 12 class D reached False ticks 200 post_entry_ticks 187 post_entry_stall True (4,5) before entry: True first staging (4,6): True
+    memory 2 phase 13 class D reached False ticks 200 post_entry_ticks 188 post_entry_stall True (4,5) before entry: True first staging (4,6): True
+
+== §5 F4 novel use ==
+  novel-first: 248
+    wrapped 0 phase 0 reached True ticks 48 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 1 reached True ticks 27 revisits 2 (4,5) before entry: False
+    wrapped 0 phase 2 reached True ticks 26 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 3 reached True ticks 25 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 4 reached True ticks 24 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 5 reached True ticks 23 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 6 reached True ticks 22 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 7 reached True ticks 21 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 8 reached True ticks 20 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 9 reached True ticks 20 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 10 reached True ticks 20 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 11 reached True ticks 18 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 12 reached True ticks 18 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 13 reached True ticks 21 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 14 reached True ticks 20 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 15 reached True ticks 19 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 16 reached True ticks 18 revisits 0 (4,5) before entry: False
+    wrapped 0 phase 17 reached True ticks 31 revisits 4 (4,5) before entry: False
+    wrapped 0 phase 18 reached True ticks 30 revisits 2 (4,5) before entry: False
+    wrapped 0 phase 19 reached True ticks 29 revisits 4 (4,5) before entry: False
+    wrapped 1 phase 0 reached True ticks 69 revisits 15 (4,5) before entry: False
+    wrapped 1 phase 1 reached True ticks 48 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 2 reached True ticks 47 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 3 reached True ticks 46 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 4 reached True ticks 45 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 5 reached True ticks 44 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 6 reached True ticks 43 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 7 reached True ticks 42 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 8 reached True ticks 41 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 9 reached True ticks 40 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 10 reached True ticks 39 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 11 reached True ticks 38 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 12 reached True ticks 37 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 13 reached True ticks 36 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 14 reached True ticks 35 revisits 10 (4,5) before entry: False
+    wrapped 1 phase 15 reached True ticks 54 revisits 11 (4,5) before entry: False
+    wrapped 1 phase 16 reached True ticks 53 revisits 11 (4,5) before entry: False
+    wrapped 1 phase 17 reached True ticks 52 revisits 11 (4,5) before entry: False
+    wrapped 1 phase 18 reached True ticks 51 revisits 11 (4,5) before entry: False
+    wrapped 1 phase 19 reached True ticks 50 revisits 11 (4,5) before entry: False
+    wrapped 4 phase 0 reached True ticks 52 revisits 3 (4,5) before entry: False
+    wrapped 4 phase 1 reached True ticks 25 revisits 0 (4,5) before entry: False
+    wrapped 4 phase 2 reached True ticks 24 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 3 reached True ticks 23 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 4 reached True ticks 22 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 5 reached True ticks 21 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 6 reached True ticks 20 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 7 reached True ticks 19 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 8 reached True ticks 18 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 9 reached True ticks 18 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 10 reached True ticks 22 revisits 3 (4,5) before entry: False
+    wrapped 4 phase 11 reached True ticks 25 revisits 2 (4,5) before entry: True
+    wrapped 4 phase 12 reached True ticks 20 revisits 1 (4,5) before entry: True
+    wrapped 4 phase 13 reached True ticks 23 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 14 reached True ticks 18 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 15 reached True ticks 18 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 16 reached True ticks 18 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 17 reached True ticks 39 revisits 16 (4,5) before entry: True
+    wrapped 4 phase 18 reached True ticks 28 revisits 0 (4,5) before entry: True
+    wrapped 4 phase 19 reached True ticks 27 revisits 0 (4,5) before entry: True
+    plain 0 phase 0 reached True ticks 27 revisits 5 (4,5) before entry: True
+    plain 0 phase 1 reached True ticks 26 revisits 3 (4,5) before entry: True
+    plain 0 phase 2 reached True ticks 25 revisits 3 (4,5) before entry: True
+    plain 0 phase 3 reached True ticks 24 revisits 1 (4,5) before entry: True
+    plain 0 phase 4 reached True ticks 23 revisits 1 (4,5) before entry: True
+    plain 0 phase 5 reached True ticks 22 revisits 0 (4,5) before entry: False
+    plain 0 phase 6 reached True ticks 21 revisits 0 (4,5) before entry: False
+    plain 0 phase 7 reached True ticks 20 revisits 0 (4,5) before entry: False
+    plain 0 phase 8 reached True ticks 19 revisits 0 (4,5) before entry: False
+    plain 0 phase 9 reached True ticks 18 revisits 0 (4,5) before entry: False
+    plain 0 phase 10 reached True ticks 18 revisits 0 (4,5) before entry: False
+    plain 0 phase 11 reached True ticks 18 revisits 0 (4,5) before entry: False
+    plain 0 phase 12 reached True ticks 18 revisits 0 (4,5) before entry: False
+    plain 0 phase 13 reached True ticks 18 revisits 0 (4,5) before entry: True
+    plain 0 phase 14 reached True ticks 18 revisits 0 (4,5) before entry: True
+    plain 0 phase 15 reached True ticks 32 revisits 9 (4,5) before entry: True
+    plain 0 phase 16 reached True ticks 31 revisits 9 (4,5) before entry: True
+    plain 0 phase 17 reached True ticks 30 revisits 7 (4,5) before entry: True
+    plain 0 phase 18 reached True ticks 29 revisits 7 (4,5) before entry: True
+    plain 0 phase 19 reached True ticks 28 revisits 5 (4,5) before entry: True
+    plain 2 phase 0 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 1 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 2 reached False ticks 200 revisits 10 (4,5) before entry: False
+    plain 2 phase 3 reached False ticks 200 revisits 10 (4,5) before entry: False
+    plain 2 phase 4 reached False ticks 200 revisits 8 (4,5) before entry: False
+    plain 2 phase 5 reached False ticks 200 revisits 8 (4,5) before entry: False
+    plain 2 phase 6 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 7 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 8 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 9 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 10 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 11 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 12 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 13 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 14 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 15 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 16 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 17 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 18 reached False ticks 200 revisits 0 (4,5) before entry: False
+    plain 2 phase 19 reached False ticks 200 revisits 0 (4,5) before entry: False
+    memory 2 phase 0 reached True ticks 26 revisits 0 (4,5) before entry: True
+    memory 2 phase 1 reached True ticks 25 revisits 0 (4,5) before entry: True
+    memory 2 phase 2 reached True ticks 24 revisits 0 (4,5) before entry: True
+    memory 2 phase 3 reached True ticks 23 revisits 0 (4,5) before entry: True
+    memory 2 phase 4 reached True ticks 22 revisits 0 (4,5) before entry: True
+    memory 2 phase 5 reached True ticks 21 revisits 0 (4,5) before entry: True
+    memory 2 phase 6 reached True ticks 20 revisits 0 (4,5) before entry: True
+    memory 2 phase 7 reached True ticks 19 revisits 0 (4,5) before entry: True
+    memory 2 phase 8 reached True ticks 18 revisits 0 (4,5) before entry: True
+    memory 2 phase 10 reached True ticks 36 revisits 0 (4,5) before entry: True
+    memory 2 phase 12 reached True ticks 34 revisits 0 (4,5) before entry: True
+    memory 2 phase 13 reached True ticks 33 revisits 0 (4,5) before entry: True
+    memory 2 phase 14 reached True ticks 32 revisits 0 (4,5) before entry: True
+    memory 2 phase 15 reached True ticks 31 revisits 0 (4,5) before entry: True
+    memory 2 phase 16 reached True ticks 30 revisits 0 (4,5) before entry: True
+    memory 2 phase 17 reached True ticks 29 revisits 0 (4,5) before entry: True
+    memory 2 phase 18 reached True ticks 28 revisits 0 (4,5) before entry: True
+    memory 2 phase 19 reached True ticks 27 revisits 0 (4,5) before entry: True
+    memory 4 phase 7 reached True ticks 22 revisits 0 (4,5) before entry: True
+    memory 4 phase 8 reached True ticks 25 revisits 0 (4,5) before entry: True
+    memory 4 phase 9 reached True ticks 24 revisits 0 (4,5) before entry: True
+    memory 4 phase 10 reached True ticks 23 revisits 0 (4,5) before entry: True
+    memory 4 phase 11 reached True ticks 22 revisits 0 (4,5) before entry: True
+    memory 4 phase 12 reached True ticks 21 revisits 0 (4,5) before entry: True
+    memory 4 phase 13 reached True ticks 20 revisits 0 (4,5) before entry: True
+    memory 4 phase 14 reached True ticks 19 revisits 0 (4,5) before entry: True
+    memory 4 phase 15 reached True ticks 18 revisits 0 (4,5) before entry: True
+    memory 4 phase 16 reached True ticks 18 revisits 0 (4,5) before entry: True
+    memory 4 phase 17 reached True ticks 32 revisits 0 (4,5) before entry: True
+    oracle_ind 101 phase 0 reached True ticks 18 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 1 reached True ticks 46 revisits 12 (4,5) before entry: False
+    oracle_ind 101 phase 2 reached True ticks 34 revisits 0 (4,5) before entry: True
+    oracle_ind 101 phase 3 reached True ticks 33 revisits 0 (4,5) before entry: True
+    oracle_ind 101 phase 4 reached True ticks 32 revisits 1 (4,5) before entry: False
+    oracle_ind 101 phase 5 reached True ticks 31 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 6 reached True ticks 30 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 7 reached True ticks 29 revisits 2 (4,5) before entry: False
+    oracle_ind 101 phase 8 reached True ticks 28 revisits 2 (4,5) before entry: False
+    oracle_ind 101 phase 9 reached True ticks 38 revisits 1 (4,5) before entry: False
+    oracle_ind 101 phase 10 reached True ticks 37 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 11 reached True ticks 36 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 12 reached True ticks 35 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 13 reached True ticks 34 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 14 reached True ticks 33 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 15 reached True ticks 32 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 16 reached True ticks 31 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 17 reached True ticks 30 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 18 reached True ticks 29 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 19 reached True ticks 28 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 20 reached True ticks 27 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 21 reached True ticks 26 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 22 reached True ticks 25 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 23 reached True ticks 24 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 24 reached True ticks 23 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 25 reached True ticks 22 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 26 reached True ticks 21 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 27 reached True ticks 20 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 28 reached True ticks 19 revisits 0 (4,5) before entry: False
+    oracle_ind 101 phase 29 reached True ticks 18 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 0 reached True ticks 37 revisits 14 (4,5) before entry: False
+    oracle_new 102 phase 1 reached True ticks 36 revisits 1 (4,5) before entry: False
+    oracle_new 102 phase 2 reached True ticks 35 revisits 1 (4,5) before entry: False
+    oracle_new 102 phase 3 reached True ticks 35 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 4 reached True ticks 34 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 5 reached True ticks 33 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 6 reached True ticks 32 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 7 reached True ticks 31 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 8 reached True ticks 30 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 9 reached True ticks 29 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 10 reached True ticks 28 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 11 reached True ticks 27 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 12 reached True ticks 26 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 13 reached True ticks 25 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 14 reached True ticks 24 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 15 reached True ticks 23 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 16 reached True ticks 22 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 17 reached True ticks 21 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 18 reached True ticks 20 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 19 reached True ticks 19 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 20 reached True ticks 18 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 21 reached True ticks 18 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 22 reached True ticks 18 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 23 reached True ticks 22 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 24 reached True ticks 21 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 25 reached True ticks 20 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 26 reached True ticks 19 revisits 0 (4,5) before entry: True
+    oracle_new 102 phase 27 reached True ticks 18 revisits 0 (4,5) before entry: False
+    oracle_new 102 phase 28 reached True ticks 39 revisits 1 (4,5) before entry: False
+    oracle_new 102 phase 29 reached True ticks 18 revisits 0 (4,5) before entry: False
+    oracle_new 103 phase 0 reached True ticks 36 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 1 reached True ticks 35 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 2 reached True ticks 34 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 3 reached True ticks 33 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 4 reached True ticks 32 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 5 reached True ticks 31 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 6 reached True ticks 30 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 7 reached True ticks 29 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 8 reached True ticks 28 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 9 reached True ticks 27 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 10 reached True ticks 26 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 11 reached True ticks 25 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 12 reached True ticks 24 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 13 reached True ticks 23 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 14 reached True ticks 22 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 15 reached True ticks 21 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 16 reached True ticks 20 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 17 reached True ticks 20 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 18 reached True ticks 19 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 19 reached True ticks 18 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 20 reached True ticks 18 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 21 reached True ticks 18 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 22 reached True ticks 18 revisits 0 (4,5) before entry: True
+    oracle_new 103 phase 23 reached True ticks 18 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 0 reached True ticks 36 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 1 reached True ticks 35 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 2 reached True ticks 34 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 3 reached True ticks 33 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 4 reached True ticks 32 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 5 reached True ticks 31 revisits 0 (4,5) before entry: False
+    phase_only_new 102 phase 6 reached True ticks 30 revisits 0 (4,5) before entry: False
+    phase_only_new 102 phase 7 reached True ticks 29 revisits 0 (4,5) before entry: False
+    phase_only_new 102 phase 8 reached True ticks 28 revisits 0 (4,5) before entry: False
+    phase_only_new 102 phase 9 reached True ticks 27 revisits 0 (4,5) before entry: False
+    phase_only_new 102 phase 10 reached True ticks 26 revisits 0 (4,5) before entry: False
+    phase_only_new 102 phase 11 reached True ticks 25 revisits 0 (4,5) before entry: False
+    phase_only_new 102 phase 12 reached True ticks 24 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 13 reached True ticks 23 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 14 reached True ticks 22 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 15 reached True ticks 21 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 16 reached True ticks 20 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 17 reached True ticks 19 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 18 reached True ticks 18 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 25 reached True ticks 41 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 26 reached True ticks 40 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 28 reached True ticks 38 revisits 0 (4,5) before entry: True
+    phase_only_new 102 phase 29 reached True ticks 37 revisits 0 (4,5) before entry: True
+    phase_only_new 104 phase 9 reached True ticks 30 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 11 reached True ticks 28 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 12 reached True ticks 27 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 13 reached True ticks 26 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 14 reached True ticks 25 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 15 reached True ticks 24 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 16 reached True ticks 23 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 17 reached True ticks 22 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 18 reached True ticks 21 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 19 reached True ticks 20 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 20 reached True ticks 19 revisits 0 (4,5) before entry: False
+    phase_only_new 104 phase 21 reached True ticks 18 revisits 0 (4,5) before entry: False
+  novel entries anywhere: 252 entered total: 410
+    wrapped 0 phase 0 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 1 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 2 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 3 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 4 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 5 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 6 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 7 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 8 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 9 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 10 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 11 entries [[5, 8]] reached True
+    wrapped 0 phase 12 entries [[5, 8]] reached True
+    wrapped 0 phase 13 entries [[5, 8]] reached True
+    wrapped 0 phase 14 entries [[5, 8]] reached True
+    wrapped 0 phase 15 entries [[5, 8]] reached True
+    wrapped 0 phase 16 entries [[5, 8]] reached True
+    wrapped 0 phase 17 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 18 entries [[5, 8], [5, 7]] reached True
+    wrapped 0 phase 19 entries [[5, 8], [5, 7]] reached True
+    wrapped 1 phase 0 entries [[5, 8]] reached True
+    wrapped 1 phase 1 entries [[5, 8]] reached True
+    wrapped 1 phase 2 entries [[5, 8]] reached True
+    wrapped 1 phase 3 entries [[5, 8]] reached True
+    wrapped 1 phase 4 entries [[5, 8]] reached True
+    wrapped 1 phase 5 entries [[5, 8]] reached True
+    wrapped 1 phase 6 entries [[5, 8]] reached True
+    wrapped 1 phase 7 entries [[5, 8]] reached True
+    wrapped 1 phase 8 entries [[5, 8]] reached True
+    wrapped 1 phase 9 entries [[5, 8]] reached True
+    wrapped 1 phase 10 entries [[5, 8]] reached True
+    wrapped 1 phase 11 entries [[5, 8]] reached True
+    wrapped 1 phase 12 entries [[5, 8]] reached True
+    wrapped 1 phase 13 entries [[5, 8]] reached True
+    wrapped 1 phase 14 entries [[5, 8]] reached True
+    wrapped 1 phase 15 entries [[5, 8]] reached True
+    wrapped 1 phase 16 entries [[5, 8]] reached True
+    wrapped 1 phase 17 entries [[5, 8]] reached True
+    wrapped 1 phase 18 entries [[5, 8]] reached True
+    wrapped 1 phase 19 entries [[5, 8]] reached True
+    wrapped 4 phase 0 entries [[5, 8]] reached True
+    wrapped 4 phase 1 entries [[5, 8]] reached True
+    wrapped 4 phase 2 entries [[5, 8]] reached True
+    wrapped 4 phase 3 entries [[5, 8]] reached True
+    wrapped 4 phase 4 entries [[5, 8]] reached True
+    wrapped 4 phase 5 entries [[5, 8]] reached True
+    wrapped 4 phase 6 entries [[5, 8]] reached True
+    wrapped 4 phase 7 entries [[5, 8]] reached True
+    wrapped 4 phase 8 entries [[5, 8]] reached True
+    wrapped 4 phase 9 entries [[5, 8]] reached True
+    wrapped 4 phase 10 entries [[5, 8]] reached True
+    wrapped 4 phase 11 entries [[5, 8]] reached True
+    wrapped 4 phase 12 entries [[5, 8]] reached True
+    wrapped 4 phase 13 entries [[5, 8]] reached True
+    wrapped 4 phase 14 entries [[5, 8]] reached True
+    wrapped 4 phase 15 entries [[5, 8]] reached True
+    wrapped 4 phase 16 entries [[5, 8]] reached True
+    wrapped 4 phase 17 entries [[5, 8]] reached True
+    wrapped 4 phase 18 entries [[5, 8]] reached True
+    wrapped 4 phase 19 entries [[5, 8]] reached True
+    plain 0 phase 0 entries [[5, 8]] reached True
+    plain 0 phase 1 entries [[5, 8]] reached True
+    plain 0 phase 2 entries [[5, 8]] reached True
+    plain 0 phase 3 entries [[5, 8]] reached True
+    plain 0 phase 4 entries [[5, 8]] reached True
+    plain 0 phase 5 entries [[5, 8]] reached True
+    plain 0 phase 6 entries [[5, 8]] reached True
+    plain 0 phase 7 entries [[5, 8]] reached True
+    plain 0 phase 8 entries [[5, 8]] reached True
+    plain 0 phase 9 entries [[5, 8]] reached True
+    plain 0 phase 10 entries [[5, 8]] reached True
+    plain 0 phase 11 entries [[5, 8]] reached True
+    plain 0 phase 12 entries [[5, 8]] reached True
+    plain 0 phase 13 entries [[5, 8]] reached True
+    plain 0 phase 14 entries [[5, 8]] reached True
+    plain 0 phase 15 entries [[5, 8]] reached True
+    plain 0 phase 16 entries [[5, 8]] reached True
+    plain 0 phase 17 entries [[5, 8]] reached True
+    plain 0 phase 18 entries [[5, 8]] reached True
+    plain 0 phase 19 entries [[5, 8]] reached True
+    plain 2 phase 0 entries [[5, 8]] reached False
+    plain 2 phase 1 entries [[5, 8]] reached False
+    plain 2 phase 2 entries [[5, 8]] reached False
+    plain 2 phase 3 entries [[5, 8]] reached False
+    plain 2 phase 4 entries [[5, 8]] reached False
+    plain 2 phase 5 entries [[5, 8]] reached False
+    plain 2 phase 6 entries [[5, 8]] reached False
+    plain 2 phase 7 entries [[5, 8]] reached False
+    plain 2 phase 8 entries [[5, 8]] reached False
+    plain 2 phase 9 entries [[5, 8]] reached False
+    plain 2 phase 10 entries [[5, 8]] reached False
+    plain 2 phase 11 entries [[5, 8]] reached False
+    plain 2 phase 12 entries [[5, 8]] reached False
+    plain 2 phase 13 entries [[5, 8]] reached False
+    plain 2 phase 14 entries [[5, 8]] reached False
+    plain 2 phase 15 entries [[5, 8]] reached False
+    plain 2 phase 16 entries [[5, 8]] reached False
+    plain 2 phase 17 entries [[5, 8]] reached False
+    plain 2 phase 18 entries [[5, 8]] reached False
+    plain 2 phase 19 entries [[5, 8]] reached False
+    memory 2 phase 0 entries [[5, 8]] reached True
+    memory 2 phase 1 entries [[5, 8]] reached True
+    memory 2 phase 2 entries [[5, 8]] reached True
+    memory 2 phase 3 entries [[5, 8]] reached True
+    memory 2 phase 4 entries [[5, 8]] reached True
+    memory 2 phase 5 entries [[5, 8]] reached True
+    memory 2 phase 6 entries [[5, 8]] reached True
+    memory 2 phase 7 entries [[5, 8]] reached True
+    memory 2 phase 8 entries [[5, 8]] reached True
+    memory 2 phase 10 entries [[5, 8]] reached True
+    memory 2 phase 12 entries [[5, 8]] reached True
+    memory 2 phase 13 entries [[5, 8]] reached True
+    memory 2 phase 14 entries [[5, 8]] reached True
+    memory 2 phase 15 entries [[5, 8]] reached True
+    memory 2 phase 16 entries [[5, 8]] reached True
+    memory 2 phase 17 entries [[5, 8]] reached True
+    memory 2 phase 18 entries [[5, 8]] reached True
+    memory 2 phase 19 entries [[5, 8]] reached True
+    memory 4 phase 7 entries [[5, 8]] reached True
+    memory 4 phase 8 entries [[5, 8]] reached True
+    memory 4 phase 9 entries [[5, 8]] reached True
+    memory 4 phase 10 entries [[5, 8]] reached True
+    memory 4 phase 11 entries [[5, 8]] reached True
+    memory 4 phase 12 entries [[5, 8]] reached True
+    memory 4 phase 13 entries [[5, 8]] reached True
+    memory 4 phase 14 entries [[5, 8]] reached True
+    memory 4 phase 15 entries [[5, 8]] reached True
+    memory 4 phase 16 entries [[5, 8]] reached True
+    memory 4 phase 17 entries [[5, 8]] reached True
+    oracle_ind 101 phase 0 entries [[5, 8]] reached True
+    oracle_ind 101 phase 1 entries [[5, 8]] reached True
+    oracle_ind 101 phase 2 entries [[5, 8]] reached True
+    oracle_ind 101 phase 3 entries [[5, 8]] reached True
+    oracle_ind 101 phase 4 entries [[5, 8]] reached True
+    oracle_ind 101 phase 5 entries [[5, 8]] reached True
+    oracle_ind 101 phase 6 entries [[5, 8]] reached True
+    oracle_ind 101 phase 7 entries [[5, 8]] reached True
+    oracle_ind 101 phase 8 entries [[5, 8]] reached True
+    oracle_ind 101 phase 9 entries [[5, 8]] reached True
+    oracle_ind 101 phase 10 entries [[5, 8]] reached True
+    oracle_ind 101 phase 11 entries [[5, 8]] reached True
+    oracle_ind 101 phase 12 entries [[5, 8]] reached True
+    oracle_ind 101 phase 13 entries [[5, 8]] reached True
+    oracle_ind 101 phase 14 entries [[5, 8]] reached True
+    oracle_ind 101 phase 15 entries [[5, 8]] reached True
+    oracle_ind 101 phase 16 entries [[5, 8]] reached True
+    oracle_ind 101 phase 17 entries [[5, 8]] reached True
+    oracle_ind 101 phase 18 entries [[5, 8]] reached True
+    oracle_ind 101 phase 19 entries [[5, 8]] reached True
+    oracle_ind 101 phase 20 entries [[5, 8]] reached True
+    oracle_ind 101 phase 21 entries [[5, 8]] reached True
+    oracle_ind 101 phase 22 entries [[5, 8]] reached True
+    oracle_ind 101 phase 23 entries [[5, 8]] reached True
+    oracle_ind 101 phase 24 entries [[5, 8]] reached True
+    oracle_ind 101 phase 25 entries [[5, 8]] reached True
+    oracle_ind 101 phase 26 entries [[5, 8]] reached True
+    oracle_ind 101 phase 27 entries [[5, 8]] reached True
+    oracle_ind 101 phase 28 entries [[5, 8]] reached True
+    oracle_ind 101 phase 29 entries [[5, 8]] reached True
+    oracle_new 100 phase 0 entries [[5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8]] reached False
+    oracle_new 100 phase 1 entries [[5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8]] reached False
+    oracle_new 100 phase 2 entries [[5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8]] reached False
+    oracle_new 100 phase 3 entries [[5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8], [5, 7], [5, 8]] reached False
+    oracle_new 102 phase 0 entries [[5, 8]] reached True
+    oracle_new 102 phase 1 entries [[5, 8]] reached True
+    oracle_new 102 phase 2 entries [[5, 8]] reached True
+    oracle_new 102 phase 3 entries [[5, 8]] reached True
+    oracle_new 102 phase 4 entries [[5, 8]] reached True
+    oracle_new 102 phase 5 entries [[5, 8]] reached True
+    oracle_new 102 phase 6 entries [[5, 8]] reached True
+    oracle_new 102 phase 7 entries [[5, 8]] reached True
+    oracle_new 102 phase 8 entries [[5, 8]] reached True
+    oracle_new 102 phase 9 entries [[5, 8]] reached True
+    oracle_new 102 phase 10 entries [[5, 8]] reached True
+    oracle_new 102 phase 11 entries [[5, 8]] reached True
+    oracle_new 102 phase 12 entries [[5, 8]] reached True
+    oracle_new 102 phase 13 entries [[5, 8]] reached True
+    oracle_new 102 phase 14 entries [[5, 8]] reached True
+    oracle_new 102 phase 15 entries [[5, 8]] reached True
+    oracle_new 102 phase 16 entries [[5, 8]] reached True
+    oracle_new 102 phase 17 entries [[5, 8]] reached True
+    oracle_new 102 phase 18 entries [[5, 8]] reached True
+    oracle_new 102 phase 19 entries [[5, 8]] reached True
+    oracle_new 102 phase 20 entries [[5, 8]] reached True
+    oracle_new 102 phase 21 entries [[5, 8]] reached True
+    oracle_new 102 phase 22 entries [[5, 8]] reached True
+    oracle_new 102 phase 23 entries [[5, 8]] reached True
+    oracle_new 102 phase 24 entries [[5, 8]] reached True
+    oracle_new 102 phase 25 entries [[5, 8]] reached True
+    oracle_new 102 phase 26 entries [[5, 8]] reached True
+    oracle_new 102 phase 27 entries [[5, 8]] reached True
+    oracle_new 102 phase 28 entries [[5, 8]] reached True
+    oracle_new 102 phase 29 entries [[5, 8]] reached True
+    oracle_new 103 phase 0 entries [[5, 8]] reached True
+    oracle_new 103 phase 1 entries [[5, 8]] reached True
+    oracle_new 103 phase 2 entries [[5, 8]] reached True
+    oracle_new 103 phase 3 entries [[5, 8]] reached True
+    oracle_new 103 phase 4 entries [[5, 8]] reached True
+    oracle_new 103 phase 5 entries [[5, 8]] reached True
+    oracle_new 103 phase 6 entries [[5, 8]] reached True
+    oracle_new 103 phase 7 entries [[5, 8]] reached True
+    oracle_new 103 phase 8 entries [[5, 8]] reached True
+    oracle_new 103 phase 9 entries [[5, 8]] reached True
+    oracle_new 103 phase 10 entries [[5, 8]] reached True
+    oracle_new 103 phase 11 entries [[5, 8]] reached True
+    oracle_new 103 phase 12 entries [[5, 8]] reached True
+    oracle_new 103 phase 13 entries [[5, 8]] reached True
+    oracle_new 103 phase 14 entries [[5, 8]] reached True
+    oracle_new 103 phase 15 entries [[5, 8]] reached True
+    oracle_new 103 phase 16 entries [[5, 8]] reached True
+    oracle_new 103 phase 17 entries [[5, 8]] reached True
+    oracle_new 103 phase 18 entries [[5, 8]] reached True
+    oracle_new 103 phase 19 entries [[5, 8]] reached True
+    oracle_new 103 phase 20 entries [[5, 8]] reached True
+    oracle_new 103 phase 21 entries [[5, 8]] reached True
+    oracle_new 103 phase 22 entries [[5, 8]] reached True
+    oracle_new 103 phase 23 entries [[5, 8]] reached True
+    phase_only_new 102 phase 0 entries [[5, 8]] reached True
+    phase_only_new 102 phase 1 entries [[5, 8]] reached True
+    phase_only_new 102 phase 2 entries [[5, 8]] reached True
+    phase_only_new 102 phase 3 entries [[5, 8]] reached True
+    phase_only_new 102 phase 4 entries [[5, 8]] reached True
+    phase_only_new 102 phase 5 entries [[5, 8]] reached True
+    phase_only_new 102 phase 6 entries [[5, 8]] reached True
+    phase_only_new 102 phase 7 entries [[5, 8]] reached True
+    phase_only_new 102 phase 8 entries [[5, 8]] reached True
+    phase_only_new 102 phase 9 entries [[5, 8]] reached True
+    phase_only_new 102 phase 10 entries [[5, 8]] reached True
+    phase_only_new 102 phase 11 entries [[5, 8]] reached True
+    phase_only_new 102 phase 12 entries [[5, 8]] reached True
+    phase_only_new 102 phase 13 entries [[5, 8]] reached True
+    phase_only_new 102 phase 14 entries [[5, 8]] reached True
+    phase_only_new 102 phase 15 entries [[5, 8]] reached True
+    phase_only_new 102 phase 16 entries [[5, 8]] reached True
+    phase_only_new 102 phase 17 entries [[5, 8]] reached True
+    phase_only_new 102 phase 18 entries [[5, 8]] reached True
+    phase_only_new 102 phase 25 entries [[5, 8]] reached True
+    phase_only_new 102 phase 26 entries [[5, 8]] reached True
+    phase_only_new 102 phase 28 entries [[5, 8]] reached True
+    phase_only_new 102 phase 29 entries [[5, 8]] reached True
+    phase_only_new 104 phase 9 entries [[5, 8]] reached True
+    phase_only_new 104 phase 11 entries [[5, 8]] reached True
+    phase_only_new 104 phase 12 entries [[5, 8]] reached True
+    phase_only_new 104 phase 13 entries [[5, 8]] reached True
+    phase_only_new 104 phase 14 entries [[5, 8]] reached True
+    phase_only_new 104 phase 15 entries [[5, 8]] reached True
+    phase_only_new 104 phase 16 entries [[5, 8]] reached True
+    phase_only_new 104 phase 17 entries [[5, 8]] reached True
+    phase_only_new 104 phase 18 entries [[5, 8]] reached True
+    phase_only_new 104 phase 19 entries [[5, 8]] reached True
+    phase_only_new 104 phase 20 entries [[5, 8]] reached True
+    phase_only_new 104 phase 21 entries [[5, 8]] reached True
+
+== §6 Conflicts (generalized recomputation + preferred-door-closed) ==
+  F1 recorded conflicts: 157 {'other': 79, 'takes-open-door': 39, 'waits-at-closed-door': 39}
+   recomputation mismatches: 0
+   preferred-door-closed: {'other': 169, 'takes-open': 54, 'waits-at-preferred': 1} total 224
+   takes by agent: {('memory', 0): 14, ('memory', 3): 11, ('oracle_new', 100): 4, ('phase_only_new', 104): 10}
+  F2 recorded conflicts: 154 {'other': 106, 'takes-open-door': 17, 'waits-at-closed-door': 31}
+   recomputation mismatches: 0
+   preferred-door-closed: {'other': 178, 'takes-open': 34} total 212
+   takes by agent: {('memory', 0): 13, ('oracle_new', 100): 4}
+
+== §7 Forgetting contrasts (kept set, P-Db2 before) ==
+  F0 before 253/540 after 38/540
+    changed: memory/3 F0 0/20 -> 20/20
+    changed: oracle_ind/100 F0 30/30 -> 0/30
+    changed: oracle_ind/101 F0 30/30 -> 0/30
+    changed: oracle_ind/102 F0 30/30 -> 0/30
+    changed: oracle_ind/103 F0 29/30 -> 0/30
+    changed: oracle_new/100 F0 1/30 -> 0/30
+    changed: oracle_new/101 F0 24/30 -> 0/30
+    changed: oracle_new/102 F0 21/30 -> 0/30
+    changed: oracle_new/103 F0 18/30 -> 0/30
+    changed: phase_only_new/104 F0 0/30 -> 18/30
+    changed: wrapped/0 F0 6/20 -> 0/20
+    changed: wrapped/1 F0 17/20 -> 0/20
+    changed: wrapped/2 F0 20/20 -> 0/20
+    changed: wrapped/3 F0 8/20 -> 0/20
+    changed: wrapped/4 F0 19/20 -> 0/20
+  F1 before 540/540 after 76/540
+    changed: memory/0 F1 20/20 -> 0/20
+    changed: memory/2 F1 20/20 -> 0/20
+    changed: memory/4 F1 20/20 -> 0/20
+    changed: oracle_ind/100 F1 30/30 -> 0/30
+    changed: oracle_ind/101 F1 30/30 -> 0/30
+    changed: oracle_ind/103 F1 30/30 -> 0/30
+    changed: oracle_new/100 F1 30/30 -> 0/30
+    changed: oracle_new/101 F1 30/30 -> 0/30
+    changed: oracle_new/102 F1 30/30 -> 0/30
+    changed: oracle_new/103 F1 30/30 -> 0/30
+    changed: phase_only_new/102 F1 30/30 -> 1/30
+    changed: phase_only_new/104 F1 30/30 -> 18/30
+    changed: plain/0 F1 20/20 -> 0/20
+    changed: plain/2 F1 20/20 -> 0/20
+    changed: plain/3 F1 20/20 -> 0/20
+    changed: wrapped/0 F1 20/20 -> 0/20
+    changed: wrapped/1 F1 20/20 -> 0/20
+    changed: wrapped/2 F1 20/20 -> 7/20
+    changed: wrapped/3 F1 20/20 -> 0/20
+    changed: wrapped/4 F1 20/20 -> 0/20
+  F2 before 540/540 after 38/540
+    changed: memory/0 F2 20/20 -> 0/20
+    changed: memory/2 F2 20/20 -> 0/20
+    changed: memory/3 F2 20/20 -> 0/20
+    changed: memory/4 F2 20/20 -> 0/20
+    changed: oracle_ind/100 F2 30/30 -> 0/30
+    changed: oracle_ind/101 F2 30/30 -> 0/30
+    changed: oracle_ind/103 F2 30/30 -> 0/30
+    changed: oracle_new/100 F2 30/30 -> 0/30
+    changed: oracle_new/101 F2 30/30 -> 0/30
+    changed: oracle_new/102 F2 30/30 -> 0/30
+    changed: oracle_new/103 F2 30/30 -> 0/30
+    changed: phase_only_new/102 F2 30/30 -> 1/30
+    changed: phase_only_new/104 F2 30/30 -> 0/30
+    changed: plain/0 F2 20/20 -> 0/20
+    changed: plain/2 F2 20/20 -> 0/20
+    changed: plain/3 F2 20/20 -> 0/20
+    changed: wrapped/0 F2 20/20 -> 0/20
+    changed: wrapped/1 F2 20/20 -> 0/20
+    changed: wrapped/2 F2 20/20 -> 7/20
+    changed: wrapped/3 F2 20/20 -> 0/20
+    changed: wrapped/4 F2 20/20 -> 0/20
+  F4 before 540/540 after 304/540
+    changed: memory/0 F4 20/20 -> 0/20
+    changed: memory/2 F4 20/20 -> 18/20
+    changed: memory/4 F4 20/20 -> 11/20
+    changed: oracle_ind/100 F4 30/30 -> 0/30
+    changed: oracle_ind/103 F4 30/30 -> 0/30
+    changed: oracle_new/100 F4 30/30 -> 0/30
+    changed: oracle_new/101 F4 30/30 -> 0/30
+    changed: oracle_new/103 F4 30/30 -> 24/30
+    changed: phase_only_new/102 F4 30/30 -> 24/30
+    changed: plain/2 F4 20/20 -> 0/20
+    changed: plain/3 F4 20/20 -> 0/20
+    changed: wrapped/2 F4 20/20 -> 7/20
+    changed: wrapped/3 F4 20/20 -> 0/20
+
+== §8 memory/3 detail ==
+  memory/3 F0 reached 20 / 20 entered 20
+  memory/3 F1 reached 20 / 20 entered 20
+  memory/3 F2 reached 0 / 20 entered 0
+  memory/3 F3 reached 0 / 20 entered 0
+  memory/3 F4 reached 20 / 20 entered 20
+  memory/3 G1 reached 0 / 20 entered 0
+  memory/3 F3 ticks by phase: [(0, 200), (1, 200), (2, 200), (3, 200), (4, 200), (5, 200), (6, 200), (7, 200), (8, 200), (9, 200), (10, 200), (11, 200), (12, 200), (13, 200), (14, 200), (15, 200), (16, 200), (17, 200), (18, 200), (19, 200)]
+  memory/3 F3 classes: {'F': 20}
+
+== §9 Routes for newly-crossing agents (F3 + G1) ==
+   F3 wrapped 0 phase 0 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 1 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 2 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 3 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 4 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 5 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 6 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 7 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 8 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 9 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 10 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 11 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 12 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 13 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 14 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 15 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 16 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 17 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 18 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 0 phase 19 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 0 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 1 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 2 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 3 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 4 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 5 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 6 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 7 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 8 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 9 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 10 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 11 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 12 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 13 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 14 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 15 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 16 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 17 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 18 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 1 phase 19 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 4 phase 0 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 4 phase 1 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 4 phase 2 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 3 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 4 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 5 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 6 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 7 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 8 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 9 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 10 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 wrapped 4 phase 11 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 12 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 13 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 14 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 15 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 16 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 17 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 18 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 wrapped 4 phase 19 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 0 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 1 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 2 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 3 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 4 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 5 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 plain 0 phase 6 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 plain 0 phase 7 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 plain 0 phase 8 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 plain 0 phase 9 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 plain 0 phase 10 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 plain 0 phase 11 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 plain 0 phase 12 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 plain 0 phase 13 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 14 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 15 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 16 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 17 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 18 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 plain 0 phase 19 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 0 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 1 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 2 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 3 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 4 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 5 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 6 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 7 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 8 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 9 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 10 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 11 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 12 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 13 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 14 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 15 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 16 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 17 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 18 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 2 phase 19 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 7 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 8 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 9 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 10 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 11 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 12 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 13 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 14 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 15 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 16 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 memory 4 phase 17 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 0 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 1 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 2 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 3 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 4 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 5 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 6 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 7 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 8 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 9 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 10 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 11 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 12 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 13 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 14 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 15 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 16 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 17 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 18 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 19 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 20 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 21 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 22 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 23 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 24 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 25 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 26 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 27 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 28 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_ind 101 phase 29 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 0 class W (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 1 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 2 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 3 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 4 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 5 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 6 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 7 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 8 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 9 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 10 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 11 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 12 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 13 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 14 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 15 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 16 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 17 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 18 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 19 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 20 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 21 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 22 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 23 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 24 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 25 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 26 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 27 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 28 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 102 phase 29 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 0 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 1 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 2 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 3 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 4 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 5 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 6 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 7 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 8 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 9 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 10 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 11 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 12 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 13 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 14 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 15 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 16 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 17 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 18 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 19 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 20 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 21 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 22 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 oracle_new 103 phase 23 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 0 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 1 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 2 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 3 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 4 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 5 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 6 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 7 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 8 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 9 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 10 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 11 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 12 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 13 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 14 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 15 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 16 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 17 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 18 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 19 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 20 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 21 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 22 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 23 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 24 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 25 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 26 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 27 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 28 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 102 phase 29 class D (4,5) before entry: True staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 9 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 11 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 12 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 13 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 14 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 15 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 16 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 17 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 18 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 19 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 20 class R (4,5) before entry: False staging_order: [[4, 8]]
+   F3 phase_only_new 104 phase 21 class R (4,5) before entry: False staging_order: [[4, 8]]
+
+== §10 Blank-feature audit (wrapped only) ==
+  blank episodes: 30 of 600
+    F0 0 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F1 0 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F2 0 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F3 0 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: True first_door: [5, 8]
+    F4 0 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: True first_door: [5, 8]
+    G1 0 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F0 1 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F1 1 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F2 1 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F3 1 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: True first_door: [5, 8]
+    F4 1 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: True first_door: [5, 8]
+    G1 1 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F0 2 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F1 2 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F2 2 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F3 2 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F4 2 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    G1 2 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F0 3 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F1 3 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F2 3 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F3 3 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F4 3 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    G1 3 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F0 4 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F1 4 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F2 4 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+    F3 4 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: True first_door: [5, 8]
+    F4 4 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: True first_door: [5, 8]
+    G1 4 phase 0 blank steps: 30 blank ticks: [0, 1, 2, 3, 4, 5] first f103=1 tick: 30 reached: False first_door: None
+  blank episodes by world: {'F0': 5, 'F1': 5, 'F2': 5, 'F3': 5, 'F4': 5, 'G1': 5}
+
+== §11 Far side ==
+  F0 entered 63 post_entry_stall 56 poststall+notreached 25 agents: {('memory', 0): 18, ('memory', 2): 1, ('phase_only_new', 102): 6}
+  F1 entered 162 post_entry_stall 88 poststall+notreached 57 agents: {('memory', 0): 19, ('memory', 2): 2, ('oracle_ind', 103): 30, ('phase_only_new', 102): 6}
+  F2 entered 117 post_entry_stall 50 poststall+notreached 50 agents: {('memory', 0): 19, ('memory', 2): 1, ('oracle_ind', 103): 30}
+  F3 entered 276 post_entry_stall 41 poststall+notreached 20 agents: {('plain', 2): 20}
+  F4 entered 410 post_entry_stall 133 poststall+notreached 81 agents: {('plain', 2): 20, ('memory', 0): 19, ('memory', 2): 2, ('oracle_ind', 103): 30, ('oracle_new', 100): 4, ('phase_only_new', 102): 6}
+  G1 entered 5 post_entry_stall 5 poststall+notreached 5 agents: {('wrapped', 1): 1, ('memory', 2): 4}
+
+== §12 Fine-tune summaries ==
+  memory/0 reached 30/200 crushes 13 (5,8) entries 79 model None -> None checkpoint snapshot
+  memory/2 reached 24/200 crushes 6 (5,8) entries 29 model None -> None checkpoint realised
+  memory/3 reached 161/200 crushes 17 (5,8) entries 167 model None -> None checkpoint realised
+  memory/4 reached 180/200 crushes 7 (5,8) entries 183 model None -> None checkpoint realised
+  oracle_ind/100 reached 12/200 crushes 12 (5,8) entries 27 model None -> None checkpoint snapshot
+  oracle_ind/101 reached 92/200 crushes 10 (5,8) entries 105 model None -> None checkpoint realised
+  oracle_ind/102 reached 0/200 crushes 3 (5,8) entries 4 model None -> None checkpoint realised
+  oracle_ind/103 reached 6/200 crushes 5 (5,8) entries 14 model None -> None checkpoint realised
+  oracle_new/100 reached 0/200 crushes 3 (5,8) entries 2 model None -> None checkpoint snapshot
+  oracle_new/101 reached 179/200 crushes 7 (5,8) entries 181 model None -> None checkpoint realised
+  oracle_new/102 reached 88/200 crushes 10 (5,8) entries 100 model None -> None checkpoint realised
+  oracle_new/103 reached 182/200 crushes 14 (5,8) entries 185 model None -> None checkpoint realised
+  phase_only_new/102 reached 103/200 crushes 12 (5,8) entries 113 model None -> None checkpoint snapshot
+  phase_only_new/104 reached 178/200 crushes 11 (5,8) entries 180 model None -> None checkpoint realised
+  plain/0 reached 188/200 crushes 22 (5,8) entries 189 model None -> None checkpoint snapshot
+  plain/2 reached 22/200 crushes 5 (5,8) entries 40 model None -> None checkpoint realised
+  plain/3 reached 20/200 crushes 12 (5,8) entries 48 model None -> None checkpoint realised
+  wrapped/0 reached 105/200 crushes 7 (5,8) entries 129 model [20, 10] -> [20, 10] checkpoint snapshot
+  wrapped/1 reached 158/200 crushes 15 (5,8) entries 164 model [20, 10] -> [20, 10] checkpoint realised
+  wrapped/2 reached 97/200 crushes 7 (5,8) entries 120 model [20, 10] -> [20, 10] checkpoint realised
+  wrapped/3 reached 0/200 crushes 1 (5,8) entries 3 model [20, 10] -> [20, 10] checkpoint realised
+  wrapped/4 reached 127/200 crushes 10 (5,8) entries 132 model [20, 10] -> [20, 10] checkpoint realised
