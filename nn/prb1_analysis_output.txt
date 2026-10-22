@@ -1,0 +1,65 @@
+== Completeness ==
+records: 450 (expected 450)
+rep-jobs: 20 (expected 20)
+duplicate (agent, world, rep, phase) keys: 0
+all 20 reps hold all phases exactly once: OK
+all records carry rep/rep_rng_seed/epsilon/snapshot_identity: True
+
+== RNG replay check (design note section 4) ==
+Fresh random.Random(seed) per rep, replayed over the recorded
+step counts in increasing start-phase order; the simulated
+coin flag must equal each step's epsilon_action flag.
+steps replayed: 67017 mismatches: 0
+
+== Per-rep results ==
+memory/3 F3 (greedy FT1: 0/20 reached; fine-tune: 161/200):
+  rep 0 (seed 900000): reached 10/20 entered 11 mean ticks reached 122.60 crush 1 epsilon steps 164/3226 (5.1%)
+  rep 1 (seed 900001): reached 9/20 entered 9 mean ticks reached 101.89 crush 0 epsilon steps 166/3117 (5.3%)
+  rep 2 (seed 900002): reached 7/20 entered 7 mean ticks reached 125.29 crush 0 epsilon steps 160/3477 (4.6%)
+  rep 3 (seed 900003): reached 11/20 entered 11 mean ticks reached 109.55 crush 0 epsilon steps 163/3005 (5.4%)
+  rep 4 (seed 900004): reached 8/20 entered 9 mean ticks reached 134.00 crush 1 epsilon steps 176/3472 (5.1%)
+  reached per rep: [10, 9, 7, 11, 8] median: 9 range: 7 - 11 total: 45 / 100
+plain/0 F3 (greedy FT1: 20/20 reached; fine-tune: 188/200):
+  rep 0 (seed 901000): reached 20/20 entered 20 mean ticks reached 23.65 crush 0 epsilon steps 23/473 (4.9%)
+  rep 1 (seed 901001): reached 20/20 entered 20 mean ticks reached 23.65 crush 0 epsilon steps 18/473 (3.8%)
+  rep 2 (seed 901002): reached 20/20 entered 20 mean ticks reached 25.25 crush 1 epsilon steps 30/505 (5.9%)
+  rep 3 (seed 901003): reached 20/20 entered 20 mean ticks reached 24.85 crush 0 epsilon steps 26/497 (5.2%)
+  rep 4 (seed 901004): reached 20/20 entered 20 mean ticks reached 23.45 crush 0 epsilon steps 19/469 (4.1%)
+  reached per rep: [20, 20, 20, 20, 20] median: 20 range: 20 - 20 total: 100 / 100
+oracle_new/101 F3 (greedy FT1: 0/30 reached; fine-tune: 179/200):
+  rep 0 (seed 902000): reached 4/30 entered 7 mean ticks reached 127.75 crush 0 epsilon steps 314/5711 (5.5%)
+  rep 1 (seed 902001): reached 7/30 entered 10 mean ticks reached 143.00 crush 0 epsilon steps 264/5601 (4.7%)
+  rep 2 (seed 902002): reached 6/30 entered 8 mean ticks reached 123.50 crush 1 epsilon steps 277/5541 (5.0%)
+  rep 3 (seed 902003): reached 5/30 entered 9 mean ticks reached 167.40 crush 0 epsilon steps 263/5837 (4.5%)
+  rep 4 (seed 902004): reached 7/30 entered 7 mean ticks reached 144.71 crush 0 epsilon steps 262/5613 (4.7%)
+  reached per rep: [4, 7, 6, 5, 7] median: 6 range: 4 - 7 total: 29 / 150
+memory/3 F2 (greedy FT1: 0/20 (0 entered) reached; fine-tune: same agent):
+  rep 0 (seed 903000): reached 0/20 entered 0 mean ticks reached nan crush 0 epsilon steps 194/4000 (4.8%)
+  rep 1 (seed 903001): reached 0/20 entered 0 mean ticks reached nan crush 0 epsilon steps 201/4000 (5.0%)
+  rep 2 (seed 903002): reached 0/20 entered 0 mean ticks reached nan crush 0 epsilon steps 208/4000 (5.2%)
+  rep 3 (seed 903003): reached 0/20 entered 0 mean ticks reached nan crush 0 epsilon steps 189/4000 (4.7%)
+  rep 4 (seed 903004): reached 0/20 entered 0 mean ticks reached nan crush 0 epsilon steps 198/4000 (5.0%)
+  reached per rep: [0, 0, 0, 0, 0] median: 0 range: 0 - 0 total: 0 / 100
+
+== Verdicts (design note section 5, precedence: completeness -> control -> primary) ==
+positive control plain/0 F3 reps <= 10/20: 0 -> UNINTERPRETABLE triggers: False
+primary memory/3 F3: reps >= 10/20: 2  reps <= 2/20: 0
+PRIMARY VERDICT: NEITHER
+second trap oracle_new/101 F3: reps >= 15/30: 0  reps <= 3/30: 0 -> NEITHER-second
+F2 memory/3: reached per rep: [0, 0, 0, 0, 0] entered per rep: [0, 0, 0, 0, 0] -> still locked
+
+== Mechanism detail (descriptive, from records) ==
+memory/3 F3: reached 45/100, all via first door (5,8)
+  reached staging (4,8) present: 45 / 45 median ticks: 128
+  unreached stall kinds: {'no-move-run': 55}
+  reached episodes with >=1 epsilon action at (4,5): 45/45
+  unreached episodes with >=1 epsilon action at (4,5): 55/55
+  reached departures from (4,5): 45 departure action epsilon_action: 45 greedy: 0
+oracle_new/101 F3: reached 29/150, all via first door (5,8)
+  reached staging (4,8) present: 29 / 29 median ticks: 147
+  unreached stall kinds: {'no-move-run': 114, None: 5, 'dwell': 2}
+  reached episodes with >=1 epsilon action at (4,5): 0/29
+  unreached episodes with >=1 epsilon action at (4,5): 0/121
+memory/3 F2: reached 0/100, no reached episodes
+  unreached stall kinds: {'no-move-run': 100}
+  unreached episodes with >=1 epsilon action at (4,5): 100/100

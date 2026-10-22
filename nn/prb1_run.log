@@ -1,0 +1,24 @@
+prb1_run: load check PASS memory/3 F3 (n_inputs=102, hidden=32)
+prb1_run: memory/3 F3 rep 0 (seed 900000): reached=10/20 entered=11 ticks(mean reached)=122.60 crush=1
+prb1_run: memory/3 F3 rep 1 (seed 900001): reached=9/20 entered=9 ticks(mean reached)=101.89 crush=0
+prb1_run: memory/3 F3 rep 2 (seed 900002): reached=7/20 entered=7 ticks(mean reached)=125.29 crush=0
+prb1_run: memory/3 F3 rep 3 (seed 900003): reached=11/20 entered=11 ticks(mean reached)=109.55 crush=0
+prb1_run: memory/3 F3 rep 4 (seed 900004): reached=8/20 entered=9 ticks(mean reached)=134.00 crush=1
+prb1_run: load check PASS plain/0 F3 (n_inputs=101, hidden=32)
+prb1_run: plain/0 F3 rep 0 (seed 901000): reached=20/20 entered=20 ticks(mean reached)=23.65 crush=0
+prb1_run: plain/0 F3 rep 1 (seed 901001): reached=20/20 entered=20 ticks(mean reached)=23.65 crush=0
+prb1_run: plain/0 F3 rep 2 (seed 901002): reached=20/20 entered=20 ticks(mean reached)=25.25 crush=1
+prb1_run: plain/0 F3 rep 3 (seed 901003): reached=20/20 entered=20 ticks(mean reached)=24.85 crush=0
+prb1_run: plain/0 F3 rep 4 (seed 901004): reached=20/20 entered=20 ticks(mean reached)=23.45 crush=0
+prb1_run: load check PASS oracle_new/101 F3 (n_inputs=104, hidden=32)
+prb1_run: oracle_new/101 F3 rep 0 (seed 902000): reached=4/30 entered=7 ticks(mean reached)=127.75 crush=0
+prb1_run: oracle_new/101 F3 rep 1 (seed 902001): reached=7/30 entered=10 ticks(mean reached)=143.00 crush=0
+prb1_run: oracle_new/101 F3 rep 2 (seed 902002): reached=6/30 entered=8 ticks(mean reached)=123.50 crush=1
+prb1_run: oracle_new/101 F3 rep 3 (seed 902003): reached=5/30 entered=9 ticks(mean reached)=167.40 crush=0
+prb1_run: oracle_new/101 F3 rep 4 (seed 902004): reached=7/30 entered=7 ticks(mean reached)=144.71 crush=0
+prb1_run: load check PASS memory/3 F2 (n_inputs=102, hidden=32)
+prb1_run: memory/3 F2 rep 0 (seed 903000): reached=0/20 entered=0 ticks(mean reached)=nan crush=0
+prb1_run: memory/3 F2 rep 1 (seed 903001): reached=0/20 entered=0 ticks(mean reached)=nan crush=0
+prb1_run: memory/3 F2 rep 2 (seed 903002): reached=0/20 entered=0 ticks(mean reached)=nan crush=0
+prb1_run: memory/3 F2 rep 3 (seed 903003): reached=0/20 entered=0 ticks(mean reached)=nan crush=0
+prb1_run: memory/3 F2 rep 4 (seed 903004): reached=0/20 entered=0 ticks(mean reached)=nan crush=0
