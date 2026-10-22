@@ -1,0 +1,219 @@
+=== 0. VERIFICATION (records, not runner-log summaries) ===
+luck records: 1500
+luck jobs (arm, seed, world): 60 (expected 60)
+episodes per job: {20: 30, 30: 30}
+duplicate (arm, seed, world, start_phase) keys: 0
+record kinds: {'episode': 1500}
+luck record fields: arm, arrival, crushes, door_entries, first_door, kind, open_len, period, reached, return, revisits, seed, staging_order, stall, stall_kind, start_phase, steps, switches, ticks, world
+episodes where len(steps) != ticks: 0
+jobs with incomplete start_phase sets: 0 []
+episodes with non-+1 step t sequence: 0
+episodes where recomputed first entry != recorded first_door/door_entries: 0
+doors records total: 2920; doors W1 records: 750
+doors W1 jobs (arm, seed): 30
+
+--- W1 baseline (doors W1 records only, NOT W1m, NOT pooled) ---
+memory/0: W1 n=20 reached=20 success=1.000 median_ticks_reached=29.5 2x_threshold=59.0
+memory/1: W1 n=20 reached=20 success=1.000 median_ticks_reached=45.5 2x_threshold=91.0
+memory/2: W1 n=20 reached=20 success=1.000 median_ticks_reached=19.5 2x_threshold=39.0
+memory/3: W1 n=20 reached=20 success=1.000 median_ticks_reached=19.5 2x_threshold=39.0
+memory/4: W1 n=20 reached=20 success=1.000 median_ticks_reached=20.0 2x_threshold=40.0
+oracle_ind/100: W1 n=30 reached=30 success=1.000 median_ticks_reached=24.5 2x_threshold=49.0
+oracle_ind/101: W1 n=30 reached=30 success=1.000 median_ticks_reached=43.5 2x_threshold=87.0
+oracle_ind/102: W1 n=30 reached=30 success=1.000 median_ticks_reached=20.5 2x_threshold=41.0
+oracle_ind/103: W1 n=30 reached=30 success=1.000 median_ticks_reached=26.0 2x_threshold=52.0
+oracle_ind/104: W1 n=30 reached=30 success=1.000 median_ticks_reached=27.0 2x_threshold=54.0
+oracle_new/100: W1 n=30 reached=30 success=1.000 median_ticks_reached=22.0 2x_threshold=44.0
+oracle_new/101: W1 n=30 reached=30 success=1.000 median_ticks_reached=41.5 2x_threshold=83.0
+oracle_new/102: W1 n=30 reached=30 success=1.000 median_ticks_reached=39.0 2x_threshold=78.0
+oracle_new/103: W1 n=30 reached=30 success=1.000 median_ticks_reached=23.5 2x_threshold=47.0
+oracle_new/104: W1 n=30 reached=30 success=1.000 median_ticks_reached=34.5 2x_threshold=69.0
+phase_only_new/100: W1 n=30 reached=30 success=1.000 median_ticks_reached=21.5 2x_threshold=43.0
+phase_only_new/101: W1 n=30 reached=30 success=1.000 median_ticks_reached=28.5 2x_threshold=57.0
+phase_only_new/102: W1 n=30 reached=30 success=1.000 median_ticks_reached=26.0 2x_threshold=52.0
+phase_only_new/103: W1 n=30 reached=30 success=1.000 median_ticks_reached=24.5 2x_threshold=49.0
+phase_only_new/104: W1 n=30 reached=30 success=1.000 median_ticks_reached=21.5 2x_threshold=43.0
+plain/0: W1 n=20 reached=20 success=1.000 median_ticks_reached=20.5 2x_threshold=41.0
+plain/1: W1 n=20 reached=6 success=0.300 median_ticks_reached=20.5 2x_threshold=41.0
+plain/2: W1 n=20 reached=20 success=1.000 median_ticks_reached=24.5 2x_threshold=49.0
+plain/3: W1 n=20 reached=20 success=1.000 median_ticks_reached=22.0 2x_threshold=44.0
+plain/4: W1 n=20 reached=20 success=1.000 median_ticks_reached=19.5 2x_threshold=39.0
+wrapped/0: W1 n=20 reached=20 success=1.000 median_ticks_reached=22.5 2x_threshold=45.0
+wrapped/1: W1 n=20 reached=20 success=1.000 median_ticks_reached=21.5 2x_threshold=43.0
+wrapped/2: W1 n=20 reached=20 success=1.000 median_ticks_reached=24.5 2x_threshold=49.0
+wrapped/3: W1 n=20 reached=20 success=1.000 median_ticks_reached=22.5 2x_threshold=45.0
+wrapped/4: W1 n=20 reached=20 success=1.000 median_ticks_reached=21.5 2x_threshold=43.0
+W1 arm total memory: n=100 reached=100 success=1.000
+W1 arm total oracle_ind: n=150 reached=150 success=1.000
+W1 arm total oracle_new: n=150 reached=150 success=1.000
+W1 arm total phase_only_new: n=150 reached=150 success=1.000
+W1 arm total plain: n=100 reached=86 success=0.860
+W1 arm total wrapped: n=100 reached=100 success=1.000
+
+=== 1. HEADLINE: CLASS DISTRIBUTION (first entry only) ===
+overall classes: {'F': 1499, 'W': 1}
+class x reached: {('F', False): 1499, ('W', False): 1}
+W1r: n=750 classes={'F': 750} reached=0 entered=0
+W5r: n=750 classes={'F': 749, 'W': 1} reached=0 entered=1
+arm memory: n=200 classes={'F': 199, 'W': 1} reached=0 entered=1
+arm oracle_ind: n=300 classes={'F': 300} reached=0 entered=0
+arm oracle_new: n=300 classes={'F': 300} reached=0 entered=0
+arm phase_only_new: n=300 classes={'F': 300} reached=0 entered=0
+arm plain: n=200 classes={'F': 200} reached=0 entered=0
+arm wrapped: n=200 classes={'F': 200} reached=0 entered=0
+arm x world memory/W1r: n=100 classes={'F': 100} reached=0 entered=0
+arm x world memory/W5r: n=100 classes={'F': 99, 'W': 1} reached=0 entered=1
+arm x world oracle_ind/W1r: n=150 classes={'F': 150} reached=0 entered=0
+arm x world oracle_ind/W5r: n=150 classes={'F': 150} reached=0 entered=0
+arm x world oracle_new/W1r: n=150 classes={'F': 150} reached=0 entered=0
+arm x world oracle_new/W5r: n=150 classes={'F': 150} reached=0 entered=0
+arm x world phase_only_new/W1r: n=150 classes={'F': 150} reached=0 entered=0
+arm x world phase_only_new/W5r: n=150 classes={'F': 150} reached=0 entered=0
+arm x world plain/W1r: n=100 classes={'F': 100} reached=0 entered=0
+arm x world plain/W5r: n=100 classes={'F': 100} reached=0 entered=0
+arm x world wrapped/W1r: n=100 classes={'F': 100} reached=0 entered=0
+arm x world wrapped/W5r: n=100 classes={'F': 100} reached=0 entered=0
+UNCLASSIFIED count: 0 (expected 0; rules are exhaustive over complete trajectories, and no record lacked steps)
+
+--- entered episodes (first_door not None), full detail ---
+memory/1 W5r start_phase=13 class=W reached=False ticks=200 crushes=0 first_door=[5, 3] door_entries=[[5, 3]] switches=0 entry_step_index=8 has_(4,5)_before_entry=False W1_median=45.5 2x=91.0 revisits=0 stall=True/no-move-run staging_order=[[4, 1], [4, 3]] arrival=[4, 1] post_ticks=191 post_stall=True/no-move-run post_positions_distinct=[(6, 3)] post_last_recorded=(6, 3)
+  trajectory segments (position, run length): [[(0, 0), 1], [(1, 0), 1], [(2, 0), 1], [(3, 0), 1], [(4, 0), 1], [(4, 1), 1], [(4, 2), 1], [(4, 3), 1], [(5, 3), 1], [(6, 3), 191]]
+
+--- per arm x world ---
+memory/W1r: n=100 success=0/100 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 100} switches_total=0 stall={'no-move-run': 100} arrival={(4, 5): 80, (4, 1): 20}
+memory/W5r: n=100 success=0/100 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=1 first_doors={None: 99, (5, 3): 1} switches_total=0 stall={'no-move-run': 100} arrival={(4, 3): 37, (4, 5): 43, (4, 1): 20}
+oracle_ind/W1r: n=150 success=0/150 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 150} switches_total=0 stall={'no-move-run': 150} arrival={(4, 5): 141, (4, 1): 9}
+oracle_ind/W5r: n=150 success=0/150 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 150} switches_total=0 stall={'no-move-run': 150} arrival={(4, 5): 133, (4, 3): 8, (4, 1): 9}
+oracle_new/W1r: n=150 success=0/150 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 150} switches_total=0 stall={'no-move-run': 138, 'dwell': 1, None: 11} arrival={(4, 5): 127, (4, 1): 23}
+oracle_new/W5r: n=150 success=0/150 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 150} switches_total=0 stall={'no-move-run': 138, 'dwell': 1, None: 11} arrival={(4, 5): 99, (4, 3): 14, (4, 7): 14, (4, 1): 23}
+phase_only_new/W1r: n=150 success=0/150 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 150} switches_total=0 stall={'no-move-run': 150} arrival={(4, 1): 9, (4, 5): 141}
+phase_only_new/W5r: n=150 success=0/150 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 150} switches_total=0 stall={'no-move-run': 150} arrival={(4, 1): 9, (4, 3): 51, (4, 5): 90}
+plain/W1r: n=100 success=0/100 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 100} switches_total=0 stall={'no-move-run': 100} arrival={(4, 5): 71, None: 14, (4, 1): 15}
+plain/W5r: n=100 success=0/100 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 100} switches_total=0 stall={'no-move-run': 100} arrival={(4, 5): 51, None: 14, (4, 1): 15, (4, 3): 20}
+wrapped/W1r: n=100 success=0/100 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 100} switches_total=0 stall={'dwell': 19, 'no-move-run': 81} arrival={(4, 5): 82, (4, 1): 18}
+wrapped/W5r: n=100 success=0/100 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 100} switches_total=0 stall={'dwell': 19, 'no-move-run': 81} arrival={(4, 5): 75, (4, 1): 18, (4, 3): 7}
+
+--- per world ---
+W1r: n=750 success=0/750 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 750} switches_total=0 stall={'dwell': 20, 'no-move-run': 719, None: 11} arrival={(4, 5): 642, (4, 1): 94, None: 14}
+W5r: n=750 success=0/750 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=1 first_doors={None: 749, (5, 3): 1} switches_total=0 stall={'dwell': 20, 'no-move-run': 719, None: 11} arrival={(4, 5): 491, (4, 1): 94, (4, 3): 137, None: 14, (4, 7): 14}
+
+--- per arm ---
+memory: n=200 success=0/200 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=1 first_doors={None: 199, (5, 3): 1} switches_total=0 stall={'no-move-run': 200} arrival={(4, 5): 123, (4, 3): 37, (4, 1): 40}
+oracle_ind: n=300 success=0/300 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 300} switches_total=0 stall={'no-move-run': 300} arrival={(4, 5): 274, (4, 3): 8, (4, 1): 18}
+oracle_new: n=300 success=0/300 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 300} switches_total=0 stall={'no-move-run': 276, 'dwell': 2, None: 22} arrival={(4, 5): 226, (4, 3): 14, (4, 7): 14, (4, 1): 46}
+phase_only_new: n=300 success=0/300 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 300} switches_total=0 stall={'no-move-run': 300} arrival={(4, 1): 18, (4, 5): 231, (4, 3): 51}
+plain: n=200 success=0/200 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 200} switches_total=0 stall={'no-move-run': 200} arrival={(4, 5): 122, None: 28, (4, 1): 30, (4, 3): 20}
+wrapped: n=200 success=0/200 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=0 first_doors={None: 200} switches_total=0 stall={'dwell': 38, 'no-move-run': 162} arrival={(4, 5): 157, (4, 1): 36, (4, 3): 7}
+
+--- overall ---
+ALL: n=1500 success=0/1500 = 0.0000 ticks_all_mean=200.0 ticks_all_med=200.0 ticks_reached_mean=None ticks_reached_med=None crush_total=0 crush_rate=0.0000 entered=1 first_doors={None: 1499, (5, 3): 1} switches_total=0 stall={'dwell': 40, 'no-move-run': 1438, None: 22} arrival={(4, 5): 1133, (4, 1): 188, (4, 3): 137, None: 28, (4, 7): 14}
+
+=== 3. STAGING / ARRIVAL / POSITIONS ===
+staging_order patterns (all): {((4, 5),): 1069, ((4, 3), (4, 5)): 125, ((4, 1), (4, 5)): 121, ((4, 1), (4, 3), (4, 5)): 66, ((4, 5), (4, 1)): 30, ((4, 5), (4, 3), (4, 1)): 30, (): 28, ((4, 7), (4, 5)): 14, ((4, 3), (4, 5), (4, 7)): 12, ((4, 5), (4, 7)): 4, ((4, 1), (4, 3)): 1}
+episodes with (4,5) in staging_order: 1471/1500
+episodes with any rival staging cell in staging_order: 403/1500
+episodes with empty staging_order (never any staging cell): 28
+arrival counts (all): {(4, 5): 1133, (4, 1): 188, (4, 3): 137, None: 28, (4, 7): 14}
+W1r arrival: {(4, 5): 642, (4, 1): 94, None: 14}
+W1r staging (4,5) present: 736/750; rival staging present: 124/750; empty: 14
+W5r arrival: {(4, 5): 491, (4, 1): 94, (4, 3): 137, None: 14, (4, 7): 14}
+W5r staging (4,5) present: 735/750; rival staging present: 279/750; empty: 14
+arm memory: steps at (4,5) mean=181.9 med=182.0 max=191 zero=1; last recorded position top=[((4, 5), 195), ((4, 6), 2), ((4, 4), 2), ((6, 3), 1)]; distinct positions med=10.0; revisits med=0.0; stay-action count med=8.0
+arm oracle_ind: steps at (4,5) mean=100.4 med=97.0 max=143 zero=0; last recorded position top=[((4, 5), 162), ((3, 5), 40), ((4, 6), 22), ((3, 4), 16)]; distinct positions med=12.0; revisits med=46.0; stay-action count med=53.0
+arm oracle_new: steps at (4,5) mean=93.5 med=89.0 max=161 zero=0; last recorded position top=[((4, 5), 152), ((4, 6), 70), ((3, 5), 20), ((4, 0), 12)]; distinct positions med=12.0; revisits med=39.5; stay-action count med=12.0
+arm phase_only_new: steps at (4,5) mean=153.6 med=178.5 max=191 zero=0; last recorded position top=[((4, 5), 246), ((2, 6), 12), ((3, 3), 10), ((1, 6), 8)]; distinct positions med=10.0; revisits med=0.0; stay-action count med=30.0
+arm plain: steps at (4,5) mean=143.6 med=186.5 max=191 zero=28; last recorded position top=[((4, 5), 152), ((3, 5), 28), ((4, 4), 20)]; distinct positions med=10.0; revisits med=0.0; stay-action count med=0.0
+arm wrapped: steps at (4,5) mean=110.3 med=105.0 max=145 zero=0; last recorded position top=[((4, 5), 116), ((4, 4), 38), ((3, 4), 16), ((3, 5), 12)]; distinct positions med=11.0; revisits med=55.0; stay-action count med=46.0
+last recorded position (position at start of final tick; the post-action final cell is not recorded in steps) counts: {(4, 5): 1023, (4, 6): 106, (3, 5): 104, (4, 4): 80, (3, 4): 42, (3, 6): 26, (2, 6): 14, (1, 5): 14, (2, 5): 12, (4, 0): 12, (3, 7): 10, (3, 3): 10, (2, 4): 8, (4, 3): 8, (1, 6): 8, (4, 1): 6, (4, 2): 6, (2, 7): 4, (2, 3): 4, (4, 7): 2, (6, 3): 1}
+
+=== 4. FAILURE ANATOMY ===
+ticks values: {200: 1500} (all episodes run to the 200-tick cap, since none reach the goal)
+crushes total: 0; episodes with crushes > 0: 0
+stall (full episode, recorded): {'dwell': 40, 'no-move-run': 1438, None: 22}
+stall by arm: {('memory', 'no-move-run'): 200, ('oracle_ind', 'no-move-run'): 300, ('oracle_new', None): 22, ('oracle_new', 'dwell'): 2, ('oracle_new', 'no-move-run'): 276, ('phase_only_new', 'no-move-run'): 300, ('plain', 'no-move-run'): 200, ('wrapped', 'dwell'): 38, ('wrapped', 'no-move-run'): 162}
+stall by world: {('W1r', None): 11, ('W1r', 'dwell'): 20, ('W1r', 'no-move-run'): 719, ('W5r', None): 11, ('W5r', 'dwell'): 20, ('W5r', 'no-move-run'): 719}
+switches: {0: 1500}
+door_entries lengths: {0: 1499, 1: 1}
+revisits: min=0 med=23.0 max=117
+no-staging episodes: 28
+  no-staging: arm=plain seed=1 world=W1r phase=0 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=1 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=2 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=3 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=4 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=5 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=6 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=7 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=8 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=9 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=16 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=17 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=18 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W1r phase=19 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=0 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=1 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=2 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=3 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=4 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=5 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=6 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=7 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=8 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=9 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=16 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=17 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=18 stall=no-move-run last_recorded=(3, 5)
+  no-staging: arm=plain seed=1 world=W5r phase=19 stall=no-move-run last_recorded=(3, 5)
+no-stall-flag episodes (stall=False): 22
+  no-stall: arm=oracle_new seed=104 world=W1r phase=19 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=20 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=21 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=22 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=23 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=24 revisits=91 arrival=[4, 5] last_recorded=(4, 6) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=25 revisits=92 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=26 revisits=93 arrival=[4, 5] last_recorded=(4, 4) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=27 revisits=94 arrival=[4, 5] last_recorded=(4, 3) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=28 revisits=95 arrival=[4, 5] last_recorded=(4, 2) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W1r phase=29 revisits=96 arrival=[4, 5] last_recorded=(4, 1) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=19 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=20 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=21 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=22 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=23 revisits=90 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=24 revisits=91 arrival=[4, 5] last_recorded=(4, 6) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=25 revisits=92 arrival=[4, 5] last_recorded=(4, 5) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=26 revisits=93 arrival=[4, 5] last_recorded=(4, 4) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=27 revisits=94 arrival=[4, 5] last_recorded=(4, 3) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=28 revisits=95 arrival=[4, 5] last_recorded=(4, 2) distinct_positions=16
+  no-stall: arm=oracle_new seed=104 world=W5r phase=29 revisits=96 arrival=[4, 5] last_recorded=(4, 1) distinct_positions=16
+paired W1r/W5r position sequences (same arm/seed/phase): identical=749 different=1 different_keys=[('memory', 1, 13)]
+paired count check: 750 pairs (expected 750)
+last step action (all): {'stay': 211, 'down': 82, 'right': 1051, 'up': 90, 'left': 66}
+last step action where last recorded position is (4,5): {'right': 899, 'down': 24, 'up': 14, 'stay': 66, 'left': 20}
+last step action where last recorded position is (3,5): {'right': 18, 'stay': 60, 'up': 14, 'left': 6, 'down': 6}
+arm memory: longest consecutive run at (4,5) med=172.0; episodes with run >= 10: 199/200
+arm oracle_ind: longest consecutive run at (4,5) med=13.0; episodes with run >= 10: 300/300
+arm oracle_new: longest consecutive run at (4,5) med=12.0; episodes with run >= 10: 240/300
+arm phase_only_new: longest consecutive run at (4,5) med=178.5; episodes with run >= 10: 300/300
+arm plain: longest consecutive run at (4,5) med=186.5; episodes with run >= 10: 172/200
+arm wrapped: longest consecutive run at (4,5) med=10.0; episodes with run >= 10: 160/200
+first step index at (4,5): med=11; episodes never at (4,5): 29
+episodes occupying a rival staging cell but never (4,5): 1
+paired W1r/W5r arrival differs (same trajectory, different staging-cell set): 151 of 750 pairs -- arrival/staging differences across worlds are definitional, not behavioural, where trajectories are identical
+
+=== 5. WRAPPED BLANK-FEATURE CHECK (f101/f102/f103) ===
+wrapped episodes: 200; wrapped steps with f keys: 40000 (expected 200 x 200 = 40000)
+wrapped blank episodes (any step f103 == 0.0): 0
+wrapped f103 value set: [1.0]
+wrapped f101 value set: [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95]
+wrapped f102 value set: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+non-wrapped steps with f keys: 0 (expected 0)
+
+=== 6. H_LUCK INPUT NUMBERS ===
+reached (any pass): 0/1500
+class D passes (D and reached): 0
+class D episodes (any reached status): 0
+class R passes: 0; class W passes: 0
+W5r reached: 0/750; W1r reached: 0/750
+W5r entered: 1; W1r entered: 0
