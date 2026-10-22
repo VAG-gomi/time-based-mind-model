@@ -845,6 +845,15 @@ evaluation job.
   Step 0 work nor instructor verification alone
   authorises retraining.
 
+  **Owner second ruling (2026-10-22, after
+  spike commit ad1c70d): PROCEED on the
+  current substrate, no substrate change.**
+  Steps 1–3 are authorised on the hand-written
+  numpy substrate, at the spike-projected pace
+  (~1.84 hours composition for Steps 1–2).
+  Spike trainings are measurement only and are
+  NOT Step 1 records.
+
 ## 9. Step 0c agent-check rule (for Steps 1–2, fixed now)
 
 Retrained agents are NEW agents (new weights,
