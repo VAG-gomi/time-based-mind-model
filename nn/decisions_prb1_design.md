@@ -383,3 +383,13 @@ records), and (b) an owner ruling at the Step 0 gate. If verification
 finds an error in a threshold, formula, or baseline, the note is
 corrected and re-verified BEFORE any probe episode runs — thresholds
 and formulas are never adjusted after seeing probe results.
+
+## 11. Owner gate ruling (2026-10-22)
+
+**PROCEED to Step 1.** After instructor verification of this note
+(thresholds, formulas, baselines, and encoder/RNG rules checked
+against the work order, the FT1 records, and the codebase), the owner
+ruled PROCEED at the Step 0 gate. Steps 1–2 are authorised under this
+note exactly as written: 4 combos × 5 reps, ε = 0.05, weights frozen,
+no other agents, worlds, reps, or ε values. No threshold, formula, or
+baseline in this note may be adjusted after probe results exist.
