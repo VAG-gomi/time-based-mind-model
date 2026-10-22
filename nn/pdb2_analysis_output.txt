@@ -1,0 +1,687 @@
+======================================================================
+SECTION 1 -- RECORD VERIFICATION (Step 0c + Step 3 gate)
+======================================================================
+eval records: 3750 (expected 3750)
+eval jobs: 150 (expected 150)
+jobs with count != period: {}
+duplicate (arm,seed,world,start_phase) keys: 0
+world totals: {'F0': 750, 'F1': 750, 'F2': 750, 'F3': 750, 'F4': 750}
+training records: 50 (expected 50)
+training records missing door counts or open fractions: 0
+agents: 30 (expected 30)
+agents with an F0 evaluation: 30 (expected 30)
+wrapped/0 fresh trainings: 5 identical counts: True {'5,5': 785, '5,3': 832, '5,9': 337, '5,1': 161, '5,7': 272}
+wrapped/1 fresh trainings: 5 identical counts: True {'5,5': 799, '5,3': 635, '5,9': 383, '5,1': 122, '5,7': 375}
+wrapped/2 fresh trainings: 5 identical counts: True {'5,5': 783, '5,3': 766, '5,9': 341, '5,1': 257, '5,7': 196}
+wrapped/3 fresh trainings: 5 identical counts: True {'5,5': 747, '5,3': 430, '5,9': 415, '5,1': 177, '5,7': 615}
+wrapped/4 fresh trainings: 5 identical counts: True {'5,5': 750, '5,3': 499, '5,9': 386, '5,1': 130, '5,7': 576}
+blank_feature episodes: 6 Counter({('wrapped', 'F1'): 3, ('wrapped', 'F4'): 3})
+  blank: wrapped/0 F1 phase 17 reached True ticks 22 blank steps [0, 1, 2] first_door [5, 5]
+  blank: wrapped/0 F1 phase 18 reached True ticks 18 blank steps [0, 1] first_door [5, 5]
+  blank: wrapped/0 F1 phase 19 reached True ticks 20 blank steps [0] first_door [5, 5]
+  blank: wrapped/0 F4 phase 17 reached True ticks 22 blank steps [0, 1, 2] first_door [5, 5]
+  blank: wrapped/0 F4 phase 18 reached True ticks 18 blank steps [0, 1] first_door [5, 5]
+  blank: wrapped/0 F4 phase 19 reached True ticks 20 blank steps [0] first_door [5, 5]
+total blank steps across all wrapped episodes: 12
+
+======================================================================
+SECTION 2 -- PER-ARM x WORLD (ticks: mean/median over REACHED only)
+======================================================================
+wrapped F0 n=100 reached=70 entered=70 mean_ticks=25.49 med_ticks=24.0 crushes=0 first_doors={None: 30, (5, 5): 70}
+wrapped F1 n=100 reached=100 entered=100 mean_ticks=24.14 med_ticks=22.0 crushes=0 first_doors={(5, 9): 19, (5, 5): 36, (5, 3): 34, (5, 7): 11}
+wrapped F2 n=100 reached=100 entered=100 mean_ticks=28.69 med_ticks=29.5 crushes=0 first_doors={(5, 9): 41, (5, 3): 34, (5, 7): 25}
+wrapped F3 n=100 reached=0 entered=0 mean_ticks=nan med_ticks=None crushes=0 first_doors={None: 100}
+wrapped F4 n=100 reached=100 entered=100 mean_ticks=24.03 med_ticks=22.0 crushes=0 first_doors={(5, 9): 19, (5, 5): 36, (5, 3): 34, (5, 7): 11}
+plain F0 n=100 reached=0 entered=0 mean_ticks=nan med_ticks=None crushes=0 first_doors={None: 100}
+plain F1 n=100 reached=70 entered=90 mean_ticks=23.86 med_ticks=23.0 crushes=0 first_doors={(5, 3): 61, (5, 9): 25, (5, 7): 4, None: 10}
+plain F2 n=100 reached=70 entered=90 mean_ticks=23.86 med_ticks=23.0 crushes=0 first_doors={(5, 3): 61, (5, 9): 25, (5, 7): 4, None: 10}
+plain F3 n=100 reached=0 entered=0 mean_ticks=nan med_ticks=None crushes=0 first_doors={None: 100}
+plain F4 n=100 reached=70 entered=90 mean_ticks=23.86 med_ticks=23.0 crushes=0 first_doors={(5, 3): 61, (5, 9): 25, (5, 7): 4, None: 10}
+memory F0 n=100 reached=0 entered=0 mean_ticks=nan med_ticks=None crushes=0 first_doors={None: 100}
+memory F1 n=100 reached=90 entered=90 mean_ticks=23.10 med_ticks=22.0 crushes=0 first_doors={(5, 7): 4, (5, 9): 41, (5, 3): 45, None: 10}
+memory F2 n=100 reached=90 entered=90 mean_ticks=23.10 med_ticks=22.0 crushes=0 first_doors={(5, 7): 4, (5, 9): 41, (5, 3): 45, None: 10}
+memory F3 n=100 reached=20 entered=20 mean_ticks=26.60 med_ticks=26.5 crushes=0 first_doors={None: 80, (5, 8): 20}
+memory F4 n=100 reached=90 entered=90 mean_ticks=22.77 med_ticks=22.0 crushes=0 first_doors={(5, 7): 4, (5, 9): 39, (5, 3): 45, None: 10, (5, 8): 2}
+oracle_ind F0 n=150 reached=149 entered=149 mean_ticks=31.00 med_ticks=30 crushes=0 first_doors={(5, 5): 149, None: 1}
+oracle_ind F1 n=150 reached=150 entered=150 mean_ticks=25.65 med_ticks=21.0 crushes=1 first_doors={(5, 5): 43, (5, 1): 22, (5, 3): 84, (5, 9): 1}
+oracle_ind F2 n=150 reached=140 entered=140 mean_ticks=30.46 med_ticks=28.0 crushes=1 first_doors={(5, 7): 20, (5, 1): 24, (5, 3): 84, (5, 9): 12, None: 10}
+oracle_ind F3 n=150 reached=0 entered=0 mean_ticks=nan med_ticks=None crushes=0 first_doors={None: 150}
+oracle_ind F4 n=150 reached=150 entered=150 mean_ticks=25.65 med_ticks=21.0 crushes=1 first_doors={(5, 5): 43, (5, 1): 22, (5, 3): 84, (5, 9): 1}
+oracle_new F0 n=150 reached=94 entered=95 mean_ticks=25.16 med_ticks=23.5 crushes=1 first_doors={None: 55, (5, 5): 95}
+oracle_new F1 n=150 reached=150 entered=150 mean_ticks=24.45 med_ticks=23.0 crushes=1 first_doors={(5, 7): 49, (5, 5): 45, (5, 3): 50, (5, 9): 6}
+oracle_new F2 n=150 reached=134 entered=134 mean_ticks=28.58 med_ticks=28.0 crushes=0 first_doors={(5, 7): 72, (5, 3): 50, (5, 9): 12, None: 16}
+oracle_new F3 n=150 reached=0 entered=0 mean_ticks=nan med_ticks=None crushes=0 first_doors={None: 150}
+oracle_new F4 n=150 reached=150 entered=150 mean_ticks=24.45 med_ticks=23.0 crushes=1 first_doors={(5, 7): 49, (5, 5): 45, (5, 3): 50, (5, 9): 6}
+phase_only_new F0 n=150 reached=30 entered=45 mean_ticks=45.50 med_ticks=45.5 crushes=90 first_doors={None: 105, (5, 5): 45}
+phase_only_new F1 n=150 reached=74 entered=114 mean_ticks=27.27 med_ticks=25.5 crushes=4 first_doors={None: 36, (5, 3): 22, (5, 5): 2, (5, 1): 64, (5, 9): 21, (5, 7): 5}
+phase_only_new F2 n=150 reached=74 entered=114 mean_ticks=27.27 med_ticks=25.5 crushes=2 first_doors={None: 36, (5, 3): 24, (5, 1): 64, (5, 9): 21, (5, 7): 5}
+phase_only_new F3 n=150 reached=0 entered=0 mean_ticks=nan med_ticks=None crushes=0 first_doors={None: 150}
+phase_only_new F4 n=150 reached=74 entered=114 mean_ticks=27.27 med_ticks=25.5 crushes=4 first_doors={None: 36, (5, 3): 22, (5, 5): 2, (5, 1): 64, (5, 9): 21, (5, 7): 5}
+
+TOTALS per world:
+F0 n=750 reached=343 entered=359 mean_ticks_reached=29.54 crushes=91
+F1 n=750 reached=634 entered=694 mean_ticks_reached=24.76 crushes=6
+F2 n=750 reached=608 entered=668 mean_ticks_reached=27.52 crushes=3
+F3 n=750 reached=20 entered=20 mean_ticks_reached=26.60 crushes=0
+F4 n=750 reached=634 entered=694 mean_ticks_reached=24.69 crushes=6
+
+======================================================================
+SECTION 3 -- F0 MEDIANS PER AGENT (W thresholds) + FALLBACK LIST
+======================================================================
+F0 memory/0 n=20 reached=0 median_ticks=None
+F0 memory/1 n=20 reached=0 median_ticks=None
+F0 memory/2 n=20 reached=0 median_ticks=None
+F0 memory/3 n=20 reached=0 median_ticks=None
+F0 memory/4 n=20 reached=0 median_ticks=None
+F0 oracle_ind/100 n=30 reached=30 median_ticks=33.5
+F0 oracle_ind/101 n=30 reached=30 median_ticks=42.5
+F0 oracle_ind/102 n=30 reached=30 median_ticks=24.5
+F0 oracle_ind/103 n=30 reached=29 median_ticks=27
+F0 oracle_ind/104 n=30 reached=30 median_ticks=23.5
+F0 oracle_new/100 n=30 reached=1 median_ticks=27
+F0 oracle_new/101 n=30 reached=24 median_ticks=20.5
+F0 oracle_new/102 n=30 reached=21 median_ticks=28
+F0 oracle_new/103 n=30 reached=18 median_ticks=18.5
+F0 oracle_new/104 n=30 reached=30 median_ticks=27.5
+F0 phase_only_new/100 n=30 reached=0 median_ticks=None
+F0 phase_only_new/101 n=30 reached=30 median_ticks=45.5
+F0 phase_only_new/102 n=30 reached=0 median_ticks=None
+F0 phase_only_new/103 n=30 reached=0 median_ticks=None
+F0 phase_only_new/104 n=30 reached=0 median_ticks=None
+F0 plain/0 n=20 reached=0 median_ticks=None
+F0 plain/1 n=20 reached=0 median_ticks=None
+F0 plain/2 n=20 reached=0 median_ticks=None
+F0 plain/3 n=20 reached=0 median_ticks=None
+F0 plain/4 n=20 reached=0 median_ticks=None
+F0 wrapped/0 n=20 reached=6 median_ticks=18.0
+F0 wrapped/1 n=20 reached=17 median_ticks=21
+F0 wrapped/2 n=20 reached=20 median_ticks=33.5
+F0 wrapped/3 n=20 reached=8 median_ticks=18.0
+F0 wrapped/4 n=20 reached=19 median_ticks=27
+FALLBACK agents (F0 reached 0, W by revisits>10 alone): ['memory/0', 'memory/1', 'memory/2', 'memory/3', 'memory/4', 'phase_only_new/100', 'phase_only_new/102', 'phase_only_new/103', 'phase_only_new/104', 'plain/0', 'plain/1', 'plain/2', 'plain/3', 'plain/4']
+
+======================================================================
+SECTION 4 -- D/R/W/F CLASSES, F2 AND F3 ONLY (F -> D -> W -> R)
+======================================================================
+F2 classes: {'R': 460, 'D': 176, 'F': 82, 'W': 32} (reached by class: {'R': 432, 'D': 174, 'W': 2})
+  F2 D decomposition: pass-through (exactly 1 step at (4,5)): 70; waited (>=2 steps at (4,5)): 106
+  F2 first doors: {(5, 9): 152, (5, 3): 298, (5, 7): 130, None: 82, (5, 1): 88}
+  wrapped F2: {'R': 57, 'D': 43} reached=100/100
+  plain F2: {'R': 69, 'D': 21, 'F': 10} reached=70/100
+  memory F2: {'R': 66, 'D': 24, 'F': 10} reached=90/100
+  oracle_ind F2: {'D': 34, 'R': 106, 'F': 10} reached=140/150
+  oracle_new F2: {'D': 50, 'R': 84, 'F': 16} reached=134/150
+  phase_only_new F2: {'F': 36, 'R': 78, 'D': 4, 'W': 32} reached=74/150
+F3 classes: {'F': 730, 'D': 20} (reached by class: {'D': 20})
+  F3 first doors: {None: 730, (5, 8): 20}
+  wrapped F3: {'F': 100} reached=0/100
+  plain F3: {'F': 100} reached=0/100
+  memory F3: {'F': 80, 'D': 20} reached=20/100
+  oracle_ind F3: {'F': 150} reached=0/150
+  oracle_new F3: {'F': 150} reached=0/150
+  phase_only_new F3: {'F': 150} reached=0/150
+
+======================================================================
+SECTION 5 -- CONFLICT ANALYSIS, F1 AND F2
+  generalized: arrival door closed + another door open
+  preferred door: modal F1 first door over entered episodes;
+  tie -> smallest start_phase at which a tied door is first
+======================================================================
+F1 generalized conflicts: 170 -> {'waits-at-closed-door': 92, 'other': 50, 'takes-open-door': 28}
+  F1 episodes with arrival None: 20; entered with arrival None: 0
+F2 generalized conflicts: 222 -> {'other': 51, 'waits-at-closed-door': 150, 'takes-open-door': 21}
+  F2 episodes with arrival None: 36; entered with arrival None: 0
+total stored-vs-recomputed conflict mismatches: 0
+
+Preferred doors per agent (from F1 entered episodes):
+  memory/0: preferred (5, 9) counts {(5, 7): 2, (5, 9): 12, (5, 3): 6}
+  memory/1: preferred (5, 3) counts {(5, 3): 7, (5, 9): 3}
+  memory/2: preferred (5, 3) counts {(5, 7): 2, (5, 9): 7, (5, 3): 11}
+  memory/3: preferred (5, 3) counts {(5, 3): 18, (5, 9): 2}
+  memory/4: preferred (5, 9) counts {(5, 9): 17, (5, 3): 3}
+  oracle_ind/100: preferred (5, 1) counts {(5, 5): 4, (5, 1): 21, (5, 3): 5}
+  oracle_ind/101: preferred (5, 3) counts {(5, 3): 27, (5, 5): 2, (5, 1): 1}
+  oracle_ind/102: preferred (5, 5) counts {(5, 5): 16, (5, 3): 14}
+  oracle_ind/103: preferred (5, 3) counts {(5, 5): 11, (5, 3): 18, (5, 9): 1}
+  oracle_ind/104: preferred (5, 3) counts {(5, 5): 10, (5, 3): 20}
+  oracle_new/100: preferred (5, 7) counts {(5, 7): 29, (5, 5): 1}
+  oracle_new/101: preferred (5, 3) counts {(5, 5): 10, (5, 7): 6, (5, 3): 14}
+  oracle_new/102: preferred (5, 3) counts {(5, 9): 6, (5, 7): 3, (5, 3): 15, (5, 5): 6}
+  oracle_new/103: preferred (5, 5) counts {(5, 5): 12, (5, 7): 11, (5, 3): 7}
+  oracle_new/104: preferred (5, 5) counts {(5, 3): 14, (5, 5): 16}
+  phase_only_new/100: preferred (5, 3) counts {(5, 3): 13, (5, 5): 2}
+  phase_only_new/101: preferred (5, 1) counts {(5, 1): 30}
+  phase_only_new/102: preferred (5, 9) counts {(5, 9): 12, (5, 7): 5, (5, 3): 9, (5, 1): 4}
+  phase_only_new/103: preferred (5, 9) counts {(5, 9): 9}
+  phase_only_new/104: preferred (5, 1) counts {(5, 1): 30}
+  plain/0: preferred (5, 3) counts {(5, 3): 14, (5, 9): 6}
+  plain/1: preferred (5, 3) counts {(5, 3): 20}
+  plain/2: preferred (5, 9) counts {(5, 9): 12, (5, 3): 8}
+  plain/3: preferred (5, 3) counts {(5, 7): 4, (5, 3): 12, (5, 9): 4}
+  plain/4: preferred (5, 3) counts {(5, 3): 7, (5, 9): 3}
+  wrapped/0: preferred (5, 9) counts {(5, 9): 14, (5, 5): 6}
+  wrapped/1: preferred (5, 3) counts {(5, 9): 3, (5, 3): 11, (5, 5): 6}
+  wrapped/2: preferred (5, 5) counts {(5, 5): 10, (5, 3): 10}
+  wrapped/3: preferred (5, 7) counts {(5, 9): 1, (5, 7): 11, (5, 5): 8}
+  wrapped/4: preferred (5, 3) counts {(5, 3): 13, (5, 5): 6, (5, 9): 1}
+Ties (all tied doors, earliest-phase map, chosen):
+  ('wrapped/2', [(5, 5), (5, 3)], {(5, 5): 0, (5, 3): 3}, (5, 5))
+Agents with no preferred door (no F1 entries): []
+
+Preferred-door-closed episodes (arrival tick: preferred closed AND another door open):
+  F1 preferred-door-closed: 268 -> {'waits-at-preferred': 106, 'takes-open': 102, 'other': 60}
+  F2 preferred-door-closed: 299 -> {'waits-at-preferred': 128, 'other': 97, 'takes-open': 74}
+
+======================================================================
+SECTION 6 -- F4 NOVEL DOOR (5,8): NOT classified D/R/W/F
+======================================================================
+F4 first doors: {(5, 9): 111, (5, 5): 126, (5, 3): 296, (5, 7): 73, None: 56, (5, 8): 2, (5, 1): 86}
+F4 novel-first (5,8) episodes: 2 (reached 2)
+  novel-first: memory/3 phase 13 reached True ticks 18 revisits 0 (4,5)-before-entry True
+  novel-first: memory/3 phase 15 reached True ticks 18 revisits 0 (4,5)-before-entry True
+F4 entered episodes: 694; novel entries (any position, not just first): 15
+
+======================================================================
+SECTION 7 -- FAR SIDE AFTER ENTRY (post-entry stall / ticks)
+======================================================================
+F0 entered=359 post-entry stall=35 kinds={'no-move-run': 34, 'two-cycle': 1} mean post_entry_ticks=16.72 (entered) / 92.86 (stalled)
+    stall: wrapped/2 phase 0 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 1 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 2 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 3 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 4 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 5 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 6 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 7 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 8 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 9 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 10 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 11 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 12 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 13 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 14 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 15 first [5, 5] reached True post_entry_ticks 16 kind no-move-run
+    stall: wrapped/2 phase 19 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/4 phase 18 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: oracle_new/100 phase 26 first [5, 5] reached True post_entry_ticks 16 kind two-cycle
+    stall: oracle_new/103 phase 4 first [5, 5] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 11 first [5, 5] reached False post_entry_ticks 177 kind no-move-run
+    stall: phase_only_new/100 phase 12 first [5, 5] reached False post_entry_ticks 178 kind no-move-run
+    stall: phase_only_new/100 phase 13 first [5, 5] reached False post_entry_ticks 179 kind no-move-run
+    stall: phase_only_new/100 phase 14 first [5, 5] reached False post_entry_ticks 180 kind no-move-run
+    stall: phase_only_new/100 phase 15 first [5, 5] reached False post_entry_ticks 181 kind no-move-run
+    stall: phase_only_new/100 phase 16 first [5, 5] reached False post_entry_ticks 182 kind no-move-run
+    stall: phase_only_new/100 phase 17 first [5, 5] reached False post_entry_ticks 183 kind no-move-run
+    stall: phase_only_new/100 phase 18 first [5, 5] reached False post_entry_ticks 184 kind no-move-run
+    stall: phase_only_new/100 phase 19 first [5, 5] reached False post_entry_ticks 185 kind no-move-run
+    stall: phase_only_new/100 phase 20 first [5, 5] reached False post_entry_ticks 186 kind no-move-run
+    stall: phase_only_new/100 phase 21 first [5, 5] reached False post_entry_ticks 187 kind no-move-run
+    stall: phase_only_new/100 phase 22 first [5, 5] reached False post_entry_ticks 188 kind no-move-run
+    stall: phase_only_new/100 phase 23 first [5, 5] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 24 first [5, 5] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 25 first [5, 5] reached False post_entry_ticks 161 kind no-move-run
+F1 entered=694 post-entry stall=120 kinds={'no-move-run': 106, 'dwell': 3, 'two-cycle': 11} mean post_entry_ticks=24.65 (entered) / 101.17 (stalled)
+    stall: wrapped/2 phase 0 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 1 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 2 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 3 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 4 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 5 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 6 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 7 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 9 first [5, 3] reached True post_entry_ticks 24 kind no-move-run
+    stall: wrapped/2 phase 11 first [5, 3] reached True post_entry_ticks 22 kind no-move-run
+    stall: wrapped/2 phase 12 first [5, 3] reached True post_entry_ticks 21 kind no-move-run
+    stall: wrapped/2 phase 13 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 14 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 15 first [5, 5] reached True post_entry_ticks 16 kind no-move-run
+    stall: wrapped/2 phase 19 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/4 phase 18 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: plain/0 phase 16 first [5, 9] reached True post_entry_ticks 16 kind no-move-run
+    stall: plain/1 phase 0 first [5, 3] reached False post_entry_ticks 184 kind no-move-run
+    stall: plain/1 phase 1 first [5, 3] reached False post_entry_ticks 185 kind no-move-run
+    stall: plain/1 phase 2 first [5, 3] reached False post_entry_ticks 186 kind no-move-run
+    stall: plain/1 phase 3 first [5, 3] reached False post_entry_ticks 187 kind no-move-run
+    stall: plain/1 phase 4 first [5, 3] reached False post_entry_ticks 188 kind no-move-run
+    stall: plain/1 phase 5 first [5, 3] reached False post_entry_ticks 189 kind no-move-run
+    stall: plain/1 phase 6 first [5, 3] reached False post_entry_ticks 190 kind no-move-run
+    stall: plain/1 phase 7 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 8 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 9 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 10 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 11 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 12 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 13 first [5, 3] reached False post_entry_ticks 177 kind no-move-run
+    stall: plain/1 phase 14 first [5, 3] reached False post_entry_ticks 178 kind no-move-run
+    stall: plain/1 phase 15 first [5, 3] reached False post_entry_ticks 179 kind no-move-run
+    stall: plain/1 phase 16 first [5, 3] reached False post_entry_ticks 180 kind no-move-run
+    stall: plain/1 phase 17 first [5, 3] reached False post_entry_ticks 181 kind no-move-run
+    stall: plain/1 phase 18 first [5, 3] reached False post_entry_ticks 182 kind no-move-run
+    stall: plain/1 phase 19 first [5, 3] reached False post_entry_ticks 183 kind no-move-run
+    stall: memory/1 phase 13 first [5, 9] reached True post_entry_ticks 14 kind no-move-run
+    stall: oracle_ind/101 phase 9 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 10 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 11 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 12 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 13 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 14 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 16 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 17 first [5, 3] reached True post_entry_ticks 25 kind dwell
+    stall: oracle_ind/101 phase 18 first [5, 3] reached True post_entry_ticks 24 kind dwell
+    stall: oracle_ind/101 phase 25 first [5, 1] reached True post_entry_ticks 27 kind dwell
+    stall: oracle_new/100 phase 18 first [5, 7] reached True post_entry_ticks 22 kind two-cycle
+    stall: oracle_new/100 phase 19 first [5, 7] reached True post_entry_ticks 21 kind two-cycle
+    stall: oracle_new/100 phase 20 first [5, 7] reached True post_entry_ticks 20 kind two-cycle
+    stall: oracle_new/100 phase 21 first [5, 7] reached True post_entry_ticks 19 kind two-cycle
+    stall: oracle_new/100 phase 22 first [5, 7] reached True post_entry_ticks 18 kind two-cycle
+    stall: oracle_new/100 phase 23 first [5, 7] reached True post_entry_ticks 17 kind two-cycle
+    stall: oracle_new/100 phase 24 first [5, 7] reached True post_entry_ticks 16 kind two-cycle
+    stall: oracle_new/100 phase 25 first [5, 7] reached True post_entry_ticks 15 kind two-cycle
+    stall: oracle_new/100 phase 26 first [5, 5] reached True post_entry_ticks 16 kind two-cycle
+    stall: phase_only_new/100 phase 11 first [5, 3] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 12 first [5, 3] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 13 first [5, 3] reached False post_entry_ticks 190 kind no-move-run
+    stall: phase_only_new/100 phase 14 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 15 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 16 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 17 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 18 first [5, 3] reached True post_entry_ticks 19 kind no-move-run
+    stall: phase_only_new/100 phase 19 first [5, 3] reached True post_entry_ticks 18 kind no-move-run
+    stall: phase_only_new/100 phase 20 first [5, 3] reached True post_entry_ticks 20 kind no-move-run
+    stall: phase_only_new/100 phase 21 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: phase_only_new/100 phase 22 first [5, 3] reached True post_entry_ticks 25 kind no-move-run
+    stall: phase_only_new/100 phase 23 first [5, 5] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 24 first [5, 5] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 25 first [5, 3] reached False post_entry_ticks 173 kind no-move-run
+    stall: phase_only_new/101 phase 0 first [5, 1] reached False post_entry_ticks 184 kind no-move-run
+    stall: phase_only_new/101 phase 1 first [5, 1] reached False post_entry_ticks 185 kind no-move-run
+    stall: phase_only_new/101 phase 2 first [5, 1] reached False post_entry_ticks 186 kind no-move-run
+    stall: phase_only_new/101 phase 3 first [5, 1] reached False post_entry_ticks 178 kind no-move-run
+    stall: phase_only_new/101 phase 4 first [5, 1] reached False post_entry_ticks 179 kind no-move-run
+    stall: phase_only_new/101 phase 5 first [5, 1] reached False post_entry_ticks 180 kind no-move-run
+    stall: phase_only_new/101 phase 6 first [5, 1] reached False post_entry_ticks 181 kind no-move-run
+    stall: phase_only_new/101 phase 7 first [5, 1] reached False post_entry_ticks 182 kind no-move-run
+    stall: phase_only_new/101 phase 8 first [5, 1] reached False post_entry_ticks 183 kind no-move-run
+    stall: phase_only_new/101 phase 9 first [5, 1] reached False post_entry_ticks 184 kind no-move-run
+    stall: phase_only_new/101 phase 10 first [5, 1] reached False post_entry_ticks 185 kind no-move-run
+    stall: phase_only_new/101 phase 11 first [5, 1] reached False post_entry_ticks 187 kind no-move-run
+    stall: phase_only_new/101 phase 12 first [5, 1] reached False post_entry_ticks 187 kind no-move-run
+    stall: phase_only_new/101 phase 13 first [5, 1] reached False post_entry_ticks 158 kind no-move-run
+    stall: phase_only_new/101 phase 14 first [5, 1] reached False post_entry_ticks 159 kind no-move-run
+    stall: phase_only_new/101 phase 15 first [5, 1] reached False post_entry_ticks 160 kind no-move-run
+    stall: phase_only_new/101 phase 16 first [5, 1] reached False post_entry_ticks 161 kind no-move-run
+    stall: phase_only_new/101 phase 17 first [5, 1] reached False post_entry_ticks 162 kind no-move-run
+    stall: phase_only_new/101 phase 18 first [5, 1] reached False post_entry_ticks 163 kind no-move-run
+    stall: phase_only_new/101 phase 19 first [5, 1] reached False post_entry_ticks 164 kind no-move-run
+    stall: phase_only_new/101 phase 20 first [5, 1] reached False post_entry_ticks 165 kind no-move-run
+    stall: phase_only_new/101 phase 21 first [5, 1] reached False post_entry_ticks 166 kind no-move-run
+    stall: phase_only_new/101 phase 22 first [5, 1] reached False post_entry_ticks 167 kind no-move-run
+    stall: phase_only_new/101 phase 23 first [5, 1] reached False post_entry_ticks 168 kind no-move-run
+    stall: phase_only_new/101 phase 24 first [5, 1] reached False post_entry_ticks 169 kind no-move-run
+    stall: phase_only_new/101 phase 25 first [5, 1] reached False post_entry_ticks 170 kind no-move-run
+    stall: phase_only_new/101 phase 26 first [5, 1] reached False post_entry_ticks 171 kind no-move-run
+    stall: phase_only_new/101 phase 27 first [5, 1] reached False post_entry_ticks 172 kind no-move-run
+    stall: phase_only_new/101 phase 28 first [5, 1] reached False post_entry_ticks 173 kind no-move-run
+    stall: phase_only_new/101 phase 29 first [5, 1] reached False post_entry_ticks 174 kind no-move-run
+    stall: phase_only_new/103 phase 13 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 14 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 15 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 16 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 17 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 18 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 19 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 20 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 21 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/104 phase 12 first [5, 1] reached True post_entry_ticks 26 kind no-move-run
+    stall: phase_only_new/104 phase 13 first [5, 1] reached True post_entry_ticks 25 kind no-move-run
+    stall: phase_only_new/104 phase 14 first [5, 1] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/104 phase 15 first [5, 1] reached True post_entry_ticks 23 kind no-move-run
+    stall: phase_only_new/104 phase 16 first [5, 1] reached True post_entry_ticks 22 kind no-move-run
+    stall: phase_only_new/104 phase 17 first [5, 1] reached True post_entry_ticks 21 kind no-move-run
+    stall: phase_only_new/104 phase 18 first [5, 1] reached True post_entry_ticks 20 kind no-move-run
+    stall: phase_only_new/104 phase 22 first [5, 1] reached True post_entry_ticks 35 kind two-cycle
+    stall: phase_only_new/104 phase 23 first [5, 1] reached True post_entry_ticks 35 kind two-cycle
+F2 entered=668 post-entry stall=110 kinds={'no-move-run': 97, 'dwell': 3, 'two-cycle': 10} mean post_entry_ticks=24.72 (entered) / 108.48 (stalled)
+    stall: wrapped/2 phase 3 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 4 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 5 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 6 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 7 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 9 first [5, 3] reached True post_entry_ticks 24 kind no-move-run
+    stall: wrapped/2 phase 11 first [5, 3] reached True post_entry_ticks 22 kind no-move-run
+    stall: plain/0 phase 16 first [5, 9] reached True post_entry_ticks 16 kind no-move-run
+    stall: plain/1 phase 0 first [5, 3] reached False post_entry_ticks 184 kind no-move-run
+    stall: plain/1 phase 1 first [5, 3] reached False post_entry_ticks 185 kind no-move-run
+    stall: plain/1 phase 2 first [5, 3] reached False post_entry_ticks 186 kind no-move-run
+    stall: plain/1 phase 3 first [5, 3] reached False post_entry_ticks 187 kind no-move-run
+    stall: plain/1 phase 4 first [5, 3] reached False post_entry_ticks 188 kind no-move-run
+    stall: plain/1 phase 5 first [5, 3] reached False post_entry_ticks 189 kind no-move-run
+    stall: plain/1 phase 6 first [5, 3] reached False post_entry_ticks 190 kind no-move-run
+    stall: plain/1 phase 7 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 8 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 9 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 10 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 11 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 12 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 13 first [5, 3] reached False post_entry_ticks 177 kind no-move-run
+    stall: plain/1 phase 14 first [5, 3] reached False post_entry_ticks 178 kind no-move-run
+    stall: plain/1 phase 15 first [5, 3] reached False post_entry_ticks 179 kind no-move-run
+    stall: plain/1 phase 16 first [5, 3] reached False post_entry_ticks 180 kind no-move-run
+    stall: plain/1 phase 17 first [5, 3] reached False post_entry_ticks 181 kind no-move-run
+    stall: plain/1 phase 18 first [5, 3] reached False post_entry_ticks 182 kind no-move-run
+    stall: plain/1 phase 19 first [5, 3] reached False post_entry_ticks 183 kind no-move-run
+    stall: memory/1 phase 13 first [5, 9] reached True post_entry_ticks 14 kind no-move-run
+    stall: oracle_ind/101 phase 9 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 10 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 11 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 12 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 13 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 14 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 16 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 17 first [5, 3] reached True post_entry_ticks 25 kind dwell
+    stall: oracle_ind/101 phase 18 first [5, 3] reached True post_entry_ticks 24 kind dwell
+    stall: oracle_ind/101 phase 25 first [5, 1] reached True post_entry_ticks 27 kind dwell
+    stall: oracle_new/100 phase 18 first [5, 7] reached True post_entry_ticks 22 kind two-cycle
+    stall: oracle_new/100 phase 19 first [5, 7] reached True post_entry_ticks 21 kind two-cycle
+    stall: oracle_new/100 phase 20 first [5, 7] reached True post_entry_ticks 20 kind two-cycle
+    stall: oracle_new/100 phase 21 first [5, 7] reached True post_entry_ticks 19 kind two-cycle
+    stall: oracle_new/100 phase 22 first [5, 7] reached True post_entry_ticks 18 kind two-cycle
+    stall: oracle_new/100 phase 23 first [5, 7] reached True post_entry_ticks 17 kind two-cycle
+    stall: oracle_new/100 phase 24 first [5, 7] reached True post_entry_ticks 16 kind two-cycle
+    stall: oracle_new/100 phase 25 first [5, 7] reached True post_entry_ticks 15 kind two-cycle
+    stall: phase_only_new/100 phase 11 first [5, 3] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 12 first [5, 3] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 13 first [5, 3] reached False post_entry_ticks 190 kind no-move-run
+    stall: phase_only_new/100 phase 14 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 15 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 16 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 17 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 18 first [5, 3] reached True post_entry_ticks 19 kind no-move-run
+    stall: phase_only_new/100 phase 19 first [5, 3] reached True post_entry_ticks 18 kind no-move-run
+    stall: phase_only_new/100 phase 20 first [5, 3] reached True post_entry_ticks 20 kind no-move-run
+    stall: phase_only_new/100 phase 21 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: phase_only_new/100 phase 22 first [5, 3] reached True post_entry_ticks 25 kind no-move-run
+    stall: phase_only_new/100 phase 23 first [5, 3] reached False post_entry_ticks 171 kind no-move-run
+    stall: phase_only_new/100 phase 24 first [5, 3] reached False post_entry_ticks 172 kind no-move-run
+    stall: phase_only_new/100 phase 25 first [5, 3] reached False post_entry_ticks 173 kind no-move-run
+    stall: phase_only_new/101 phase 0 first [5, 1] reached False post_entry_ticks 184 kind no-move-run
+    stall: phase_only_new/101 phase 1 first [5, 1] reached False post_entry_ticks 185 kind no-move-run
+    stall: phase_only_new/101 phase 2 first [5, 1] reached False post_entry_ticks 186 kind no-move-run
+    stall: phase_only_new/101 phase 3 first [5, 1] reached False post_entry_ticks 178 kind no-move-run
+    stall: phase_only_new/101 phase 4 first [5, 1] reached False post_entry_ticks 179 kind no-move-run
+    stall: phase_only_new/101 phase 5 first [5, 1] reached False post_entry_ticks 180 kind no-move-run
+    stall: phase_only_new/101 phase 6 first [5, 1] reached False post_entry_ticks 181 kind no-move-run
+    stall: phase_only_new/101 phase 7 first [5, 1] reached False post_entry_ticks 182 kind no-move-run
+    stall: phase_only_new/101 phase 8 first [5, 1] reached False post_entry_ticks 183 kind no-move-run
+    stall: phase_only_new/101 phase 9 first [5, 1] reached False post_entry_ticks 184 kind no-move-run
+    stall: phase_only_new/101 phase 10 first [5, 1] reached False post_entry_ticks 185 kind no-move-run
+    stall: phase_only_new/101 phase 11 first [5, 1] reached False post_entry_ticks 187 kind no-move-run
+    stall: phase_only_new/101 phase 12 first [5, 1] reached False post_entry_ticks 187 kind no-move-run
+    stall: phase_only_new/101 phase 13 first [5, 1] reached False post_entry_ticks 158 kind no-move-run
+    stall: phase_only_new/101 phase 14 first [5, 1] reached False post_entry_ticks 159 kind no-move-run
+    stall: phase_only_new/101 phase 15 first [5, 1] reached False post_entry_ticks 160 kind no-move-run
+    stall: phase_only_new/101 phase 16 first [5, 1] reached False post_entry_ticks 161 kind no-move-run
+    stall: phase_only_new/101 phase 17 first [5, 1] reached False post_entry_ticks 162 kind no-move-run
+    stall: phase_only_new/101 phase 18 first [5, 1] reached False post_entry_ticks 163 kind no-move-run
+    stall: phase_only_new/101 phase 19 first [5, 1] reached False post_entry_ticks 164 kind no-move-run
+    stall: phase_only_new/101 phase 20 first [5, 1] reached False post_entry_ticks 165 kind no-move-run
+    stall: phase_only_new/101 phase 21 first [5, 1] reached False post_entry_ticks 166 kind no-move-run
+    stall: phase_only_new/101 phase 22 first [5, 1] reached False post_entry_ticks 167 kind no-move-run
+    stall: phase_only_new/101 phase 23 first [5, 1] reached False post_entry_ticks 168 kind no-move-run
+    stall: phase_only_new/101 phase 24 first [5, 1] reached False post_entry_ticks 169 kind no-move-run
+    stall: phase_only_new/101 phase 25 first [5, 1] reached False post_entry_ticks 170 kind no-move-run
+    stall: phase_only_new/101 phase 26 first [5, 1] reached False post_entry_ticks 171 kind no-move-run
+    stall: phase_only_new/101 phase 27 first [5, 1] reached False post_entry_ticks 172 kind no-move-run
+    stall: phase_only_new/101 phase 28 first [5, 1] reached False post_entry_ticks 173 kind no-move-run
+    stall: phase_only_new/101 phase 29 first [5, 1] reached False post_entry_ticks 174 kind no-move-run
+    stall: phase_only_new/103 phase 13 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 14 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 15 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 16 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 17 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 18 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 19 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 20 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 21 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/104 phase 12 first [5, 1] reached True post_entry_ticks 26 kind no-move-run
+    stall: phase_only_new/104 phase 13 first [5, 1] reached True post_entry_ticks 25 kind no-move-run
+    stall: phase_only_new/104 phase 14 first [5, 1] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/104 phase 15 first [5, 1] reached True post_entry_ticks 23 kind no-move-run
+    stall: phase_only_new/104 phase 16 first [5, 1] reached True post_entry_ticks 22 kind no-move-run
+    stall: phase_only_new/104 phase 17 first [5, 1] reached True post_entry_ticks 21 kind no-move-run
+    stall: phase_only_new/104 phase 18 first [5, 1] reached True post_entry_ticks 20 kind no-move-run
+    stall: phase_only_new/104 phase 22 first [5, 1] reached True post_entry_ticks 35 kind two-cycle
+    stall: phase_only_new/104 phase 23 first [5, 1] reached True post_entry_ticks 35 kind two-cycle
+F3 entered=20 post-entry stall=0 kinds={} mean post_entry_ticks=4.00 (entered) / nan (stalled)
+F4 entered=694 post-entry stall=120 kinds={'no-move-run': 106, 'dwell': 3, 'two-cycle': 11} mean post_entry_ticks=24.64 (entered) / 101.17 (stalled)
+    stall: wrapped/2 phase 0 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 1 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 2 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 3 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 4 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 5 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 6 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 7 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: wrapped/2 phase 9 first [5, 3] reached True post_entry_ticks 24 kind no-move-run
+    stall: wrapped/2 phase 11 first [5, 3] reached True post_entry_ticks 22 kind no-move-run
+    stall: wrapped/2 phase 12 first [5, 3] reached True post_entry_ticks 21 kind no-move-run
+    stall: wrapped/2 phase 13 first [5, 5] reached True post_entry_ticks 18 kind no-move-run
+    stall: wrapped/2 phase 14 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/2 phase 15 first [5, 5] reached True post_entry_ticks 16 kind no-move-run
+    stall: wrapped/2 phase 19 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: wrapped/4 phase 18 first [5, 5] reached True post_entry_ticks 17 kind no-move-run
+    stall: plain/0 phase 16 first [5, 9] reached True post_entry_ticks 16 kind no-move-run
+    stall: plain/1 phase 0 first [5, 3] reached False post_entry_ticks 184 kind no-move-run
+    stall: plain/1 phase 1 first [5, 3] reached False post_entry_ticks 185 kind no-move-run
+    stall: plain/1 phase 2 first [5, 3] reached False post_entry_ticks 186 kind no-move-run
+    stall: plain/1 phase 3 first [5, 3] reached False post_entry_ticks 187 kind no-move-run
+    stall: plain/1 phase 4 first [5, 3] reached False post_entry_ticks 188 kind no-move-run
+    stall: plain/1 phase 5 first [5, 3] reached False post_entry_ticks 189 kind no-move-run
+    stall: plain/1 phase 6 first [5, 3] reached False post_entry_ticks 190 kind no-move-run
+    stall: plain/1 phase 7 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 8 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 9 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 10 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 11 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 12 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: plain/1 phase 13 first [5, 3] reached False post_entry_ticks 177 kind no-move-run
+    stall: plain/1 phase 14 first [5, 3] reached False post_entry_ticks 178 kind no-move-run
+    stall: plain/1 phase 15 first [5, 3] reached False post_entry_ticks 179 kind no-move-run
+    stall: plain/1 phase 16 first [5, 3] reached False post_entry_ticks 180 kind no-move-run
+    stall: plain/1 phase 17 first [5, 3] reached False post_entry_ticks 181 kind no-move-run
+    stall: plain/1 phase 18 first [5, 3] reached False post_entry_ticks 182 kind no-move-run
+    stall: plain/1 phase 19 first [5, 3] reached False post_entry_ticks 183 kind no-move-run
+    stall: memory/1 phase 13 first [5, 9] reached True post_entry_ticks 14 kind no-move-run
+    stall: oracle_ind/101 phase 9 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 10 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 11 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 12 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 13 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 14 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 16 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: oracle_ind/101 phase 17 first [5, 3] reached True post_entry_ticks 25 kind dwell
+    stall: oracle_ind/101 phase 18 first [5, 3] reached True post_entry_ticks 24 kind dwell
+    stall: oracle_ind/101 phase 25 first [5, 1] reached True post_entry_ticks 27 kind dwell
+    stall: oracle_new/100 phase 18 first [5, 7] reached True post_entry_ticks 22 kind two-cycle
+    stall: oracle_new/100 phase 19 first [5, 7] reached True post_entry_ticks 21 kind two-cycle
+    stall: oracle_new/100 phase 20 first [5, 7] reached True post_entry_ticks 20 kind two-cycle
+    stall: oracle_new/100 phase 21 first [5, 7] reached True post_entry_ticks 19 kind two-cycle
+    stall: oracle_new/100 phase 22 first [5, 7] reached True post_entry_ticks 18 kind two-cycle
+    stall: oracle_new/100 phase 23 first [5, 7] reached True post_entry_ticks 17 kind two-cycle
+    stall: oracle_new/100 phase 24 first [5, 7] reached True post_entry_ticks 16 kind two-cycle
+    stall: oracle_new/100 phase 25 first [5, 7] reached True post_entry_ticks 15 kind two-cycle
+    stall: oracle_new/100 phase 26 first [5, 5] reached True post_entry_ticks 16 kind two-cycle
+    stall: phase_only_new/100 phase 11 first [5, 3] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 12 first [5, 3] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 13 first [5, 3] reached False post_entry_ticks 190 kind no-move-run
+    stall: phase_only_new/100 phase 14 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 15 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 16 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 17 first [5, 3] reached False post_entry_ticks 191 kind no-move-run
+    stall: phase_only_new/100 phase 18 first [5, 3] reached True post_entry_ticks 19 kind no-move-run
+    stall: phase_only_new/100 phase 19 first [5, 3] reached True post_entry_ticks 18 kind no-move-run
+    stall: phase_only_new/100 phase 20 first [5, 3] reached True post_entry_ticks 20 kind no-move-run
+    stall: phase_only_new/100 phase 21 first [5, 3] reached True post_entry_ticks 26 kind no-move-run
+    stall: phase_only_new/100 phase 22 first [5, 3] reached True post_entry_ticks 25 kind no-move-run
+    stall: phase_only_new/100 phase 23 first [5, 5] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 24 first [5, 5] reached False post_entry_ticks 189 kind no-move-run
+    stall: phase_only_new/100 phase 25 first [5, 3] reached False post_entry_ticks 173 kind no-move-run
+    stall: phase_only_new/101 phase 0 first [5, 1] reached False post_entry_ticks 184 kind no-move-run
+    stall: phase_only_new/101 phase 1 first [5, 1] reached False post_entry_ticks 185 kind no-move-run
+    stall: phase_only_new/101 phase 2 first [5, 1] reached False post_entry_ticks 186 kind no-move-run
+    stall: phase_only_new/101 phase 3 first [5, 1] reached False post_entry_ticks 178 kind no-move-run
+    stall: phase_only_new/101 phase 4 first [5, 1] reached False post_entry_ticks 179 kind no-move-run
+    stall: phase_only_new/101 phase 5 first [5, 1] reached False post_entry_ticks 180 kind no-move-run
+    stall: phase_only_new/101 phase 6 first [5, 1] reached False post_entry_ticks 181 kind no-move-run
+    stall: phase_only_new/101 phase 7 first [5, 1] reached False post_entry_ticks 182 kind no-move-run
+    stall: phase_only_new/101 phase 8 first [5, 1] reached False post_entry_ticks 183 kind no-move-run
+    stall: phase_only_new/101 phase 9 first [5, 1] reached False post_entry_ticks 184 kind no-move-run
+    stall: phase_only_new/101 phase 10 first [5, 1] reached False post_entry_ticks 185 kind no-move-run
+    stall: phase_only_new/101 phase 11 first [5, 1] reached False post_entry_ticks 187 kind no-move-run
+    stall: phase_only_new/101 phase 12 first [5, 1] reached False post_entry_ticks 187 kind no-move-run
+    stall: phase_only_new/101 phase 13 first [5, 1] reached False post_entry_ticks 158 kind no-move-run
+    stall: phase_only_new/101 phase 14 first [5, 1] reached False post_entry_ticks 159 kind no-move-run
+    stall: phase_only_new/101 phase 15 first [5, 1] reached False post_entry_ticks 160 kind no-move-run
+    stall: phase_only_new/101 phase 16 first [5, 1] reached False post_entry_ticks 161 kind no-move-run
+    stall: phase_only_new/101 phase 17 first [5, 1] reached False post_entry_ticks 162 kind no-move-run
+    stall: phase_only_new/101 phase 18 first [5, 1] reached False post_entry_ticks 163 kind no-move-run
+    stall: phase_only_new/101 phase 19 first [5, 1] reached False post_entry_ticks 164 kind no-move-run
+    stall: phase_only_new/101 phase 20 first [5, 1] reached False post_entry_ticks 165 kind no-move-run
+    stall: phase_only_new/101 phase 21 first [5, 1] reached False post_entry_ticks 166 kind no-move-run
+    stall: phase_only_new/101 phase 22 first [5, 1] reached False post_entry_ticks 167 kind no-move-run
+    stall: phase_only_new/101 phase 23 first [5, 1] reached False post_entry_ticks 168 kind no-move-run
+    stall: phase_only_new/101 phase 24 first [5, 1] reached False post_entry_ticks 169 kind no-move-run
+    stall: phase_only_new/101 phase 25 first [5, 1] reached False post_entry_ticks 170 kind no-move-run
+    stall: phase_only_new/101 phase 26 first [5, 1] reached False post_entry_ticks 171 kind no-move-run
+    stall: phase_only_new/101 phase 27 first [5, 1] reached False post_entry_ticks 172 kind no-move-run
+    stall: phase_only_new/101 phase 28 first [5, 1] reached False post_entry_ticks 173 kind no-move-run
+    stall: phase_only_new/101 phase 29 first [5, 1] reached False post_entry_ticks 174 kind no-move-run
+    stall: phase_only_new/103 phase 13 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 14 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 15 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 16 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 17 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 18 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 19 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 20 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/103 phase 21 first [5, 9] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/104 phase 12 first [5, 1] reached True post_entry_ticks 26 kind no-move-run
+    stall: phase_only_new/104 phase 13 first [5, 1] reached True post_entry_ticks 25 kind no-move-run
+    stall: phase_only_new/104 phase 14 first [5, 1] reached True post_entry_ticks 24 kind no-move-run
+    stall: phase_only_new/104 phase 15 first [5, 1] reached True post_entry_ticks 23 kind no-move-run
+    stall: phase_only_new/104 phase 16 first [5, 1] reached True post_entry_ticks 22 kind no-move-run
+    stall: phase_only_new/104 phase 17 first [5, 1] reached True post_entry_ticks 21 kind no-move-run
+    stall: phase_only_new/104 phase 18 first [5, 1] reached True post_entry_ticks 20 kind no-move-run
+    stall: phase_only_new/104 phase 22 first [5, 1] reached True post_entry_ticks 35 kind two-cycle
+    stall: phase_only_new/104 phase 23 first [5, 1] reached True post_entry_ticks 35 kind two-cycle
+F3 entries detail:
+  F3 entry: memory/3 phase 0 reached True ticks 31 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 1 reached True ticks 30 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 2 reached True ticks 29 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 3 reached True ticks 28 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 4 reached True ticks 27 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 5 reached True ticks 26 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 6 reached True ticks 25 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 7 reached True ticks 24 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 8 reached True ticks 23 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 9 reached True ticks 22 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 10 reached True ticks 21 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 11 reached True ticks 20 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 12 reached True ticks 19 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 13 reached True ticks 18 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 14 reached True ticks 37 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 15 reached True ticks 18 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 16 reached True ticks 35 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 17 reached True ticks 34 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 18 reached True ticks 33 crushes 0 post_entry_stall False kind None post_ticks 4
+  F3 entry: memory/3 phase 19 reached True ticks 32 crushes 0 post_entry_stall False kind None post_ticks 4
+
+======================================================================
+SECTION 8 -- TRAINING BREADTH vs EVAL BREADTH
+======================================================================
+train memory/0: reached 1755/2000 door_entries {'5,5': 138, '5,3': 1089, '5,9': 455, '5,1': 179, '5,7': 375} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 7): 2, (5, 9): 12, (5, 3): 6} preferred (5, 9)
+train memory/1: reached 1740/2000 door_entries {'5,5': 147, '5,3': 893, '5,9': 788, '5,1': 145, '5,7': 274} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 3): 7, (5, 9): 3} preferred (5, 3)
+train memory/2: reached 1717/2000 door_entries {'5,5': 134, '5,3': 899, '5,9': 807, '5,1': 168, '5,7': 265} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 7): 2, (5, 9): 7, (5, 3): 11} preferred (5, 3)
+train memory/3: reached 1694/2000 door_entries {'5,5': 264, '5,3': 1295, '5,9': 388, '5,1': 182, '5,7': 245} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 3): 18, (5, 9): 2} preferred (5, 3)
+train memory/4: reached 1738/2000 door_entries {'5,5': 160, '5,3': 941, '5,9': 678, '5,1': 275, '5,7': 256} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 9): 17, (5, 3): 3} preferred (5, 9)
+train oracle_ind/100: reached 1763/2000 door_entries {'5,5': 187, '5,3': 819, '5,9': 516, '5,1': 451, '5,7': 306} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 5): 4, (5, 1): 21, (5, 3): 5} preferred (5, 1)
+train oracle_ind/101: reached 1719/2000 door_entries {'5,5': 504, '5,3': 919, '5,9': 420, '5,1': 282, '5,7': 203} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 3): 27, (5, 5): 2, (5, 1): 1} preferred (5, 3)
+train oracle_ind/102: reached 1747/2000 door_entries {'5,5': 411, '5,3': 831, '5,9': 474, '5,1': 136, '5,7': 391} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 5): 16, (5, 3): 14} preferred (5, 5)
+train oracle_ind/103: reached 1766/2000 door_entries {'5,5': 562, '5,3': 917, '5,9': 428, '5,1': 96, '5,7': 300} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 5): 11, (5, 3): 18, (5, 9): 1} preferred (5, 3)
+train oracle_ind/104: reached 1756/2000 door_entries {'5,5': 603, '5,3': 905, '5,9': 304, '5,1': 106, '5,7': 384} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 5): 10, (5, 3): 20} preferred (5, 3)
+train oracle_new/100: reached 1746/2000 door_entries {'5,5': 626, '5,3': 471, '5,9': 447, '5,1': 289, '5,7': 493} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 7): 29, (5, 5): 1} preferred (5, 7)
+train oracle_new/101: reached 1727/2000 door_entries {'5,5': 519, '5,3': 842, '5,9': 459, '5,1': 120, '5,7': 360} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 5): 10, (5, 7): 6, (5, 3): 14} preferred (5, 3)
+train oracle_new/102: reached 1760/2000 door_entries {'5,5': 515, '5,3': 654, '5,9': 548, '5,1': 116, '5,7': 427} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 9): 6, (5, 7): 3, (5, 3): 15, (5, 5): 6} preferred (5, 3)
+train oracle_new/103: reached 1754/2000 door_entries {'5,5': 460, '5,3': 653, '5,9': 558, '5,1': 121, '5,7': 534} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 5): 12, (5, 7): 11, (5, 3): 7} preferred (5, 5)
+train oracle_new/104: reached 1746/2000 door_entries {'5,5': 653, '5,3': 573, '5,9': 465, '5,1': 127, '5,7': 468} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 3): 14, (5, 5): 16} preferred (5, 5)
+train phase_only_new/100: reached 1722/2000 door_entries {'5,5': 281, '5,3': 914, '5,9': 597, '5,1': 240, '5,7': 241} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 3): 13, (5, 5): 2} preferred (5, 3)
+train phase_only_new/101: reached 1758/2000 door_entries {'5,5': 171, '5,3': 513, '5,9': 856, '5,1': 393, '5,7': 291} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 1): 30} preferred (5, 1)
+train phase_only_new/102: reached 1780/2000 door_entries {'5,5': 201, '5,3': 904, '5,9': 680, '5,1': 116, '5,7': 386} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 9): 12, (5, 7): 5, (5, 3): 9, (5, 1): 4} preferred (5, 9)
+train phase_only_new/103: reached 1742/2000 door_entries {'5,5': 286, '5,3': 667, '5,9': 825, '5,1': 257, '5,7': 199} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 9): 9} preferred (5, 9)
+train phase_only_new/104: reached 1797/2000 door_entries {'5,5': 136, '5,3': 676, '5,9': 660, '5,1': 480, '5,7': 262} open_frac {'5,5': 0.4666666666666667, '5,1': 0.5333333333333333, '5,3': 0.5333333333333333, '5,7': 0.5333333333333333, '5,9': 0.5333333333333333} | F1 first doors {(5, 1): 30} preferred (5, 1)
+train plain/0: reached 1704/2000 door_entries {'5,5': 149, '5,3': 1131, '5,9': 370, '5,1': 401, '5,7': 260} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 3): 14, (5, 9): 6} preferred (5, 3)
+train plain/1: reached 1741/2000 door_entries {'5,5': 149, '5,3': 957, '5,9': 580, '5,1': 274, '5,7': 295} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 3): 20} preferred (5, 3)
+train plain/2: reached 1658/2000 door_entries {'5,5': 252, '5,3': 954, '5,9': 546, '5,1': 237, '5,7': 339} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 9): 12, (5, 3): 8} preferred (5, 9)
+train plain/3: reached 1711/2000 door_entries {'5,5': 169, '5,3': 1036, '5,9': 604, '5,1': 167, '5,7': 292} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 7): 4, (5, 3): 12, (5, 9): 4} preferred (5, 3)
+train plain/4: reached 1717/2000 door_entries {'5,5': 130, '5,3': 1056, '5,9': 640, '5,1': 169, '5,7': 268} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 3): 7, (5, 9): 3} preferred (5, 3)
+train wrapped/0: reached 1661/2000 door_entries {'5,5': 785, '5,3': 832, '5,9': 337, '5,1': 161, '5,7': 272} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 9): 14, (5, 5): 6} preferred (5, 9)
+train wrapped/1: reached 1716/2000 door_entries {'5,5': 799, '5,3': 635, '5,9': 383, '5,1': 122, '5,7': 375} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 9): 3, (5, 3): 11, (5, 5): 6} preferred (5, 3)
+train wrapped/2: reached 1739/2000 door_entries {'5,5': 783, '5,3': 766, '5,9': 341, '5,1': 257, '5,7': 196} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 5): 10, (5, 3): 10} preferred (5, 5)
+train wrapped/3: reached 1710/2000 door_entries {'5,5': 747, '5,3': 430, '5,9': 415, '5,1': 177, '5,7': 615} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 9): 1, (5, 7): 11, (5, 5): 8} preferred (5, 7)
+train wrapped/4: reached 1746/2000 door_entries {'5,5': 750, '5,3': 499, '5,9': 386, '5,1': 130, '5,7': 576} open_frac {'5,5': 0.5, '5,1': 0.5, '5,3': 0.5, '5,7': 0.5, '5,9': 0.5} | F1 first doors {(5, 3): 13, (5, 5): 6, (5, 9): 1} preferred (5, 3)
+
+======================================================================
+SECTION 9 -- CONTRASTS: P-Db (recomputed) AND P-Da (recomputed)
+======================================================================
+P-Db W5s subset (recomputed): n=750 conflicts=257 -> {'waits-at-familiar': 236, 'takes-open-rival': 21}
+P-Db W2s subset (recomputed): n=750 conflicts=222 -> {'waits-at-familiar': 222}
+P-Da E0 n=750 reached=190 entered=191 first_doors={None: 559, (5, 5): 191}
+P-Da E1 n=750 reached=712 entered=712 first_doors={(5, 1): 201, (5, 9): 204, (5, 7): 82, (5, 5): 153, (5, 3): 72, None: 38}
+P-Da E2 n=750 reached=663 entered=664 first_doors={(5, 1): 201, (5, 9): 305, (5, 7): 86, (5, 3): 72, None: 86}
+P-Da E3 n=750 reached=0 entered=18 first_doors={None: 732, (5, 8): 18}
+P-Da E4 n=750 reached=712 entered=712 first_doors={(5, 1): 201, (5, 9): 204, (5, 7): 82, (5, 5): 153, (5, 3): 72, None: 38}
+P-Da E2+E4 entered=1376 post-entry stall=59 (of which not-reached freeze=1)
+P-Db2 far-side freeze (entered, post-entry stall, not reached) by world:
+  F0 entered=359 stall=35 freeze=16
+  F1 entered=694 stall=120 freeze=60
+  F2 entered=668 stall=110 freeze=60
+  F3 entered=20 stall=0 freeze=0
+  F4 entered=694 stall=120 freeze=60
+P-Db2 F2 vs P-Da E2: F2 reached 608/750, E2 reached 663/750
+P-Db2 F3 vs P-Da E3: F3 reached 20/750, E3 reached 0/750
+P-Db2 F4 novel-first 2 vs P-Da E4 novel-first 0
+
+======================================================================
+SECTION 10 -- PER-AGENT F0 TABLE
+======================================================================
+F0 memory/0: reached 0/20 entered 0
+F0 memory/1: reached 0/20 entered 0
+F0 memory/2: reached 0/20 entered 0
+F0 memory/3: reached 0/20 entered 0
+F0 memory/4: reached 0/20 entered 0
+F0 oracle_ind/100: reached 30/30 entered 30
+F0 oracle_ind/101: reached 30/30 entered 30
+F0 oracle_ind/102: reached 30/30 entered 30
+F0 oracle_ind/103: reached 29/30 entered 29
+F0 oracle_ind/104: reached 30/30 entered 30
+F0 oracle_new/100: reached 1/30 entered 1
+F0 oracle_new/101: reached 24/30 entered 24
+F0 oracle_new/102: reached 21/30 entered 21
+F0 oracle_new/103: reached 18/30 entered 19
+F0 oracle_new/104: reached 30/30 entered 30
+F0 phase_only_new/100: reached 0/30 entered 15
+F0 phase_only_new/101: reached 30/30 entered 30
+F0 phase_only_new/102: reached 0/30 entered 0
+F0 phase_only_new/103: reached 0/30 entered 0
+F0 phase_only_new/104: reached 0/30 entered 0
+F0 plain/0: reached 0/20 entered 0
+F0 plain/1: reached 0/20 entered 0
+F0 plain/2: reached 0/20 entered 0
+F0 plain/3: reached 0/20 entered 0
+F0 plain/4: reached 0/20 entered 0
+F0 wrapped/0: reached 6/20 entered 6
+F0 wrapped/1: reached 17/20 entered 17
+F0 wrapped/2: reached 20/20 entered 20
+F0 wrapped/3: reached 8/20 entered 8
+F0 wrapped/4: reached 19/20 entered 19
+DONE
