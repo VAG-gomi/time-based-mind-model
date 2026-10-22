@@ -1,0 +1,17 @@
+SPIKE P-Db2 benchmark - measurement only, NOT Step 1/Step 2
+SPIKE TRAIN wrapped/0 wall=162.6s episodes=2000 reached=1661 total_entries=2387
+SPIKE P-Db2 benchmark - measurement only, NOT Step 1/Step 2
+SPIKE RETRAIN-UNTIMED wrapped/0: recovering agent for eval (training already timed)
+SPIKE EVAL wrapped/0 F1 episodes=20 wall=0.01s total_ticks=472 reached=20
+SPIKE EVAL wrapped/0 F3 episodes=20 wall=0.07s total_ticks=4000 reached=0
+SPIKE TRAIN plain/0 wall=109.2s episodes=2000 reached=1704 total_entries=2311
+SPIKE EVAL plain/0 F1 episodes=20 wall=0.01s total_ticks=461 reached=20
+SPIKE TRAIN memory/0 wall=98.7s episodes=2000 reached=1755 total_entries=2236
+SPIKE EVAL memory/0 F1 episodes=20 wall=0.01s total_ticks=476 reached=20
+SPIKE TRAIN oracle_ind/100 wall=96.5s episodes=2000 reached=1763 total_entries=2279
+SPIKE EVAL oracle_ind/100 F1 episodes=30 wall=0.01s total_ticks=704 reached=30
+SPIKE TRAIN oracle_new/100 wall=98.0s episodes=2000 reached=1746 total_entries=2326
+SPIKE EVAL oracle_new/100 F1 episodes=30 wall=0.02s total_ticks=909 reached=30
+SPIKE TRAIN phase_only_new/100 wall=104.7s episodes=2000 reached=1722 total_entries=2273
+SPIKE EVAL phase_only_new/100 F1 episodes=30 wall=0.09s total_ticks=5153 reached=5
+SPIKE DONE - timed trainings and eval jobs logged above

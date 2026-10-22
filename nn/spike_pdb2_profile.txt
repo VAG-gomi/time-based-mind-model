@@ -1,0 +1,50 @@
+SPIKE PROFILE wrapped/0 episodes=2000 reached=1661 total_entries=2387
+         25301784 function calls (25166321 primitive calls) in 124.240 seconds
+
+   Ordered by: cumulative time
+   List reduced from 123 to 40 due to restriction <40>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000  124.240  124.240 /home/hatch/workspace/time-mind-model/nn/train_pdb2.py:162(train_wrapped_pdb2)
+        1    0.733    0.733  124.240  124.240 /home/hatch/workspace/time-mind-model/nn/train_pdb2.py:86(train_neural_sched)
+   135461    3.759    0.000  117.783    0.001 /home/hatch/workspace/time-mind-model/nn/agent_nn.py:180(train_step)
+  1200696   40.469    0.000   40.469    0.000 {method 'dot' of 'numpy.ndarray' objects}
+   135430    1.395    0.000   34.587    0.000 /home/hatch/workspace/time-mind-model/nn/agent_nn.py:111(sample)
+   135430   31.876    0.000   33.175    0.000 {method 'choice' of 'numpy.random.mtrand.RandomState' objects}
+   329488    4.562    0.000   25.301    0.000 /home/hatch/workspace/time-mind-model/nn/nnet.py:105(forward)
+   135430    1.903    0.000   22.969    0.000 /home/hatch/workspace/time-mind-model/nn/nnet.py:120(backward)
+   135430   13.473    0.000   13.897    0.000 /home/hatch/workspace/time-mind-model/nn/nnet.py:170(step)
+   270860    9.312    0.000   10.460    0.000 /usr/lib/python3/dist-packages/numpy/core/shape_base.py:372(stack)
+   135430    2.043    0.000    4.945    0.000 /home/hatch/workspace/time-mind-model/nn/nnet.py:195(masked_mse_grad)
+   677150    2.276    0.000    2.276    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+   135430    0.285    0.000    1.907    0.000 /usr/lib/python3/dist-packages/numpy/core/fromnumeric.py:3385(mean)
+   135461    0.377    0.000    1.890    0.000 /home/hatch/workspace/time-mind-model/nn/agent_nn.py:175(act)
+   135461    0.380    0.000    1.796    0.000 /home/hatch/workspace/time-mind-model/nn/agent_nn.py:81(env_step)
+   137461    0.609    0.000    1.738    0.000 /home/hatch/workspace/time-mind-model/nn/agent_wrapped.py:95(encode)
+   135430    0.674    0.000    1.621    0.000 /usr/lib/python3/dist-packages/numpy/core/_methods.py:101(_mean)
+   135430    0.198    0.000    1.262    0.000 /usr/lib/python3/dist-packages/numpy/core/fromnumeric.py:2979(prod)
+   270860    0.237    0.000    1.175    0.000 {method 'sum' of 'numpy.ndarray' objects}
+   135461    0.689    0.000    1.163    0.000 /home/hatch/workspace/time-mind-model/nn/world_doors_sched.py:114(step)
+   406290    1.125    0.000    1.125    0.000 {built-in method numpy.array}
+   135430    0.431    0.000    1.063    0.000 /usr/lib/python3/dist-packages/numpy/core/fromnumeric.py:71(_wrapreduction)
+  8802950    0.988    0.000    0.988    0.000 {built-in method numpy.asanyarray}
+   135430    0.164    0.000    0.988    0.000 {method 'max' of 'numpy.ndarray' objects}
+   270860    0.123    0.000    0.938    0.000 /usr/lib/python3/dist-packages/numpy/core/_methods.py:47(_sum)
+   135430    0.077    0.000    0.824    0.000 /usr/lib/python3/dist-packages/numpy/core/_methods.py:39(_amax)
+   135438    0.543    0.000    0.666    0.000 /usr/lib/python3/dist-packages/numpy/core/numeric.py:67(zeros_like)
+   137461    0.328    0.000    0.591    0.000 /home/hatch/workspace/time-mind-model/nn/wrapper.py:110(observe)
+   270860    0.160    0.000    0.440    0.000 /usr/lib/python3/dist-packages/numpy/core/shape_base.py:362(_stack_dispatcher)
+   137466    0.314    0.000    0.430    0.000 /home/hatch/workspace/time-mind-model/nn/nnet.py:71(_keys)
+   135430    0.389    0.000    0.425    0.000 /usr/lib/python3/dist-packages/numpy/core/_methods.py:67(_count_reduce_items)
+977090/841629    0.279    0.000    0.328    0.000 {built-in method builtins.len}
+   285337    0.208    0.000    0.312    0.000 /home/hatch/workspace/time-mind-model/nn/world_doors_sched.py:98(door_open)
+    78833    0.104    0.000    0.291    0.000 /usr/lib/python3.12/random.py:291(randrange)
+   270860    0.196    0.000    0.279    0.000 /usr/lib/python3/dist-packages/numpy/core/shape_base.py:207(_arrays_for_stack_dispatcher)
+    58628    0.101    0.000    0.266    0.000 /usr/lib/python3/dist-packages/numpy/core/fromnumeric.py:1140(argmax)
+   871886    0.255    0.000    0.255    0.000 {built-in method numpy.asarray}
+  1001107    0.230    0.000    0.230    0.000 {method 'append' of 'list' objects}
+   137461    0.088    0.000    0.230    0.000 /home/hatch/workspace/time-mind-model/nn/world_doors_sched.py:111(observe)
+   135461    0.135    0.000    0.219    0.000 {built-in method builtins.any}
+
+
+
