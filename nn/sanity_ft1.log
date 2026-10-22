@@ -1,0 +1,50 @@
+wrapped/0: realising P-Db2 checkpoint (2000 episodes)...
+wrapped/0: checkpoint verified exact vs P-Db2 (reached=1661, crushes=242)
+wrapped/0: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/wrapped_0.pkl)
+wrapped/0: fine-tune sanity FAIL (200 episodes, reached=105, crushes=7, (5,8) entries=129, model (20, 10) -> (20, 10))
+plain/0: realising P-Db2 checkpoint (2000 episodes)...
+plain/0: checkpoint verified exact vs P-Db2 (reached=1704, crushes=246)
+plain/0: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/plain_0.pkl)
+plain/0: fine-tune sanity FAIL (200 episodes, reached=188, crushes=22, (5,8) entries=189, model None -> None)
+memory/0: realising P-Db2 checkpoint (2000 episodes)...
+memory/0: checkpoint verified exact vs P-Db2 (reached=1755, crushes=209)
+memory/0: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/memory_0.pkl)
+memory/0: fine-tune sanity FAIL (200 episodes, reached=30, crushes=13, (5,8) entries=79, model None -> None)
+oracle_ind/100: realising P-Db2 checkpoint (2000 episodes)...
+oracle_ind/100: checkpoint verified exact vs P-Db2 (reached=1763, crushes=129)
+oracle_ind/100: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/oracle_ind_100.pkl)
+oracle_ind/100: fine-tune sanity FAIL (200 episodes, reached=12, crushes=12, (5,8) entries=27, model None -> None)
+oracle_new/100: realising P-Db2 checkpoint (2000 episodes)...
+oracle_new/100: checkpoint verified exact vs P-Db2 (reached=1746, crushes=158)
+oracle_new/100: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/oracle_new_100.pkl)
+oracle_new/100: fine-tune sanity FAIL (200 episodes, reached=0, crushes=3, (5,8) entries=2, model None -> None)
+phase_only_new/102: realising P-Db2 checkpoint (2000 episodes)...
+phase_only_new/102: checkpoint verified exact vs P-Db2 (reached=1780, crushes=166)
+phase_only_new/102: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/phase_only_new_102.pkl)
+phase_only_new/102: fine-tune sanity FAIL (200 episodes, reached=103, crushes=12, (5,8) entries=113, model None -> None)
+sanity_ft1: all 6 agents PASS (or skipped as present)
+wrapped/0: realising P-Db2 checkpoint (2000 episodes)...
+wrapped/0: checkpoint verified exact vs P-Db2 (reached=1661, crushes=242)
+wrapped/0: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/wrapped_0.pkl)
+wrapped/0: fine-tune sanity PASS (200 episodes, reached=105, crushes=7, (5,8) entries=129, model (20, 10) -> (20, 10))
+plain/0: realising P-Db2 checkpoint (2000 episodes)...
+plain/0: checkpoint verified exact vs P-Db2 (reached=1704, crushes=246)
+plain/0: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/plain_0.pkl)
+plain/0: fine-tune sanity PASS (200 episodes, reached=188, crushes=22, (5,8) entries=189, model None -> None)
+memory/0: realising P-Db2 checkpoint (2000 episodes)...
+memory/0: checkpoint verified exact vs P-Db2 (reached=1755, crushes=209)
+memory/0: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/memory_0.pkl)
+memory/0: fine-tune sanity PASS (200 episodes, reached=30, crushes=13, (5,8) entries=79, model None -> None)
+oracle_ind/100: realising P-Db2 checkpoint (2000 episodes)...
+oracle_ind/100: checkpoint verified exact vs P-Db2 (reached=1763, crushes=129)
+oracle_ind/100: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/oracle_ind_100.pkl)
+oracle_ind/100: fine-tune sanity PASS (200 episodes, reached=12, crushes=12, (5,8) entries=27, model None -> None)
+oracle_new/100: realising P-Db2 checkpoint (2000 episodes)...
+oracle_new/100: checkpoint verified exact vs P-Db2 (reached=1746, crushes=158)
+oracle_new/100: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/oracle_new_100.pkl)
+oracle_new/100: fine-tune sanity PASS (200 episodes, reached=0, crushes=3, (5,8) entries=2, model None -> None)
+phase_only_new/102: realising P-Db2 checkpoint (2000 episodes)...
+phase_only_new/102: checkpoint verified exact vs P-Db2 (reached=1780, crushes=166)
+phase_only_new/102: snapshot saved + load-audit PASS (/home/hatch/workspace/time-mind-model/nn/checkpoints_ft1/phase_only_new_102.pkl)
+phase_only_new/102: fine-tune sanity PASS (200 episodes, reached=103, crushes=12, (5,8) entries=113, model None -> None)
+sanity_ft1: all 6 agents PASS (or skipped as present)
