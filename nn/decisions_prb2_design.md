@@ -485,3 +485,23 @@ verified/PASS mentions are MD1's own verified status, the
 label rule text, and the gate procedure). **Step 0 ruling:
 PASS. The probe run remains NOT authorized pending the
 owner gate ruling.**
+
+## 18. Owner gate ruling (2026-10-23) — PROCEED, (agent, world) counting
+
+Gate chain complete: proposal approved → work order issued Step 0
+ONLY → Step 0 verified PASS (§17, commit ce09457) → this ruling.
+**The probe run is AUTHORIZED, on the current hand-written numpy
+substrate only, under this note exactly as written.** Job counting
+is SETTLED by this ruling: a job is one (agent, world) evaluation
+with all 5 reps inside it — 60 jobs + 6 retrainings = **66
+arm-runs; the trigger does NOT fire; no spike is required**
+(total probe compute ~28–30 minutes, far under the 4-hour
+threshold; the MD1 spike already measured these paces). The
+rep-level count (306) is NOT adopted. The runner's `--gate-ruled`
+flag may now lawfully be passed, because this ruling exists.
+NOT authorized: any substrate change, any bar/formula/row-set/
+counting change (counting is frozen by this ruling), any pooling
+with MD1/sanity/spike records, or any verdict claim before
+instructor verification of the probe report. The probe report's
+verdict section remains EMPTY for the verifying session to
+write after verification.
