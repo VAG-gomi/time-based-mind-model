@@ -1,0 +1,159 @@
+== completeness (DRAFT) ==
+  eval records: 6600 (expected 6600)
+  training records: 30 (expected 30)
+  missing/partial jobs: none
+  duplicate eval episodes: 0
+  duplicate training records: 0
+== pooled + DRAFT section-8 verdict ==
+  R0: 151/600
+  R1: 7/600
+  R3: 84/600
+  R4: 77/600
+  R5: 25/600
+  R6: 33/600
+  R7: 11/600
+  R9: 0/600
+  R2: 4/600
+  R8: 0/600
+  pooled trained: 388/4800 = 0.0808
+  pooled held-out: 4/1200 = 0.0033
+  DRAFT VERDICT (UNVERIFIED): UNINTERPRETABLE
+  precedence applied: INCOMPLETE -> UNINTERPRETABLE -> FOLLOWING -> BIGGER ADDRESS BOOK -> NEITHER
+== per-arm pooled (descriptive, not gating) ==
+  wrapped: trained 40/800, held 0/200, M3 6/100
+  plain: trained 14/800, held 0/200, M3 2/100
+  memory: trained 42/800, held 1/200, M3 2/100
+  oracle_ind: trained 79/800, held 1/200, M3 6/100
+  oracle_new: trained 73/800, held 2/200, M3 5/100
+  phase_only_new: trained 140/800, held 0/200, M3 21/100
+== per-agent x per-row reached (/20 each) ==
+agent         R0   R1   R3   R4   R5   R6   R7   R9   R2   R8
+memory/0      20    0    0    0    0    0    0    0    0    0
+memory/1       1    1   20    0    0    0    0    0    1    0
+memory/2       0    0    0    0    0    0    0    0    0    0
+memory/3       0    0    0    0    0    0    0    0    0    0
+memory/4       0    0    0    0    0    0    0    0    0    0
+oracle_ind/0    0    0    0    0    0    0    0    0    0    0
+oracle_ind/1    0    0    0   20    0    0    0    0    0    0
+oracle_ind/2   13    1    4    0    1    0    0    0    1    0
+oracle_ind/3   15    5    0    0    0    0    0    0    0    0
+oracle_ind/4   19    0    1    0    0    0    0    0    0    0
+oracle_new/0    1    0    1   12    0    5    8    0    2    0
+oracle_new/1    0    0    0    0    0    0    0    0    0    0
+oracle_new/2    0    0    0    1    0    0    0    0    0    0
+oracle_new/3    0    0    0   20   20    0    0    0    0    0
+oracle_new/4    0    0    5    0    0    0    0    0    0    0
+phase_only_new/0    0    0    0    0    0    0    0    0    0    0
+phase_only_new/1    4    0   14    3    0    0    3    0    0    0
+phase_only_new/2   20    0    0    0    0    0    0    0    0    0
+phase_only_new/3    4    0   14   20    0   20    0    0    0    0
+phase_only_new/4   18    0   20    0    0    0    0    0    0    0
+plain/0        0    0    3    0    3    8    0    0    0    0
+plain/1        0    0    0    0    0    0    0    0    0    0
+plain/2        0    0    0    0    0    0    0    0    0    0
+plain/3        0    0    0    0    0    0    0    0    0    0
+plain/4        0    0    0    0    0    0    0    0    0    0
+wrapped/0      0    0    0    0    0    0    0    0    0    0
+wrapped/1      0    0    0    0    0    0    0    0    0    0
+wrapped/2      0    0    0    0    0    0    0    0    0    0
+wrapped/3     18    0    0    1    1    0    0    0    0    0
+wrapped/4     18    0    2    0    0    0    0    0    0    0
+== held-out reached episodes (detail) ==
+  memory/1 R2 phase 14: staged=[[4, 2]] arrival={'tick': 20, 'cell': [4, 2], 'arrival_door': [5, 2], 'gap_open_at_arrival': True} ticks=19
+  oracle_ind/2 R2 phase 5: staged=[[4, 2]] arrival={'tick': 11, 'cell': [4, 2], 'arrival_door': [5, 2], 'gap_open_at_arrival': False} ticks=27
+  oracle_new/0 R2 phase 14: staged=[[4, 2]] arrival={'tick': 20, 'cell': [4, 2], 'arrival_door': [5, 2], 'gap_open_at_arrival': True} ticks=18
+  oracle_new/0 R2 phase 15: staged=[[4, 2]] arrival={'tick': 21, 'cell': [4, 2], 'arrival_door': [5, 2], 'gap_open_at_arrival': True} ticks=18
+  staging R2: 4/4 held-out reached staged at (4, row)
+  staging R8: 0/0 held-out reached staged at (4, row)
+== staging on reached episodes (all fixed worlds) ==
+  R0: 151/151 reached staged at (4, 0)
+  R1: 7/7 reached staged at (4, 1)
+  R3: 84/84 reached staged at (4, 3)
+  R4: 77/77 reached staged at (4, 4)
+  R5: 25/25 reached staged at (4, 5)
+  R6: 33/33 reached staged at (4, 6)
+  R7: 11/11 reached staged at (4, 7)
+  R9: 0/0 reached staged at (4, 9)
+  R2: 4/4 reached staged at (4, 2)
+  R8: 0/0 reached staged at (4, 8)
+== far side (entered, entered-not-reached, post-entry-stalled-unreached) ==
+  R0: 218, 67, 65
+  R1: 26, 19, 18
+  R2: 8, 4, 4
+  R3: 86, 2, 2
+  R4: 98, 21, 21
+  R5: 45, 20, 20
+  R6: 33, 0, 0
+  R7: 11, 0, 0
+  R8: 0, 0, 0
+  R9: 0, 0, 0
+== stall kinds on unreached episodes ==
+  R0: {'no-move-run': 404, 'two-cycle': 28, 'dwell': 13, None: 4}
+  R1: {'no-move-run': 553, 'dwell': 25, 'two-cycle': 10, None: 5}
+  R3: {'no-move-run': 484, 'dwell': 26, None: 2, 'two-cycle': 4}
+  R4: {'no-move-run': 485, 'dwell': 25, None: 4, 'two-cycle': 9}
+  R5: {'no-move-run': 543, None: 4, 'dwell': 19, 'two-cycle': 9}
+  R6: {'no-move-run': 535, 'dwell': 16, None: 7, 'two-cycle': 9}
+  R7: {'no-move-run': 560, 'dwell': 16, None: 4, 'two-cycle': 9}
+  R9: {'no-move-run': 563, 'dwell': 24, None: 4, 'two-cycle': 9}
+  R2: {'no-move-run': 561, 'dwell': 22, None: 4, 'two-cycle': 9}
+  R8: {'no-move-run': 563, 'dwell': 24, None: 4, 'two-cycle': 9}
+== modal final cells, unreached episodes (top 5 per world) ==
+  R0: [((4, 4), 63), ((0, 0), 55), ((4, 3), 39), ((2, 0), 37), ((0, 2), 35)]
+  R1: [((4, 0), 113), ((4, 4), 64), ((4, 3), 61), ((0, 0), 52), ((2, 0), 44)]
+  R3: [((4, 0), 113), ((4, 4), 61), ((0, 0), 52), ((2, 0), 44), ((0, 2), 35)]
+  R4: [((4, 0), 113), ((4, 3), 62), ((0, 0), 52), ((2, 0), 44), ((0, 2), 35)]
+  R5: [((4, 0), 113), ((4, 3), 62), ((4, 4), 56), ((0, 0), 52), ((2, 0), 44)]
+  R6: [((4, 0), 113), ((4, 3), 62), ((4, 4), 62), ((0, 0), 52), ((2, 0), 44)]
+  R7: [((4, 0), 113), ((4, 4), 65), ((4, 3), 62), ((0, 0), 52), ((2, 0), 44)]
+  R9: [((4, 0), 113), ((4, 4), 65), ((4, 3), 62), ((0, 0), 52), ((2, 0), 44)]
+  R2: [((4, 0), 113), ((4, 4), 61), ((4, 3), 60), ((0, 0), 52), ((2, 0), 44)]
+  R8: [((4, 0), 113), ((4, 4), 65), ((4, 3), 62), ((0, 0), 52), ((2, 0), 44)]
+== blank-feature audit (wrapped only; other arms unmeasured) ==
+  M3: blank 6 (reached 2); all 42/600; excluded 40/594
+  R0: blank 22 (reached 19); all 151/600; excluded 132/578
+  R1: blank 5 (reached 0); all 7/600; excluded 7/595
+  R2: blank 5 (reached 0); all 4/600; excluded 4/595
+  R3: blank 5 (reached 0); all 84/600; excluded 84/595
+  R4: blank 5 (reached 1); all 77/600; excluded 76/595
+  R5: blank 5 (reached 1); all 25/600; excluded 24/595
+  R6: blank 5 (reached 0); all 33/600; excluded 33/595
+  R7: blank 5 (reached 0); all 11/600; excluded 11/595
+  R8: blank 5 (reached 0); all 0/600; excluded 0/595
+  R9: blank 5 (reached 0); all 0/600; excluded 0/595
+  wrapped blank episodes total: 73
+  whole-episode blank (drift candidate): 0
+  pure-prefix blank (warm-up shape): 73
+  scattered blank (known flickers): 0
+  blank episodes by (world, seed, phase) -- first-phase concentration check:
+    by start_phase: {0: 55, 1: 2, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1, 11: 1, 12: 1, 13: 1, 14: 1, 15: 1, 16: 1, 17: 1}
+    by world: {'M3': 6, 'R0': 22, 'R1': 5, 'R2': 5, 'R3': 5, 'R4': 5, 'R5': 5, 'R6': 5, 'R7': 5, 'R8': 5, 'R9': 5}
+  pooled with blank episodes EXCLUDED: trained 367/4743 = 0.0774; held 4/1190 = 0.0034; verdict UNINTERPRETABLE
+== M3 sanity ==
+  M3 episodes: 600, reached 42
+  M3 gap_rows seen: [0, 1, 3, 4, 5, 6, 7, 9] (trained-only expected: [0, 1, 3, 4, 5, 6, 7, 9])
+  M3 held-out rows present: []
+== training reconciliation ==
+  per-arm training reached (programme records):
+    wrapped: 2904/10000 across seeds 0-4; row_counts all balanced: True
+    plain: 2137/10000 across seeds 0-4; row_counts all balanced: True
+    memory: 2296/10000 across seeds 0-4; row_counts all balanced: True
+    oracle_ind: 2794/10000 across seeds 0-4; row_counts all balanced: True
+    oracle_new: 2919/10000 across seeds 0-4; row_counts all balanced: True
+    phase_only_new: 2587/10000 across seeds 0-4; row_counts all balanced: True
+  seed-0 programme vs sanity (determinism check):
+    wrapped/0: exact match: True
+    plain/0: exact match: True
+    memory/0: exact match: True
+    oracle_ind/0: exact match: True
+    oracle_new/0: exact match: True
+    phase_only_new/0: exact match: True
+  training row_reached totals across 30 agents:
+    row 0: 1778/7500
+    row 1: 1696/7500
+    row 3: 2223/7500
+    row 4: 2409/7500
+    row 5: 2359/7500
+    row 6: 2322/7500
+    row 7: 1944/7500
+    row 9: 906/7500
