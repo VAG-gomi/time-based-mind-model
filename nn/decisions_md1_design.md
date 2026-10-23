@@ -640,3 +640,19 @@ substrate change, and NO JIT/vectorized implementation; spike
 trainings are SPIKE-labelled measurement outputs, never Step 1
 records, and their weights are discarded. A second owner ruling
 is still required after the spike numbers before Steps 1+ start.**
+
+## 15. Owner gate ruling (2026-10-23) — PROCEED on the current substrate
+
+Gate chain complete: Step 0 verified (4041dec) → spike-first ruling
+(§14, 1068cb3) → spike verified PASS (4414be2, Steps 1–2 ≈ 2.31 h,
+under the 4-hour threshold) → this ruling. **Steps 1, 2, and 3 are
+AUTHORIZED under this design note exactly as written, on the current
+hand-written numpy substrate only.** NOT authorized: any substrate
+change (ruling E §5(2) gate + separate owner ruling still required
+for any future substrate), any threshold/row-set/eval-variant/formula
+change, any pooling with earlier programmes, or any verdict claim
+before instructor verification of the Steps 1–3 report. The ruling
+is addressed to the main session (implementer) and takes effect
+when the main session receives it; the Steps 1–3 report returns to
+the instructor session for verification first. Ferry file:
+`~/workspace/your_files/RULING-TBM-MD1-proceed.md`.
