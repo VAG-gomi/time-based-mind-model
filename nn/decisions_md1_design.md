@@ -656,3 +656,17 @@ is addressed to the main session (implementer) and takes effect
 when the main session receives it; the Steps 1–3 report returns to
 the instructor session for verification first. Ferry file:
 `~/workspace/your_files/RULING-TBM-MD1-proceed.md`.
+
+## 16. Execution note (2026-10-23) — instructor session proceeds NOW
+
+After the §15 ruling was recorded for ferrying, the owner directed
+in this session: "Then proceed NOW." Steps 1–3 are therefore
+executed in THIS (instructor) session via a delegated agent, under
+this design note exactly as written, with the report returning here
+for instructor verification before any verdict is claimed. The
+main-session ferrying path is superseded by this direction, so
+that the programme is NOT also run in the main session — a second
+run would duplicate programme records. Scope unchanged: current
+hand-written numpy substrate only; no threshold/row-set/eval-variant/
+formula change; no pooling with earlier programmes, sanity records,
+or spike measurements.
