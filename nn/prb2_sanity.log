@@ -1,0 +1,4 @@
+[2026-10-23 16:50:12] PRB2 SANITY START (Step 0 determinism sanity; NOT a probe result; creates no probe records)
+[2026-10-23 16:54:45] retrained wrapped/0: reached 619/2000, crushes 116, mean_ticks_reached 87.17609046849758, wall_time 272.5s
+[2026-10-23 16:54:45] determinism gate vs MD1 training record: MATCH ({'reached': True, 'crushes': True, 'mean_ticks_reached': True, 'row_counts': True, 'row_reached': True})
+[2026-10-23 16:54:45] PRB2 SANITY COMPLETE: retrain matches MD1 training record exactly; probe run NOT blocked by sanity
