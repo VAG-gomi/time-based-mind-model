@@ -1,0 +1,11 @@
+SPIKE MD1 (measurement only, ruling E 5(1)): 6 timed seed-0 trainings + eval sample; weights discarded, never Step 1 records
+SPIKE training wrapped/0: reached 619/2000, crushes 116, mean_ticks_reached 87.17609046849758, row_counts_balanced True, wall_time 270.5s
+SPIKE training plain/0: reached 439/2000, crushes 124, mean_ticks_reached 90.4123006833713, row_counts_balanced True, wall_time 282.1s
+SPIKE training memory/0: reached 444/2000, crushes 149, mean_ticks_reached 93.95945945945945, row_counts_balanced True, wall_time 283.6s
+SPIKE training oracle_ind/0: reached 552/2000, crushes 108, mean_ticks_reached 88.89311594202898, row_counts_balanced True, wall_time 275.1s
+SPIKE training oracle_new/0: reached 602/2000, crushes 97, mean_ticks_reached 89.88039867109634, row_counts_balanced True, wall_time 268.7s
+SPIKE training phase_only_new/0: reached 528/2000, crushes 144, mean_ticks_reached 90.1969696969697, row_counts_balanced True, wall_time 274.7s
+SPIKE eval sample wrapped/0 R5: 20 episodes, reached 0, entered 20, wall_time 0.080s (PACE ONLY, not a programme result)
+SPIKE eval sample wrapped/0 R8: 20 episodes, reached 0, entered 0, wall_time 0.084s (PACE ONLY, not a programme result)
+SPIKE eval sample wrapped/0 M3: 20 episodes, reached 0, entered 3, wall_time 0.086s (PACE ONLY, not a programme result)
+SPIKE MD1 RUN COMPLETE (weights discarded, nothing saved as a checkpoint)
