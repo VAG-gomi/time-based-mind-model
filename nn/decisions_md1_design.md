@@ -626,3 +626,17 @@ BIGGER needs held-out < 10%), regardless of trained. The bars,
 precedence, and implementation are unambiguous and correct; only
 that explanatory sentence is wrong. Correcting the sentence is an
 owner decision, not an instructor edit.
+
+## 14. Owner gate ruling (2026-10-22) — BENCHMARK SPIKE FIRST
+
+At the Step 0 gate (366 arm-runs, trigger FIRES; sanity-paced
+Steps 1–2 ≈ 2.33 h, under the 4-hour threshold), the owner chose
+the benchmark spike before any programme training or evaluation,
+per ruling E §5(1). The spike measures current-substrate MD1
+costs only (timed trainings per arm at the Step 0 protocol, eval
+sample pace, hotspots, projected Steps 1–2 time). **The spike
+authorises NO programme training, NO programme evaluation, NO
+substrate change, and NO JIT/vectorized implementation; spike
+trainings are SPIKE-labelled measurement outputs, never Step 1
+records, and their weights are discarded. A second owner ruling
+is still required after the spike numbers before Steps 1+ start.**
