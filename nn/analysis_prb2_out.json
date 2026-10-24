@@ -1,0 +1,438 @@
+{
+ "n_eval": 6000,
+ "n_train": 6,
+ "dup_keys": 0,
+ "pooled_trained": [
+  780,
+  4800
+ ],
+ "pooled_held": [
+  17,
+  1200
+ ],
+ "pooled_trained_pct": 16.25,
+ "pooled_held_pct": 1.4166666666666665,
+ "per_agent": {
+  "wrapped": {
+   "trained": [
+    50,
+    800
+   ],
+   "held": [
+    0,
+    200
+   ]
+  },
+  "plain": {
+   "trained": [
+    205,
+    800
+   ],
+   "held": [
+    3,
+    200
+   ]
+  },
+  "memory": {
+   "trained": [
+    114,
+    800
+   ],
+   "held": [
+    0,
+    200
+   ]
+  },
+  "oracle_ind": {
+   "trained": [
+    33,
+    800
+   ],
+   "held": [
+    0,
+    200
+   ]
+  },
+  "oracle_new": {
+   "trained": [
+    305,
+    800
+   ],
+   "held": [
+    14,
+    200
+   ]
+  },
+  "phase_only_new": {
+   "trained": [
+    73,
+    800
+   ],
+   "held": [
+    0,
+    200
+   ]
+  }
+ },
+ "per_world": {
+  "R0": [
+   167,
+   600
+  ],
+  "R1": [
+   22,
+   600
+  ],
+  "R2": [
+   17,
+   600
+  ],
+  "R3": [
+   39,
+   600
+  ],
+  "R4": [
+   81,
+   600
+  ],
+  "R5": [
+   125,
+   600
+  ],
+  "R6": [
+   163,
+   600
+  ],
+  "R7": [
+   135,
+   600
+  ],
+  "R8": [
+   0,
+   600
+  ],
+  "R9": [
+   48,
+   600
+  ]
+ },
+ "per_rep_trained": [
+  [
+   166,
+   960
+  ],
+  [
+   156,
+   960
+  ],
+  [
+   155,
+   960
+  ],
+  [
+   153,
+   960
+  ],
+  [
+   150,
+   960
+  ]
+ ],
+ "per_rep_held": [
+  [
+   2,
+   240
+  ],
+  [
+   5,
+   240
+  ],
+  [
+   3,
+   240
+  ],
+  [
+   2,
+   240
+  ],
+  [
+   5,
+   240
+  ]
+ ],
+ "control": [
+  95,
+  100
+ ],
+ "control_per_rep": [
+  [
+   20,
+   20
+  ],
+  [
+   20,
+   20
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   18,
+   20
+  ],
+  [
+   19,
+   20
+  ]
+ ],
+ "epsilon": {
+  "total_steps": 1103434,
+  "epsilon_steps": 55208,
+  "rate_pct": 5.0032897300608825,
+  "reached_rate_pct": 5.570232676576376,
+  "unreached_rate_pct": 4.9690563136651935,
+  "per_agent_pct": {
+   "wrapped": 5.027148951805508,
+   "plain": 4.924337239731483,
+   "memory": 5.086297644633537,
+   "oracle_ind": 5.0330203671844655,
+   "oracle_new": 4.926092808978823,
+   "phase_only_new": 5.0052889202306385
+  }
+ },
+ "rng_replay": {
+  "steps_checked": 1103434,
+  "epsilon_steps_checked": 55208,
+  "mismatches": 0
+ },
+ "blank": {
+  "wrapped_episodes": 1000,
+  "blank_episodes": 50,
+  "classes": {
+   "prefix": 50
+  },
+  "blank_reached": 2
+ },
+ "blank_prefix_lengths": {
+  "30": 50
+ },
+ "reached_staged_at_4row": 797,
+ "reached_total": 797,
+ "entered_not_reached": {
+  "R0": [
+   224,
+   57
+  ],
+  "R1": [
+   41,
+   19
+  ],
+  "R2": [
+   23,
+   6
+  ],
+  "R3": [
+   59,
+   20
+  ],
+  "R4": [
+   156,
+   75
+  ],
+  "R5": [
+   243,
+   118
+  ],
+  "R6": [
+   217,
+   54
+  ],
+  "R7": [
+   143,
+   8
+  ],
+  "R8": [
+   23,
+   23
+  ],
+  "R9": [
+   50,
+   2
+  ]
+ },
+ "modal_final_unreached": {
+  "R0": [
+   [
+    4,
+    5
+   ],
+   112
+  ],
+  "R1": [
+   [
+    4,
+    5
+   ],
+   119
+  ],
+  "R2": [
+   [
+    4,
+    5
+   ],
+   125
+  ],
+  "R3": [
+   [
+    4,
+    0
+   ],
+   119
+  ],
+  "R4": [
+   [
+    4,
+    0
+   ],
+   121
+  ],
+  "R5": [
+   [
+    4,
+    0
+   ],
+   115
+  ],
+  "R6": [
+   [
+    4,
+    0
+   ],
+   117
+  ],
+  "R7": [
+   [
+    4,
+    5
+   ],
+   125
+  ],
+  "R8": [
+   [
+    4,
+    5
+   ],
+   153
+  ],
+  "R9": [
+   [
+    4,
+    5
+   ],
+   135
+  ]
+ },
+ "stall_kinds_unreached": {
+  "R0": {
+   "no-move-run": 389,
+   "two-cycle": 20,
+   "dwell": 24
+  },
+  "R1": {
+   "no-move-run": 545,
+   "dwell": 30,
+   "two-cycle": 3
+  },
+  "R2": {
+   "no-move-run": 564,
+   "dwell": 19
+  },
+  "R3": {
+   "no-move-run": 521,
+   "dwell": 35,
+   "two-cycle": 5
+  },
+  "R4": {
+   "dwell": 37,
+   "no-move-run": 481,
+   "two-cycle": 1
+  },
+  "R5": {
+   "no-move-run": 446,
+   "two-cycle": 6,
+   "dwell": 23
+  },
+  "R6": {
+   "no-move-run": 427,
+   "dwell": 8,
+   "null": 2
+  },
+  "R7": {
+   "no-move-run": 462,
+   "dwell": 3
+  },
+  "R8": {
+   "no-move-run": 573,
+   "dwell": 24,
+   "two-cycle": 3
+  },
+  "R9": {
+   "no-move-run": 524,
+   "dwell": 26,
+   "two-cycle": 2
+  }
+ },
+ "crushes_noisy": 116,
+ "computed_outcome": "NEITHER",
+ "held_out_lift_flag": false,
+ "greedy_baselines": {
+  "trained_pooled": [
+   61,
+   960
+  ],
+  "held_pooled": [
+   2,
+   240
+  ],
+  "per_agent": {
+   "wrapped": [
+    0,
+    0
+   ],
+   "plain": [
+    14,
+    0
+   ],
+   "memory": [
+    20,
+    0
+   ],
+   "oracle_ind": [
+    0,
+    0
+   ],
+   "oracle_new": [
+    27,
+    2
+   ],
+   "phase_only_new": [
+    0,
+    0
+   ]
+  },
+  "per_world": {
+   "R0": 21,
+   "R1": 0,
+   "R3": 4,
+   "R4": 12,
+   "R5": 3,
+   "R6": 13,
+   "R7": 8,
+   "R9": 0,
+   "R2": 2,
+   "R8": 0
+  },
+  "control": 20
+ }
+}
